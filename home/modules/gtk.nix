@@ -23,14 +23,16 @@
       name = "Roboto";
       size = 11;
     };
-    gtk2 = {
-      extraConfig = "gtk-application-prefer-dark-theme = 1";
+    gtk4 = {
+      extraConfig = {
+        Settings = ''gtk-application-prefer-dark-theme = 1'';
+      };
     };
     gtk3 = {
       extraConfig = {
-        # Explicitly set dark theme preference
-        "gtk-application-prefer-dark-theme" = 1;
+        Settings = ''gtk-application-prefer-dark-theme = 1'';
       };
+
       bookmarks = [
         "file:///home/${userConfig.name}/Documents"
         "file:///home/${userConfig.name}/Downloads"

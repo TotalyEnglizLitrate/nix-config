@@ -17,7 +17,7 @@
         modules-left = [
           "hyprland/workspaces"
           "cpu"
-          "temperature"
+          "custom/temperature"
           "memory"
           "backlight"
         ];
@@ -128,7 +128,7 @@
           format-alt-click = "click";
           tooltip = true;
           tooltip-format = "{used:0.1f}GB/{total:0.1f}G";
-          on-click-right = "${pkgs.alacritty}/bin/alacritty -c ${pkgs.btop}/bin/btop";
+          on-click-right = "${pkgs.alacritty}/bin/alacritty -e ${pkgs.btop}/bin/btop";
         };
 
         pulseaudio = {
@@ -160,15 +160,11 @@
           on-scroll-down = "pamixer --default-source -d 5";
         };
 
-        temperature = {
-          interval = 10;
-          tooltip = false;
-          hwmon-path = "/sys/class/hwmon/hwmon1/temp1_input";
-          critical-threshold = 82;
-          format-critical = "{icon} {temperatureC}°C";
-          format = "󰈸 {temperatureC}°C";
+        "custom/temperature" = {
+          exec = "${pkgs.python3}/bin/python -c 'print(int((next(filter(lambda dev: dev.read_text() == \"coretemp\\n\", __import__(\"pathlib\").Path(\"/sys/class/hwmon/\").glob(\"hwmon*/name\"))).parent / \"temp1_input\").read_text()) // 1000)'";
+          interval = 3;
+          format = "{}°C";
         };
-
         tray = {
           spacing = 20;
         };
@@ -280,15 +276,11 @@
       #memory,
       #tray,
       #pulseaudio,
-      #temperature,
+      #custom-temperature,
       #workspaces {
         color: #dfdfdf;
         padding: 0px 10px;
         border-radius: 8px;
-      }
-
-      #temperature.critical {
-        background-color: #ff0000;
       }
 
       @keyframes blink {

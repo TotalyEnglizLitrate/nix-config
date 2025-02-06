@@ -20,6 +20,8 @@
     ../modules/tmux.nix
     ../modules/zen.nix
     ../modules/normcap.nix
+    ../modules/spicetify.nix
+    ../modules/spotify.nix
   ];
 
   # Nixpkgs configuration
