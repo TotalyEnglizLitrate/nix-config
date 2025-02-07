@@ -23,7 +23,7 @@ in {
     # set the Hyprland and XDPH packages to null to use the ones from the NixOS module
     package = null;
     portalPackage = null;
-    plugins = [inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.hyprexpo];
+    plugins = [inputs.hyprland-plugins.packages.${pkgs.system}.hyprexpo];
   };
 
   # Consistent cursor theme across all applications.

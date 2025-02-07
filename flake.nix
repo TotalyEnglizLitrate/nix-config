@@ -5,6 +5,10 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.11";
     zen-browser.url = "github:TotalyEnglizLitrate/zen-browser-flake";
+    hyprland-plugins = {
+      url = "github:hyprwm/hyprland-plugins";
+      inputs.hyprland.follows = "hyprland";
+    };
     hyprland.url = "github:hyprwm/Hyprland";
 
     # Home manager
@@ -62,7 +66,7 @@
       home-manager.lib.homeManagerConfiguration {
         pkgs = import nixpkgs {inherit system;};
         extraSpecialArgs = {
-          inherit inputs outputs zen-browser;
+          inherit inputs outputs zen-browser hyprland-plugins hyprland;
           userConfig = users.${username};
         };
         modules = [
