@@ -6,10 +6,6 @@
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.11";
     zen-browser.url = "github:TotalyEnglizLitrate/zen-browser-flake";
     hyprland.url = "github:hyprwm/Hyprland";
-    hyprland-plugins = {
-      url = "github:hyprwm/hyprland-plugins";
-      inputs.hyprland.follows = "hyprland";
-    };
 
     # Home manager
     home-manager = {
