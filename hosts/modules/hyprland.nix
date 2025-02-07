@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  inputs,
+  pkgs,
+  ...
+}: {
   # Call dbus-update-activation-environment on login
   services.xserver.updateDbusEnvironment = true;
 
@@ -14,6 +18,8 @@
   # Enable Hyprland
   programs.hyprland = {
     enable = true;
+    package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+    portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
   };
 
   # Enable security services
