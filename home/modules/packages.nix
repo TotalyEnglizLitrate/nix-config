@@ -39,6 +39,7 @@
       soulseekqt
       lm_sensors
       ffmpeg
+      qpwgraph
     ]
     ++ [
       zen-browser.packages.${pkgs.system}.stable

@@ -22,7 +22,10 @@ in {
     # set the Hyprland and XDPH packages to null to use the ones from the NixOS module
     package = null;
     portalPackage = null;
-    plugins = [inputs.hyprland-plugins.packages.${pkgs.system}.hyprexpo];
+    plugins = [
+      inputs.hyprland-plugins.packages.${pkgs.system}.hyprexpo
+      inputs.Hyprspace.packages.${pkgs.system}.Hyprspace
+    ];
     settings = {
       # General
       exec-once = [
@@ -165,7 +168,8 @@ in {
 
       # Keybindings
       bind = [
-        "SUPER, TAB, hyprexpo:expo, toggle"
+        "SUPER, TAB, hyprexpo:toggle"
+        "SUPER, SUPER_L, exec, ulauncher-toggle"
         "SUPER, T, exec, alacritty"
         "SUPER, W, exec, zen-browser"
         "SUPER, E, exec, nautilus"
