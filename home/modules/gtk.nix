@@ -23,15 +23,8 @@
       name = "Roboto";
       size = 11;
     };
-    gtk4 = {
-      extraConfig = {
-        Settings = ''gtk-application-prefer-dark-theme = 1'';
-      };
-    };
     gtk3 = {
-      extraConfig = {
-        Settings = ''gtk-application-prefer-dark-theme = 1'';
-      };
+      extraConfig.gtk-application-prefer-dark-theme = true;
 
       bookmarks = [
         "file:///home/${userConfig.name}/Documents"
@@ -41,5 +34,9 @@
         "file:///home/${userConfig.name}/Documents/repositories"
       ];
     };
+  };
+
+  dconf.settings."org/gnome/desktop/interface" = {
+    color-scheme = "prefer-dark";
   };
 }
