@@ -11,6 +11,7 @@
     ../modules/gpg.nix
     ../modules/home.nix
     ../modules/lazygit.nix
+    ../modules/neovim.nix
     ../modules/obs-studio.nix
     ../modules/packages.nix
     ../modules/scripts.nix
