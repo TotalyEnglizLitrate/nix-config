@@ -163,12 +163,13 @@ in {
         enable_gesture = true;
         gesture_fingers = 3;
         gesture_distance = 300;
-        gesture_positive = true;
+        gesture_positive = false;
       };
 
       # Keybindings
       bind = [
-        "SUPER, TAB, hyprexpo:toggle"
+        "SUPER, TAB, overview:toggle"
+        "SUPER SHIFT, TAB, hyprexpo:expo, toggle"
         "SUPER, SUPER_L, exec, ulauncher-toggle"
         "SUPER, T, exec, alacritty"
         "SUPER, W, exec, zen-browser"
@@ -242,6 +243,11 @@ in {
         "SUPER ALT, 8, movetoworkspacesilent, 8"
         "SUPER ALT, 9, movetoworkspacesilent, 9"
         "SUPER ALT, 0, movetoworkspacesilent, 10"
+
+        # special workspace
+        "SUPER SHIFT, S, movetoworkspace, special"
+        "SUPER ALT, S, movetoworkspacesilent, special"
+        "SUPER, S, togglespecialworkspace, magic"
 
         # Scroll through existing workspaces with mainMod + scroll
         "SUPER, mouse_down, workspace, e+1"
