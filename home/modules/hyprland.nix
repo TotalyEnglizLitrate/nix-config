@@ -183,9 +183,12 @@ in {
         "SUPER, R, exec, wofi --show drun --allow-images"
         "SUPER, V, exec, cliphist list | wofi --show dmenu | cliphist decode | wl-copy"
         "SUPER SHIFT, V, exec, cliphist wipe"
+        ", PRINT, exec,  grim -g \"$(slurp)\" - | swappy -f -"
+        "SUPER, PRINT, exec, grim - | swappy -f -"
         "SUPER, P, exec, grim - | swappy -f -"
         "SUPER SHIFT, R, exec, $HOME/.local/bin/screen-recorder"
         "SUPER CTRL, T, exec, $HOME/.local/bin/ocr"
+        "SUPER CTRL, V, exec, pavucontrol"
         "SUPER, L, exec, hyprlock"
         ", XF86MonBrightnessUp, exec, brightnessctl set +10%"
         ", XF86MonBrightnessDown, exec, brightnessctl set 10%-"
@@ -198,10 +201,6 @@ in {
         "SHIFT, XF86AudioLowerVolume, exec, pamixer --decrease 10 --default-source"
         "SHIFT, XF86MonBrightnessUp, exec, brightnessctl -d tpacpi::kbd_backlight set +33%"
         "SHIFT, XF86MonBrightnessDown, exec, brightnessctl -d tpacpi::kbd_backlight set 33%-"
-        ", XF86AudioNext, exec, playerctl next"
-        ", XF86AudioPause, exec, playerctl play-pause"
-        ", XF86AudioPlay, exec, playerctl play-pause"
-        ", XF86AudioPrev, exec, playerctl previous"
 
         "SUPER SHIFT, left, resizeactive, -50 0"
         "SUPER SHIFT, right, resizeactive, 50 0"
@@ -262,6 +261,16 @@ in {
         "SUPER, mouse:273, resizewindow"
         "SUPER, X, movewindow"
         "SUPER, Z, resizewindow"
+      ];
+
+      bindl = [
+        "SUPER SHIFT, N, exec, playerctl next"
+        "SUPER SHIFT, P, exec, playerctl play-pause"
+        "SUPER SHIFT, B, exec, playerctl previous"
+        ", XF86AudioNext, exec, playerctl next"
+        ", XF86AudioPause, exec, playerctl play-pause"
+        ", XF86AudioPlay, exec, playerctl play-pause"
+        ", XF86AudioPrev, exec, playerctl previous"
       ];
     };
   };
