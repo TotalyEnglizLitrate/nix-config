@@ -41,7 +41,7 @@ in {
         "warp-cli connect"
       ];
 
-      monitor = ", 1600x900, auto, 1";
+      monitor = ", 1920x1080, auto, 1";
 
       env = [
         "XCURSOR_SIZE,24"
@@ -134,10 +134,6 @@ in {
         "float, ^(org.pulseaudio.pavucontrol)$"
         "float, ^(ulauncher)$"
         "noborder, ^(ulauncher)$"
-        "stayfocused, ^(.blueman-manager-wrapped)$"
-        "stayfocused, ^(gnome-calculator|org\\.gnome\\.Calculator)$"
-        "stayfocused, ^(org.pulseaudio.pavucontrol)$"
-        "stayfocused, ^(swappy)$"
         "stayfocused, ^(ulauncher)$"
         "size 590 420, ^(.blueman-manager-wrapped)$"
         "size 590 420, ^(nm-connection-editor)$"
@@ -160,10 +156,7 @@ in {
         gap_size = 5;
         bg_col = "rgb(111111)";
         workspace_method = "center current";
-        enable_gesture = true;
-        gesture_fingers = 3;
-        gesture_distance = 300;
-        gesture_positive = false;
+        enable_gesture = false;
       };
 
       # Keybindings
