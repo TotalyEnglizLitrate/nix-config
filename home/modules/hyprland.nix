@@ -35,7 +35,6 @@ in {
         "gnome-keyring-daemon --start --components=secrets"
         "nm-applet --indicator"
         "swaync"
-        "ulauncher --hide-window"
         "wl-paste --watch cliphist store"
         "arrpc"
         "warp-cli connect"

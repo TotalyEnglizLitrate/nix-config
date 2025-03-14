@@ -2,7 +2,7 @@
   description = "NixOS and nix-darwin configs for my machines";
   inputs = {
     # Nixpkgs
-    nixpkgs.url = "github:nixos/nixpkgs/f1b30a0daefb2376c7cfc0634b854b53d7947181";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.11";
     zen-browser.url = "github:TotalyEnglizLitrate/zen-browser-flake";
     hyprland.url = "github:hyprwm/Hyprland";
