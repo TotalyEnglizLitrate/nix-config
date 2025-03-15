@@ -33,6 +33,8 @@ in {
       vscode-langservers-extracted
       yaml-language-server
       clang-tools
+      ghc
+      haskell-language-server
     ];
   };
 

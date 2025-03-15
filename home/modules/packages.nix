@@ -42,6 +42,6 @@
       qpwgraph
     ]
     ++ [
-      zen-browser.packages.${pkgs.system}.stable
+      zen-browser.packages.${pkgs.system}.twilight
     ];
 }

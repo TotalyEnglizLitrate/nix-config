@@ -164,9 +164,10 @@ in {
         "SUPER SHIFT, TAB, hyprexpo:expo, toggle"
         "SUPER, SUPER_L, exec, ulauncher-toggle"
         "SUPER, T, exec, alacritty"
-        "SUPER, W, exec, zen-browser"
+        "SUPER, W, exec, zen"
         "SUPER, E, exec, nautilus"
         "CTRL ALT, P, exec, gnome-pomodoro --start-stop"
+        "SUPER, CTRL C, exec, hyprpicker"
         "SUPER, B, exec, blueman-manager"
         "SUPER, Q, killactive"
         "SUPER SHIFT, Q, exit"
@@ -183,17 +184,7 @@ in {
         "SUPER CTRL, T, exec, $HOME/.local/bin/ocr"
         "SUPER CTRL, V, exec, pavucontrol"
         "SUPER, L, exec, hyprlock"
-        ", XF86MonBrightnessUp, exec, brightnessctl set +10%"
-        ", XF86MonBrightnessDown, exec, brightnessctl set 10%-"
         "SUPER, N, exec, swaync-client -t -sw"
-        ", XF86AudioRaiseVolume, exec, pamixer --increase 10"
-        ", XF86AudioLowerVolume, exec, pamixer --decrease 10"
-        ", XF86AudioMute, exec, pamixer --toggle-mute"
-        ", XF86AudioMicMute, exec, pamixer --default-source --toggle-mute"
-        "SHIFT, XF86AudioRaiseVolume, exec, pamixer --increase 10 --default-source"
-        "SHIFT, XF86AudioLowerVolume, exec, pamixer --decrease 10 --default-source"
-        "SHIFT, XF86MonBrightnessUp, exec, brightnessctl -d tpacpi::kbd_backlight set +33%"
-        "SHIFT, XF86MonBrightnessDown, exec, brightnessctl -d tpacpi::kbd_backlight set 33%-"
 
         "SUPER SHIFT, left, resizeactive, -50 0"
         "SUPER SHIFT, right, resizeactive, 50 0"
@@ -270,6 +261,17 @@ in {
         ", XF86AudioPlay, exec, playerctl play-pause"
         ", XF86AudioPrev, exec, playerctl previous"
       ];
+
+      bindle = [
+        ", XF86MonBrightnessUp, exec, brightnessctl set +10%"
+        ", XF86MonBrightnessDown, exec, brightnessctl set 10%-"
+        ", XF86AudioRaiseVolume, exec, pamixer --increase 10"
+        ", XF86AudioLowerVolume, exec, pamixer --decrease 10"
+        ", XF86AudioMute, exec, pamixer --toggle-mute"
+        ", XF86AudioMicMute, exec, pamixer --default-source --toggle-mute"
+        "SHIFT, XF86AudioRaiseVolume, exec, pamixer --increase 10 --default-source"
+        "SHIFT, XF86AudioLowerVolume, exec, pamixer --decrease 10 --default-source"
+      ];
     };
   };
 
@@ -285,7 +287,7 @@ in {
   # Source hyprland config from the home-manager store
   xdg.configFile = {
     "hypr/hyprpaper.conf".text = ''
-      splash = false
+      splash = true
       preload = ${wallpaper}
       wallpaper = DP-1, ${wallpaper}
       wallpaper = eDP-1, ${wallpaper}

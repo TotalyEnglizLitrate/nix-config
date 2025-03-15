@@ -4,8 +4,8 @@
     # Nixpkgs
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.11";
-    zen-browser.url = "github:TotalyEnglizLitrate/zen-browser-flake";
-    hyprland.url = "github:hyprwm/Hyprland";
+    zen-browser.url = "github:0xc000022070/zen-browser-flake";
+    hyprland.url = "github:hyprwm/Hyprland/c754d7963f769e4ee272fda4301c87ac644b0dd5";
     hyprland-plugins = {
       url = "github:hyprwm/hyprland-plugins";
       inputs.hyprland.follows = "hyprland";
