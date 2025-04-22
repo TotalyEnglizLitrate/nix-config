@@ -11,7 +11,7 @@
       fd
       jq
       pipenv
-      python3
+      python312Full
       ripgrep
       pavucontrol
       pulseaudio
@@ -40,6 +40,11 @@
       lm_sensors
       ffmpeg
       qpwgraph
+      xxd
+      libqalculate
+      ghc
+      rustup
+      zig
     ]
     ++ [
       zen-browser.packages.${pkgs.system}.twilight

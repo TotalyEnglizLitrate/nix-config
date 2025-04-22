@@ -62,6 +62,8 @@ return {
         },
         clangd = {},
         hls = {},
+        rust_analyzer = {},
+        zls = {},
       },
     },
   },

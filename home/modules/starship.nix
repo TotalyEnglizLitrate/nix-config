@@ -2,61 +2,59 @@
   # Starship configuration
   programs.starship = {
     enable = true;
-    enableZshIntegration = true;
+    enableFishIntegration = true;
+    enableTransience = true;
     settings = {
-      add_newline = false;
-      directory = {
-        style = "bold lavender";
-      };
-      aws = {
-        disabled = true;
-      };
-      docker_context = {
-        symbol = " ";
-      };
-      golang = {
-        symbol = " ";
-      };
-      kubernetes = {
+      package.disabled = true;
+
+      cmd_duration = {
         disabled = false;
-        style = "bold pink";
-        symbol = "󱃾 ";
-        format = "[$symbol$context( \($namespace\))]($style)";
-        contexts = [
-          {
-            context_pattern = "arn:aws:eks:(?P<var_region>.*):(?P<var_account>[0-9]{12}):cluster/(?P<var_cluster>.*)";
-            context_alias = "$var_cluster";
-          }
-        ];
+        min_time = 0;
+        format = "[$duration]($style) ";
       };
-      helm = {
-        symbol = " ";
+
+      git_status = {
+        format = "$all_status$ahead_behind ";
+        ahead = "[⬆](bold purple) ";
+        behind = "[⬇](bold purple) ";
+        staged = "[✚](green) ";
+        deleted = "[✖](red) ";
+        renamed = "[➜](purple) ";
+        stashed = "[✭](cyan) ";
+        untracked = "[◼](white) ";
+        modified = "[✱](blue) ";
+        conflicted = "[═](yellow) ";
+        diverged = "⇕ ";
+        up_to_date = "";
       };
-      gradle = {
-        symbol = " ";
+
+      git_branch = {
+        format = "[$branch]($style) ";
+        style = "bold green";
       };
-      java = {
-        symbol = " ";
+
+      directory = {
+        disabled = false;
+        truncation_length = 3;
+        truncation_symbol = ".../";
+        substitutions = {
+          "nix-config" = "  ";
+          "repositories" = "  ";
+          "Documents" = " 󰈙 ";
+          "Downloads" = "  ";
+          "~" = "  ";
+        };
+        read_only = "\uf023 ";
+        read_only_style = "red";
+        format = "[ $path [$read_only](fg:red bg:#2587be)](bg:#2587be)[ ](fg:#2587be)";
       };
-      kotlin = {
-        symbol = " ";
-      };
-      lua = {
-        symbol = " ";
-      };
-      package = {
-        symbol = " ";
-      };
-      php = {
-        symbol = " ";
-      };
-      python = {
-        symbol = " ";
-      };
-      terraform = {
-        symbol = " ";
-      };
-      right_format = "$kubernetes";
+
+      format = ''
+        $directory
+        $cmd_duration $character
+      '';
+
+      right_format = ''$git_branch$git_status'';
     };
   };
 

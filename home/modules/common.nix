@@ -1,7 +1,5 @@
 {outputs, ...}: {
   imports = [
-    ../modules/alacritty.nix
-    ../modules/atuin.nix
     ../modules/bat.nix
     ../modules/btop.nix
     ../modules/fastfetch.nix
@@ -15,11 +13,12 @@
     ../modules/obs-studio.nix
     ../modules/packages.nix
     ../modules/scripts.nix
+    ../modules/fish.nix
     ../modules/starship.nix
     ../modules/telegram.nix
     ../modules/tmux.nix
+    ../modules/kitty.nix
     ../modules/zen.nix
-    ../modules/normcap.nix
     ../modules/spicetify.nix
     ../modules/spotify.nix
   ];

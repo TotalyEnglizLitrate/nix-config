@@ -11,7 +11,6 @@
     ../modules/hyprland.nix
     ../modules/steam.nix
     ../modules/laptop.nix
-    ../modules/corectrl.nix
     ../modules/cloudflare-warp.nix
     ../modules/sddm.nix
   ];

@@ -23,8 +23,9 @@ in {
     package = null;
     portalPackage = null;
     plugins = [
-      inputs.hyprland-plugins.packages.${pkgs.system}.hyprexpo
-      inputs.Hyprspace.packages.${pkgs.system}.Hyprspace
+      # figure out why they're not working
+      # inputs.hyprland-plugins.packages.${pkgs.system}.hyprexpo
+      # inputs.Hyprspace.packages.${pkgs.system}.Hyprspace
     ];
     settings = {
       # General
@@ -107,11 +108,6 @@ in {
         ];
       };
 
-      dwindle = {
-        pseudotile = false;
-        preserve_split = true;
-      };
-
       master.new_status = "master";
 
       gestures.workspace_swipe = true;
@@ -123,47 +119,45 @@ in {
 
       # Window rules
       windowrule = [
-        "center 1, ^(.blueman-manager-wrapped)$"
-        "center 1, ^(gnome-calculator|org\\.gnome\\.Calculator)$"
-        "center 1, ^(nm-connection-editor)$"
-        "center 1, ^(org.pulseaudio.pavucontrol)$"
-        "float, ^(.blueman-manager-wrapped)$"
-        "float, ^(gnome-calculator|org\\.gnome\\.Calculator)$"
-        "float, ^(nm-connection-editor)$"
-        "float, ^(org.pulseaudio.pavucontrol)$"
-        "float, ^(ulauncher)$"
-        "noborder, ^(ulauncher)$"
-        "stayfocused, ^(ulauncher)$"
-        "size 590 420, ^(.blueman-manager-wrapped)$"
-        "size 590 420, ^(nm-connection-editor)$"
-        "size 590 420, ^(org.pulseaudio.pavucontrol)$"
-        "suppressevent maximize, class:.*"
-      ];
-
-      windowrulev2 = [
+        "center 1, class:^(.blueman-manager-wrapped)$"
+        "center 1, class:^(nm-connection-editor)$"
+        "center 1, class:^(org.pulseaudio.pavucontrol)$"
+        "float, class:^(.blueman-manager-wrapped)$"
+        "float, class:^(nm-connection-editor)$"
+        "float, class:^(org.pulseaudio.pavucontrol)$"
+        "float, class:^(ulauncher)$"
+        "noborder, class:^(ulauncher)$"
+        "stayfocused, class:^(ulauncher)$"
+        "size 590 420, class:^(.blueman-manager-wrapped)$"
+        "size 590 420, class:^(nm-connection-editor)$"
+        "size 590 420, class:^(org.pulseaudio.pavucontrol)$"
         "float, class:org.gnome.Nautilus"
         "float, class:xdg-desktop-portal-gtk"
         "size 990 580, class:org.gnome.Nautilus"
         "size 990 580, class:xdg-desktop-portal-gtk"
         "nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0"
+        "suppressevent maximize, class:.*"
       ];
 
       xwayland.force_zero_scaling = true;
 
-      plugin.hyprexpo = {
-        columns = 3;
-        gap_size = 5;
-        bg_col = "rgb(111111)";
-        workspace_method = "center current";
-        enable_gesture = false;
-      };
+      # plugin.hyprexpo = {
+      # columns = 3;
+      # gap_size = 5;
+      # bg_col = "rgb(111111)";
+      # workspace_method = "center current";
+      # enable_gesture = false;
+      # };
 
       # Keybindings
       bind = [
-        "SUPER, TAB, overview:toggle"
-        "SUPER SHIFT, TAB, hyprexpo:expo, toggle"
+        # figure out why they're not working
+        # "SUPER, TAB, overview:toggle"
+        # "SUPER SHIFT, TAB, hyprexpo:expo, toggle"
         "SUPER, SUPER_L, exec, ulauncher-toggle"
-        "SUPER, T, exec, alacritty"
+        "SUPER, T, exec, kitty"
+        "SUPER SHIFT, T, exec, kitty -e ${pkgs.fish}/bin/fish"
+        "CTRL SHIFT, ESC, exec, kitty -e ${pkgs.btop}/bin/btop"
         "SUPER, W, exec, zen"
         "SUPER, E, exec, nautilus"
         "CTRL ALT, P, exec, gnome-pomodoro --start-stop"

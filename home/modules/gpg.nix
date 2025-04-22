@@ -1,8 +1,4 @@
-{
-  pkgs,
-  lib,
-  ...
-}: {
+{pkgs, ...}: {
   # Install gpg via home-manager module
   programs.gpg = {
     enable = true;
@@ -30,7 +26,7 @@
     };
   };
 
-  services.gpg-agent = lib.mkIf (!pkgs.stdenv.isDarwin) {
+  services.gpg-agent = {
     enable = true;
     defaultCacheTtl = 86400;
     enableSshSupport = true;

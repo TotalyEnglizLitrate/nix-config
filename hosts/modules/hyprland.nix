@@ -33,12 +33,13 @@
   security.polkit.enable = true;
   security.pam.services = {
     hyprlock = {};
-    gdm.enableGnomeKeyring = true;
+    sddm.enableGnomeKeyring = true;
   };
 
   # Enable Ozone Wayland support in Chromium and Electron based applications
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1";
+    XDG_RUNTIME_DIR = "/run/user/$EUID";
     QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
   };
 
