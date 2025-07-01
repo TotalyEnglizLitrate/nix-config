@@ -1,19 +1,10 @@
 {
-  description = "NixOS and nix-darwin configs for my machines";
+  description = "NixOS configs for my machines";
   inputs = {
     # Nixpkgs
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.11";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-25.05";
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
-    hyprland.url = "github:hyprwm/Hyprland";
-    hyprland-plugins = {
-      url = "github:hyprwm/hyprland-plugins";
-      inputs.hyprland.follows = "hyprland";
-    };
-    Hyprspace = {
-      url = "github:KZDKM/Hyprspace";
-      inputs.hyprland.follows = "hyprland";
-    };
 
     # Home manager
     home-manager = {
@@ -40,8 +31,6 @@
     home-manager,
     nixpkgs,
     zen-browser,
-    hyprland,
-    hyprland-plugins,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -70,7 +59,7 @@
       home-manager.lib.homeManagerConfiguration {
         pkgs = import nixpkgs {inherit system;};
         extraSpecialArgs = {
-          inherit inputs outputs zen-browser hyprland-plugins hyprland;
+          inherit inputs outputs zen-browser;
           userConfig = users.${username};
         };
         modules = [
@@ -86,6 +75,7 @@
 
     homeConfigurations = {
       "engliz@lattitude5491" = mkHomeConfiguration "x86_64-linux" "engliz" "lattitude5491";
+      "engliz@ideapad320" = mkHomeConfiguration "x86_64-linux" "engliz" "ideapad320";
     };
     overlays = import ./overlays {inherit inputs;};
   };
