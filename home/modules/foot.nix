@@ -1,15 +1,17 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
-    kitty
+    foot
   ];
 
-  programs.kitty = {
+  programs.foot = {
+    server.enable = true;
     enable = true;
-    themeFile = "Catppuccin-Macchiato";
-    font.name = "JetBrainsMonoNL Nerd Font";
-    font.size = 12;
-    extraConfig = ''
-      confirm_os_window_close 0
-    '';
+    settings = {
+      main = {
+        font = "JetBrainsMonoNL Nerd Font:size=8";
+        dpi-aware = "yes";
+      };
+      colors.alpha = 0.7;
+    };
   };
 }

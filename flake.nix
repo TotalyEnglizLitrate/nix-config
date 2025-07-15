@@ -4,7 +4,6 @@
     # Nixpkgs
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-25.05";
-    zen-browser.url = "github:0xc000022070/zen-browser-flake";
 
     # Home manager
     home-manager = {
@@ -12,11 +11,23 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    zen-browser = {
+      url = "github:0xc000022070/zen-browser-flake/d9c8ac0065e977a6776bed89909d82d58b297c65";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
+    };
+
+    # Runner
+    walker.url = "github:abenz1267/walker";
+
     # NixOS profiles to optimize settings for different hardware
     hardware.url = "github:nixos/nixos-hardware";
 
     # Global catppuccin theme
-    catppuccin.url = "github:catppuccin/nix";
+    catppuccin = {
+      url = "github:catppuccin/nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # NixOS Spicetify
     spicetify-nix = {
@@ -31,6 +42,7 @@
     home-manager,
     nixpkgs,
     zen-browser,
+    walker,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -59,7 +71,7 @@
       home-manager.lib.homeManagerConfiguration {
         pkgs = import nixpkgs {inherit system;};
         extraSpecialArgs = {
-          inherit inputs outputs zen-browser;
+          inherit inputs outputs zen-browser walker;
           userConfig = users.${username};
         };
         modules = [
@@ -78,5 +90,40 @@
       "engliz@ideapad320" = mkHomeConfiguration "x86_64-linux" "engliz" "ideapad320";
     };
     overlays = import ./overlays {inherit inputs;};
+
+    # include wallpapers
+    packages.x86_64-linux.wallpapers = nixpkgs.legacyPackages.x86_64-linux.stdenv.mkDerivation {
+      name = "wallpapers";
+      src = builtins.path {
+        path = ./files/wallpapers;
+        name = "wallpapers-src";
+        filter = path: type: true;
+      };
+
+      buildPhase = ''
+        echo "=== DEBUG INFO ==="
+        echo "Source directory: $src"
+        echo "Current directory: $(pwd)"
+        echo "Contents:"
+        echo "File count: $(find . -type f | wc -l)"
+        echo "=================="
+      '';
+
+      installPhase = ''
+        mkdir -p $out/share/wallpapers
+
+        # Copy everything, preserving structure
+        cp -r . $out/share/wallpapers/
+
+        # Remove any unwanted files
+        find $out/share/wallpapers -name ".*" -delete
+
+        echo "=== INSTALL DEBUG ==="
+        echo "Final contents:"
+        ls -la $out/share/wallpapers/
+        echo "Final file count: $(find $out/share/wallpapers -type f | wc -l)"
+        echo "===================="
+      '';
+    };
   };
 }

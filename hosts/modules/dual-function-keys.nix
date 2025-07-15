@@ -5,7 +5,6 @@
       - JOB: "${pkgs.interception-tools}/bin/intercept -g $DEVNODE | ${pkgs.interception-tools-plugins.dual-function-keys}/bin/dual-function-keys -c /etc/dual-function-keys.yaml | ${pkgs.interception-tools}/bin/uinput -d $DEVNODE"
         DEVICE:
           NAME: AT Translated Set 2 keyboard
-
     '';
   };
 
@@ -17,7 +16,11 @@
         HOLD: KEY_RIGHTSHIFT
         HOLD_START: BEFORE_CONSUME_OR_RELEASE
       - KEY: KEY_RIGHTALT
-        TAP: KEY_LEFTMETA
+        TAP: KEY_RIGHTMETA
+        HOLD: KEY_LEFTMETA
+        HOLD_START: BEFORE_CONSUME_OR_RELEASE
+      - KEY: KEY_LEFTMETA
+        TAP: KEY_RIGHTMETA
         HOLD: KEY_LEFTMETA
         HOLD_START: BEFORE_CONSUME_OR_RELEASE
   '';

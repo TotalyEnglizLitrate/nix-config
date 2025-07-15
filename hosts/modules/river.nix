@@ -1,8 +1,4 @@
-{
-  inputs,
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   # Call dbus-update-activation-environment on login
   services.xserver.updateDbusEnvironment = true;
 
@@ -15,58 +11,67 @@
   # Enable Bluetooth support
   services.blueman.enable = true;
 
-  # Enable Hyprland
-  programs.hyprland = {
+  # Enable river
+  programs.river = {
     enable = true;
-    package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
-    portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
-  };
-
-  # Use the cache so as to not build locally
-  nix.settings = {
-    substituters = ["https://hyprland.cachix.org"];
-    trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
+    xwayland.enable = true;
   };
 
   # Enable security services
   services.gnome.gnome-keyring.enable = true;
   security.polkit.enable = true;
-  security.pam.services = {
-    hyprlock = {};
-    sddm.enableGnomeKeyring = true;
-  };
+  security.pam.services.hyprlock = {};
 
-  # Enable Ozone Wayland support in Chromium and Electron based applications
   environment.sessionVariables = {
-    NIXOS_OZONE_WL = "1";
+    # Enable Ozone Wayland support in Chromium and Electron based applications
     XDG_RUNTIME_DIR = "/run/user/$EUID";
     QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
+    ELECTRON_OZONE_PLATFORM_HINT = "wayland";
+
+    # Other general env vars
+    XDG_SESSION_DESKTOP = "River";
+    XDG_SESSION_TYPE = "wayland";
+    MOZ_ENABLE_WAYLAND = "1";
+    SDL_VIDEODRIVER = "wayland";
+    WLR_NO_HARDWARE_CURSORS = "1";
   };
 
-  # List of Hyprland specific packages
+  # List of river specific packages
   environment.systemPackages = with pkgs; [
-    file-roller # archive manager
-    gnome-calculator
-    gnome-pomodoro
-    gnome-text-editor
-    loupe # image viewer
-    nautilus # file manager
-    seahorse # keyring manager
-    totem # Video player
+    bibata-cursors
+    file-roller
+    fragments
+    gnome-keyring
+    kdePackages.kdeconnect-kde
+    loupe
+    nautilus
+    obsidian
+    pavucontrol
+    seahorse
+    vlc
+    walker
 
     brightnessctl
     grim
+    slurp
+    swappy
     hypridle
     hyprlock
-    hyprpaper
     hyprpicker
+    swww
+    swaynotificationcenter
     libnotify
     networkmanagerapplet
     pamixer
-    slurp
-    swappy
-    wf-recorder
     wlr-randr
-    wlsunset
+    tesseract
+    wl-clipboard
+    cliphist
+    arrpc
+    playerctl
+    polkit_gnome
+
+    gitkraken
+    vscode
   ];
 }

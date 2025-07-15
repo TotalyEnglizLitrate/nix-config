@@ -8,15 +8,21 @@
     ./hardware-configuration.nix
     ../modules/common.nix
     ../modules/dual-function-keys.nix
-    ../modules/hyprland.nix
+    ../modules/river.nix
     ../modules/steam.nix
     ../modules/laptop.nix
     ../modules/cloudflare-warp.nix
-    ../modules/sddm.nix
+    ../modules/ly.nix
   ];
 
   # Set hostname
   networking.hostName = hostname;
+
+  networking.firewall = {
+    enable = true;
+    allowedTCPPorts = [53317];
+    allowedUDPPorts = [53317];
+  };
 
   nixpkgs.config.allowUnfree = true;
   # This value determines the NixOS release from which the default

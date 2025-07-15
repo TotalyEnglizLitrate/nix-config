@@ -1,27 +1,8 @@
 {pkgs, ...}: {
-  services.displayManager = {
+  services.displayManager.enable = true;
+  services.displayManager.ly = {
     enable = true;
-    autoLogin.enable = true;
-    autoLogin.user = "engliz";
-    defaultSession = "hyprland";
+    x11Support = false;
+    package = pkgs.ly;
   };
-  services.displayManager.sddm = {
-    enable = true;
-    wayland.enable = true;
-    wayland.compositor = "weston";
-    theme = "where_is_my_sddm_theme";
-    package = pkgs.kdePackages.sddm;
-    extraPackages = [
-      pkgs.kdePackages.qt5compat
-    ];
-  };
-
-  environment.systemPackages = [
-    (pkgs.where-is-my-sddm-theme.override {
-      themeConfig.General = {
-        background = "${../../files/wallpapers/nix-logo.png}";
-        backgroundMode = "none";
-      };
-    })
-  ];
 }

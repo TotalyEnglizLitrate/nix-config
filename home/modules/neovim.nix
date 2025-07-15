@@ -18,6 +18,7 @@ in {
       gotools
       hadolint
       isort
+      jdt-language-server
       lua-language-server
       markdownlint-cli
       nixd
@@ -46,4 +47,6 @@ in {
       recursive = true;
     };
   };
+
+  home.file.".config/jdtls".source = "${pkgs.jdt-language-server}";
 }

@@ -1,9 +1,8 @@
-{...}: {
+{inputs, ...}: {
   imports = [
     ../modules/common.nix
-    ../modules/easyeffects.nix
-    ../modules/hyprland.nix
-    ../modules/ulauncher.nix
+    ../modules/river.nix
+    inputs.walker.homeManagerModules.default
   ];
 
   # Enable home-manager

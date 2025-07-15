@@ -4,20 +4,20 @@
     enable = true;
     settings = {
       logo = {
-        type = "none";
+        height = 18;
       };
       display = {
-        separator = "->   ";
+        separator = " : ";
       };
       modules = [
         {
           type = "title";
-          format = "{6}{7}{8}";
+          format = "                      {##a834eb}{1}@{2}";
         }
         "break"
         {
           type = "custom";
-          format = "┌───────────────────────────── System Information ─────────────────────────────┐";
+          format = "┌────────────────────────────────────────────────────────────────┐";
         }
         "break"
         {
@@ -98,14 +98,9 @@
         "break"
         {
           type = "custom";
-          format = "└──────────────────────────────────────────────────────────────────────────────┘";
+          format = "└────────────────────────────────────────────────────────────────┘";
         }
         "break"
-        {
-          paddingLeft = 34;
-          symbol = "circle";
-          type = "colors";
-        }
       ];
     };
   };

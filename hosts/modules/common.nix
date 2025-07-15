@@ -28,17 +28,19 @@
       name = "nix/path/${name}";
       value.source = value.flake;
     })
-    config.nix.registry;
-
+    config.nix.registry
+    // {"environment".text = "LIBSEAT_BACKEND=logind";};
   # Nix settings
   nix.settings = {
     experimental-features = "nix-command flakes";
     auto-optimise-store = true;
+    substituters = ["https://walker-git.cachix.org"];
+    trusted-public-keys = ["walker-git.cachix.org-1:vmC0ocfPWh0S/vRAQGtChuiZBTAe4wiKDeyyXM0/7pM"];
   };
 
   # Boot settings
   boot = {
-    kernelPackages = pkgs.linuxKernel.packages.linux_6_14;
+    kernelPackages = pkgs.linuxKernel.packages.linux_6_15;
     consoleLogLevel = 0;
     initrd.verbose = false;
     kernelParams = ["quiet" "splash"];
@@ -88,6 +90,9 @@
 
   # Enable devmon for device management
   services.devmon.enable = true;
+
+  #Enable seatd for wlroots
+  services.seatd.enable = true;
 
   # Enable PipeWire for sound
   services.pulseaudio.enable = false;

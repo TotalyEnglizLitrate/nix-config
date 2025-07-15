@@ -3,6 +3,7 @@
     ../modules/bat.nix
     ../modules/btop.nix
     ../modules/fastfetch.nix
+    ../modules/easyeffects.nix
     ../modules/fzf.nix
     ../modules/git.nix
     ../modules/go.nix
@@ -15,9 +16,7 @@
     ../modules/scripts.nix
     ../modules/fish.nix
     ../modules/starship.nix
-    ../modules/telegram.nix
     ../modules/tmux.nix
-    ../modules/kitty.nix
     ../modules/zen.nix
     ../modules/spicetify.nix
     ../modules/spotify.nix
@@ -39,4 +38,7 @@
     flavor = "macchiato";
     accent = "lavender";
   };
+
+  # include wallpapers
+  home.file."Pictures/wallpapers".source = "${outputs.packages.x86_64-linux.wallpapers}/share/wallpapers";
 }

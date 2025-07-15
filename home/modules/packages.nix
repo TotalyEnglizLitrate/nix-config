@@ -6,45 +6,33 @@
   # ensure common packages are installed
   home.packages = with pkgs;
     [
-      ncdu
+      batmon
       eza
       fd
-      jq
-      pipenv
-      python312Full
-      ripgrep
-      pavucontrol
-      pulseaudio
-      tesseract
-      unzip
-      wl-clipboard
-      vesktop
-      arrpc
-      playerctl
-      wireguard-tools
-      obsidian
-      gitkraken
-      vscode
-      zed-editor
-      nodePackages_latest.nodejs
-      yt-dlp
-      ollama
-      zed-editor
-      localsend
-      zoxide
-      tree
-      vlc
-      fragments
-      batmon
-      soulseekqt
-      lm_sensors
       ffmpeg
-      qpwgraph
-      xxd
-      libqalculate
       ghc
+      openjdk21
+      jq
+      libqalculate
+      lm_sensors
+      localsend
+      ncdu
+      nodePackages_latest.nodejs
+      ollama
+      pipenv
+      pulseaudio
+      python312Full
+      qemu
+      qpwgraph
+      ripgrep
       rustup
+      ugrep
+      unzip
+      virtiofsd
+      xxd
+      yt-dlp
       zig
+      zoxide
     ]
     ++ [
       zen-browser.packages.${pkgs.system}.twilight

@@ -9,17 +9,13 @@
         exclusive = true;
         passthrough = false;
         fixed-center = true;
-        ipc = true;
         margin-top = 3;
         margin-left = 4;
         margin-right = 4;
 
         modules-left = [
-          "hyprland/workspaces"
-          "cpu"
-          "custom/temperature"
-          "memory"
-          "backlight"
+          "river/tags"
+          "river/mode"
         ];
 
         modules-center = [
@@ -28,11 +24,13 @@
         ];
 
         modules-right = [
-          "custom/recorder"
           "tray"
-          "bluetooth"
           "pulseaudio"
           "pulseaudio#microphone"
+          "cpu"
+          "custom/temperature"
+          "memory"
+          "backlight"
           "battery"
         ];
 
@@ -74,6 +72,7 @@
           format-time = "{H}h {M}min";
           tooltip = true;
           tooltip-format = "{timeTo} {power}w";
+          on-click-right = "${pkgs.foot}/bin/foot -T batmon ${pkgs.batmon}/bin/batmon";
         };
 
         bluetooth = {
@@ -109,17 +108,25 @@
           interval = 1;
         };
 
-        "hyprland/language" = {
-          format = "{short}";
+        "river/tags" = {
+          num-tags = 9;
+          tag-labels = [
+            "scratch"
+            "zen"
+            "code"
+            "files"
+            "media"
+            "games"
+            "scratch"
+            "scratch"
+            "scratch"
+          ];
+          set-tags = [1 2 4 8 16 32 64 128 256];
+          toggle-tags = [1 2 4 8 16 32 64 128 256];
+          hide-vacant = true;
         };
 
-        "hyprland/workspaces" = {
-          all-outputs = true;
-          format = "{name}";
-          on-click = "activate";
-          show-special = false;
-          sort-by-number = true;
-        };
+        "river/mode" = {};
 
         memory = {
           interval = 10;
@@ -128,7 +135,7 @@
           format-alt-click = "click";
           tooltip = true;
           tooltip-format = "{used:0.1f}GB/{total:0.1f}G";
-          on-click-right = "${pkgs.alacritty}/bin/alacritty -e ${pkgs.btop}/bin/btop";
+          on-click-right = "${pkgs.foot}/bin/foot -T btop ${pkgs.btop}/bin/btop";
         };
 
         pulseaudio = {
@@ -189,16 +196,6 @@
           on-click-right = "swaync-client -d -sw";
           escape = true;
         };
-
-        "custom/recorder" = {
-          format = "";
-          tooltip = false;
-          return-type = "json";
-          exec = "echo '{\"class\": \"recording\"}'";
-          exec-if = "pgrep wf-recorder";
-          interval = 1;
-          on-click = "screen-recorder";
-        };
       };
     };
     style = ''
@@ -240,29 +237,24 @@
         border-radius: 8px;
       }
 
-      #workspaces button {
+      #tags button {
         padding: 2px;
         color: #6e6a86;
-        margin-right: 5px;
+        margin-right: 2px;
       }
 
-      #workspaces button.active {
-        color: #dfdfdf;
-        border-radius: 3px 3px 3px 3px;
-      }
-
-      #workspaces button.focused {
+      #tags button.focused {
         color: #d8dee9;
       }
 
-      #workspaces button.urgent {
+      #tags button.urgent {
         color: #ed8796;
         border-radius: 8px;
       }
 
-      #workspaces button:hover {
-        color: #dfdfdf;
-        border-radius: 3px;
+      #mode {
+        margin-left: 2px;
+        margin-right: 10px;
       }
 
       #backlight,
@@ -271,13 +263,11 @@
       #clock,
       #cpu,
       #custom-notification,
-      #custom-recorder,
-      #language,
       #memory,
       #tray,
       #pulseaudio,
       #custom-temperature,
-      #workspaces {
+      #tags {
         color: #dfdfdf;
         padding: 0px 10px;
         border-radius: 8px;
@@ -300,10 +290,6 @@
         animation-timing-function: linear;
         animation-iteration-count: infinite;
         animation-direction: alternate;
-      }
-
-      #custom-recorder {
-        color: #ff2800;
       }
     '';
   };

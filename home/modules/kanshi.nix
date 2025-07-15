@@ -13,7 +13,7 @@
         profile.name = "docked";
         profile.outputs = [
           {
-            criteria = "DP-1";
+            criteria = "HDMI-A-1";
             status = "enable";
             position = "0,0";
           }
@@ -32,6 +32,7 @@
             position = "0,0";
           }
         ];
+        profile.exec = "${pkgs.wlr-randr}/bin/wlr-randr --output eDP-1 --custom-mode 1600x900@60Hz";
       }
       {
         profile.name = "mirror";
@@ -42,12 +43,12 @@
             position = "0,0";
           }
           {
-            criteria = "DP-1";
+            criteria = "HDMI-A-1";
             status = "enable";
             position = "0,0";
           }
         ];
-        profile.exec = "wlr-randr --output DP-1 --mirror eDP-1";
+        profile.exec = "${pkgs.wlr-randr}/bin/wlr-randr --output HDMI-A-1 --mirror eDP-1";
       }
     ];
   };

@@ -15,8 +15,8 @@
       package = pkgs.tela-circle-icon-theme;
     };
     cursorTheme = {
-      name = "Yaru";
-      package = pkgs.yaru-theme;
+      name = "Bibata-Modern-Classic";
+      package = pkgs.bibata-cursors;
       size = 24;
     };
     font = {

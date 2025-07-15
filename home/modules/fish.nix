@@ -1,16 +1,18 @@
 {...}: {
   programs.fish = {
     enable = true;
-    shellAbbrs = {
-      ls = "eza";
-      dir = "eza";
+    shellAliases = {
+      ls = "eza --group-directories-first";
+      dir = "eza --group-directories-first";
+      ll = "eza -l --group-directories-first";
+      la = "eza -lA --group-directories-first";
+      tree = "eza --tree --group-directories-first";
       cat = "bat";
+      grep = "ugrep";
+      "..." = "../../";
     };
     interactiveShellInit = ''
       set fish_greeting
-      if not set -q TMUX
-        tmux attach || tmux
-      end
     '';
   };
 }
