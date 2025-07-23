@@ -30,25 +30,57 @@
             criteria = "eDP-1";
             status = "enable";
             position = "0,0";
+            mode = "--custom 1920x1080@60Hz";
           }
         ];
-        profile.exec = "${pkgs.wlr-randr}/bin/wlr-randr --output eDP-1 --custom-mode 1600x900@60Hz";
       }
       {
-        profile.name = "mirror";
+        profile.name = "extend-left";
         profile.outputs = [
           {
             criteria = "eDP-1";
             status = "enable";
             position = "0,0";
+            mode = "--custom 1920x1080@60Hz";
           }
           {
             criteria = "HDMI-A-1";
             status = "enable";
-            position = "0,0";
+            position = "-1920,0";
           }
         ];
-        profile.exec = "${pkgs.wlr-randr}/bin/wlr-randr --output HDMI-A-1 --mirror eDP-1";
+      }
+      {
+        profile.name = "extend-right";
+        profile.outputs = [
+          {
+            criteria = "eDP-1";
+            status = "enable";
+            position = "0,0";
+            mode = "--custom 1920x1080@60Hz";
+          }
+          {
+            criteria = "HDMI-A-1";
+            status = "enable";
+            position = "1920,0";
+          }
+        ];
+      }
+      {
+        profile.name = "extend-top";
+        profile.outputs = [
+          {
+            criteria = "eDP-1";
+            status = "enable";
+            position = "0,0";
+            mode = "--custom 1920x1080@60Hz";
+          }
+          {
+            criteria = "HDMI-A-1";
+            status = "enable";
+            position = "0,900";
+          }
+        ];
       }
     ];
   };

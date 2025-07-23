@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  lib,
+  ...
+}: {
   home.packages = with pkgs; [
     foot
   ];
@@ -8,10 +12,10 @@
     enable = true;
     settings = {
       main = {
-        font = "JetBrainsMonoNL Nerd Font:size=8";
-        dpi-aware = "yes";
+        font = lib.mkForce "JetBrainsMonoNL Nerd Font:size=8";
+        dpi-aware = lib.mkForce "yes";
       };
-      colors.alpha = 0.7;
+      colors.alpha = lib.mkForce 0.7;
     };
   };
 }

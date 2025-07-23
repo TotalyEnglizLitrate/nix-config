@@ -23,7 +23,7 @@
           name = "wallpapers";
           prefix = ";w";
           src_once = "ls /home/${userConfig.name}/Pictures/wallpapers --format single-column | shuf -n 5";
-          cmd = "swww img /home/${userConfig.name}/Pictures/wallpapers/%RESULT% && notify-send 'Wallpaper changed' '%RESULT%'";
+          cmd = "swww img '/home/${userConfig.name}/Pictures/wallpapers/%RESULT%' --transition-type none && notify-send 'Wallpaper changed' '%RESULT%'";
         }
       ];
     };

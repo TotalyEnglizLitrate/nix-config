@@ -20,6 +20,7 @@
     ../modules/zen.nix
     ../modules/spicetify.nix
     ../modules/spotify.nix
+    ../modules/stylix.nix
   ];
 
   # Nixpkgs configuration

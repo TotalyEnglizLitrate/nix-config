@@ -12,9 +12,6 @@ in {
 
   programs.spicetify = {
     enable = true;
-    theme = spicePkgs.themes.catppuccin;
-    colorScheme = "macchiato";
-
     enabledExtensions = with spicePkgs.extensions; [
       keyboardShortcut
       shuffle

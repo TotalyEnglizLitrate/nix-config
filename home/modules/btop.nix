@@ -3,7 +3,4 @@
   programs.btop = {
     enable = true;
   };
-
-  # Enable catppuccin theming for btop.
-  catppuccin.btop.enable = true;
 }

@@ -11,6 +11,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # themeing
+    stylix = {
+      url = "github:danth/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake/d9c8ac0065e977a6776bed89909d82d58b297c65";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -43,6 +49,7 @@
     nixpkgs,
     zen-browser,
     walker,
+    stylix,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -63,7 +70,9 @@
           inherit inputs outputs hostname;
           userConfig = users.${username};
         };
-        modules = [./hosts/${hostname}/configuration.nix];
+        modules = [
+          ./hosts/${hostname}/configuration.nix
+        ];
       };
 
     # Function for Home Manager configuration
@@ -77,6 +86,7 @@
         modules = [
           ./home/${username}/${hostname}.nix
           catppuccin.homeModules.catppuccin
+          stylix.homeModules.stylix
         ];
       };
   in {

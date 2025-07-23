@@ -10,6 +10,7 @@
       eza
       fd
       ffmpeg
+      gemini-cli
       ghc
       openjdk21
       jq
@@ -33,6 +34,17 @@
       yt-dlp
       zig
       zoxide
+      bibata-cursors
+      file-roller
+      fragments
+      gnome-keyring
+      kdePackages.kdeconnect-kde
+      loupe
+      nautilus
+      obsidian
+      pavucontrol
+      seahorse
+      vlc
     ]
     ++ [
       zen-browser.packages.${pkgs.system}.twilight

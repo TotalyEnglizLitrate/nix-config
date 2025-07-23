@@ -57,7 +57,4 @@
       right_format = ''$git_branch$git_status'';
     };
   };
-
-  # Enable catppuccin theming for starship.
-  catppuccin.starship.enable = true;
 }

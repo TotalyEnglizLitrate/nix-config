@@ -87,7 +87,6 @@ in {
         "Super M" = "spawn '${terminal} -T btop btop'";
         "Super N" = "spawn 'swaync-client -t'";
         "Super Q" = "close";
-        "Super C" = "spawn '${terminal} -a nvim nvim'";
 
         "Super R" = "spawn 'walker --modules applications,runner,emojis,calc,symbols,websearch,wallpapers'";
 
@@ -97,7 +96,7 @@ in {
         "Super V" = "spawn '${terminal} -T clipboard ${pkgs.cliphist}/bin/cliphist-fzf'";
         "Super+Shift V" = "spawn '${pkgs.cliphist}/bin/cliphist wipe'";
 
-        "Super+Shift W" = "spawn 'swww img ${wallpapers}/$(ls ${wallpapers} | shuf -n 1)'";
+        "Super+Shift W" = "spawn 'swww img \"${wallpapers}/$(ls ${wallpapers} | shuf -n 1)\" --transition-type none'";
 
         "Super W" = "spawn 'MOZ_ENABLE_WAYLAND=1 zen'";
         "Super+Shift B" = "spawn 'playerctl previous'";
@@ -107,8 +106,8 @@ in {
         "Super+Shift Q" = "exit";
         "Super+Shift T" = "spawn ${terminal}";
 
-        "None Print" = "spawn 'grim - | tee ${screenshots}/$(date \"+Screenshot_%d%m%y_%H%M%S\") | wl-copy'";
-        "Super Print" = "spawn 'grim -g $(slurp) - | tee ${screenshots}/$(date \"+Screenshot_%d%m%y_%H%M%S\") | wl-copy'";
+        "None Print" = "spawn 'grim - | swappy -f -'";
+        "Super Print" = "spawn 'slurp | grim -g - - | swappy -f -'";
 
         "Super 0" = "set-focused-tags ${all_tags}";
         "Super+Shift 0" = "set-view-tags ${all_tags}";
@@ -188,11 +187,11 @@ in {
 
       riverctl rule-add -app-id "zen-twilight" tags ${browser_tag}
       riverctl rule-add -app-id "code" tags ${code_tag}
-      riverctl rule-add -app-id "nvim" tags ${code_tag}
       riverctl rule-add -app-id "dev.zed.Zed" tags ${code_tag}
       riverctl rule-add -app-id "org.gnome.Nautilus" tags ${files_tag}
       riverctl rule-add -app-id "obsidian" tags ${code_tag}
       riverctl rule-add -app-id "Spotify" tags ${media_tag}
+      riverctl rule-add -app-id "spotify" tags ${media_tag}
       riverctl rule-add -title "Special Offers" tags ${games_tag}
       riverctl rule-add -title "Friends List" tags ${games_tag}
       riverctl rule-add -title "Steam Settings" tags ${games_tag}
@@ -222,6 +221,7 @@ in {
       riverctl rule-add -app-id 'zen-twilight' -title 'Extension:*' float
       riverctl rule-add -app-id 'xdg-desktop-portal-gtk' float
       riverctl rule-add -app-id "Spotify" float
+      riverctl rule-add -app-id "spotify" float
       riverctl rule-add -app-id 'org.pulseaudio.pavucontrol' float
       riverctl rule-add -app-id float float
       riverctl rule-add -title "popup title with spaces" float

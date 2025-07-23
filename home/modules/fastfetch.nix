@@ -85,16 +85,6 @@
           keyColor = "magenta";
           type = "memory";
         }
-        {
-          key = "    󰩟 Local IP     ";
-          keyColor = "red";
-          type = "localip";
-        }
-        {
-          key = "    󰩠 Public IP    ";
-          keyColor = "cyan";
-          type = "publicip";
-        }
         "break"
         {
           type = "custom";
