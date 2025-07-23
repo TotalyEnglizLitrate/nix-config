@@ -36,24 +36,11 @@
     WLR_NO_HARDWARE_CURSORS = "1";
   };
 
-  # List of river specific packages
   environment.systemPackages = with pkgs; [
-    bibata-cursors
-    file-roller
-    fragments
-    gnome-keyring
-    kdePackages.kdeconnect-kde
-    loupe
-    nautilus
-    obsidian
-    pavucontrol
-    seahorse
-    vlc
-    walker
-
+    polkit_gnome
     brightnessctl
-    grim
     slurp
+    grim
     swappy
     hypridle
     hyprlock
@@ -69,7 +56,6 @@
     cliphist
     arrpc
     playerctl
-    polkit_gnome
 
     gitkraken
     vscode
