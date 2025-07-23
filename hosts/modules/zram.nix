@@ -1,9 +1,7 @@
-{pkgs, ...}: {
-  services.zram-generator.enable = true;
-  services.zram-generator.settings = {
-    zram0.zram-size = 6144;
-    host-memory-limit = "none";
+{...}: {
+  zramSwap = {
+    enable = true;
+    swapDevices = 1;
+    memoryPercent = 75;
   };
-
-  environment.systemPackages = with pkgs; [zram-generator];
 }

@@ -13,6 +13,7 @@
     ../modules/laptop.nix
     ../modules/cloudflare-warp.nix
     ../modules/ly.nix
+    ../modules/zram.nix
   ];
 
   # Set hostname
