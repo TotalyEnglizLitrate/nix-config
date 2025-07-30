@@ -81,6 +81,7 @@ in {
 
       map.normal = {
         "Super B" = "spawn blueman-manager";
+        "Super C" = "spawn 'hyprpicker | wl-copy'";
         "Super E" = "spawn nautilus";
         "Super F" = "toggle-fullscreen";
         "Super L" = "spawn hyprlock";

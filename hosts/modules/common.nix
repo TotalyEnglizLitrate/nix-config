@@ -144,4 +144,6 @@
 
   # Running dynamically linked executables
   programs.nix-ld.enable = true;
+
+  programs.kdeconnect.enable = true;
 }
