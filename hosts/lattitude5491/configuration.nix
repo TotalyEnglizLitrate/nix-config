@@ -8,7 +8,7 @@
     ./hardware-configuration.nix
     ../modules/common.nix
     ../modules/dual-function-keys.nix
-    ../modules/river.nix
+    ../modules/niri.nix
     ../modules/steam.nix
     ../modules/laptop.nix
     ../modules/cloudflare-warp.nix

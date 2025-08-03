@@ -1,7 +1,7 @@
 {inputs, ...}: {
   imports = [
     ../modules/common.nix
-    ../modules/river.nix
+    ../modules/niri.nix
     inputs.walker.homeManagerModules.default
   ];
 

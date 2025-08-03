@@ -7,7 +7,6 @@
     btop.enable = true;
     fish.enable = true;
     foot.enable = true;
-    river.enable = true;
     spicetify.enable = true;
     starship.enable = true;
     swaync.enable = true;

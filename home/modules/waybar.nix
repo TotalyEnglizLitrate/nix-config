@@ -14,8 +14,7 @@
         margin-right = 4;
 
         modules-left = [
-          "river/tags"
-          "river/mode"
+          "niri/workspaces"
         ];
 
         modules-center = [
@@ -107,26 +106,6 @@
           format = "󰍛 {usage}%";
           interval = 1;
         };
-
-        "river/tags" = {
-          num-tags = 9;
-          tag-labels = [
-            "scratch"
-            "zen"
-            "code"
-            "files"
-            "media"
-            "games"
-            "scratch"
-            "scratch"
-            "scratch"
-          ];
-          set-tags = [1 2 4 8 16 32 64 128 256];
-          toggle-tags = [1 2 4 8 16 32 64 128 256];
-          hide-vacant = true;
-        };
-
-        "river/mode" = {};
 
         memory = {
           interval = 10;
