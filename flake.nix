@@ -23,11 +23,6 @@
       inputs.home-manager.follows = "home-manager";
     };
 
-    niri = {
-      url = "github:sodiboo/niri-flake";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     # Runner
     walker.url = "github:abenz1267/walker";
 
@@ -105,40 +100,5 @@
       "engliz@ideapad320" = mkHomeConfiguration "x86_64-linux" "engliz" "ideapad320";
     };
     overlays = import ./overlays {inherit inputs;};
-
-    # include wallpapers
-    packages.x86_64-linux.wallpapers = nixpkgs.legacyPackages.x86_64-linux.stdenv.mkDerivation {
-      name = "wallpapers";
-      src = builtins.path {
-        path = ./files/wallpapers;
-        name = "wallpapers-src";
-        filter = path: type: true;
-      };
-
-      buildPhase = ''
-        echo "=== DEBUG INFO ==="
-        echo "Source directory: $src"
-        echo "Current directory: $(pwd)"
-        echo "Contents:"
-        echo "File count: $(find . -type f | wc -l)"
-        echo "=================="
-      '';
-
-      installPhase = ''
-        mkdir -p $out/share/wallpapers
-
-        # Copy everything, preserving structure
-        cp -r . $out/share/wallpapers/
-
-        # Remove any unwanted files
-        find $out/share/wallpapers -name ".*" -delete
-
-        echo "=== INSTALL DEBUG ==="
-        echo "Final contents:"
-        ls -la $out/share/wallpapers/
-        echo "Final file count: $(find $out/share/wallpapers -type f | wc -l)"
-        echo "===================="
-      '';
-    };
   };
 }
