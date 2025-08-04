@@ -41,5 +41,5 @@
   };
 
   # include wallpapers
-  home.file."Pictures/wallpapers".source = "${outputs.packages.x86_64-linux.wallpapers}/share/wallpapers";
+  home.file."Pictures/wallpapers".source = ../../files/wallpapers/;
 }

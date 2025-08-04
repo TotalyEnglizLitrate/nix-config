@@ -8,6 +8,8 @@
     powerOnBoot = true;
   };
 
+  programs.niri.enable = true;
+
   # Enable Bluetooth support
   services.blueman.enable = true;
 
