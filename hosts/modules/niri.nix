@@ -8,7 +8,10 @@
     powerOnBoot = true;
   };
 
-  programs.niri.enable = true;
+  programs.niri = {
+    enable = true;
+    package = pkgs.niri-unstable;
+  };
 
   # Enable Bluetooth support
   services.blueman.enable = true;
@@ -36,8 +39,8 @@
   environment.systemPackages = with pkgs; [
     polkit_gnome
     brightnessctl
-    swayidle
     hypridle
+    hyprlock
     hyprpicker
     swww
     swaynotificationcenter
@@ -50,7 +53,9 @@
     cliphist
     arrpc
     playerctl
-    xwayland-satellite
+    xwayland-satellite-unstable
+    grim
+    slurp
 
     gitkraken
     vscode

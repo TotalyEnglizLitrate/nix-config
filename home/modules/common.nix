@@ -41,5 +41,5 @@
   };
 
   # include wallpapers
-  home.file."Pictures/wallpapers".source = ../../files/wallpapers;
+  home.file."Pictures/wallpapers/default.png".source = ../../files/wallpapers/nix-logo.png;
 }

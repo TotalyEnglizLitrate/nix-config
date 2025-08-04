@@ -23,6 +23,10 @@
       inputs.home-manager.follows = "home-manager";
     };
 
+    niri = {
+      url = "github:sodiboo/niri-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     # Runner
     walker.url = "github:abenz1267/walker";
 
@@ -50,6 +54,7 @@
     zen-browser,
     walker,
     stylix,
+    niri,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -67,7 +72,7 @@
     mkNixosConfiguration = hostname: username:
       nixpkgs.lib.nixosSystem {
         specialArgs = {
-          inherit inputs outputs hostname;
+          inherit inputs outputs hostname niri;
           userConfig = users.${username};
         };
         modules = [
