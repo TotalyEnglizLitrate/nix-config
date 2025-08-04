@@ -41,5 +41,5 @@
   };
 
   # include wallpapers
-  home.file."Pictures/wallpapers".source = ../../files/wallpapers/;
+  home.file."Pictures/wallpapers".source = ../../files/wallpapers;
 }
