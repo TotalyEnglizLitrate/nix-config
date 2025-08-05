@@ -147,8 +147,6 @@
       Mod+down {focus-window-or-workspace-down;}
       Mod+up {focus-window-or-workspace-up;}
       Mod+right {focus-column-or-monitor-right;}
-      Mod+Shift+H {focus-monitor-left;}
-      Mod+Shift+L {focus-monitor-right;}
 
       Mod+Shift+H {move-column-left-or-to-monitor-left;}
       Mod+Shift+J {move-window-down-or-to-workspace-down;}
@@ -235,7 +233,7 @@
 
       Mod+L {spawn "hyprlock";}
 
-      Mod+Shift+V allow-when-locked=true {spawn "playerctl" "previous";}
+      Mod+Shift+B allow-when-locked=true {spawn "playerctl" "previous";}
       Mod+Shift+P allow-when-locked=true {spawn "playerctl" "play-pause";}
       Mod+Shift+N allow-when-locked=true {spawn "playerctl" "next";}
       Mod+Shift+T {spawn "foot";}
