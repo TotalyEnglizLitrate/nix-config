@@ -1,4 +1,8 @@
-{userConfig, ...}: {
+{
+  pkgs,
+  userConfig,
+  ...
+}: {
   programs.hyprlock = {
     enable = true;
     settings = {
@@ -59,6 +63,6 @@
         }
       ];
     };
-    package = null;
+    package = pkgs.hyprlock;
   };
 }
