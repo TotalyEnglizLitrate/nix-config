@@ -30,7 +30,7 @@
             criteria = "eDP-1";
             status = "enable";
             position = "0,0";
-            mode = "--custom 1920x1080@60Hz";
+            scale = 0.7;
           }
         ];
       }
@@ -41,12 +41,12 @@
             criteria = "eDP-1";
             status = "enable";
             position = "0,0";
-            mode = "--custom 1920x1080@60Hz";
+            scale = 0.7;
           }
           {
             criteria = "HDMI-A-1";
             status = "enable";
-            position = "-1920,0";
+            position = "-1366,0";
           }
         ];
       }
@@ -57,12 +57,12 @@
             criteria = "eDP-1";
             status = "enable";
             position = "0,0";
-            mode = "--custom 1920x1080@60Hz";
+            scale = 0.7;
           }
           {
             criteria = "HDMI-A-1";
             status = "enable";
-            position = "1920,0";
+            position = "1366,0";
           }
         ];
       }
