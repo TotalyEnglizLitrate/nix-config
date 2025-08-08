@@ -120,7 +120,10 @@
 
     window-rule {
       match app-id="zen-browser$" title="^Picture-in-Picture$"
+      match app-id="zen-browser$" title="^Library$"
+      match app-id="zen-browser$" title="^Extension.*$"
       match app-id="org.gnome.Nautilus"
+      match app-id="org.gnome.FileRoller"
       match app-id="org.kde.polkit-kde-authentication-agent-1"
       match app-id=".blueman-manager-wrapped"
       match app-id="org.pulseaudio.pavucontrol"

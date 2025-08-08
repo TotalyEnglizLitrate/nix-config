@@ -14,6 +14,7 @@
         margin-right = 4;
 
         modules-left = [
+          "wlr/taskbar"
           "niri/workspaces"
         ];
 
@@ -174,6 +175,10 @@
           on-click = "swaync-client -t -sw";
           on-click-right = "swaync-client -d -sw";
           escape = true;
+        };
+
+        "wlr/taskbar" = {
+          tooltip-format = "{title} | {app_id}";
         };
       };
     };
