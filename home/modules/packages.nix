@@ -10,6 +10,7 @@
       eza
       fd
       ffmpeg
+      foliate
       gemini-cli
       ghc
       openjdk21
