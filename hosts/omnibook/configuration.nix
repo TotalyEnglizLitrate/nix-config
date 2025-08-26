@@ -29,7 +29,6 @@
   system.stateVersion = "24.11";
 
   services.fprintd.enable = true;
-  services.fprintd.tod.enable = true;
   security.pam.services = {
     login.fprintAuth = true;
     sudo.fprintAuth = true;
