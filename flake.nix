@@ -98,7 +98,7 @@
     nixosConfigurations = {
       lattitude5491 = mkNixosConfiguration "lattitude5491" "engliz";
       ideapad330 = mkNixosConfiguration "ideapad330" "engliz";
-      omnibook = mkHomeConfiguration "omnibook" "engliz";
+      omnibook = mkNixosConfiguration "omnibook" "engliz";
     };
 
     homeConfigurations = {
