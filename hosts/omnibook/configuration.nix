@@ -7,13 +7,10 @@
     inputs.hardware.nixosModules.common-pc-ssd
     ./hardware-configuration.nix
     ../modules/common.nix
-    ../modules/dual-function-keys.nix
     ../modules/niri.nix
-    ../modules/steam.nix
     ../modules/cloudflare-warp.nix
     ../modules/ly.nix
-    ../modules/zram.nix
-  ];
+    ];
 
   # Set hostname
   networking.hostName = hostname;
@@ -30,4 +27,11 @@
   # on your system were taken. It‘s perfectly fine and recommended to leave
   # this value at the release version of the first install of this system.
   system.stateVersion = "24.11";
+
+  services.fprintd.enable = true;
+  services.fprintd.tod.enable = true;
+  security.pam.services = {
+    login.fprintAuth = true;
+    sudo.fprintAuth = true;
+  };
 }
