@@ -72,10 +72,6 @@
       focus-follows-mouse max-scroll-amount="0%"
     }
 
-    output "eDP-1" {
-      scale 0.7
-    }
-
     layout {
       gaps 1
       center-focused-column "on-overflow"
@@ -98,8 +94,7 @@
 
     spawn-at-startup "waybar-restart"
     spawn-at-startup "xwayland-satellite"
-    spawn-at-startup "swww-daemon"
-    spawn-at-startup "swww" "restore"
+    spawn-at-startup "wallpaper --init"
     spawn-at-startup "walker" "--gapplication-service"
     spawn-at-startup "swaync"
     spawn-at-startup "kdeconnect-indicator"
@@ -113,7 +108,9 @@
     prefer-no-csd
     screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 
-
+    switch-events {
+      lid-close { spawn "hyprlock"; }
+    }
     window-rule {
       open-maximized true
     }
