@@ -25,6 +25,8 @@
   # this value at the release version of the first install of this system.
   system.stateVersion = "24.11";
 
+  virtualisation.waydroid.enable = true;
+
   services.fprintd.enable = true;
   security.pam.services = {
     login.fprintAuth = lib.mkForce true;
