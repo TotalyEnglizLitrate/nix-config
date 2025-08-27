@@ -1,8 +1,4 @@
-{
-  inputs,
-  lib,
-  ...
-}: {
+{inputs, ...}: {
   imports = [
     inputs.hardware.nixosModules.common-pc-ssd
     ./hardware-configuration.nix
@@ -29,7 +25,6 @@
 
   services.fprintd.enable = true;
   security.pam.services = {
-    login.fprintAuth = lib.mkForce true;
     sudo.fprintAuth = true;
   };
 }
