@@ -4,7 +4,12 @@
   pkgs,
   lib,
   ...
-}: {
+}: let
+  PrtScr =
+    if hostname == "omnibook"
+    then "F12"
+    else "Print";
+in {
   imports = [
     ./cliphist.nix
     ./foot.nix
@@ -261,9 +266,9 @@
 
       "Mod+Shift+F".action.toggle-window-floating = {};
 
-      "Mod+Print".action.screenshot = {};
-      "Print".action.screenshot-screen = {};
-      "Alt+Print".action.screenshot-window = {};
+      "Mod+${PrtScr}".action.screenshot = {};
+      "${PrtScr}".action.screenshot-screen = {};
+      "Alt+${PrtScr}".action.screenshot-window = {};
 
       "Mod+Shift+Q".action.quit = {skip-confirmation = true;};
       "Ctrl+Alt+Delete".action.quit = {};
