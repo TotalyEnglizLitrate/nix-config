@@ -111,10 +111,10 @@ in {
     };
 
     spawn-at-startup = [
+      {command = ["wallpaper" "--init"];}
       {command = ["hyprlock"];}
       {command = ["waybar-restart"];}
       {command = ["xwayland-satellite"];}
-      {command = ["wallpaper" "--init"];}
       {command = ["walker" "--gapplication-service"];}
       {command = ["swaync"];}
       {command = ["kdeconnect-indicator"];}
