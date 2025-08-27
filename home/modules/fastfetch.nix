@@ -22,7 +22,7 @@
         "break"
         {
           key = "     OS           ";
-          keyColor = "red";
+          keyColor = "green";
           type = "os";
         }
         {
@@ -31,48 +31,8 @@
           type = "host";
         }
         {
-          key = "     Kernel       ";
-          keyColor = "magenta";
-          type = "kernel";
-        }
-        {
-          key = "    󰏖 Packages     ";
-          type = "packages";
-        }
-        {
-          key = "    󰅐 Uptime       ";
-          keyColor = "red";
-          type = "uptime";
-        }
-        {
-          key = "    󰍹 Resolution   ";
-          keyColor = "yellow";
-          type = "display";
-          compactType = "original-with-refresh-rate";
-        }
-        {
-          key = "     WM           ";
-          keyColor = "blue";
-          type = "wm";
-        }
-        {
-          key = "     DE           ";
-          keyColor = "green";
-          type = "de";
-        }
-        {
-          key = "     Shell        ";
-          keyColor = "cyan";
-          type = "shell";
-        }
-        {
-          key = "     Terminal     ";
-          keyColor = "red";
-          type = "terminal";
-        }
-        {
           key = "    󰻠 CPU          ";
-          keyColor = "yellow";
+          keyColor = "blue";
           type = "cpu";
         }
         {
@@ -84,6 +44,47 @@
           key = "    󰑭 Memory       ";
           keyColor = "magenta";
           type = "memory";
+        }
+        {
+          key = "     Disk         ";
+          keyColor = "magenta";
+          type = "disk";
+        }
+        {
+          key = "    󰍹 Resolution   ";
+          keyColor = "red";
+          type = "display";
+          compactType = "original-with-refresh-rate";
+        }
+        {
+          key = "     WM           ";
+          keyColor = "red";
+          type = "wm";
+        }
+        {
+          key = "     Kernel       ";
+          keyColor = "cyan";
+          type = "kernel";
+        }
+        {
+          key = "    󰏖 Packages     ";
+          keyColor = "cyan";
+          type = "packages";
+        }
+        {
+          key = "    󰅐 Uptime       ";
+          keyColor = "cyan";
+          type = "uptime";
+        }
+        {
+          key = "     Shell        ";
+          keyColor = "blue";
+          type = "shell";
+        }
+        {
+          key = "     Terminal     ";
+          keyColor = "blue";
+          type = "terminal";
         }
         "break"
         {
