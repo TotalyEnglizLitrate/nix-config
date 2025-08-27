@@ -1,8 +1,4 @@
-{
-  inputs,
-  hostname,
-  ...
-}: {
+{inputs, ...}: {
   imports = [
     inputs.hardware.nixosModules.common-pc-ssd
     ./hardware-configuration.nix
@@ -14,9 +10,6 @@
     ../modules/ly.nix
     ../modules/zram.nix
   ];
-
-  # Set hostname
-  networking.hostName = hostname;
 
   networking.firewall = {
     enable = true;

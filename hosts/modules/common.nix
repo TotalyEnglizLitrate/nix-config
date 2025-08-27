@@ -1,4 +1,5 @@
 {
+  hostname,
   inputs,
   outputs,
   lib,
@@ -56,7 +57,8 @@
     kernelModules = [
       # "v4l2loopback"
       "uinput"
-      "hid-uclogic"];
+      "hid-uclogic"
+    ];
     extraModulePackages = with config.boot.kernelPackages; [
       # v4l2loopback
     ];
@@ -67,6 +69,7 @@
 
   # Networking
   networking.networkmanager.enable = lib.mkForce true;
+  networking.hostName = hostname;
 
   # Timezone
   time.timeZone = "Asia/Kolkata";

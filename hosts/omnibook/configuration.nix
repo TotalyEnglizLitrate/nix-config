@@ -1,8 +1,4 @@
-{
-  inputs,
-  hostname,
-  ...
-}: {
+{inputs, ...}: {
   imports = [
     inputs.hardware.nixosModules.common-pc-ssd
     ./hardware-configuration.nix
@@ -10,10 +6,7 @@
     ../modules/niri.nix
     ../modules/cloudflare-warp.nix
     ../modules/ly.nix
-    ];
-
-  # Set hostname
-  networking.hostName = hostname;
+  ];
 
   networking.firewall = {
     enable = true;
