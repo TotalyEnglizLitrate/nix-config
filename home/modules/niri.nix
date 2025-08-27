@@ -48,18 +48,13 @@ in {
       "search-view" = "list-view";
     };
 
-    "org/gnome/nm-applet" = {
-      "disable-connected-notifications" = true;
-      "disable-vpn-notifications" = true;
-    };
-
     "org/gtk/settings/file-chooser" = {
       "date-format" = "regular";
       "location-mode" = "path-bar";
       "show-size-column" = true;
       "show-type-column" = true;
       "sort-column" = "name";
-      "sort-directories-first" = false;
+      "sort-directories-first" = true;
       "sort-order" = "ascending";
       "type-format" = "category";
       "view-type" = "grid";
@@ -118,7 +113,6 @@ in {
       {command = ["walker" "--gapplication-service"];}
       {command = ["swaync"];}
       {command = ["kdeconnect-indicator"];}
-      {command = ["nm-applet"];}
       {command = ["hypridle"];}
       {command = ["arrpc"];}
       {command = ["${pkgs.kdePackages.kdeconnect-kde}/lib/kdeconnectd"];}
@@ -145,6 +139,7 @@ in {
           {app-id = "org.polkit-kde-authentication-agent-1";}
           {app-id = ".blueman-manager-wrapped";}
           {app-id = "org.pulseaudio.pavucontrol";}
+          {app-id = "nm-connection-editor";}
 
           {title = "clipboard";}
         ];

@@ -25,6 +25,7 @@
 
         modules-right = [
           "tray"
+          "network"
           "pulseaudio"
           "pulseaudio#microphone"
           "cpu"
@@ -179,6 +180,20 @@
 
         "wlr/taskbar" = {
           tooltip-format = "{title} | {app_id}";
+        };
+        network = {
+          interface = "*";
+          interval = 5;
+          family = "ipv4_6";
+          format-ethernet = "󰈀 ";
+          format-disconnected = "󰤮 ";
+          format-disabled = "󰣽 ";
+          format-icons = ["󰤫 " "󰤟 " "󰤢 " "󰤥 " "󰤨 "];
+          on-click = "nm-connection-editor";
+          tooltip-format = "{ifname}";
+          tooltip-format-wifi = "{essid} ({signalStrength}%)";
+          tooltip-format-ethernet = "{ifname}  ";
+          tooltip-format-disconnected = "Disconnected";
         };
       };
     };
