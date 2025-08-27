@@ -11,7 +11,6 @@
     ./gtk.nix
     ./hypridle.nix
     ./hyprlock.nix
-    ./kanshi.nix
     ./swappy.nix
     ./swaync.nix
     ./walker.nix
