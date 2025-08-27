@@ -85,7 +85,7 @@
       home-manager.lib.homeManagerConfiguration {
         pkgs = import nixpkgs {inherit system;};
         extraSpecialArgs = {
-          inherit inputs outputs zen-browser walker;
+          inherit inputs outputs zen-browser walker hostname;
           userConfig = users.${username};
         };
         modules = [
