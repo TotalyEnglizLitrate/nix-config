@@ -50,8 +50,12 @@
     kernelParams = ["quiet" "splash"];
     loader.efi.canTouchEfiVariables = true;
     loader.systemd-boot.enable = true;
-    loader.timeout = lib.mkForce 0;
-    plymouth.enable = true;
+    loader.timeout = lib.mkForce 1;
+    plymouth = {
+      enable = true;
+      theme = "deus_ex";
+      themePackages = with pkgs; [(adi1090x-plymouth-themes.override {selected_themes = ["deus_ex"];})];
+    };
 
     # v4l (virtual camera) module settings
     kernelModules = [
