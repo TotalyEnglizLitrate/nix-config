@@ -21,8 +21,6 @@
   # this value at the release version of the first install of this system.
   system.stateVersion = "24.11";
 
-  virtualisation.waydroid.enable = true;
-
   boot.loader.systemd-boot.edk2-uefi-shell.enable = true;
   boot.loader.systemd-boot.windows = {
     "Spyware" = {
