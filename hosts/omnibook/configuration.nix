@@ -23,6 +23,14 @@
 
   virtualisation.waydroid.enable = true;
 
+  boot.loader.systemd-boot.edk2-uefi-shell.enable = true;
+  boot.loader.systemd-boot.windows = {
+    "Spyware" = {
+      title = "Spyware";
+      efiDeviceHandle = "HD0b";
+    };
+  };
+
   services.fprintd.enable = true;
   security.pam.services = {
     sudo.fprintAuth = true;
