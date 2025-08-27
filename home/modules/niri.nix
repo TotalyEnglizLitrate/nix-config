@@ -106,6 +106,7 @@
     };
 
     spawn-at-startup = [
+      {command = ["hyprlock"];}
       {command = ["waybar-restart"];}
       {command = ["xwayland-satellite"];}
       {command = ["wallpaper" "--init"];}
