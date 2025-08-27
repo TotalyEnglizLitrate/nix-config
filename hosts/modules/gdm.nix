@@ -1,6 +1,9 @@
 {...}: {
-  services.displayManager.enable = true;
-  services.displayManager.autoLogin.enable = true;
+  services.displayManager = {
+    enable = true;
+    autoLogin.enable = true;
+    autoLogin.user = "engliz";
+  };
   services.displayManager.gdm = {
     enable = true;
     wayland = true;
