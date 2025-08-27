@@ -5,7 +5,7 @@
     ../modules/common.nix
     ../modules/niri.nix
     ../modules/cloudflare-warp.nix
-    ../modules/ly.nix
+    ../modules/gdm.nix
   ];
 
   networking.firewall = {

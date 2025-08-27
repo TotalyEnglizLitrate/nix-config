@@ -7,7 +7,7 @@
     ../modules/niri.nix
     ../modules/steam.nix
     ../modules/cloudflare-warp.nix
-    ../modules/ly.nix
+    ../modules/gdm.nix
     ../modules/zram.nix
   ];
 
