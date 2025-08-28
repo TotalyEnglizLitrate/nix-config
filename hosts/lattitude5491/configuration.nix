@@ -4,10 +4,7 @@
     ./hardware-configuration.nix
     ../modules/common.nix
     ../modules/dual-function-keys.nix
-    ../modules/niri.nix
     ../modules/steam.nix
-    ../modules/cloudflare-warp.nix
-    ../modules/gdm.nix
     ../modules/zram.nix
   ];
 

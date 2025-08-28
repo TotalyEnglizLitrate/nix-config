@@ -44,6 +44,11 @@
       url = "github:Gerg-L/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nyx = {
+      url = "github:Peritia-System/Nyx-Tools";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -55,6 +60,7 @@
     walker,
     stylix,
     niri,
+    nyx,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -72,7 +78,7 @@
     mkNixosConfiguration = hostname: username:
       nixpkgs.lib.nixosSystem {
         specialArgs = {
-          inherit inputs outputs hostname niri;
+          inherit inputs outputs hostname niri nyx;
           userConfig = users.${username};
         };
         modules = [

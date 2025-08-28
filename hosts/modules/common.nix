@@ -8,7 +8,13 @@
   pkgs,
   ...
 }: {
-  imports = [inputs.niri.nixosModules.niri];
+  imports = [
+    inputs.niri.nixosModules.niri
+    ./nyx.nix
+    ./gdm.nix
+    ./niri.nix
+    ./cloudflare-warp.nix
+  ];
 
   # Nixpkgs configuration
   nixpkgs = {

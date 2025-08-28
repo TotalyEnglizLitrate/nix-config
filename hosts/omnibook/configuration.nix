@@ -3,9 +3,6 @@
     inputs.hardware.nixosModules.common-pc-ssd
     ./hardware-configuration.nix
     ../modules/common.nix
-    ../modules/niri.nix
-    ../modules/cloudflare-warp.nix
-    ../modules/gdm.nix
   ];
 
   networking.firewall = {
