@@ -107,7 +107,6 @@ in {
 
     spawn-at-startup = [
       {command = ["wallpaper" "--init"];}
-      {command = ["hyprlock"];}
       {command = ["waybar-restart"];}
       {command = ["xwayland-satellite"];}
       {command = ["walker" "--gapplication-service"];}
@@ -302,11 +301,11 @@ in {
 
       "XF86AudioRaiseVolume" = {
         allow-when-locked = true;
-        action.spawn = ["wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1+"];
+        action.spawn = ["wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "5%+"];
       };
       "XF86AudioLowerVolume" = {
         allow-when-locked = true;
-        action.spawn = ["wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1-"];
+        action.spawn = ["wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "5%-"];
       };
       "XF86AudioMute" = {
         allow-when-locked = true;
@@ -315,6 +314,14 @@ in {
       "XF86AudioMicMute" = {
         allow-when-locked = true;
         action.spawn = ["wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"];
+      };
+      "Shift+XF86AudioRaiseVolume" = {
+        allow-when-locked = true;
+        action.spawn = ["wpctl" "set-volume" "@DEFAULT_AUDIO_SOURCE@" "5%+"];
+      };
+      "Shift+XF86AudioLowerVolume" = {
+        allow-when-locked = true;
+        action.spawn = ["wpctl" "set-volume" "@DEFAULT_AUDIO_SOURCE@" "5%-"];
       };
 
       "XF86MonBrightnessUp" = {
