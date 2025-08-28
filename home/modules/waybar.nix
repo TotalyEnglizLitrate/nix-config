@@ -29,7 +29,6 @@
           "pulseaudio"
           "pulseaudio#microphone"
           "cpu"
-          "custom/temperature"
           "memory"
           "backlight"
           "battery"
@@ -148,11 +147,6 @@
           on-scroll-down = "pamixer --default-source -d 5";
         };
 
-        "custom/temperature" = {
-          exec = "${pkgs.python3}/bin/python -c 'print(int((next(filter(lambda dev: dev.read_text() == \"coretemp\\n\", __import__(\"pathlib\").Path(\"/sys/class/hwmon/\").glob(\"hwmon*/name\"))).parent / \"temp1_input\").read_text()) // 1000)'";
-          interval = 3;
-          format = "{}°C";
-        };
         tray = {
           spacing = 20;
         };
@@ -184,13 +178,13 @@
         network = {
           interval = 5;
           family = "ipv4_6";
-          format = "{icon} {bandwithUpBytes} {bandwithDownBytes}";
+          format = "{icon}";
           format-ethernet = "󰈀 ";
           format-disconnected = "󰤮 ";
           format-disabled = "󰣽 ";
           format-icons = ["󰤫 " "󰤟 " "󰤢 " "󰤥 " "󰤨 "];
           on-click = "nm-connection-editor";
-          tooltip-format-wifi = "{essid} ({signalStrength}%)";
+          tooltip-format-wifi = "{essid} ({signalStrength}%)\n{bandwidthDownBytes} down; {bandwidthUpBytes} up";
           tooltip-format-ethernet = "{ifname}  ";
           tooltip-format-disconnected = "Disconnected";
         };
