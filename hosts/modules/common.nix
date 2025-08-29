@@ -55,7 +55,10 @@
     initrd.verbose = false;
     kernelParams = ["quiet" "splash"];
     loader.efi.canTouchEfiVariables = true;
-    loader.systemd-boot.enable = true;
+    loader.systemd-boot = {
+      enable = true;
+      configurationLimit = 3;
+    };
     loader.timeout = lib.mkForce 1;
     plymouth = {
       enable = true;
