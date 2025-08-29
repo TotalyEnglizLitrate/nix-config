@@ -16,6 +16,7 @@ in {
       keyboardShortcut
       shuffle
       adblock
+      beautifulLyrics
     ];
   };
 }
