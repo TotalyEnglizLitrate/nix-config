@@ -13,6 +13,9 @@
       ExecStart = "${pkgs.python3}/bin/python3 ${../../files/scripts/mute-led-fixd.py}";
       PIDFile = "/var/run/mute-led-fix/pid";
       Restart = "on-abnormal";
+      TimeoutStopSec = 10;
+      KillMode = "mixed";
+      KillSignal = "SIGTERM";
     };
   };
 }

@@ -50,6 +50,7 @@ class Daemon:
             sys.exit(1)
 
     def cleanup(self, _signum=None, _frame=None):
+        self.running = False
         if PIPE_PATH.exists():
             PIPE_PATH.unlink()
         if PID_FILE.exists():
@@ -57,6 +58,9 @@ class Daemon:
 
     def listen(self):
         pipe = os.open(PIPE_PATH, os.O_RDONLY | os.O_NONBLOCK)
+        if pipe < 0:
+            print("Failed to open pipe; exiting")
+            sys.exit(1)
         print(f"{DAEMON_NAME} is running with PID {os.getpid()}. Listening on {PIPE_PATH}...", file=sys.stderr)
         while self.running:
             try:
