@@ -23,7 +23,7 @@
       ollama
       pipenv
       pulseaudio
-      python312Full
+      python3Full
       qemu
       qpwgraph
       ripgrep

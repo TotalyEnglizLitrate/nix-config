@@ -313,7 +313,7 @@ in {
       };
       "XF86AudioMicMute" = {
         allow-when-locked = true;
-        action.spawn = ["wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"];
+        action.spawn = ["toggle-mute"];
       };
       "Shift+XF86AudioRaiseVolume" = {
         allow-when-locked = true;
