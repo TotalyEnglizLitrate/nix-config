@@ -1,16 +1,18 @@
 {pkgs, ...}: {
   stylix.enable = true;
   stylix.autoEnable = false;
-  stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-night-storm.yaml";
+  stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/oxocarbon-dark.yaml";
   stylix.targets = {
+    foot.enable = true;
+    fish.enable = true;
+    starship.enable = true;
     bat.enable = true;
     btop.enable = true;
-    fish.enable = true;
-    foot.enable = true;
-    spicetify.enable = true;
-    starship.enable = true;
+    lazygit.enable = true;
     swaync.enable = true;
     waybar.enable = true;
     qt.enable = true;
+    gtk.enable = true;
+    spicetify.enable = true;
   };
 }

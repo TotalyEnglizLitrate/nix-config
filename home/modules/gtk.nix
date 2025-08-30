@@ -6,10 +6,6 @@
   # GTK theme configuration
   gtk = {
     enable = true;
-    theme = {
-      name = "Andromeda";
-      package = pkgs.andromeda-gtk-theme;
-    };
     iconTheme = {
       name = "Tela-circle-dark";
       package = pkgs.tela-circle-icon-theme;
@@ -18,10 +14,6 @@
       name = "Bibata-Modern-Classic";
       package = pkgs.bibata-cursors;
       size = 24;
-    };
-    font = {
-      name = "Roboto";
-      size = 11;
     };
     gtk3 = {
       extraConfig.gtk-application-prefer-dark-theme = true;
