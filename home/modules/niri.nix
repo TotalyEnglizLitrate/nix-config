@@ -11,6 +11,7 @@
     else "Print";
 in {
   imports = [
+    ./anyrun.nix
     ./cliphist.nix
     ./foot.nix
     ./gtk.nix
@@ -18,7 +19,6 @@ in {
     ./hyprlock.nix
     ./swappy.nix
     ./swaync.nix
-    ./walker.nix
     ./waybar.nix
     inputs.niri.homeModules.config
   ];
@@ -110,7 +110,6 @@ in {
       {command = ["toggle-mute" "--init"];}
       {command = ["waybar-restart"];}
       {command = ["xwayland-satellite"];}
-      {command = ["walker" "--gapplication-service"];}
       {command = ["swaync"];}
       {command = ["kdeconnect-indicator"];}
       {command = ["hypridle"];}
@@ -150,7 +149,7 @@ in {
 
     binds = {
       "Mod+T".action.spawn = ["foot" "shell"];
-      "Mod+R".action.spawn = ["walker"];
+      "Mod+R".action.spawn = ["anyrun"];
       "Mod+W".action.spawn = ["zen"];
       "Mod+B".action.spawn = ["blueman-manager"];
       "Mod+E".action.spawn = ["nautilus"];

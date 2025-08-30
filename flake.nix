@@ -28,8 +28,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     # Runner
-    walker = {
-      url = "github:abenz1267/walker?ref=refs/pull/426/head";
+    anyrun = {
+      url = "github:anyrun-org/anyrun";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -60,7 +60,7 @@
     home-manager,
     nixpkgs,
     zen-browser,
-    walker,
+    anyrun,
     stylix,
     niri,
     nyx,
@@ -94,7 +94,7 @@
       home-manager.lib.homeManagerConfiguration {
         pkgs = import nixpkgs {inherit system;};
         extraSpecialArgs = {
-          inherit inputs outputs zen-browser walker hostname;
+          inherit inputs outputs zen-browser anyrun hostname;
           userConfig = users.${username};
         };
         modules = [

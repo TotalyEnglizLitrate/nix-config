@@ -1,12 +1,4 @@
-{
-  pkgs,
-  lib,
-  ...
-}: {
-  home.packages = with pkgs; [
-    foot
-  ];
-
+{lib, ...}: {
   programs.foot = {
     server.enable = true;
     enable = true;

@@ -1,7 +1,5 @@
 {outputs, ...}: {
   imports = [
-    ../modules/bat.nix
-    ../modules/btop.nix
     ../modules/fastfetch.nix
     ../modules/easyeffects.nix
     ../modules/fzf.nix
@@ -38,6 +36,11 @@
   catppuccin = {
     flavor = "macchiato";
     accent = "lavender";
+  };
+
+  programs = {
+    bat.enable = true;
+    btop.enable = true;
   };
 
   # include wallpapers

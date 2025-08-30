@@ -1,8 +1,7 @@
-{inputs, ...}: {
+{...}: {
   imports = [
     ../modules/common.nix
     ../modules/niri.nix
-    inputs.walker.homeManagerModules.default
   ];
 
   # Nicely reload system units when changing configs

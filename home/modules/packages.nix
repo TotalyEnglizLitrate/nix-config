@@ -20,6 +20,7 @@
       localsend
       ncdu
       nodePackages_latest.nodejs
+      normcap
       ollama
       pipenv
       pulseaudio
