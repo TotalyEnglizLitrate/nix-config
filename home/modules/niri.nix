@@ -107,6 +107,7 @@ in {
 
     spawn-at-startup = [
       {command = ["wallpaper" "--init"];}
+      {command = ["toggle-mute" "--init"];}
       {command = ["waybar-restart"];}
       {command = ["xwayland-satellite"];}
       {command = ["walker" "--gapplication-service"];}

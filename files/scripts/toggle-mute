@@ -1,18 +1,23 @@
 #!/bin/sh
 
 if [ $# -eq 1 ]; then
-	if [ "$1" = "--startup" ]; then
-		if (wpctl get-mute @DEFAULT_AUDIO_SOURCE@ | grep -q "MUTED"); then
+	if [ "$1" = "--init" ]; then
+		muted="$(wpctl get-volume @DEFAULT_AUDIO_SOURCE@ | grep -q MUTED)"
+		if $muted; then
+			echo "muted"
 			if [ "$(cat /sys/class/leds/hda::micmute/brightness)" = "0" ]; then
+				echo "led off"
+				echo "toggling"
 				echo "" >/var/run/mute-led-fixd.pipe
 			fi
-			exit
+		elif [ "$(cat /sys/class/leds/hda::micmute/brightness)" = "1" ]; then
+			echo "unmuted"
+			echo "led on"
+			echo "toggling"
+			echo "" >/var/run/mute-led-fixd.pipe
 		fi
 	fi
 else
-	echo "Usage: $0 [--startup]"
-	exit 1
+	wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
+	echo "" >/var/run/mute-led-fixd.pipe
 fi
-
-wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
-echo "" >/var/run/mute-led-fixd.pipe
