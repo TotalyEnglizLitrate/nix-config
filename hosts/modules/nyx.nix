@@ -3,7 +3,7 @@
   userConfig,
   ...
 }: let
-  nixdir = "/home/${userConfig.name}/Documents/repositories/nix-config/";
+  nixdir = "/home/${userConfig.name}/Documents/repositories/nix-config";
 in {
   imports = [inputs.nyx.nixosModules.default];
   nyx = {
