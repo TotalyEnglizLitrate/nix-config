@@ -70,6 +70,7 @@ class Daemon:
             try:
                 readable, _, _ = select.select([pipe], [], [], 1.0)
                 if readable and os.read(pipe, 1024):
+                    print("data written to pipe; toggling led", file=sys.stderr)
                     subprocess.run(COMMAND, shell=True)
             except SystemExit:
                 self.cleanup()
