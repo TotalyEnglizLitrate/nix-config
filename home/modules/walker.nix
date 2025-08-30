@@ -3,20 +3,44 @@
     enable = true;
     config = {
       terminal = "foot";
-      builtins = {
-        calc.prefix = ";c";
-        emojis.prefix = ";e";
-        symbols.prefix = ";e";
-        websearch = {
-          prefix = ";/";
-          entries = [
-            {
-              name = "UnDuck";
-              url = "https://unduck.link/?q=%TERM%";
-            }
-          ];
-        };
-      };
+      providers.default = [
+        "calc"
+        "desktopapplications"
+        "runner"
+        "websearch"
+      ];
+      providers.empty = ["desktopapplications"];
+      providers.prefixes = [
+        {
+          prefix = ":";
+          provider = "providerList";
+        }
+
+        {
+          prefix = "/";
+          provider = "files";
+        }
+
+        {
+          prefix = ".";
+          provider = "symbols";
+        }
+
+        {
+          prefix = ">";
+          provider = "runner";
+        }
+
+        {
+          prefix = "?";
+          provider = "websearch";
+        }
+
+        {
+          prefix = "=";
+          provider = "calc";
+        }
+      ];
     };
   };
 }

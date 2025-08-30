@@ -28,7 +28,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     # Runner
-    walker.url = "github:abenz1267/walker";
+    walker = {
+      url = "github:abenz1267/walker?ref=refs/pull/426/head";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # NixOS profiles to optimize settings for different hardware
     hardware.url = "github:nixos/nixos-hardware";
