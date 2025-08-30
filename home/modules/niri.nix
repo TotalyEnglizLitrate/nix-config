@@ -316,6 +316,10 @@ in {
         allow-when-locked = true;
         action.spawn = ["toggle-mute"];
       };
+      "Shift+XF86AudioMute" = {
+        allow-when-locked = true;
+        action.spawn = ["sh" "-c" "echo ''> /var/run/mute-led-fixd.pipe"];
+      };
       "Shift+XF86AudioRaiseVolume" = {
         allow-when-locked = true;
         action.spawn = ["wpctl" "set-volume" "@DEFAULT_AUDIO_SOURCE@" "5%+"];
