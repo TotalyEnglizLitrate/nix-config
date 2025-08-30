@@ -17,6 +17,7 @@ class Daemon:
     def __init__(self) -> None:
         self.ensure_su()
         self.running = True
+        self._exit = 0
 
         if PID_FILE.exists():
             pid = PID_FILE.read_text().strip()
@@ -25,7 +26,8 @@ class Daemon:
                 try:
                     os.kill(pid, 0)
                     print(f"Daemon already running with PID {pid}. Exiting.", file=sys.stderr)
-                    sys.exit(1)
+                    self._exit = 1
+                    self.cleanup()
                 except ProcessLookupError:
                     print("Stale PID file found. Removing.", file=sys.stderr)
                     PID_FILE.unlink()
@@ -56,11 +58,13 @@ class Daemon:
         if PID_FILE.exists():
             PID_FILE.unlink()
 
+        sys.exit(self._exit)
+
     def listen(self):
         pipe = os.open(PIPE_PATH, os.O_RDONLY | os.O_NONBLOCK)
         if pipe < 0:
             print("Failed to open pipe; exiting")
-            sys.exit(1)
+            self.cleanup()
         print(f"{DAEMON_NAME} is running with PID {os.getpid()}. Listening on {PIPE_PATH}...", file=sys.stderr)
         while self.running:
             try:
@@ -69,14 +73,12 @@ class Daemon:
                     subprocess.run(COMMAND, shell=True)
             except SystemExit:
                 self.cleanup()
-                break
             except BlockingIOError:
                 # wait for IO to be ready
                 continue
             except Exception as e:
                 print(f"Error: {e} ({type(e)})", file=sys.stderr)
                 self.cleanup()
-                break
 
 
 if __name__ == "__main__":
