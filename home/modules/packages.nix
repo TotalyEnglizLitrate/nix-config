@@ -21,7 +21,6 @@
       ncdu
       nodePackages_latest.nodejs
       normcap
-      ollama
       pipenv
       pnpm
       postgresql

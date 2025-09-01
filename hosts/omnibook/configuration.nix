@@ -4,6 +4,7 @@
     ./hardware-configuration.nix
     ../modules/common.nix
     ../modules/mute-led-daemon.nix
+    ../modules/ollama.nix
   ];
 
   networking.firewall = {
@@ -32,6 +33,8 @@
     sudo.fprintAuth = true;
     pkexec.fprintAuth = true;
   };
+
+  nixpkgs.config.rocmSupport = true;
 
   virtualisation.docker = {
     enable = true;
