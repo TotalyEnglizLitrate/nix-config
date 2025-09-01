@@ -32,4 +32,13 @@
     sudo.fprintAuth = true;
     pkexec.fprintAuth = true;
   };
+
+  virtualisation.docker = {
+    enable = true;
+    rootless = {
+      enable = true;
+      setSocketVariable = true;
+    };
+  };
+  users.users.engliz.extraGroups = ["docker"];
 }
