@@ -23,6 +23,8 @@
       normcap
       ollama
       pipenv
+      pnpm
+      postgresql
       pulseaudio
       python3Full
       qemu
