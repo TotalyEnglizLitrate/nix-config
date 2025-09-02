@@ -168,4 +168,7 @@
   programs.nix-ld.enable = true;
 
   programs.kdeconnect.enable = true;
+
+  # Required for the easyeffects daemon to work properly
+  programs.dconf.enable = true;
 }
