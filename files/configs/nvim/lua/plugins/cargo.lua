@@ -1,0 +1,3 @@
+return {
+  "nwiizo/cargo.nvim",
+}
