@@ -14,6 +14,7 @@
     ./gdm.nix
     ./niri.nix
     ./cloudflare-warp.nix
+    ./tuned.nix
   ];
 
   # Nixpkgs configuration
