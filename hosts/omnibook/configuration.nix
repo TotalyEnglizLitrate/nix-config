@@ -43,5 +43,5 @@
       setSocketVariable = true;
     };
   };
-  users.users.engliz.extraGroups = ["docker"];
+  users.users.engliz.extraGroups = ["docker" "video"];
 }
