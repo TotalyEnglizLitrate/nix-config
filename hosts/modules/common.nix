@@ -9,7 +9,6 @@
   ...
 }: {
   imports = [
-    inputs.niri.nixosModules.niri
     ./gdm.nix
     ./niri.nix
     ./nh.nix
