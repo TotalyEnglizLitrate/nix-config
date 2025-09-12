@@ -36,12 +36,6 @@
     # NixOS profiles to optimize settings for different hardware
     hardware.url = "github:nixos/nixos-hardware";
 
-    # Global catppuccin theme
-    catppuccin = {
-      url = "github:catppuccin/nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     # NixOS Spicetify
     spicetify-nix = {
       url = "github:Gerg-L/spicetify-nix";
@@ -51,7 +45,6 @@
 
   outputs = {
     self,
-    catppuccin,
     home-manager,
     nixpkgs,
     zen-browser,
@@ -80,6 +73,7 @@
         };
         modules = [
           ./hosts/${hostname}/configuration.nix
+          inputs.niri.nixosModules.niri
         ];
       };
 
@@ -93,7 +87,6 @@
         };
         modules = [
           ./home/${username}/${hostname}.nix
-          catppuccin.homeModules.catppuccin
           stylix.homeModules.stylix
         ];
       };
