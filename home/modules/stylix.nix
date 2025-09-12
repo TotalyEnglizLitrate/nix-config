@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   stylix.enable = true;
   stylix.autoEnable = false;
-  stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/oxocarbon-dark.yaml";
+  stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/outrun-dark.yaml";
   stylix.targets = {
     foot.enable = true;
     fish.enable = true;
