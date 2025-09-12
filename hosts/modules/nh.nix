@@ -11,5 +11,5 @@ in {
     clean.extraArgs = "--keep-since 4d --keep 3";
   };
   environment.sessionVariables.NH_OS_FLAKE = "${flakePath}/#nixosConfigurations.${hostname}";
-  environment.sessionVariables.NH_HOME_FLAKE = "${flakePath}/#homeConfigurations.${userConfig.name}@${hostname}";
+  environment.sessionVariables.NH_HOME_FLAKE = "${flakePath}/#homeConfigurations.${userConfig.name}@${hostname}.activationPackage";
 }
