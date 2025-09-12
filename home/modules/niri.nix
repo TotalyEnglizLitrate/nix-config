@@ -116,6 +116,7 @@ in {
       {command = ["arrpc"];}
       {command = ["${pkgs.kdePackages.kdeconnect-kde}/lib/kdeconnectd"];}
       {command = ["${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1"];}
+      {command = ["pkill" "nm-applet"];}
     ];
 
     prefer-no-csd = true;
