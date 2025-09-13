@@ -149,7 +149,7 @@ in {
     ];
 
     binds = {
-      "Mod+T".action.spawn = ["foot" "shell"];
+      "Mod+T".action.spawn = ["foot"];
       "Mod+R".action.spawn = ["anyrun"];
       "Mod+W".action.spawn = ["zen"];
       "Mod+B".action.spawn = ["blueman-manager"];
@@ -159,7 +159,6 @@ in {
       "Mod+S".action.spawn = ["spotify" "--enable-features=UseOzonePlatform" "--ozone-platform=wayland"];
       "Mod+V".action.spawn = ["foot" "-T" "clipboard" "cliphist-fzf"];
       "Mod+Shift+V".action.spawn = ["cliphist" "wipe"];
-      "Mod+Shift+T".action.spawn = ["foot"];
       "Mod+Shift+W".action.spawn = ["wallpaper"];
 
       "Mod+Tab" = {
@@ -207,11 +206,6 @@ in {
         cooldown-ms = 150;
         action.move-column-to-workspace-up = {};
       };
-
-      "Mod+WheelScrollRight".action.focus-column-right = {};
-      "Mod+WheelScrollLeft".action.focus-column-left = {};
-      "Mod+Ctrl+WheelScrollRight".action.move-column-right = {};
-      "Mod+Ctrl+WheelScrollLeft".action.move-column-left = {};
 
       "Mod+Shift+WheelScrollDown".action.focus-column-right = {};
       "Mod+Shift+WheelScrollUp".action.focus-column-left = {};
