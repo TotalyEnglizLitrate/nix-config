@@ -7,6 +7,8 @@
     btop.enable = true;
     lazygit.enable = true;
     neovim.enable = true;
+    foot.enable = true;
+    starship.enable = true;
     swaync.enable = true;
     waybar.enable = true;
     qt.enable = true;
