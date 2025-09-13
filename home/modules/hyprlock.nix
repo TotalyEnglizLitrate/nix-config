@@ -48,7 +48,7 @@
           text = "cmd[update:3600000] echo $(date '+%A, %d %B')";
           color = "rgba(255, 255, 255, 0.8)";
           font_size = 30;
-          font_family = "JetBrains Mono Nerd Font Mono ExtraBold";
+          font_family = "0xProto Nerd Font Bold";
           halign = "center";
           valign = "center";
         }
@@ -57,7 +57,7 @@
           color = "rgba(255, 255, 255, 0.8)";
           font_size = 70;
           position = "0, 120";
-          font_family = "JetBrains Mono Nerd Font Mono ExtraBold";
+          font_family = "0xProto Nerd Font Bold";
           halign = "center";
           valign = "center";
         }

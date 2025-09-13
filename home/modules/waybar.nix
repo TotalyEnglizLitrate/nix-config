@@ -9,12 +9,12 @@
         exclusive = true;
         passthrough = false;
         fixed-center = true;
-        margin-top = 3;
-        margin-left = 4;
-        margin-right = 4;
+        margin-top = 0;
+        margin-left = 0;
+        margin-right = 0;
+        margin-bottom = 0;
 
         modules-left = [
-          "wlr/taskbar"
           "niri/workspaces"
         ];
 
@@ -57,10 +57,10 @@
             warning = 30;
             critical = 20;
           };
-          format = "<big>{icon}</big>  {capacity}%";
-          format-charging = "󱐋 {capacity}%";
-          format-plugged = "󱐤 {capacity}%";
-          format-full = "{icon} Full";
+          format = "<big>{icon}</big> {capacity}%";
+          format-charging = "󱐋 ";
+          format-plugged = "󱐤 ";
+          format-full = "{icon} ";
           format-icons = [
             ""
             ""
@@ -70,14 +70,14 @@
           ];
           format-time = "{H}h {M}min";
           tooltip = true;
-          tooltip-format = "{timeTo} {power}w";
+          tooltip-format = "{capacity}%\n{timeTo} {power}w";
           on-click-right = "${pkgs.foot}/bin/foot -T batmon ${pkgs.batmon}/bin/batmon";
         };
 
         bluetooth = {
           format = "";
-          format-connected = " {num_connections}";
-          tooltip-format = " {device_alias}";
+          format-connected = " {num_connections}";
+          tooltip-format = " {device_alias}";
           tooltip-format-connected = "{device_enumerate}";
           tooltip-format-enumerate-connected = "Name: {device_alias}\nBattery: {device_battery_percentage}%";
           on-click = "blueman-manager";
@@ -85,7 +85,7 @@
 
         clock = {
           format = "{:%b %d %H:%M}";
-          format-alt = " {:%H:%M   %Y, %d %B, %A}";
+          format-alt = "{:%H:%M %Y, %d %B, %A}";
           tooltip-format = "<tt><small>{calendar}</small></tt>";
           calendar = {
             mode = "year";
@@ -122,9 +122,9 @@
           format-muted = "󰝟 ";
           format-icons = {
             default = [
-              ""
-              ""
-              " "
+              "󰕿"
+              "󰖀"
+              "󰕾"
             ];
           };
           on-click = "pavucontrol";
@@ -154,14 +154,14 @@
           tooltip = false;
           format = "{icon}";
           format-icons = {
-            notification = "<span foreground='red'><sup></sup></span>";
-            none = " ";
-            dnd-notification = "<span foreground='red'><sup></sup></span>";
-            dnd-none = " ";
-            inhibited-notification = "<span foreground='red'><sup></sup></span>";
-            inhibited-none = " ";
-            dnd-inhibited-notification = "<span foreground='red'><sup></sup></span>";
-            dnd-inhibited-none = " ";
+            notification = "󰂚 <span foreground='red'><sup></sup></span>";
+            none = "";
+            dnd-notification = "󰂛 <span foreground='red'><sup></sup></span>";
+            dnd-none = "";
+            inhibited-notification = "";
+            inhibited-none = "";
+            dnd-inhibited-notification = "";
+            dnd-inhibited-none = "";
           };
           return-type = "json";
           exec-if = "which swaync-client";
@@ -171,9 +171,6 @@
           escape = true;
         };
 
-        "wlr/taskbar" = {
-          tooltip-format = "{title} | {app_id}";
-        };
         network = {
           interval = 5;
           family = "ipv4_6";
@@ -184,34 +181,32 @@
           format-icons = ["󰤫 " "󰤟 " "󰤢 " "󰤥 " "󰤨 "];
           on-click = "nm-connection-editor";
           tooltip-format-wifi = "{essid} ({signalStrength}%)\n{bandwidthDownBytes} down; {bandwidthUpBytes} up";
-          tooltip-format-ethernet = "{ifname}  ";
+          tooltip-format-ethernet = "{ifname}  ";
           tooltip-format-disconnected = "Disconnected";
         };
       };
     };
     style = ''
       * {
-        font-family: "JetBrainsMono Nerd Font";
         font-weight: bold;
+        font-size: 12pt;
         min-height: 0;
-        font-size: 100%;
         font-feature-settings: '"zero", "ss01", "ss02", "ss03", "ss04", "ss05", "cv31"';
         padding: 0px;
-        margin-top: 1px;
-        margin-bottom: 1px;
+        margin: 2px;
       }
 
       window#waybar {
-        background: rgba(0, 0, 0, 0);
+        margin: 0px;
+        padding: 0px;
       }
 
       window#waybar.hidden {
-        opacity: 0.5;
+        opacity: 1;
       }
 
       tooltip {
-        background: #1e1e2e;
-        border-radius: 8px;
+        border-radius: 0px;
       }
 
       tooltip label {
@@ -223,9 +218,10 @@
       .modules-right,
       .modules-center,
       .modules-left {
-        background-color: rgba(0, 0, 0, 0.6);
-        border: 0px solid #b4befe;
-        border-radius: 8px;
+        border: rgba(0,0,0,1);
+        border-radius: 0px;
+        padding: 0px;
+        margin: 0px;
       }
 
       #tags button {
@@ -240,7 +236,7 @@
 
       #tags button.urgent {
         color: #ed8796;
-        border-radius: 8px;
+        border-radius: 0px;
       }
 
       #mode {
@@ -260,18 +256,14 @@
       #custom-temperature,
       #tags {
         color: #dfdfdf;
-        padding: 0px 10px;
-        border-radius: 8px;
+        padding: 0px 4px;
+        border-radius: 0px;
       }
 
       @keyframes blink {
         to {
           color: #000000;
         }
-      }
-
-      #taskbar button.active {
-        background-color: #7f849c;
       }
 
       #battery.critical:not(.charging) {

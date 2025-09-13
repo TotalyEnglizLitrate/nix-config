@@ -92,7 +92,7 @@ in {
     };
 
     layout = {
-      gaps = 1;
+      gaps = 0;
       center-focused-column = "on-overflow";
       default-column-width.proportion = 0.5;
       focus-ring.enable = false;

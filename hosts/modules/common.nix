@@ -154,10 +154,20 @@
 
   # Fonts configuration
   fonts.packages = with pkgs; [
-    nerd-fonts.jetbrains-mono
-    nerd-fonts.fira-code
-    roboto
+    nerd-fonts._0xproto
+    _0xproto
+    dejavu_fonts
+    liberation_ttf
+    twitter-color-emoji
   ];
+  fonts.fontconfig = {
+    enable = true;
+    defaultFonts = {
+      monospace = ["0xProto Nerd Font" "0xProto" "DejaVu Sans" "Liberation"];
+      sansSerif = ["0xProto Nerd Font" "Noto Sans" "DejaVu Sans" "Liberation Sans"];
+      serif = ["Noto Serif" "DejaVu Serif" "Liberation Serif"];
+    };
+  };
 
   # Additional services
   services.locate.enable = true;
