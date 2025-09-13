@@ -1,4 +1,12 @@
-{pkgs, ...}: let
+{
+  lib,
+  pkgs,
+  ...
+}: let
+  makeBindings = bindings:
+    lib.mapAttrs'
+    (bind: action: lib.nameValuePair "bind \"${bind}\"" action)
+    bindings;
 in {
   programs.zellij = {
     enable = true;
@@ -6,25 +14,17 @@ in {
     enableFishIntegration = true;
     attachExistingSession = true;
     settings = {
+      show_startup_tips = false;
+      show_release_notes = false;
       keybinds = {
-        normal = [
-          {
-            bind = "Ctrl Shift h";
-            action = ["MoveFocusOrTab" "Left"];
-          }
-          {
-            bind = "Ctrl Shift j";
-            action = ["MoveFocusOrTab" "Down"];
-          }
-          {
-            bind = "Ctrl Shift k";
-            action = ["MoveFocusOrTab" "Up"];
-          }
-          {
-            bind = "Ctrl Shift l";
-            action = ["MoveFocusOrTab" "Right"];
-          }
-        ];
+        normal = makeBindings {
+          "Ctrl Shift h" = {MoveFocusOrTab = "Left";};
+          "Ctrl Shift j" = {MoveFocusOrTab = "Down";};
+          "Ctrl Shift k" = {MoveFocusOrTab = "Up";};
+          "Ctrl Shift l" = {MoveFocusOrTab = "Right";};
+          "Alt t" = {NewTab = {};};
+          "Alt w" = {CloseTab = {};};
+        };
       };
     };
   };
