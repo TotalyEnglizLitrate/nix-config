@@ -140,6 +140,7 @@ in {
           {app-id = ".blueman-manager-wrapped";}
           {app-id = "org.pulseaudio.pavucontrol";}
           {app-id = "nm-connection-editor";}
+          {app-id = ".protonvpn-app-wrapped";}
 
           {title = "clipboard";}
         ];
