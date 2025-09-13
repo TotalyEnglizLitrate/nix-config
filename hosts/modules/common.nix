@@ -42,7 +42,7 @@
     // {"environment".text = "LIBSEAT_BACKEND=logind";};
   # Nix settings
   nix.settings = {
-    experimental-features = "nix-command flakes";
+    experimental-features = "nix-command flakes ca-derivations";
     auto-optimise-store = true;
     substituters = ["https://niri.cachix.org"];
     trusted-public-keys = ["niri.cachix.org-1:Wv0OmO7PsuocRKzfDoJ3mulSl7Z6oezYhGhR+3W2964="];
@@ -137,6 +137,8 @@
 
   # Shell
   programs.fish.enable = true;
+  # use ca-derivations for manpages to speedup build time
+  documentation.man.man-db.package = pkgs.man-db.overrideAttrs (final: prev: {__contentAddressed = true;});
 
   # Require password for sudo
   security.sudo.wheelNeedsPassword = true;
