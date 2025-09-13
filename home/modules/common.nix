@@ -33,12 +33,6 @@
     };
   };
 
-  # Catpuccin flavor and accent
-  catppuccin = {
-    flavor = "mocha";
-    accent = "lavender";
-  };
-
   programs = {
     bat.enable = true;
     btop.enable = true;
