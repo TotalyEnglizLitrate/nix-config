@@ -19,7 +19,6 @@
     pipenv
     pulseaudio
     python3
-    qemu
     qpwgraph
     ripgrep
     ugrep
