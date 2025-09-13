@@ -9,7 +9,7 @@
       tree = "eza --tree --group-directories-first";
       cat = "bat";
       grep = "ugrep";
-      "..." = "../../";
+      "..." = "../..";
     };
     interactiveShellInit = ''
       set fish_greeting
