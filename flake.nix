@@ -47,10 +47,7 @@
     self,
     home-manager,
     nixpkgs,
-    zen-browser,
-    anyrun,
     stylix,
-    niri,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -68,7 +65,7 @@
     mkNixosConfiguration = hostname: username:
       nixpkgs.lib.nixosSystem {
         specialArgs = {
-          inherit inputs outputs hostname niri;
+          inherit inputs outputs hostname;
           userConfig = users.${username};
         };
         modules = [
@@ -82,7 +79,7 @@
       home-manager.lib.homeManagerConfiguration {
         pkgs = import nixpkgs {inherit system;};
         extraSpecialArgs = {
-          inherit inputs outputs zen-browser anyrun hostname;
+          inherit inputs outputs hostname;
           userConfig = users.${username};
         };
         modules = [

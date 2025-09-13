@@ -11,7 +11,7 @@
     waybar.enable = true;
     qt.enable = true;
     gtk.enable = true;
-    tmux.enable = true;
+    zellij.enable = true;
     spicetify.enable = true;
   };
 }

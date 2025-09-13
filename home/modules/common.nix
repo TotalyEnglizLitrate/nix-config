@@ -15,7 +15,7 @@
     ../modules/scripts.nix
     ../modules/fish.nix
     ../modules/starship.nix
-    ../modules/tmux.nix
+    ../modules/zellij.nix
     ../modules/zen.nix
     ../modules/spicetify.nix
     ../modules/spotify.nix
