@@ -5,6 +5,8 @@
     ../modules/common.nix
     ../modules/mute-led-daemon.nix
     ../modules/ollama.nix
+    ../modules/docker.nix
+    ../modules/qemu.nix
   ];
 
   networking.firewall = {
@@ -35,13 +37,4 @@
   };
 
   nixpkgs.config.rocmSupport = true;
-
-  virtualisation.docker = {
-    enable = true;
-    rootless = {
-      enable = true;
-      setSocketVariable = true;
-    };
-  };
-  users.users.engliz.extraGroups = ["docker" "video"];
 }
