@@ -1,11 +1,22 @@
 #!/bin/sh
 
+current_wallpaper=~/Pictures/wallpapers/current_wallpaper
+
 if [ $# -eq 1 ]; then
 	if [ "$1" = "--init" ]; then
 		pidof swww-daemon || swww-daemon
 		swww restore
+		unlink $current_wallpaper
+		ln -s "$(swww query | cut -c 61-)" $current_wallpaper
 		exit
 	fi
 fi
 
-swww img "$(find ~/Pictures/wallpapers -name "*[png|jpg]" | shuf -n 1)" --transition-type none
+wallpaper="$(find ~/Pictures/wallpapers -name "*[png|jpg|jpeg]" | shuf -n 1)"
+swww img "$wallpaper" --transition-type none
+
+if [ -e $current_wallpaper ]; then
+	unlink $current_wallpaper
+fi
+
+ln -s "$wallpaper" $current_wallpaper

@@ -8,7 +8,7 @@
     settings = {
       background = [
         {
-          path = "/home/${userConfig.name}/Pictures/wallpapers/default.png";
+          path = "/home/${userConfig.name}/Pictures/wallpapers/current_wallpaper";
           blur_passes = 1;
           contrast = 0.8916;
           brightness = 0.8172;
