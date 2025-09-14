@@ -28,8 +28,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     # Runner
-    anyrun = {
-      url = "github:anyrun-org/anyrun";
+    walker = {
+      url = "github:abenz1267/walker";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -47,7 +47,6 @@
     self,
     home-manager,
     nixpkgs,
-    stylix,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -84,7 +83,8 @@
         };
         modules = [
           ./home/${username}/${hostname}.nix
-          stylix.homeModules.stylix
+          inputs.stylix.homeModules.stylix
+          inputs.walker.homeManagerModules.default
         ];
       };
   in {
