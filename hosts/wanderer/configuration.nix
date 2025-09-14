@@ -17,12 +17,4 @@
   # on your system were taken. It‘s perfectly fine and recommended to leave
   # this value at the release version of the first install of this system.
   system.stateVersion = "24.11";
-
-  services.fprintd.enable = true;
-  security.pam.services = {
-    sudo.fprintAuth = true;
-    pkexec.fprintAuth = true;
-  };
-
-  nixpkgs.config.rocmSupport = true;
 }
