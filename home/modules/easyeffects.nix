@@ -1,11 +1,9 @@
 {...}: {
-  # Install easyeffects via home-manager module
   services.easyeffects = {
     enable = true;
     preset = "mic";
   };
 
-  # Source easyeffects preset from the home-manager store
   xdg.configFile = {
     "easyeffects/input/mic.json".text = ''
       {

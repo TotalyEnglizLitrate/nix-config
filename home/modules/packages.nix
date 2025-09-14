@@ -1,5 +1,4 @@
 {pkgs, ...}: {
-  # ensure common packages are installed
   home.packages = with pkgs; [
     batmon
     eza

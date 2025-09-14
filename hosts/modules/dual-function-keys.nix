@@ -8,7 +8,6 @@
     '';
   };
 
-  # Create the configuration file for dual-function-keys
   environment.etc."dual-function-keys.yaml".text = ''
     MAPPINGS:
       - KEY: KEY_RIGHTSHIFT

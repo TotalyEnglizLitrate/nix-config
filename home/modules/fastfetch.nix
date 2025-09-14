@@ -1,5 +1,4 @@
 {pkgs, ...}: {
-  # Install and configure fastfetch via home-manager module
   home.packages = with pkgs; [hyfetch];
   programs.fastfetch = {
     enable = true;

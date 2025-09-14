@@ -6,7 +6,6 @@
   spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.system};
 in {
   imports = [
-    # Spicetify
     inputs.spicetify-nix.homeManagerModules.default
   ];
 

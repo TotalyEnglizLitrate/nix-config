@@ -1,7 +1,6 @@
 {pkgs, ...}: let
   neovim_config = ../../files/configs/nvim;
 in {
-  # Neovim text editor configuration
   programs.neovim = {
     enable = true;
     package = pkgs.neovim-unwrapped;
@@ -40,7 +39,6 @@ in {
     ];
   };
 
-  # source lua config from this repo
   xdg.configFile = {
     "nvim" = {
       source = "${neovim_config}";

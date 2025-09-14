@@ -5,11 +5,9 @@
   ...
 }: {
   config = {
-    # Ensure zen browser package installed
     home.packages = with pkgs; [
       inputs.zen-browser.packages."${system}".twilight
     ];
-    # Ensure XDG browser settings are in place
     xdg = {
       mimeApps = {
         defaultApplications = lib.mkMerge [

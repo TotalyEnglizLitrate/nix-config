@@ -23,7 +23,6 @@ in {
     inputs.niri.homeModules.config
   ];
 
-  # Consistent cursor theme across all applications.
   home.pointerCursor = {
     gtk.enable = true;
     x11.enable = true;

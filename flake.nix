@@ -1,17 +1,14 @@
 {
   description = "NixOS configs for my machines";
   inputs = {
-    # Nixpkgs
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-25.05";
 
-    # Home manager
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # themeing
     stylix = {
       url = "github:danth/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -27,16 +24,14 @@
       url = "github:sodiboo/niri-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # Runner
+
     walker = {
       url = "github:abenz1267/walker";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # NixOS profiles to optimize settings for different hardware
     hardware.url = "github:nixos/nixos-hardware";
 
-    # NixOS Spicetify
     spicetify-nix = {
       url = "github:Gerg-L/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -51,7 +46,6 @@
   } @ inputs: let
     inherit (self) outputs;
 
-    # Define user configurations
     users = {
       engliz = {
         email = "narendra.s1232@gmail.com";
@@ -60,7 +54,6 @@
       };
     };
 
-    # Function for NixOS system configuration
     mkNixosConfiguration = hostname: username:
       nixpkgs.lib.nixosSystem {
         specialArgs = {
@@ -73,7 +66,6 @@
         ];
       };
 
-    # Function for Home Manager configuration
     mkHomeConfiguration = system: username: hostname:
       home-manager.lib.homeManagerConfiguration {
         pkgs = import nixpkgs {inherit system;};

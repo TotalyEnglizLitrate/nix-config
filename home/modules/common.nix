@@ -21,7 +21,6 @@
     ../modules/stylix.nix
   ];
 
-  # Nixpkgs configuration
   nixpkgs = {
     overlays = [
       outputs.overlays.stable-packages
@@ -37,6 +36,5 @@
     btop.enable = true;
   };
 
-  # include wallpapers
   home.file."Pictures/wallpapers/default.png".source = ../../files/wallpapers/nix-logo.png;
 }

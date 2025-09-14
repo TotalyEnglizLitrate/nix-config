@@ -16,7 +16,6 @@
     ./tuned.nix
   ];
 
-  # Nixpkgs configuration
   nixpkgs = {
     overlays = [
       outputs.overlays.stable-packages
@@ -28,10 +27,8 @@
     };
   };
 
-  # Register flake inputs for nix commands
   nix.registry = lib.mapAttrs (_: flake: {inherit flake;}) (lib.filterAttrs (_: lib.isType "flake") inputs);
 
-  # Add inputs to legacy channels
   nix.nixPath = ["/etc/nix/path"];
   environment.etc =
     lib.mapAttrs' (name: value: {
@@ -40,7 +37,7 @@
     })
     config.nix.registry
     // {"environment".text = "LIBSEAT_BACKEND=logind";};
-  # Nix settings
+
   nix.settings = {
     experimental-features = "nix-command flakes ca-derivations";
     auto-optimise-store = true;
@@ -48,7 +45,6 @@
     trusted-public-keys = ["niri.cachix.org-1:Wv0OmO7PsuocRKzfDoJ3mulSl7Z6oezYhGhR+3W2964="];
   };
 
-  # Boot settings
   boot = {
     kernelPackages = pkgs.linuxKernel.packages.linux_6_16;
     consoleLogLevel = 0;
@@ -66,7 +62,6 @@
       themePackages = with pkgs; [(adi1090x-plymouth-themes.override {selected_themes = ["deus_ex"];})];
     };
 
-    # v4l (virtual camera) module settings
     kernelModules = [
       "v4l2loopback"
       "uinput"
@@ -80,14 +75,11 @@
     '';
   };
 
-  # Networking
   networking.networkmanager.enable = lib.mkForce true;
   networking.hostName = hostname;
 
-  # Timezone
   time.timeZone = "Asia/Kolkata";
 
-  # Internationalization
   i18n.defaultLocale = "en_US.UTF-8";
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "en_IN";
@@ -101,22 +93,16 @@
     LC_TIME = "en_IN";
   };
 
-  # Input settings
   services.libinput.enable = true;
 
-  # PATH configuration
   environment.localBinInPath = true;
 
-  # Enable CUPS for printing
   services.printing.enable = true;
 
-  # Enable devmon for device management
   services.devmon.enable = true;
 
-  #Enable seatd for wlroots
   services.seatd.enable = true;
 
-  # Enable PipeWire for sound
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
@@ -127,7 +113,6 @@
     jack.enable = true;
   };
 
-  # User configuration
   users.users.${userConfig.name} = {
     description = userConfig.fullName;
     extraGroups = ["networkmanager" "wheel"];
@@ -135,15 +120,12 @@
     shell = pkgs.fish;
   };
 
-  # Shell
   programs.fish.enable = true;
   # use ca-derivations for manpages to speedup build time
   documentation.man.man-db.package = pkgs.man-db.overrideAttrs (final: prev: {__contentAddressed = true;});
 
-  # Require password for sudo
   security.sudo.wheelNeedsPassword = true;
 
-  # System packages
   environment.systemPackages = with pkgs; [
     gcc
     glib
@@ -152,7 +134,6 @@
     mesa
   ];
 
-  # Fonts configuration
   fonts.packages = with pkgs; [
     nerd-fonts._0xproto
     _0xproto
@@ -169,17 +150,13 @@
     };
   };
 
-  # Additional services
   services.locate.enable = true;
 
-  # OpenSSH daemon
   services.openssh.enable = true;
 
-  # Running dynamically linked executables
   programs.nix-ld.enable = true;
 
   programs.kdeconnect.enable = true;
 
-  # Required for the easyeffects daemon to work properly
   programs.dconf.enable = true;
 }
