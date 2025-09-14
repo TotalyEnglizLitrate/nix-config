@@ -1,4 +1,8 @@
-{userConfig, ...}: {
+{
+  pkgs,
+  userConfig,
+  ...
+}: {
   imports = [./ssh.nix ./gpg.nix];
 
   programs.git = {
@@ -19,7 +23,7 @@
     };
 
     signing = {
-      key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKtlDkVL/0TH2zsD+nSawpwChiXH9QYkDXXxtaNtji5g narendra.s1232@gmail.com";
+      key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKtlDkVL/0TH2zsD+nSawpwChiXH9QYkDXXxtaNtji5g ${userConfig.email}";
       signByDefault = true;
     };
 
@@ -27,6 +31,7 @@
       pull.rebase = true;
       gpg.format = "ssh";
       gpg.ssh.allowedSignersFile = "/home/${userConfig.name}/.config/git/allowed_signers";
+      credential.helper = "${pkgs.git.override {withLibsecret = true;}}/libexec/git-core/git-credential-libsecret";
     };
   };
 
