@@ -79,7 +79,7 @@ in {
       eDP-1 = {
         enable = true;
         scale =
-          if hostname == "ideapad330"
+          if hostname == "wanderer"
           then 1
           else if hostname == "lattitude5491"
           then 0.7

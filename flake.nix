@@ -83,11 +83,13 @@
     nixosConfigurations = {
       lattitude5491 = mkNixosConfiguration "lattitude5491" "engliz";
       omnibook = mkNixosConfiguration "omnibook" "engliz";
+      wanderer = mkNixosConfiguration "wanderer" "engliz";
     };
 
     homeConfigurations = {
       "engliz@lattitude5491" = mkHomeConfiguration "x86_64-linux" "engliz" "lattitude5491";
       "engliz@omnibook" = mkHomeConfiguration "x86_64-linux" "engliz" "omnibook";
+      "engliz@wanderer" = mkHomeConfiguration "x86_64-linux" "engliz" "wanderer";
     };
     overlays = import ./overlays {inherit inputs;};
   };
