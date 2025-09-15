@@ -3,6 +3,7 @@
     inputs.hardware.nixosModules.common-pc-ssd
     ./hardware-configuration.nix
     ../modules/common.nix
+    ../modules/zram.nix
   ];
 
   networking.firewall = {

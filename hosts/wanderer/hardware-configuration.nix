@@ -20,13 +20,13 @@
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/42ee92de-a922-4946-a72d-15809e2dbd83";
     fsType = "btrfs";
-    options = ["subvol=@"];
+    options = ["subvol=@" "noatime" "space_cache" "compress=zstd"];
   };
 
   fileSystems."/home" = {
     device = "/dev/disk/by-uuid/42ee92de-a922-4946-a72d-15809e2dbd83";
     fsType = "btrfs";
-    options = ["subvol=@home"];
+    options = ["subvol=@home" "noatime" "space_cache" "compress=zstd"];
   };
 
   fileSystems."/boot" = {
