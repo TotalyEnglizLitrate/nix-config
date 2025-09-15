@@ -9,6 +9,12 @@
     if hostname == "omnibook"
     then "F12"
     else "Print";
+
+  scale = {
+    wanderer = 1;
+    lattitude5491 = 0.7;
+    omnibook = 1;
+  };
 in {
   imports = [
     ./cliphist.nix
@@ -78,14 +84,7 @@ in {
     outputs = {
       eDP-1 = {
         enable = true;
-        scale =
-          if hostname == "wanderer"
-          then 1
-          else if hostname == "lattitude5491"
-          then 0.7
-          else if hostname == "omnibook"
-          then 1.25
-          else abort "Should be unreachable";
+        scale = scale.${hostname};
         variable-refresh-rate = hostname == "omnibook";
       };
     };
@@ -106,7 +105,8 @@ in {
 
     spawn-at-startup = [
       {command = ["wallpaper" "--init"];}
-      {command = ["toggle-mute" "--init"];}
+      {command = ["systemctl" "--user" "restart" "elephant.service"];} # dk why but this thing needs to be done everytime; figure out a cleaner way to do it
+      {command = ["toggle-mute" "--init"];} # fix this guy; works half the time; prolly switch to a python script
       {command = ["waybar-restart"];}
       {command = ["xwayland-satellite"];}
       {command = ["swaync"];}
