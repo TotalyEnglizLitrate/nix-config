@@ -1,23 +1,57 @@
-#!/bin/sh
+#!/usr/bin/env python
 
-if [ $# -eq 1 ]; then
-	if [ "$1" = "--init" ]; then
-		muted="$(wpctl get-volume @DEFAULT_AUDIO_SOURCE@ | grep -q MUTED)"
-		if $muted; then
-			echo "muted"
-			if [ "$(cat /sys/class/leds/hda::micmute/brightness)" = "0" ]; then
-				echo "led off"
-				echo "toggling"
-				echo "" >/var/run/mute-led-fixd.pipe
-			fi
-		elif [ "$(cat /sys/class/leds/hda::micmute/brightness)" = "1" ]; then
-			echo "unmuted"
-			echo "led on"
-			echo "toggling"
-			echo "" >/var/run/mute-led-fixd.pipe
-		fi
-	fi
-else
-	wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
-	echo "" >/var/run/mute-led-fixd.pipe
-fi
+from pathlib import Path
+from shlex import split
+from subprocess import PIPE, Popen, run
+from sys import argv
+
+
+def is_muted() -> bool:
+    return (
+        run(split("wpctl get-volume @DEFAULT_AUDIO_SOURCE@"), check=True, capture_output=True, text=True)
+        .stdout.strip()
+        .find("MUTED")
+        != -1
+    )
+
+
+def toggle_led():
+    pipe = Path("/var/run/mute-led-fixd.pipe")
+    if not pipe.exists():
+        raise FileNotFoundError(str(pipe))
+
+    if not pipe.is_fifo():
+        raise ValueError(f"Path exists but is not a pipe: {pipe}")
+
+    pipe.write_bytes(b"0")
+
+
+def toggle_mute():
+    run(split("wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"), check=True)
+    check_led()
+
+
+def check_led():
+    led_state = bool(int(Path("/sys/class/leds/hda::micmute/brightness").read_text()))
+    if is_muted() ^ led_state:
+        toggle_led()
+
+
+def listen_source_change():
+    listener = Popen(["pactl", "subscribe"], text=True, stdout=PIPE)
+    assert listener.stdout is not None
+    for line in listener.stdout:
+        line = line.strip()
+        if line.startswith("Event 'change' on source"):
+            check_led()
+
+
+if __name__ == "__main__":
+    match argv[1:]:
+        case ["--check" | "-c"]:
+            check_led()
+        case [] | ["--toggle" | "-t"]:
+            toggle_mute()
+        case ["--init" | "-i"]:
+            check_led()
+            listen_source_change()

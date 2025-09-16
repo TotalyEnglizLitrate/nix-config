@@ -1,22 +1,38 @@
-#!/bin/sh
+#!/usr/bin/env python
 
-current_wallpaper=~/Pictures/wallpapers/current_wallpaper
+from pathlib import Path
+from random import randrange
+from shlex import split
+from subprocess import run
+from sys import argv
 
-if [ $# -eq 1 ]; then
-	if [ "$1" = "--init" ]; then
-		pidof swww-daemon || swww-daemon
-		swww restore
-		unlink $current_wallpaper
-		ln -s "$(swww query | cut -c 61-)" $current_wallpaper
-		exit
-	fi
-fi
+wallpaper_dir = Path.home() / "Pictures/wallpapers"
+wallpapers = list(wallpaper_dir.rglob("*.jpg")) + list(wallpaper_dir.rglob("*.png"))
+current_wallpaper = wallpaper_dir / "current_wallpaper"
 
-wallpaper="$(find ~/Pictures/wallpapers -name "*[png|jpg|jpeg]" | shuf -n 1)"
-swww img "$wallpaper" --transition-type none
 
-if [ -e $current_wallpaper ]; then
-	unlink $current_wallpaper
-fi
+def init():
+    _current_wallpaper = Path(
+        run(split("swww query"), capture_output=True, check=True).stdout.strip()[57:].decode("UTF-8")
+    )
 
-ln -s "$wallpaper" $current_wallpaper
+    if _current_wallpaper != current_wallpaper.resolve():
+        current_wallpaper.unlink(missing_ok=True)
+        current_wallpaper.symlink_to(_current_wallpaper)
+        return
+
+    random_wallpaper()
+
+
+def random_wallpaper():
+    wallpaper = wallpapers[randrange(len(wallpapers))]
+    current_wallpaper.unlink(missing_ok=True)
+    current_wallpaper.symlink_to(wallpaper)
+    run(split(f"swww img {wallpaper} --transition-type none"), check=True)
+
+
+if __name__ == "__main__":
+    if len(argv) > 1 and argv[1] == "--init":
+        init()
+    else:
+        random_wallpaper()

@@ -106,7 +106,7 @@ in {
     spawn-at-startup = [
       {command = ["wallpaper" "--init"];}
       {command = ["systemctl" "--user" "restart" "elephant.service"];} # dk why but this thing needs to be done everytime; figure out a cleaner way to do it
-      {command = ["toggle-mute" "--init"];} # fix this guy; works half the time; prolly switch to a python script
+      {command = ["toggle-mute" "--init"];}
       {command = ["waybar-restart"];}
       {command = ["xwayland-satellite"];}
       {command = ["swaync"];}
