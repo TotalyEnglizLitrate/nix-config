@@ -5,6 +5,9 @@ return {
     dependencies = {
       "nvim-treesitter/nvim-treesitter",
     },
+    keys = {
+      { "<leader>o", group = "Org" },
+    },
     config = function()
       require("orgmode").setup({
         org_agenda_files = "~/org/agenda/*",

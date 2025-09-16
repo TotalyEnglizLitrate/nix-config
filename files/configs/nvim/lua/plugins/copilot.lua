@@ -2,6 +2,10 @@ return {
   {
     "github/copilot.vim",
     event = "InsertEnter",
+    keys = {
+      { "<C-J>", desc = "Copilot Accept" },
+      { "<leader>a", group = "Copilot" },
+    },
     config = function()
       -- Enable Copilot for specific filetypes
       vim.g.copilot_filetypes = {
