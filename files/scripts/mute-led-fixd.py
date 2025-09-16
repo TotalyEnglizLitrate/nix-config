@@ -4,6 +4,7 @@ import signal
 import string
 import subprocess
 import sys
+import time
 from pathlib import Path
 
 DAEMON_NAME = "mute-led-fixd"
@@ -80,6 +81,8 @@ class Daemon:
             except Exception as e:
                 print(f"Error: {e} ({type(e)})", file=sys.stderr)
                 self.cleanup()
+
+            time.sleep(0.1)
 
 
 if __name__ == "__main__":
