@@ -12,7 +12,7 @@
   };
 
   services.blueman.enable = true;
-
+  services.gvfs.enable = true;
   services.gnome.gnome-keyring.enable = true;
   security.polkit.enable = true;
   security.pam.services.hyprlock = {};
