@@ -3,7 +3,7 @@
 from pathlib import Path
 from random import randrange
 from shlex import split
-from subprocess import run
+from subprocess import Popen, run
 from sys import argv
 
 wallpaper_dir = Path.home() / "Pictures/wallpapers"
@@ -12,6 +12,8 @@ current_wallpaper = wallpaper_dir / "current_wallpaper"
 
 
 def init():
+    Popen(["swww-daemon"], start_new_session=True)
+    run(["swww" "restore"])
     _current_wallpaper = Path(
         run(split("swww query"), capture_output=True, check=True).stdout.strip()[57:].decode("UTF-8")
     )
