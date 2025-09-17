@@ -37,15 +37,15 @@
         truncation_length = 3;
         truncation_symbol = ".../";
         substitutions = {
-          "nix-config" = " ";
-          "repositories" = " ";
-          "Documents" = "󰈙 ";
-          "Downloads" = " ";
+          "nix-config" = "  ";
+          "repositories" = "  ";
+          "Documents" = " 󰈙 ";
+          "Downloads" = "  ";
           "~" = " ";
         };
-        read_only = "󰉐 ";
+        read_only = " 󰉐 ";
         read_only_style = "red";
-        format = "[ $path [$read_only](fg:red bg:#2587be)](bg:#2587be)[ ](fg:#2587be)";
+        format = "[ [$path](fg:#ffffff bg:#2587be) [$read_only](fg:red bg:#2587be)](bg:#2587be)[ ](fg:#2587be)";
       };
 
       format = ''
