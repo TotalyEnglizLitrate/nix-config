@@ -155,6 +155,13 @@
   services.openssh.enable = true;
 
   programs.nix-ld.enable = true;
+  systemd.tmpfiles.rules = [
+    ''L+ /lib64/libstdc++.so.6 - - - - ${pkgs.stdenv.cc.cc.lib}/lib64/libstdc++.so.6''
+    ''L+ /lib64/libz.so.1 - - - - ${pkgs.zlib}/lib/libz.so.1''
+  ];
+  environment.variables = {
+    NIX_LD_LIBRARY_PATH = lib.mkForce "/lib64";
+  };
 
   programs.kdeconnect.enable = true;
 
