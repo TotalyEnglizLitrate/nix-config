@@ -156,11 +156,11 @@
             notification = "󰂚 <span foreground='red'><sup></sup></span>";
             none = "";
             dnd-notification = "󰂛 <span foreground='red'><sup></sup></span>";
-            dnd-none = "";
+            dnd-none = " ";
             inhibited-notification = "";
             inhibited-none = "";
-            dnd-inhibited-notification = "";
-            dnd-inhibited-none = "";
+            dnd-inhibited-notification = "󰂛 ";
+            dnd-inhibited-none = " ";
           };
           return-type = "json";
           exec-if = "which swaync-client";
