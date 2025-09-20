@@ -4,7 +4,6 @@
     ../modules/easyeffects.nix
     ../modules/fzf.nix
     ../modules/git.nix
-    ../modules/go.nix
     ../modules/home.nix
     ../modules/lazygit.nix
     ../modules/neovim.nix
