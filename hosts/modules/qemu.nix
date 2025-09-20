@@ -15,4 +15,8 @@
       calendar = "12:00:00";
     };
   };
+
+  environment.systemPackages = with pkgs; [
+    gnome-boxes
+  ];
 }
