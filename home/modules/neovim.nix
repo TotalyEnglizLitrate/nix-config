@@ -30,6 +30,7 @@ in {
       stylua
       terraform-ls
       tflint
+      tree-sitter
       vscode-langservers-extracted
       yaml-language-server
       clang-tools
