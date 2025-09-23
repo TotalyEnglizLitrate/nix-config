@@ -1,4 +1,8 @@
-{inputs, ...}: {
+{
+  inputs,
+  pkgs,
+  ...
+}: {
   stylix.targets.nixvim.enable = true;
-  home.packages = [inputs.nvix.full];
+  home.packages = [inputs.nvix.packages.${pkgs.system}.default];
 }
