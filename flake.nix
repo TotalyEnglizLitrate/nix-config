@@ -25,6 +25,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nvix = {
+      url = "github:TotalyEnglizLitrate/nvix";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs-stable.follows = "nixpkgs-stable";
+    };
+
     walker = {
       url = "github:abenz1267/walker";
       inputs.nixpkgs.follows = "nixpkgs";

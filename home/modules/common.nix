@@ -6,7 +6,7 @@
     ../modules/git.nix
     ../modules/home.nix
     ../modules/lazygit.nix
-    ../modules/neovim.nix
+    ../modules/nvix.nix
     ../modules/obs-studio.nix
     ../modules/packages.nix
     ../modules/rust.nix
