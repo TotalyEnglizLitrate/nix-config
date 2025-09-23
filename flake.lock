@@ -532,11 +532,11 @@
         "systems": "systems_3"
       },
       "locked": {
-        "lastModified": 1758632508,
-        "narHash": "sha256-PEF9PT0Nyn0B86lEjStuaebWIutpOUmGj6nbRJvjlpY=",
+        "lastModified": 1758652387,
+        "narHash": "sha256-GMV3/0me3RvBy8uSUNQiROWSfLwprs3cKlTryVlbxq0=",
         "owner": "TotalyEnglizLitrate",
         "repo": "nvix",
-        "rev": "730c6a65a97627d95492220be73102a8ff227d8d",
+        "rev": "f90aaf6ac59118db9fdd8d5156516e7a0b5aebbf",
         "type": "github"
       },
       "original": {
