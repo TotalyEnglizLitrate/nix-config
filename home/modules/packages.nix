@@ -38,5 +38,6 @@
     pavucontrol
     seahorse
     vlc
+    xournalpp
   ];
 }
