@@ -158,6 +158,7 @@ in {
       "Mod+N".action.spawn = ["swaync-client" "-t"];
       "Mod+S".action.spawn = ["spotify" "--enable-features=UseOzonePlatform" "--ozone-platform=wayland"];
       "Mod+V".action.spawn = ["foot" "-T" "clipboard" "cliphist-fzf"];
+      "Mod+P".action.spawn = ["niri" "msg" "action" "set-dynamic-cast-window"];
       "Mod+Shift+V".action.spawn = ["cliphist" "wipe"];
       "Mod+Shift+W".action.spawn = ["wallpaper"];
 
