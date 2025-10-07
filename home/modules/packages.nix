@@ -2,6 +2,7 @@
   home.packages = with pkgs; [
     batmon
     eza
+    distrobox
     fd
     ffmpeg
     foliate
