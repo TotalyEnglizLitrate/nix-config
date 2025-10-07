@@ -52,6 +52,5 @@
     slurp
 
     gitkraken
-    vscode
   ];
 }
