@@ -6,7 +6,6 @@
     ffmpeg
     foliate
     gemini-cli
-    ghc
     openjdk21
     jq
     libqalculate
