@@ -1,14 +1,25 @@
-{ userConfig, ... }: {
-  virtualisation.docker = {
-    enable = false;
-    rootless = {
-      enable = true;
-      setSocketVariable = true;
-      daemon.settings = {
-        storage-driver = "btrfs";
-      };
+{ pkgs, userConfig, ... }: {
+  virtualisation = {
+    docker = {
+      enable = false;
+      rootless = {
+        enable = false;
+        setSocketVariable = true;
+        daemon.settings = {
+          storage-driver = "btrfs";
+        };
 
+      };
+    };
+
+    podman = {
+      enable = true;
+      dockerCompat = true;
+      dockerSocket.enable = true;
     };
   };
-  users.users.${userConfig.name}.extraGroups = [ "docker" "video" ];
+
+  users.users.${userConfig.name}.extraGroups = [ "podman" "docker" "video" ];
+
+  environment.systemPackages = [ pkgs.distrobox ];
 }
