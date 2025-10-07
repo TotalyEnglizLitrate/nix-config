@@ -32,6 +32,12 @@
         style = "bold green";
       };
 
+      container = {
+        disabled = false;
+        style = "fg:red bg:#2587be";
+        format = "[ $symbol]($style)";
+      };
+
       directory = {
         disabled = false;
         truncation_length = 3;
@@ -49,7 +55,7 @@
       };
 
       format = ''
-        $directory
+        $container$directory
         $cmd_duration $character
       '';
 
