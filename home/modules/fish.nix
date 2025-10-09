@@ -13,7 +13,7 @@
     };
     interactiveShellInit = ''
       set fish_greeting
-      if test -n DISTROBOX_ENTER_PATH
+      if set -q DISTROBOX_ENTER_PATH
           set -gx PATH /home/engliz/.local/bin /home/engliz/.nix-profile/bin /usr/local/sbin/ /usr/local/bin /usr/sbin /usr/bin /sbin /bin /usr/local/sbin /usr/local/bin /usr/sbin /usr/bin /sbin /bin /run/current-system/sw/bin
       else
           set -gx PATH /home/engliz/.local/bin /home/engliz/.nix-profile/bin /run/wrappers/bin /run/current-system/sw/bin
