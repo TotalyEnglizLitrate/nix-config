@@ -9,7 +9,6 @@
     ../modules/nvix.nix
     ../modules/obs-studio.nix
     ../modules/packages.nix
-    ../modules/rust.nix
     ../modules/scripts.nix
     ../modules/fish.nix
     ../modules/starship.nix
