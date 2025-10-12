@@ -24,7 +24,6 @@
     virtiofsd
     xxd
     yt-dlp
-    zig
     zoxide
     bibata-cursors
     file-roller
