@@ -1,15 +1,29 @@
-{
-  pkgs,
-  userConfig,
-  ...
+{ pkgs
+, userConfig
+, ...
 }: {
-  imports = [./ssh.nix ./gpg.nix];
+  imports = [ ./ssh.nix ./gpg.nix ];
 
-  programs.git = {
-    enable = true;
-    lfs.enable = true;
-    userName = userConfig.fullName;
-    userEmail = userConfig.email;
+  programs = {
+    git = {
+      enable = true;
+      lfs.enable = true;
+      signing = {
+        key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKtlDkVL/0TH2zsD+nSawpwChiXH9QYkDXXxtaNtji5g ${userConfig.email}";
+        signByDefault = true;
+      };
+      settings = {
+        user = {
+          name = userConfig.fullName;
+          email = userConfig.email;
+        };
+        pull.rebase = true;
+        gpg.format = "ssh";
+        gpg.ssh.allowedSignersFile = "/home/${userConfig.name}/.config/git/allowed_signers";
+        credential.helper = "${pkgs.git.override {withLibsecret = true;}}/libexec/git-core/git-credential-libsecret";
+
+      };
+    };
 
     delta = {
       enable = true;
@@ -20,18 +34,6 @@
         navigate = true;
         width = 280;
       };
-    };
-
-    signing = {
-      key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKtlDkVL/0TH2zsD+nSawpwChiXH9QYkDXXxtaNtji5g ${userConfig.email}";
-      signByDefault = true;
-    };
-
-    extraConfig = {
-      pull.rebase = true;
-      gpg.format = "ssh";
-      gpg.ssh.allowedSignersFile = "/home/${userConfig.name}/.config/git/allowed_signers";
-      credential.helper = "${pkgs.git.override {withLibsecret = true;}}/libexec/git-core/git-credential-libsecret";
     };
   };
 
