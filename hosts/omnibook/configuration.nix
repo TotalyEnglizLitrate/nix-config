@@ -37,5 +37,5 @@
     pkexec.fprintAuth = true;
   };
 
-  nixpkgs.config.rocmSupport = true;
+  # nixpkgs.config.rocmSupport = true;
 }
