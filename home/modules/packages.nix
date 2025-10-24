@@ -12,7 +12,6 @@
     lm_sensors
     localsend
     ncdu
-    nodePackages_latest.nodejs
     ollama
     pipenv
     pulseaudio
