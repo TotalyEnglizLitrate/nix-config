@@ -5,6 +5,7 @@ from random import randrange
 from shlex import split
 from subprocess import Popen, run
 from sys import argv
+from time import sleep
 
 wallpaper_dir = Path.home() / "Pictures/wallpapers"
 wallpapers = list(wallpaper_dir.rglob("*.jpg")) + list(wallpaper_dir.rglob("*.png"))
@@ -13,15 +14,15 @@ current_wallpaper = wallpaper_dir / "current_wallpaper"
 
 def init():
     Popen(["swww-daemon"], start_new_session=True)
+    sleep(0.02)
     run(split("swww restore"))
     _current_wallpaper = Path(
-        run(split("swww query"), capture_output=True, check=True).stdout.strip()[57:].decode("UTF-8")
+        run(split("swww query"), capture_output=True, check=True)
+        .stdout.strip()[57:]
+        .decode("UTF-8")
     )
-
-    if _current_wallpaper != current_wallpaper.resolve():
-        current_wallpaper.unlink(missing_ok=True)
-        current_wallpaper.symlink_to(_current_wallpaper)
-        return
+    current_wallpaper.unlink(missing_ok=True)
+    current_wallpaper.symlink_to(_current_wallpaper)
 
 
 def random_wallpaper():
