@@ -11,6 +11,7 @@
     libqalculate
     lm_sensors
     localsend
+    onedriver
     ncdu
     ollama
     pipenv
