@@ -46,7 +46,7 @@
   };
 
   boot = {
-    kernelPackages = pkgs.linuxKernel.packages.linux_6_16;
+    kernelPackages = pkgs.linuxKernel.packages.linux_6_17;
     consoleLogLevel = 0;
     initrd.verbose = false;
     kernelParams = ["quiet" "splash"];
