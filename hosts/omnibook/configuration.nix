@@ -23,7 +23,6 @@
   system.stateVersion = "24.11";
 
   boot.kernelModules = ["amdgpu"];
-  boot.kernelParams =  ["iommu=pt"];
   boot.loader.systemd-boot.edk2-uefi-shell.enable = true;
   boot.loader.systemd-boot.windows = {
     "Spyware" = {
