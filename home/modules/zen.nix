@@ -1,12 +1,11 @@
-{
-  pkgs,
-  inputs,
-  lib,
-  ...
+{ pkgs
+, inputs
+, lib
+, ...
 }: {
   config = {
-    home.packages = with pkgs; [
-      inputs.zen-browser.packages."${system}".twilight
+    home.packages = [
+      inputs.zen-browser.packages."${pkgs.stdenv.hostPlatform.system}".twilight
     ];
     xdg = {
       mimeApps = {
