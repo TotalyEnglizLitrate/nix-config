@@ -13,7 +13,11 @@
     localsend
     onedriver
     ncdu
-    ollama
+    lmstudio
+    whisper-cpp-vulkan
+    pandoc
+    texliveFull
+    libreoffice-qt6-fresh
     pipenv
     pulseaudio
     python3

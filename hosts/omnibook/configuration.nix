@@ -4,7 +4,6 @@
     ./hardware-configuration.nix
     ../modules/common.nix
     ../modules/mute-led-daemon.nix
-    ../modules/ollama.nix
     ../modules/docker.nix
     ../modules/qemu.nix
   ];
@@ -37,5 +36,5 @@
     pkexec.fprintAuth = true;
   };
 
-  # nixpkgs.config.rocmSupport = true;
+  nixpkgs.config.rocmSupport = true;
 }
