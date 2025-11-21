@@ -1,13 +1,14 @@
-{
-  lib,
-  pkgs,
-  ...
-}: let
+{ lib
+, pkgs
+, ...
+}:
+let
   makeBindings = bindings:
     lib.mapAttrs'
-    (bind: action: lib.nameValuePair "bind \"${bind}\"" action)
-    bindings;
-in {
+      (bind: action: lib.nameValuePair "bind \"${bind}\"" action)
+      bindings;
+in
+{
   programs.zellij = {
     enable = true;
     package = pkgs.zellij;
@@ -16,14 +17,20 @@ in {
     settings = {
       show_startup_tips = false;
       show_release_notes = false;
+      default_layout = "compact";
+      ui.pane_frames.rounded_corners = false;
+      load_plugins = { "zellij:tab-bar" = { }; "zellij:strider" = { }; };
       keybinds = {
         normal = makeBindings {
-          "Ctrl Shift h" = {MoveFocusOrTab = "Left";};
-          "Ctrl Shift j" = {MoveFocusOrTab = "Down";};
-          "Ctrl Shift k" = {MoveFocusOrTab = "Up";};
-          "Ctrl Shift l" = {MoveFocusOrTab = "Right";};
-          "Alt t" = {NewTab = {};};
-          "Alt w" = {CloseTab = {};};
+          "Ctrl Shift h" = { MoveFocusOrTab = "Left"; };
+          "Ctrl Shift j" = { MoveFocusOrTab = "Down"; };
+          "Ctrl Shift k" = { MoveFocusOrTab = "Up"; };
+          "Ctrl Shift l" = { MoveFocusOrTab = "Right"; };
+          "Alt t" = { NewTab = { }; };
+          "Alt w" = { CloseTab = { }; };
+          "Alt e" = {
+            "LaunchPlugin \"filepicker\"" = { floating = true; };
+          };
         };
       };
     };
