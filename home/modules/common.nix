@@ -1,7 +1,6 @@
 {outputs, ...}: {
   imports = [
     ../modules/fastfetch.nix
-    ../modules/easyeffects.nix
     ../modules/fzf.nix
     ../modules/git.nix
     ../modules/home.nix
