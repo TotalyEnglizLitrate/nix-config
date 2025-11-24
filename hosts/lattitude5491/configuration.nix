@@ -4,7 +4,6 @@
     ./hardware-configuration.nix
     ../modules/common.nix
     ../modules/dual-function-keys.nix
-    ../modules/steam.nix
     ../modules/zram.nix
   ];
 
