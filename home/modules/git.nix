@@ -1,7 +1,12 @@
-{ pkgs
+{ hostname
+, pkgs
 , userConfig
 , ...
-}: {
+}: let
+  key = if hostname == "omnibook"
+    then "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKtlDkVL/0TH2zsD+nSawpwChiXH9QYkDXXxtaNtji5g"
+    else "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFRbsrBxvy3bBKMzRZkYvbSld4PHlr6tDzipcy0On6XX";
+in {
   imports = [ ./ssh.nix ./gpg.nix ];
 
   programs = {
@@ -9,7 +14,7 @@
       enable = true;
       lfs.enable = true;
       signing = {
-        key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKtlDkVL/0TH2zsD+nSawpwChiXH9QYkDXXxtaNtji5g ${userConfig.email}";
+        key = "${key} ${userConfig.email}";
         signByDefault = true;
       };
       settings = {
@@ -37,5 +42,5 @@
     };
   };
 
-  home.file.".config/git/allowed_signers".text = ''${userConfig.email} ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKtlDkVL/0TH2zsD+nSawpwChiXH9QYkDXXxtaNtji5g'';
+  home.file.".config/git/allowed_signers".text = ''${userConfig.email} ${key}'';
 }
