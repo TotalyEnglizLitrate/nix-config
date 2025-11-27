@@ -17,9 +17,12 @@ def init():
     sleep(0.02)
     run(split("swww restore"))
     _current_wallpaper = Path(
-        run(split("swww query"), capture_output=True, check=True)
-        .stdout.strip()[59:]
-        .decode("UTF-8")
+        run(
+            ["sh", "-c", "swww query | awk '{print $NF}'"],
+            capture_output=True,
+            check=True,
+            text=True,
+        ).stdout.strip()
     )
     current_wallpaper.unlink(missing_ok=True)
     current_wallpaper.symlink_to(_current_wallpaper)
