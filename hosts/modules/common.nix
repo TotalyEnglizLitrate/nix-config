@@ -11,7 +11,6 @@
   imports = [
     ./gdm.nix
     ./niri.nix
-    ./nh.nix
     ./cloudflare-warp.nix
     ./tuned.nix
   ];
