@@ -39,6 +39,8 @@
     obsidian
     pavucontrol
     seahorse
+    typst
+    typstyle
     vlc
     xournalpp
   ];
