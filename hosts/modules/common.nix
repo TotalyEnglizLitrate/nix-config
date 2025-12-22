@@ -141,6 +141,10 @@
     dejavu_fonts
     liberation_ttf
     twitter-color-emoji
+    font-awesome
+    roboto
+    source-sans-pro
+    source-sans
   ];
   fonts.fontconfig = {
     enable = true;

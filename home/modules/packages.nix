@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   home.packages = with pkgs; [
     batmon
     eza
@@ -16,7 +16,7 @@
     lmstudio
     whisper-cpp-vulkan
     pandoc
-    texliveFull
+    (texliveFull.withPackages (ps: with ps; [ fontawesome6 ]))
     libreoffice-qt6-fresh
     pipenv
     pulseaudio
@@ -38,10 +38,10 @@
     nautilus
     obsidian
     pavucontrol
+    rnote
     seahorse
     typst
     typstyle
     vlc
-    xournalpp
   ];
 }
