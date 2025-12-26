@@ -34,6 +34,7 @@
     fragments
     gnome-keyring
     kdePackages.kdeconnect-kde
+    kdePackages.okular
     loupe
     nautilus
     obsidian
