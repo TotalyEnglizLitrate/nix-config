@@ -154,6 +154,7 @@
       serif = ["Noto Serif" "DejaVu Serif" "Liberation Serif"];
     };
   };
+  fonts.fontDir.enable = true;
 
   services.locate.enable = true;
 
