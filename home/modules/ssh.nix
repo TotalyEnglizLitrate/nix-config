@@ -3,9 +3,13 @@
 
   programs.ssh.enable = true;
   programs.ssh.enableDefaultConfig = false;
+  programs.ssh.matchBlocks."github.com" = {
+    addKeysToAgent = "yes";
+    identityFile = "~/.ssh/git";
+  };
   programs.ssh.matchBlocks."*" = {
     forwardAgent = false;
-    addKeysToAgent = "yes";
+    addKeysToAgent = "no";
     compression = false;
     serverAliveInterval = 0;
     serverAliveCountMax = 3;
