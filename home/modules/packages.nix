@@ -11,7 +11,6 @@
     libqalculate
     lm_sensors
     localsend
-    onedriver
     ncdu
     lmstudio
     whisper-cpp-vulkan
