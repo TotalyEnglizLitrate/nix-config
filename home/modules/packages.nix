@@ -44,5 +44,7 @@
     typst
     typstyle
     vlc
+    ani-cli
+    syncplay
   ];
 }
