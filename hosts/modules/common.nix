@@ -56,7 +56,7 @@
     };
     loader.timeout = lib.mkForce 1;
     plymouth = {
-      enable = false;
+      enable = true;
       theme = "deus_ex";
       themePackages = with pkgs; [(adi1090x-plymouth-themes.override {selected_themes = ["deus_ex"];})];
     };
