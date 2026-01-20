@@ -3,8 +3,5 @@
   pkgs,
   ...
 }: {
-  home.packages = with inputs.nvim.packages.${pkgs.stdenv.hostPlatform.system}; [
-    nvim
-    neovide
-  ];
+  home.packages = [ inputs.nvim.packages.${pkgs.stdenv.hostPlatform.system}.nvim ];
 }
