@@ -38,14 +38,6 @@ in {
   };
 
   dconf.settings = {
-    "org/blueman/general" = {
-      "plugin-list" = lib.mkForce ["!StatusNotifierItem"];
-    };
-
-    "org/blueman/plugins/powermanager" = {
-      "auto-power-on" = true;
-    };
-
     "org/gnome/nautilus/preferences" = {
       "default-folder-viewer" = "grid-view";
       "migrated-gtk-settings" = true;
@@ -136,12 +128,12 @@ in {
           {app-id = "org.gnome.Nautilus";}
           {app-id = "org.gnome.FileRoller";}
           {app-id = "org.polkit-kde-authentication-agent-1";}
-          {app-id = ".blueman-manager-wrapped";}
           {app-id = "org.pulseaudio.pavucontrol";}
           {app-id = "nm-connection-editor";}
           {app-id = ".protonvpn-app-wrapped";}
 
           {title = "clipboard";}
+          {title = "bluetuith";}
         ];
 
         open-floating = true;
@@ -152,7 +144,7 @@ in {
       "Mod+T".action.spawn = ["foot"];
       "Mod+R".action.spawn = ["nc" "-U" "/run/user/1000/walker/walker.sock"];
       "Mod+W".action.spawn = ["zen"];
-      "Mod+B".action.spawn = ["blueman-manager"];
+      "Mod+B".action.spawn = ["foot" "-T" "bluetuith" "bluetuith"];
       "Mod+E".action.spawn = ["nautilus"];
       "Mod+M".action.spawn = ["foot" "-T" "btop" "btop"];
       "Mod+N".action.spawn = ["swaync-client" "-t"];
