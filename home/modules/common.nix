@@ -5,7 +5,7 @@
     ../modules/git.nix
     ../modules/home.nix
     ../modules/lazygit.nix
-    ../modules/nvix.nix
+    ../modules/nvim.nix
     ../modules/obs-studio.nix
     ../modules/packages.nix
     ../modules/scripts.nix

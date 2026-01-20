@@ -25,10 +25,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nvix = {
-      url = "github:TotalyEnglizLitrate/nvix";
+    nvim = {
+      url = "github:TotalyEnglizLitrate/nvim-nixcats";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.nixpkgs-stable.follows = "nixpkgs-stable";
     };
 
     walker = {

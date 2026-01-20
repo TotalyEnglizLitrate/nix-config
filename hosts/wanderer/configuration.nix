@@ -4,7 +4,6 @@
     ./hardware-configuration.nix
     ../modules/common.nix
     ../modules/zram.nix
-    ../modules/preload.nix
   ];
 
   networking.firewall = {
