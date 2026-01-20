@@ -2,7 +2,6 @@
   hostname,
   inputs,
   pkgs,
-  lib,
   ...
 }: let
   PrtScr =
@@ -130,7 +129,6 @@ in {
           {app-id = "org.polkit-kde-authentication-agent-1";}
           {app-id = "org.pulseaudio.pavucontrol";}
           {app-id = "nm-connection-editor";}
-          {app-id = ".protonvpn-app-wrapped";}
 
           {title = "clipboard";}
           {title = "bluetuith";}
