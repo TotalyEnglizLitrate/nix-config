@@ -35,6 +35,9 @@
     kdePackages.kdeconnect-kde
     kdePackages.okular
     loupe
+    remmina
+    inetutils
+    wireshark-qt
     nautilus
     obsidian
     pavucontrol
