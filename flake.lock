@@ -80,7 +80,6 @@
       },
       "original": {
         "owner": "CopilotC-Nvim",
-        "ref": "main",
         "repo": "CopilotChat.nvim",
         "type": "github"
       }
@@ -214,6 +213,22 @@
       "original": {
         "owner": "nix-community",
         "repo": "home-manager",
+        "type": "github"
+      }
+    },
+    "juno": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1769175791,
+        "narHash": "sha256-OF5CWwVYicyngnhmjGClecp7Co9qoqsT2JyW+BnhX2s=",
+        "owner": "TotalyEnglizLitrate",
+        "repo": "juno.nvim",
+        "rev": "63c48f5f0f914e9af9d5de044f731709180c1e18",
+        "type": "github"
+      },
+      "original": {
+        "owner": "TotalyEnglizLitrate",
+        "repo": "juno.nvim",
         "type": "github"
       }
     },
@@ -366,6 +381,7 @@
     "nvim": {
       "inputs": {
         "copilot-chat": "copilot-chat",
+        "juno": "juno",
         "nixCats": "nixCats",
         "nixpkgs": [
           "nixpkgs"
@@ -374,11 +390,11 @@
         "treesitter-textobjects": "treesitter-textobjects"
       },
       "locked": {
-        "lastModified": 1768939138,
-        "narHash": "sha256-qlaUegCcMwMawRH1qvirUFq1LU9lG4Ek14U2ndyjjLw=",
+        "lastModified": 1769338033,
+        "narHash": "sha256-TgWcLv6s9D0jZngD445TrHvIvQgFVGdyzQPNNQBA6/M=",
         "owner": "TotalyEnglizLitrate",
         "repo": "nvim-nixcats",
-        "rev": "48bdd0fde61e97274dc23eab0684bac1f8d595f5",
+        "rev": "6ed674be4d1f6781511dffb0513bf5dc5755fe5d",
         "type": "github"
       },
       "original": {
