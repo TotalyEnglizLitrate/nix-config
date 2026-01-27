@@ -41,7 +41,7 @@
     nautilus
     obsidian
     pavucontrol
-    rnote
+    xournalpp
     seahorse
     typst
     typstyle
