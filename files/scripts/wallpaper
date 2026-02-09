@@ -18,7 +18,7 @@ def init():
     run(split("swww restore"))
     _current_wallpaper = Path(
         run(
-            ["sh", "-c", "swww query | awk '{print $NF}'"],
+            ["sh", "-c", "swww query | cut -c 60-"],
             capture_output=True,
             check=True,
             text=True,
