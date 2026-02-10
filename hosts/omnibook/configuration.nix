@@ -6,6 +6,7 @@
     ../modules/mute-led-daemon.nix
     ../modules/docker.nix
     ../modules/qemu.nix
+    ../modules/android-dev.nix
   ];
 
   networking.firewall = {
