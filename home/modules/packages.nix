@@ -37,7 +37,7 @@
     loupe
     remmina
     inetutils
-    wireshark-qt
+    wireshark
     nautilus
     obsidian
     pavucontrol
