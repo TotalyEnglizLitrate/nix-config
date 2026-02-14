@@ -390,11 +390,11 @@
         "treesitter-textobjects": "treesitter-textobjects"
       },
       "locked": {
-        "lastModified": 1771001544,
-        "narHash": "sha256-IgTASyXCUfxwbMWkZesroAJf8odhPY2UaevoP2yUXjU=",
+        "lastModified": 1771072819,
+        "narHash": "sha256-ogvpTcO6r0xuFJHcfV1Y7fS+uBBtikELuAmoJdXAh68=",
         "owner": "TotalyEnglizLitrate",
         "repo": "nvim-nixcats",
-        "rev": "19ba6de65f984151a808fb675a5d0a6781a57d41",
+        "rev": "518790253a27e02294c98c83fbc855439fd47f9d",
         "type": "github"
       },
       "original": {
