@@ -4,11 +4,6 @@
   pkgs,
   ...
 }: let
-  PrtScr =
-    if hostname == "omnibook"
-    then "F12"
-    else "Print";
-
   scale = {
     wanderer = 1;
     lattitude5491 = 0.7;
@@ -247,9 +242,9 @@ in {
 
       "Mod+Shift+F".action.toggle-window-floating = {};
 
-      "Mod+${PrtScr}".action.screenshot = {};
-      "${PrtScr}".action.screenshot-screen = {};
-      "Alt+${PrtScr}".action.screenshot-window = {};
+      "Mod+Print".action.screenshot = {};
+      "Print".action.screenshot-screen = {};
+      "Alt+Print".action.screenshot-window = {};
 
       "Mod+Shift+Q".action.quit = {skip-confirmation = true;};
       "Ctrl+Alt+Delete".action.quit = {};
