@@ -13,6 +13,7 @@
     ./niri.nix
     ./cloudflare-warp.nix
     ./tuned.nix
+    ./wireshark.nix
   ];
 
   nixpkgs = {
