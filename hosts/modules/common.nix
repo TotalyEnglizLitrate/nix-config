@@ -14,6 +14,7 @@
     ./cloudflare-warp.nix
     ./tuned.nix
     ./wireshark.nix
+    ./tailscale.nix
   ];
 
   nixpkgs = {
@@ -48,7 +49,10 @@
   boot = {
     kernelPackages = pkgs.linuxKernel.packages.linux_6_18;
     consoleLogLevel = 0;
-    initrd.verbose = false;
+    initrd = {
+      systemd.network.wait-online.enable = false;
+      verbose = false;
+    };
     kernelParams = ["quiet" "splash"];
     loader.efi.canTouchEfiVariables = true;
     loader.systemd-boot = {
@@ -77,6 +81,9 @@
 
   networking.networkmanager.enable = lib.mkForce true;
   networking.hostName = hostname;
+
+  systemd.network.wait-online.enable = false;
+  
 
   time.timeZone = "Asia/Kolkata";
 
