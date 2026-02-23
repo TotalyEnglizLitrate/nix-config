@@ -17,6 +17,7 @@
     ../modules/spicetify.nix
     ../modules/spotify.nix
     ../modules/stylix.nix
+    ../modules/kubectl.nix
   ];
 
   nixpkgs = {
