@@ -1,6 +1,7 @@
 { pkgs, ... }: {
   home.packages = with pkgs; [
     batmon
+    claude-code
     eza
     fd
     ffmpeg

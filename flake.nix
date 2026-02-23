@@ -41,6 +41,11 @@
       url = "github:Gerg-L/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    claude-code = {
+      url = "github:sadjow/claude-code-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -79,6 +84,7 @@
           userConfig = users.${username};
         };
         modules = [
+          { nixpkgs.overlays = [ inputs.claude-code.overlays.default ]; }
           ./home/${username}/${hostname}.nix
           inputs.stylix.homeModules.stylix
           inputs.walker.homeManagerModules.default
