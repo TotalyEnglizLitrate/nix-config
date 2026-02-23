@@ -136,7 +136,7 @@ in {
     binds = {
       "Mod+T".action.spawn = ["foot"];
       "Mod+R".action.spawn = ["nc" "-U" "/run/user/1000/walker/walker.sock"];
-      "Mod+W".action.spawn = ["zen"];
+      "Mod+W".action.spawn = ["zen-twilight"];
       "Mod+B".action.spawn = ["foot" "-T" "bluetuith" "bluetuith"];
       "Mod+E".action.spawn = ["nautilus"];
       "Mod+M".action.spawn = ["foot" "-T" "btop" "btop"];
