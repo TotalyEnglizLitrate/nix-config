@@ -3,6 +3,7 @@
     enable = true;
     useRoutingFeatures = "client";
     openFirewall = true;
+    extraUpFlags = [ "--accept-routes" ];
   };
 
   networking = {
