@@ -79,7 +79,10 @@
     '';
   };
 
-  networking.networkmanager.enable = lib.mkForce true;
+  networking.networkmanager = {
+    enable = lib.mkForce true;
+    plugins = with pkgs; [ networkmanager-openvpn ];
+  };
   networking.hostName = hostname;
 
   systemd.network.wait-online.enable = false;
