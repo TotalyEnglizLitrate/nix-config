@@ -1,2 +1,2 @@
 #!/bin/sh
-hyprpicker | wl-copy
+pkill hyprpicker || hyprpicker | wl-copy
