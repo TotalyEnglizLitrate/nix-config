@@ -57,8 +57,8 @@
             critical = 20;
           };
           format = "<big>{icon}</big> {capacity}%";
-          format-charging = "󱐋 ";
-          format-plugged = "󱐤 ";
+          format-charging = "󱐋 {capacity}%";
+          format-plugged = "󱐤 {capacity}%";
           format-full = "{icon} ";
           format-icons = [
             ""
