@@ -7,7 +7,7 @@
         font = lib.mkForce "0xProto Nerd Font:size=8";
         dpi-aware = lib.mkForce "yes";
       };
-      colors.alpha = lib.mkForce 0.9;
+      colors-dark.alpha = lib.mkForce 0.9;
     };
   };
 }
