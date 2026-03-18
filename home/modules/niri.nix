@@ -137,12 +137,12 @@ in {
       "Mod+T".action.spawn = ["foot"];
       "Mod+R".action.spawn = ["nc" "-U" "/run/user/1000/walker/walker.sock"];
       "Mod+W".action.spawn = ["zen-twilight"];
-      "Mod+B".action.spawn = ["foot" "-T" "bluetuith" "bluetuith"];
+      "Mod+B".action.spawn = ["walker" "-m" "bluetooth"];
       "Mod+E".action.spawn = ["nautilus"];
       "Mod+M".action.spawn = ["foot" "-T" "btop" "btop"];
       "Mod+N".action.spawn = ["swaync-client" "-t"];
       "Mod+S".action.spawn = ["spotify" "--enable-features=UseOzonePlatform" "--ozone-platform=wayland"];
-      "Mod+V".action.spawn = ["foot" "-T" "clipboard" "cliphist-fzf"];
+      "Mod+V".action.spawn = ["walker" "-m" "clipboard"];
       "Mod+P".action.spawn = ["niri" "msg" "action" "set-dynamic-cast-window"];
       "Mod+A".action.spawn = ["sh" "-c" "pkill waybar || waybar"];
       "Mod+Shift+V".action.spawn = ["cliphist" "wipe"];

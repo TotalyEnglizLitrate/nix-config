@@ -1,6 +1,5 @@
 {outputs, ...}: {
   imports = [
-    ../modules/bluetuith.nix
     ../modules/fastfetch.nix
     ../modules/fzf.nix
     ../modules/git.nix
