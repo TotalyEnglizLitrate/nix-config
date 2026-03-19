@@ -145,7 +145,7 @@ in {
       "Mod+V".action.spawn = ["walker" "-m" "clipboard"];
       "Mod+P".action.spawn = ["niri" "msg" "action" "set-dynamic-cast-window"];
       "Mod+A".action.spawn = ["sh" "-c" "pkill waybar || waybar"];
-      "Mod+Shift+V".action.spawn = ["cliphist" "wipe"];
+      "Mod+Shift+V".action.spawn = ["walker" "-m" "wireplumber"];
       "Mod+Shift+W".action.spawn = ["wallpaper"];
 
       "Mod+Tab" = {
