@@ -47,7 +47,7 @@
   };
 
   boot = {
-    kernelPackages = pkgs.linuxKernel.packages.linux_6_18;
+    kernelPackages = pkgs.linuxKernel.packages.linux_6_19;
     consoleLogLevel = 0;
     initrd = {
       systemd.network.wait-online.enable = false;
