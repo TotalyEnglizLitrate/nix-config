@@ -30,9 +30,17 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    elephant = {
+      url = "github:abenz1267/elephant";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     walker = {
       url = "github:abenz1267/walker";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        elephant.follows = "elephant";
+      };
     };
 
     hardware.url = "github:nixos/nixos-hardware";

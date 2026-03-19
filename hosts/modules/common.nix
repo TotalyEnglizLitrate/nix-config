@@ -125,6 +125,8 @@
     jack.enable = true;
   };
 
+  services.dbus.packages = [ pkgs.gcr ];
+
   users.users.${userConfig.name} = {
     description = userConfig.fullName;
     extraGroups = ["networkmanager" "wheel"];
