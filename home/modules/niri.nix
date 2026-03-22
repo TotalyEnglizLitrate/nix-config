@@ -254,32 +254,32 @@ in {
 
       "Mod+Shift+B" = {
         allow-when-locked = true;
-        action.spawn = ["playerctl" "previous"];
+        action.spawn = ["playerctl-wrapper" "previous"];
       };
       "Mod+Shift+P" = {
         allow-when-locked = true;
-        action.spawn = ["playerctl" "play-pause"];
+        action.spawn = ["playerctl-wrapper" "play-pause"];
       };
       "Mod+Shift+N" = {
         allow-when-locked = true;
-        action.spawn = ["playerctl" "next"];
+        action.spawn = ["playerctl-wrapper" "next"];
       };
 
       "XF86AudioPlay" = {
         allow-when-locked = true;
-        action.spawn = ["playerctl" "play-pause"];
+        action.spawn = ["playerctl-wrapper" "play-pause"];
       };
       "XF86AudioPause" = {
         allow-when-locked = true;
-        action.spawn = ["playerctl" "play-pause"];
+        action.spawn = ["playerctl-wrapper" "play-pause"];
       };
       "XF86AudioNext" = {
         allow-when-locked = true;
-        action.spawn = ["playerctl" "next"];
+        action.spawn = ["playerctl-wrapper" "next"];
       };
       "XF86AudioPrev" = {
         allow-when-locked = true;
-        action.spawn = ["playerctl" "previous"];
+        action.spawn = ["playerctl-wrapper" "previous"];
       };
 
       "XF86AudioRaiseVolume" = {
