@@ -7,6 +7,7 @@ let providers = [
   "desktopapplications"
   "files"
   "niriactions"
+  "playerctl"
   "providerlist"
   "runner"
   "symbols"
@@ -30,6 +31,49 @@ in {
           action = "copytotp";
           bind = "ctrl Return";
           label = "copy 2fa";
+        }
+      ];
+      providers.actions.playerctl = [
+        {
+          action = "toggle_pause";
+          bind = "Return";
+          label = "Toggle Pause";
+        }
+
+        {
+          action = "next";
+          bind = "ctrl Right";
+          label = "Next";
+        }
+
+        {
+          action = "prev";
+          bind = "ctrl Left";
+          label = "Previous";
+        }
+
+        {
+          action = "vol_up";
+          bind = "ctrl Up";
+          label = "Volume Up";
+        }
+
+        {
+          action = "vol_down";
+          bind = "ctrl Down";
+          label = "Volume Down";
+        }
+
+        {
+          action = "seek_forward";
+          bind = "shift Right";
+          label = "Seek Forward";
+        }
+
+        {
+          action = "seek_back";
+          bind = "shift Left";
+          label = "Seeck Back";
         }
       ];
     };
