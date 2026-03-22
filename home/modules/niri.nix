@@ -16,7 +16,6 @@ in {
     ./gtk.nix
     ./hypridle.nix
     ./hyprlock.nix
-    ./swappy.nix
     ./swaync.nix
     ./walker.nix
     ./waybar.nix
