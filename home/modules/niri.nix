@@ -16,6 +16,7 @@ in {
     ./gtk.nix
     ./hypridle.nix
     ./hyprlock.nix
+    ./kanshi.nix
     ./swaync.nix
     ./walker.nix
     ./waybar.nix
