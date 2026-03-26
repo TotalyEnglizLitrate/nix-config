@@ -40,7 +40,7 @@
           format = "{icon} {percent}%";
           format-icons = ["󰃞" "󰃟" "󰃝" "󰃠"];
           icon-size = 10;
-          on-scroll-up = "brightnessctl set -5%";
+          on-scroll-up = "brightnessctl set 5%-";
           on-scroll-down = "brightnessctl set 5%+";
           smooth-scrolling-threshold = 1;
         };
