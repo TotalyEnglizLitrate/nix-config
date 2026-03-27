@@ -8,12 +8,12 @@
 
       listener = [
         {
-          timeout = 900;
+          timeout = 300;
           on-timeout = "hyprlock";
         }
 
         {
-          timeout = 1800;
+          timeout = 360;
           on-timeout = "systemctl sleep";
         }
       ];
