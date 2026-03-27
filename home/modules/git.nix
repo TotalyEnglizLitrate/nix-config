@@ -16,6 +16,7 @@ in {
       signing = {
         key = "${key} ${userConfig.email}";
         signByDefault = true;
+        format = null;
       };
       settings = {
         user = {

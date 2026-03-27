@@ -1,5 +1,6 @@
 {
   userConfig,
+  config,
   pkgs,
   ...
 }: {
@@ -27,6 +28,8 @@
         "file:///home/${userConfig.name}/Documents/repositories"
       ];
     };
+
+    gtk4.theme = null;
   };
 
   dconf.settings."org/gnome/desktop/interface" = {
