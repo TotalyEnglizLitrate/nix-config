@@ -1,2 +1,18 @@
-#!/bin/sh
-pkill hyprpicker || hyprpicker | wl-copy
+#!/usr/bin/env python
+
+import shlex
+import subprocess
+import json
+
+rgb: tuple[int, int, int] = tuple(
+    json.loads(
+        subprocess.Popen(
+            args=shlex.split("niri msg --json pick-color"),
+            stdout=subprocess.PIPE,
+            text=True
+        ).stdout.read().strip())["rgb"]
+)
+
+to_hex = "".join(map(lambda x: hex(round(x * 255))[2:], rgb))
+
+subprocess.Popen("wl-copy", stdin=subprocess.PIPE, text=True).stdin.write(f"#{to_hex}")
