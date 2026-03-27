@@ -1,11 +1,3 @@
 #!/usr/bin/env bash
 
-case "$XDG_SESSION_TYPE" in
-"wayland")
-	slurp | grim -g - - | tesseract stdin stdout -l "eng" | tr -d '\f' | wl-copy
-	;;
-*)
-	echo "Unsupported session type: $XDG_SESSION_TYPE"
-	exit 1
-	;;
-esac
+niri msg action screenshot --path /dev/null && wl-paste | tesseract stdin stdout -l "eng"
