@@ -81,21 +81,20 @@
         modules = [
           ./hosts/${hostname}/configuration.nix
           inputs.niri.nixosModules.niri
-        ];
-      };
-
-    mkHomeConfiguration = system: username: hostname:
-      home-manager.lib.homeManagerConfiguration {
-        pkgs = import nixpkgs {inherit system;};
-        extraSpecialArgs = {
-          inherit inputs outputs hostname;
-          userConfig = users.${username};
-        };
-        modules = [
-          { nixpkgs.overlays = [ inputs.claude-code.overlays.default ]; }
-          ./home/${username}/${hostname}.nix
-          inputs.stylix.homeModules.stylix
-          inputs.walker.homeManagerModules.default
+          home-manager.nixosModules.home-manager
+          {
+            home-manager = {
+              extraSpecialArgs = {
+                inherit inputs outputs hostname;
+                userConfig = users.${username};
+              };
+              users.${username} = import ./home/${username}/${hostname}.nix;
+              sharedModules = [
+                inputs.stylix.homeModules.stylix
+                inputs.walker.homeManagerModules.default
+              ];
+            };
+          }
         ];
       };
   in {
@@ -105,11 +104,6 @@
       wanderer = mkNixosConfiguration "wanderer" "engliz";
     };
 
-    homeConfigurations = {
-      "engliz@lattitude5491" = mkHomeConfiguration "x86_64-linux" "engliz" "lattitude5491";
-      "engliz@omnibook" = mkHomeConfiguration "x86_64-linux" "engliz" "omnibook";
-      "engliz@wanderer" = mkHomeConfiguration "x86_64-linux" "engliz" "wanderer";
-    };
     overlays = import ./overlays {inherit inputs;};
   };
 }

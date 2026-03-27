@@ -1,27 +1,23 @@
 { pkgs, ... }: {
   home.packages = with pkgs; [
     batmon
+    brightnessctl
     claude-code
     eza
     fd
     ffmpeg
-    foliate
     gemini-cli
     openjdk21
     jq
     libqalculate
     lm_sensors
-    localsend
     ncdu
-    lmstudio
     whisper-cpp-vulkan
     pandoc
     (texliveFull.withPackages (ps: with ps; [ fontawesome6 ]))
-    libreoffice-qt6-fresh
     pipenv
     pulseaudio
     python3
-    qpwgraph
     ripgrep
     ugrep
     unzip
@@ -29,24 +25,8 @@
     xxd
     yt-dlp
     zoxide
-    bibata-cursors
-    file-roller
-    fragments
-    gnome-keyring
-    kdePackages.kdeconnect-kde
-    kdePackages.okular
-    loupe
-    remmina
     inetutils
-    nautilus
-    obsidian
-    pavucontrol
-    xournalpp
-    seahorse
     typst
     typstyle
-    vlc
-    ani-cli
-    syncplay
   ];
 }

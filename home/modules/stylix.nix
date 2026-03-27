@@ -13,13 +13,10 @@
       lazygit.enable = true;
       foot.enable = true;
       starship.enable = true;
-      swaync.enable = true;
-      waybar.enable = true;
       qt.enable = true;
-      gtk.enable = true;
       zellij.enable = true;
-      spicetify.enable = true;
     };
+
     fonts = {
       monospace = {
         package = pkgs.nerd-fonts._0xproto;

@@ -6,15 +6,11 @@
     ../modules/home.nix
     ../modules/lazygit.nix
     ../modules/nvim.nix
-    ../modules/obs-studio.nix
     ../modules/packages.nix
     ../modules/scripts.nix
     ../modules/fish.nix
     ../modules/starship.nix
     ../modules/zellij.nix
-    ../modules/zen.nix
-    ../modules/spicetify.nix
-    ../modules/spotify.nix
     ../modules/stylix.nix
     ../modules/kubectl.nix
   ];

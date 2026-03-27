@@ -4,7 +4,6 @@
     enableFishIntegration = true;
     enableTransience = true;
     settings = {
-      package.disabled = true;
 
       cmd_duration = {
         disabled = false;

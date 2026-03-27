@@ -10,9 +10,9 @@
 }: {
   imports = [
     ./gdm.nix
-    ./niri.nix
     ./cloudflare-warp.nix
     ./tuned.nix
+    ./niri.nix
     ./wireshark.nix
     ./tailscale.nix
   ];
@@ -20,7 +20,7 @@
   nixpkgs = {
     overlays = [
       outputs.overlays.stable-packages
-      inputs.niri.overlays.niri
+      inputs.claude-code.overlays.default
     ];
 
     config = {

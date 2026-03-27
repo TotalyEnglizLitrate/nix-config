@@ -9,6 +9,8 @@ in {
     inputs.spicetify-nix.homeManagerModules.default
   ];
 
+  stylix.targets.spicetify.enable = true;
+
   programs.spicetify = {
     enable = true;
     enabledExtensions = with spicePkgs.extensions; [
@@ -17,5 +19,16 @@ in {
       adblock
       beautifulLyrics
     ];
+  };
+
+  xdg = {
+    mimeApps = {
+      associations.added = {
+        "x-scheme-handler/spotify" = ["spotify.desktop"];
+      };
+      defaultApplications = {
+        "x-scheme-handler/spotify" = ["spotify.desktop"];
+      };
+    };
   };
 }

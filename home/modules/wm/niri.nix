@@ -1,6 +1,6 @@
 {
   hostname,
-  inputs,
+  lib,
   pkgs,
   ...
 }: let
@@ -11,17 +11,51 @@
   };
 in {
   imports = [
-    ./cliphist.nix
     ./foot.nix
     ./gtk.nix
-    ./hypridle.nix
-    ./hyprlock.nix
+    ./idle.nix
     ./kanshi.nix
+    ./packages.nix
+    ./spotify.nix
     ./swaync.nix
     ./walker.nix
     ./waybar.nix
-    inputs.niri.homeModules.config
   ];
+
+  programs.obs-studio = {
+    enable = true;
+    plugins = [pkgs.obs-studio-plugins.wlrobs];
+  };
+
+  xdg.mimeApps.defaultApplications = lib.mkMerge [
+    {
+      "application/x-extension-htm" = "zen.desktop";
+      "application/x-extension-html" = "zen.desktop";
+      "application/x-extension-shtml" = "zen.desktop";
+      "application/x-extension-xht" = "zen.desktop";
+      "application/x-extension-xhtml" = "zen.desktop";
+      "application/xhtml+xml" = "zen.desktop";
+      "text/html" = "zen.desktop";
+      "x-scheme-handler/about" = "zen.desktop";
+      "x-scheme-handler/ftp" = "zen.desktop";
+      "x-scheme-handler/http" = "zen.desktop";
+      "x-scheme-handler/https" = "zen.desktop";
+      "x-scheme-handler/unknown" = "zen.desktop";
+      "application/pdf" = "zen.desktop";
+    }
+  ];
+
+
+  home.sessionVariables = {
+    XDG_SESSION_DESKTOP = "niri";
+    XDG_CURRENT_DESKTOP = "niri";
+    XDG_SESSION_TYPE = "wayland";
+    MOZ_ENABLE_WAYLAND = "1";
+    SDL_VIDEODRIVER = "wayland";
+    WLR_NO_HARDWARE_CURSORS = "1";
+    QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
+    ELECTRON_OZONE_PLATFORM_HINT = "wayland";
+  };
 
   home.pointerCursor = {
     gtk.enable = true;

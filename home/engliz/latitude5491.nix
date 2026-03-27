@@ -1,10 +1,8 @@
 {...}: {
   imports = [
     ../modules/common.nix
-    ../modules/niri.nix
+    ../modules/wm/niri.nix
   ];
-
-  programs.home-manager.enable = true;
 
   systemd.user.startServices = "sd-switch";
 
