@@ -1,7 +1,4 @@
-{ lib
-, pkgs
-, ...
-}:
+{ lib, pkgs, userConfig, ...}:
 let
   makeBindings = bindings:
     lib.mapAttrs'
@@ -17,9 +14,9 @@ in
     settings = {
       show_startup_tips = false;
       show_release_notes = false;
-      default_layout = "compact";
       ui.pane_frames.rounded_corners = false;
-      load_plugins = { "zellij:tab-bar" = { }; "zellij:strider" = { }; };
+      theme = "default";
+      theme_dir = "/home/${userConfig.name}/.config/zellij/themes";
       keybinds = {
         normal = makeBindings {
           "Ctrl Shift h" = { MoveFocusOrTab = "Left"; };
