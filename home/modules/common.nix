@@ -1,4 +1,4 @@
-{outputs, ...}: {
+{inputs, outputs, ...}: {
   imports = [
     ../modules/fastfetch.nix
     ../modules/fzf.nix
@@ -18,6 +18,7 @@
   nixpkgs = {
     overlays = [
       outputs.overlays.stable-packages
+      inputs.niri.overlays.niri
     ];
 
     config = {

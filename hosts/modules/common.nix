@@ -20,7 +20,6 @@
   nixpkgs = {
     overlays = [
       outputs.overlays.stable-packages
-      inputs.claude-code.overlays.default
     ];
 
     config = {
