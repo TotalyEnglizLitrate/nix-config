@@ -19,6 +19,7 @@
     overlays = [
       outputs.overlays.stable-packages
       inputs.niri.overlays.niri
+      inputs.claude-code.overlays.default
     ];
 
     config = {

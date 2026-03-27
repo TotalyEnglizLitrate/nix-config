@@ -12,6 +12,7 @@
     libqalculate
     lm_sensors
     ncdu
+    nix-output-monitor
     whisper-cpp-vulkan
     pandoc
     (texliveFull.withPackages (ps: with ps; [ fontawesome6 ]))
