@@ -100,7 +100,7 @@
       };
   in {
     nixosConfigurations = {
-      lattitude5491 = mkNixosConfiguration "lattitude5491" "engliz";
+      latitude5491 = mkNixosConfiguration "latitude5491" "engliz";
       omnibook = mkNixosConfiguration "omnibook" "engliz";
       wanderer = mkNixosConfiguration "wanderer" "engliz";
     };

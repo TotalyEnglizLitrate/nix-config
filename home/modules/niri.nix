@@ -6,7 +6,7 @@
 }: let
   scale = {
     wanderer = 1;
-    lattitude5491 = 0.7;
+    latitude5491 = 0.7;
     omnibook = 1;
   };
 in {
