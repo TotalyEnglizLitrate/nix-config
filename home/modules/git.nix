@@ -24,6 +24,7 @@ in {
           email = userConfig.email;
         };
         pull.rebase = true;
+        push.followTags = true;
         gpg.format = "ssh";
         gpg.ssh.allowedSignersFile = "/home/${userConfig.name}/.config/git/allowed_signers";
         credential.helper = "${pkgs.git.override {withLibsecret = true;}}/libexec/git-core/git-credential-libsecret";
