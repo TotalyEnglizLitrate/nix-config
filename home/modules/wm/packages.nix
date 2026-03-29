@@ -3,7 +3,6 @@
     ani-cli
     arrpc
     bibata-cursors
-    gnome-keyring
     file-roller
     foliate
     fragments
