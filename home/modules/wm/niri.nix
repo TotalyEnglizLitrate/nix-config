@@ -45,7 +45,6 @@ in {
     }
   ];
 
-
   home.sessionVariables = {
     XDG_SESSION_DESKTOP = "niri";
     XDG_CURRENT_DESKTOP = "niri";

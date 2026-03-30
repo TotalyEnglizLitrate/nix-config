@@ -1,5 +1,9 @@
-{pkgs, userConfig, ...}: {
-  environment.systemPackages = with pkgs; [ termshark wireshark ];
+{
+  pkgs,
+  userConfig,
+  ...
+}: {
+  environment.systemPackages = with pkgs; [termshark wireshark];
   programs.wireshark = {
     enable = true;
     usbmon.enable = true;

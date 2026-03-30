@@ -1,4 +1,8 @@
-{ pkgs, userConfig, ... }: {
+{
+  pkgs,
+  userConfig,
+  ...
+}: {
   virtualisation = {
     docker = {
       enable = false;
@@ -8,7 +12,6 @@
         daemon.settings = {
           storage-driver = "btrfs";
         };
-
       };
     };
 
@@ -17,11 +20,11 @@
       dockerCompat = true;
       dockerSocket.enable = true;
       defaultNetwork.settings.dns_enabled = true;
-      extraPackages = [ pkgs.podman-compose ];
+      extraPackages = [pkgs.podman-compose];
     };
   };
 
-  users.users.${userConfig.name}.extraGroups = [ "podman" "docker" "video" ];
+  users.users.${userConfig.name}.extraGroups = ["podman" "docker" "video"];
 
-  environment.systemPackages = [ pkgs.distrobox ];
+  environment.systemPackages = [pkgs.distrobox];
 }

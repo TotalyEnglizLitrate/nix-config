@@ -1,21 +1,25 @@
-{pkgs, userConfig, ...}:
-let providers = [
-  "bitwarden"
-  "bluetooth"
-  "calc"
-  "clipboard"
-  "desktopapplications"
-  "files"
-  "niriactions"
-  "playerctl"
-  "providerlist"
-  "runner"
-  "symbols"
-  "todo"
-  "unicode"
-  "websearch"
-  "windows"
-  "wireplumber"
+{
+  pkgs,
+  userConfig,
+  ...
+}: let
+  providers = [
+    "bitwarden"
+    "bluetooth"
+    "calc"
+    "clipboard"
+    "desktopapplications"
+    "files"
+    "niriactions"
+    "playerctl"
+    "providerlist"
+    "runner"
+    "symbols"
+    "todo"
+    "unicode"
+    "websearch"
+    "windows"
+    "wireplumber"
   ];
 in {
   programs.walker = {
@@ -89,5 +93,5 @@ in {
     };
   };
 
-  home.packages = [ pkgs.wtype ];
+  home.packages = [pkgs.wtype];
 }

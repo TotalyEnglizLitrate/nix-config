@@ -1,13 +1,15 @@
-{ hostname
-, pkgs
-, userConfig
-, ...
+{
+  hostname,
+  pkgs,
+  userConfig,
+  ...
 }: let
-  key = if hostname == "omnibook"
+  key =
+    if hostname == "omnibook"
     then "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKtlDkVL/0TH2zsD+nSawpwChiXH9QYkDXXxtaNtji5g"
     else "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFRbsrBxvy3bBKMzRZkYvbSld4PHlr6tDzipcy0On6XX";
 in {
-  imports = [ ./ssh.nix ./gpg.nix ];
+  imports = [./ssh.nix ./gpg.nix];
 
   programs = {
     git = {
@@ -28,7 +30,6 @@ in {
         gpg.format = "ssh";
         gpg.ssh.allowedSignersFile = "/home/${userConfig.name}/.config/git/allowed_signers";
         credential.helper = "${pkgs.git.override {withLibsecret = true;}}/libexec/git-core/git-credential-libsecret";
-
       };
     };
 

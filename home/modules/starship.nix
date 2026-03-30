@@ -4,7 +4,6 @@
     enableFishIntegration = true;
     enableTransience = true;
     settings = {
-
       cmd_duration = {
         disabled = false;
         min_time = 0;

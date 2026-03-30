@@ -66,7 +66,6 @@
     package = pkgs.hyprlock;
   };
 
-
   services.hypridle = {
     enable = true;
     settings = {
@@ -87,5 +86,4 @@
       ];
     };
   };
-
 }

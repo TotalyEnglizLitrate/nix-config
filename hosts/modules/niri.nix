@@ -1,5 +1,9 @@
-{inputs, pkgs, ...}: {
-  nixpkgs.overlays = [ inputs.niri.overlays.niri ];
+{
+  inputs,
+  pkgs,
+  ...
+}: {
+  nixpkgs.overlays = [inputs.niri.overlays.niri];
   services.xserver.updateDbusEnvironment = true;
 
   hardware.bluetooth = {
@@ -17,5 +21,5 @@
   security.polkit.enable = true;
   security.pam.services.hyprlock = {};
 
-  environment.systemPackages = [ pkgs.polkit_gnome ];
+  environment.systemPackages = [pkgs.polkit_gnome];
 }

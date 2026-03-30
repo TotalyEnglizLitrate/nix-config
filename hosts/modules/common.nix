@@ -80,12 +80,11 @@
 
   networking.networkmanager = {
     enable = lib.mkForce true;
-    plugins = with pkgs; [ networkmanager-openvpn ];
+    plugins = with pkgs; [networkmanager-openvpn];
   };
   networking.hostName = hostname;
 
   systemd.network.wait-online.enable = false;
-  
 
   time.timeZone = "Asia/Kolkata";
 
@@ -124,7 +123,7 @@
     jack.enable = true;
   };
 
-  services.dbus.packages = [ pkgs.gcr ];
+  services.dbus.packages = [pkgs.gcr];
 
   users.users.${userConfig.name} = {
     description = userConfig.fullName;
@@ -135,7 +134,7 @@
 
   programs.fish.enable = true;
   # use ca-derivations for manpages to speedup build time
-  documentation.man.man-db.package = pkgs.man-db.overrideAttrs (final: prev: {__contentAddressed = true;});
+  documentation.man.man-db.package = pkgs.man-db.overrideAttrs (_final: _prev: {__contentAddressed = true;});
 
   security.sudo.wheelNeedsPassword = true;
 
