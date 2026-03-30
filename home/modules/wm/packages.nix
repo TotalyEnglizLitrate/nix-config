@@ -14,6 +14,7 @@
     loupe
     nautilus
     obsidian
+    pamixer
     pavucontrol
     playerctl
     qpwgraph
