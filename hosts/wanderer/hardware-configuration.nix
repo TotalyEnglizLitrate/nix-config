@@ -11,21 +11,25 @@
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
 
-  boot.initrd.availableKernelModules = ["xhci_pci" "ahci" "usb_storage" "usbhid" "sd_mod" "rtsx_pci_sdmmc"];
-  boot.initrd.kernelModules = [];
-  boot.kernelModules = ["kvm-intel"];
-  boot.extraModulePackages = [];
-
-  fileSystems."/" = {
-    device = "/dev/disk/by-uuid/495613f3-0feb-490e-9ff9-22a581ba3d15";
-    fsType = "btrfs";
-    options = ["subvol=@"];
+  boot = {
+    initrd.availableKernelModules = ["xhci_pci" "ahci" "usb_storage" "usbhid" "sd_mod" "rtsx_pci_sdmmc"];
+    initrd.kernelModules = [];
+    kernelModules = ["kvm-intel"];
+    extraModulePackages = [];
   };
 
-  fileSystems."/home" = {
-    device = "/dev/disk/by-uuid/495613f3-0feb-490e-9ff9-22a581ba3d15";
-    fsType = "btrfs";
-    options = ["subvol=@home"];
+  fileSystems = {
+    "/" = {
+      device = "/dev/disk/by-uuid/495613f3-0feb-490e-9ff9-22a581ba3d15";
+      fsType = "btrfs";
+      options = ["subvol=@"];
+    };
+
+    "/home" = {
+      device = "/dev/disk/by-uuid/495613f3-0feb-490e-9ff9-22a581ba3d15";
+      fsType = "btrfs";
+      options = ["subvol=@home"];
+    };
   };
 
   swapDevices = [];

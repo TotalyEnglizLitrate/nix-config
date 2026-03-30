@@ -4,7 +4,6 @@
   ...
 }: {
   nixpkgs.overlays = [inputs.niri.overlays.niri];
-  services.xserver.updateDbusEnvironment = true;
 
   hardware.bluetooth = {
     enable = true;
@@ -16,10 +15,15 @@
     package = pkgs.niri-unstable;
   };
 
-  services.gvfs.enable = true;
-  services.gnome.gnome-keyring.enable = true;
-  security.polkit.enable = true;
-  security.pam.services.hyprlock = {};
+  services = {
+    gvfs.enable = true;
+    gnome.gnome-keyring.enable = true;
+    xserver.updateDbusEnvironment = true;
+  };
+  security = {
+    polkit.enable = true;
+    pam.services.hyprlock = {};
+  };
 
   environment.systemPackages = [pkgs.polkit_gnome];
 }

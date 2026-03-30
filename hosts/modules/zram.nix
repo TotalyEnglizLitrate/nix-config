@@ -1,4 +1,4 @@
-{...}: {
+_: {
   zramSwap = {
     enable = true;
     swapDevices = 1;

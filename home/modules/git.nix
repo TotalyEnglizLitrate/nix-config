@@ -23,7 +23,7 @@ in {
       settings = {
         user = {
           name = userConfig.fullName;
-          email = userConfig.email;
+          inherit (userConfig) email;
         };
         pull.rebase = true;
         push.followTags = true;

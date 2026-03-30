@@ -3,9 +3,11 @@
     enable = true;
     onBoot = "ignore";
     onShutdown = "shutdown";
-    qemu.swtpm.enable = true;
-    qemu.vhostUserPackages = [pkgs.virtiofsd];
-    qemu.package = pkgs.qemu_kvm;
+    qemu = {
+      swtpm.enable = true;
+      vhostUserPackages = [pkgs.virtiofsd];
+      package = pkgs.qemu_kvm;
+    };
   };
 
   services.libvirtd = {

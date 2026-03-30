@@ -22,12 +22,16 @@
   # this value at the release version of the first install of this system.
   system.stateVersion = "24.11";
 
-  boot.kernelModules = ["amdgpu"];
-  boot.loader.systemd-boot.edk2-uefi-shell.enable = true;
-  boot.loader.systemd-boot.windows = {
-    "Spyware" = {
-      title = "Spyware";
-      efiDeviceHandle = "HD0b";
+  boot = {
+    kernelModules = ["amdgpu"];
+    loader = {
+      systemd-boot.edk2-uefi-shell.enable = true;
+      systemd-boot.windows = {
+        "Spyware" = {
+          title = "Spyware";
+          efiDeviceHandle = "HD0b";
+        };
+      };
     };
   };
 

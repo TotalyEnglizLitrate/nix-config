@@ -86,7 +86,7 @@ in {
   programs.rbw = {
     enable = true;
     settings = {
-      email = userConfig.email;
+      inherit (userConfig) email;
       base_url = "https://bitwarden.garudalinux.org";
       lock_timeout = 3600;
       pinentry = pkgs.pinentry-gnome3;

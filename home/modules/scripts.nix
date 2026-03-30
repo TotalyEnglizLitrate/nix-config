@@ -1,4 +1,4 @@
-{...}: let
+_: let
   scripts = ./../../files/scripts;
 in {
   home.file = {
