@@ -1,5 +1,6 @@
 {
   pkgs,
+  userConfig,
   hostname,
   ...
 }: {
@@ -19,5 +20,5 @@
     };
   };
 
-  environment.variables.NIXOS_CONFIG = "self#${hostname}";
+  environment.variables.NIXOS_CONFIG = "/home/${userConfig.name}/Documents/repositories/nix-config#${hostname}";
 }

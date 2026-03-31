@@ -43,14 +43,12 @@
   };
 
   environment = {
-    etc =
-      lib.mapAttrs' (name: value: {
-        name = "nix/path/${name}";
-        value.source = value.flake;
-      })
-      config.nix.registry
-      // {"environment".text = "LIBSEAT_BACKEND=logind";};
+    etc = lib.mapAttrs' (name: value: {
+      name = "nix/path/${name}";
+      value.source = value.flake;
+    }) config.nix.registry;
 
+    variables.LIBSEAT_BACKEND = "logind";
     localBinInPath = true;
   };
 
