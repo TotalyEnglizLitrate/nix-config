@@ -33,8 +33,11 @@
     settings = {
       experimental-features = "nix-command flakes ca-derivations";
       auto-optimise-store = true;
-      substituters = ["https://niri.cachix.org"];
-      trusted-public-keys = ["niri.cachix.org-1:Wv0OmO7PsuocRKzfDoJ3mulSl7Z6oezYhGhR+3W2964="];
+      substituters = [ "https://niri.cachix.org" "https://watersucks.cachix.org" ];
+      trusted-public-keys = [
+        "niri.cachix.org-1:Wv0OmO7PsuocRKzfDoJ3mulSl7Z6oezYhGhR+3W2964="
+        "watersucks.cachix.org-1:6gadPC5R8iLWQ3EUtfu3GFrVY7X6I4Fwz/ihW25Jbv8="
+      ];
     };
   };
 
