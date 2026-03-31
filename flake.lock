@@ -143,7 +143,41 @@
         "type": "github"
       }
     },
+    "flake-compat": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1767039857,
+        "narHash": "sha256-vNpUSpF5Nuw8xvDLj2KCwwksIbjua2LZCqhV1LNRDns=",
+        "owner": "edolstra",
+        "repo": "flake-compat",
+        "rev": "5edf11c44bc78a0d334f6334cdaf7d60d732daab",
+        "type": "github"
+      },
+      "original": {
+        "owner": "edolstra",
+        "repo": "flake-compat",
+        "type": "github"
+      }
+    },
     "flake-parts": {
+      "inputs": {
+        "nixpkgs-lib": "nixpkgs-lib"
+      },
+      "locked": {
+        "lastModified": 1772408722,
+        "narHash": "sha256-rHuJtdcOjK7rAHpHphUb1iCvgkU3GpfvicLMwwnfMT0=",
+        "owner": "hercules-ci",
+        "repo": "flake-parts",
+        "rev": "f20dc5d9b8027381c474144ecabc9034d6a839a3",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hercules-ci",
+        "repo": "flake-parts",
+        "type": "github"
+      }
+    },
+    "flake-parts_2": {
       "inputs": {
         "nixpkgs-lib": [
           "stylix",
@@ -341,6 +375,29 @@
         "type": "github"
       }
     },
+    "nixos-cli": {
+      "inputs": {
+        "flake-compat": "flake-compat",
+        "flake-parts": "flake-parts",
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "optnix": "optnix"
+      },
+      "locked": {
+        "lastModified": 1774427328,
+        "narHash": "sha256-KtGThScvwNbCm+6XwUKRfpTjJVKV9SHswm29px3m4pw=",
+        "owner": "nix-community",
+        "repo": "nixos-cli",
+        "rev": "23e7540706eb5271f4ab37b9e52532637d57c63b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "nixos-cli",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1774386573,
@@ -354,6 +411,21 @@
         "owner": "nixos",
         "ref": "nixos-unstable",
         "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs-lib": {
+      "locked": {
+        "lastModified": 1772328832,
+        "narHash": "sha256-e+/T/pmEkLP6BHhYjx6GmwP5ivonQQn0bJdH9YrRB+Q=",
+        "owner": "nix-community",
+        "repo": "nixpkgs.lib",
+        "rev": "c185c7a5e5dd8f9add5b2f8ebeff00888b070742",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "nixpkgs.lib",
         "type": "github"
       }
     },
@@ -439,6 +511,31 @@
         "type": "github"
       }
     },
+    "optnix": {
+      "inputs": {
+        "flake-compat": [
+          "nixos-cli",
+          "flake-compat"
+        ],
+        "nixpkgs": [
+          "nixos-cli",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1770000117,
+        "narHash": "sha256-kZ1eLvCxfN+6RYQdcWUdIf+2WuiNiAfbJq+VetT+kos=",
+        "owner": "water-sucks",
+        "repo": "optnix",
+        "rev": "e3a8a63d8a9dcad01f499b2ece87db3545443f05",
+        "type": "github"
+      },
+      "original": {
+        "owner": "water-sucks",
+        "repo": "optnix",
+        "type": "github"
+      }
+    },
     "org-bullets": {
       "flake": false,
       "locked": {
@@ -462,6 +559,7 @@
         "hardware": "hardware",
         "home-manager": "home-manager",
         "niri": "niri",
+        "nixos-cli": "nixos-cli",
         "nixpkgs": "nixpkgs",
         "nixpkgs-stable": "nixpkgs-stable_2",
         "nvim": "nvim",
@@ -499,7 +597,7 @@
         "base16-helix": "base16-helix",
         "base16-vim": "base16-vim",
         "firefox-gnome-theme": "firefox-gnome-theme",
-        "flake-parts": "flake-parts",
+        "flake-parts": "flake-parts_2",
         "gnome-shell": "gnome-shell",
         "nixpkgs": [
           "nixpkgs"
