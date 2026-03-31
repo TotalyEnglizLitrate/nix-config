@@ -11,7 +11,6 @@
     ../modules/nvim.nix
     ../modules/packages.nix
     ../modules/scripts.nix
-    ../modules/fish.nix
     ../modules/starship.nix
     ../modules/zellij.nix
     ../modules/stylix.nix
