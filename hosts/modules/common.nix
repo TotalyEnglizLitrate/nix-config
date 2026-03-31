@@ -115,7 +115,6 @@
     };
   };
 
-  
   services = {
     libinput.enable = true;
     printing.enable = true;
@@ -136,7 +135,6 @@
     dbus.packages = [pkgs.gcr];
   };
   security.rtkit.enable = true;
-
 
   users.users.${userConfig.name} = {
     description = userConfig.fullName;

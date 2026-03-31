@@ -4,8 +4,7 @@
   ...
 }: {
   imports = [
-    ../modules/fastfetch.nix
-    ../modules/fzf.nix
+    ../modules/shell.nix
     ../modules/git.nix
     ../modules/home.nix
     ../modules/lazygit.nix
@@ -31,10 +30,7 @@
     };
   };
 
-  programs = {
-    bat.enable = true;
-    btop.enable = true;
-  };
+  programs.btop.enable = true;
 
   home.file."Pictures/wallpapers/default.png".source = ../../files/wallpapers/nix-logo.png;
 }
