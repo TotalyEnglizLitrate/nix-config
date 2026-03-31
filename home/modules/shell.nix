@@ -20,6 +20,11 @@ _: {
         "--prompt='~ ' --pointer='▶' --marker='✓'"
       ];
     };
+
+    zoxide = {
+      enable = true;
+      enableFishIntegration = true;
+    };
   };
 
   programs.fish = {
@@ -32,7 +37,6 @@ _: {
       tree = "eza --tree --group-directories-first";
       cat = "bat";
       grep = "ugrep";
-      cd = "z";
       "..." = "../../";
     };
     interactiveShellInit = ''
