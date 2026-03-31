@@ -25,6 +25,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nixos-cli = {
+      url = "github:nix-community/nixos-cli";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nvim = {
       url = "github:TotalyEnglizLitrate/nvim-nixcats";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -82,6 +87,7 @@
           ./hosts/${hostname}/configuration.nix
           inputs.niri.nixosModules.niri
           home-manager.nixosModules.home-manager
+          inputs.nixos-cli.nixosModules.nixos-cli
           {
             home-manager = {
               extraSpecialArgs = {
