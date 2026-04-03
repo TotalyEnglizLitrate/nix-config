@@ -3,6 +3,7 @@
     batmon
     brightnessctl
     claude-code
+    claude-agent-acp
     eza
     fd
     ffmpeg
