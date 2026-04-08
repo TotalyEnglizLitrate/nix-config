@@ -13,12 +13,12 @@ current_wallpaper = wallpaper_dir / "current_wallpaper"
 
 
 def init():
-    Popen(["swww-daemon"], start_new_session=True)
+    Popen(["awww-daemon"], start_new_session=True)
     sleep(0.02)
-    run(split("swww restore"))
+    run(split("awww restore"))
     _current_wallpaper = Path(
         run(
-            ["sh", "-c", "swww query | cut -c 60-"],
+            ["sh", "-c", "awww query | cut -c 60-"],
             capture_output=True,
             check=True,
             text=True,
@@ -32,7 +32,7 @@ def random_wallpaper():
     wallpaper = wallpapers[randrange(len(wallpapers))]
     current_wallpaper.unlink(missing_ok=True)
     current_wallpaper.symlink_to(wallpaper)
-    run(split(f"swww img '{wallpaper}' --transition-type none"), check=True)
+    run(split(f"awww img '{wallpaper}' --transition-type none"), check=True)
 
 
 if __name__ == "__main__":

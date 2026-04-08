@@ -24,7 +24,7 @@
     qpwgraph
     remmina
     seahorse
-    swww
+    awww
     syncplay
     tesseract
     vlc
