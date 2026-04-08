@@ -92,11 +92,11 @@
     "copilot-chat": {
       "flake": false,
       "locked": {
-        "lastModified": 1774269144,
-        "narHash": "sha256-sQ/12smnEI2rykuz1szYtSeO+lKK7enN1V4kvqxni3Q=",
+        "lastModified": 1775508710,
+        "narHash": "sha256-1dLCHn6XZraVkQhW6ort5oxHuzxcCEnxVY/fONn2pLQ=",
         "owner": "CopilotC-Nvim",
         "repo": "CopilotChat.nvim",
-        "rev": "9fec6c3c2a4069b1f649e116c10e6fbcf1463764",
+        "rev": "0b3133ffbb470b1616c47170b544d0b9a3bbcf5b",
         "type": "github"
       },
       "original": {
@@ -360,11 +360,11 @@
     },
     "nixCats": {
       "locked": {
-        "lastModified": 1770584904,
-        "narHash": "sha256-9Zaz8lbKF2W9pwXZEnbiGsicHdBoU+dHt3Wv3mCJoZ8=",
+        "lastModified": 1774835836,
+        "narHash": "sha256-6ok7iv/9R82vl6MYe3Lwyyb6S5bmW2PxEZtmjzlqyPs=",
         "owner": "BirdeeHub",
         "repo": "nixCats-nvim",
-        "rev": "538fdde784d2909700d97a8ef307783b33a86fb1",
+        "rev": "ebb9f279a55ca60ff4e37e4accf6518dc627aa8d",
         "type": "github"
       },
       "original": {
@@ -496,11 +496,11 @@
         "treesitter-textobjects": "treesitter-textobjects"
       },
       "locked": {
-        "lastModified": 1774600445,
-        "narHash": "sha256-H5M8xMyBemGpTj/hEUWAJyGZ2pCjQn3YOhxGzXdN01c=",
+        "lastModified": 1775642302,
+        "narHash": "sha256-4Gn5DIplAsk2DKHBZorZ4y3MSL9NeRSA5wDa/xl6gt0=",
         "owner": "TotalyEnglizLitrate",
         "repo": "nvim-nixcats",
-        "rev": "792480e87b469bb8eed7be302e768883f28eb31b",
+        "rev": "ec69e06877cbd087485c170bab6b774c9000afa2",
         "type": "github"
       },
       "original": {
@@ -763,11 +763,11 @@
     "treesitter-textobjects": {
       "flake": false,
       "locked": {
-        "lastModified": 1774087849,
-        "narHash": "sha256-H1tIn3XYJtLF1JvlUJvLtTScMdV/NHDFq+KZjBV4q1c=",
+        "lastModified": 1775552773,
+        "narHash": "sha256-fOpRElIwvsFWm4AwETx7fpC3RtdH2BpCfX4YHVitqw0=",
         "owner": "nvim-treesitter",
         "repo": "nvim-treesitter-textobjects",
-        "rev": "93d60a475f0b08a8eceb99255863977d3a25f310",
+        "rev": "851e865342e5a4cb1ae23d31caf6e991e1c99f1e",
         "type": "github"
       },
       "original": {
