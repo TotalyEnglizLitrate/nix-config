@@ -11,7 +11,6 @@
   imports = [
     ./gdm.nix
     ./cloudflare-warp.nix
-    ./tuned.nix
     ./niri.nix
     ./nixos-cli.nix
     ./wireshark.nix
@@ -123,6 +122,7 @@
     devmon.enable = true;
     seatd.enable = true;
     fwupd.enable = true;
+    power-profiles-daemon.enable = true;
     pulseaudio.enable = false;
     pipewire = {
       enable = true;
