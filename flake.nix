@@ -36,7 +36,7 @@
     };
 
     elephant = {
-      url = "github:TotalyEnglizLitrate/elephant/feat/playerctl";
+      url = "github:abenz1267/elephant";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

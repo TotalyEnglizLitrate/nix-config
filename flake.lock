@@ -113,16 +113,15 @@
         "systems": "systems_2"
       },
       "locked": {
-        "lastModified": 1774195635,
-        "narHash": "sha256-cG6TLFBanLcdz3PdaBNZ+AA6uCw0HWG641NnCd/DM6Y=",
-        "owner": "TotalyEnglizLitrate",
+        "lastModified": 1775706155,
+        "narHash": "sha256-h7Rw0vlb0n0Jsk21WJPm7H+1T1bG+PEuxE5cJ2TZl8A=",
+        "owner": "abenz1267",
         "repo": "elephant",
-        "rev": "369235eae4680237c9144683f81499e55f0a42ad",
+        "rev": "376ee71c66db38683daabd57350bf3f6f086eaf8",
         "type": "github"
       },
       "original": {
-        "owner": "TotalyEnglizLitrate",
-        "ref": "feat/playerctl",
+        "owner": "abenz1267",
         "repo": "elephant",
         "type": "github"
       }
