@@ -3,7 +3,9 @@
   userConfig,
   hostname,
   ...
-}: {
+}: let 
+  nixos_config_dir = "/home/${userConfig.name}/Documents/repositories/nix-config";
+in {
   programs.nixos-cli = {
     enable = true;
     option-cache.enable = true;
@@ -20,5 +22,8 @@
     };
   };
 
-  environment.variables.NIXOS_CONFIG = "/home/${userConfig.name}/Documents/repositories/nix-config#${hostname}";
+  environment.variables = {
+    NIXOS_CONFIG_DIR = nixos_config_dir;
+    NIXOS_CONFIG = "${nixos_config_dir}#${hostname}";
+  };
 }
