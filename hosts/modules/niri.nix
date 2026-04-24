@@ -4,6 +4,7 @@
   ...
 }: {
   nixpkgs.overlays = [inputs.niri.overlays.niri];
+  niri-flake.cache.enable = false;
 
   hardware.bluetooth = {
     enable = true;
