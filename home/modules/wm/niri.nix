@@ -151,7 +151,12 @@ in {
             title = "^(Picture-in-Picture|Library|Extension.*)$";
           }
 
-          {title = "Bitwarden";}
+          # Bitwarden
+          {
+            app-id = "chrome-nngceckbapebfimnlniiiahkandclblb.*";
+            title = "_crx_nngceckbapebfimnlniiiahkandclblb";
+          }
+
           {app-id = "org.gnome.Nautilus";}
           {app-id = "org.gnome.FileRoller";}
           {app-id = "org.pulseaudio.pavucontrol";}
