@@ -39,7 +39,7 @@
     package = pkgs.lixPackageSets.latest.lix;
     nixPath = ["/etc/nix/path"];
     settings = {
-      experimental-features = "nix-command flakes ca-derivations";
+      experimental-features = "nix-command flakes";
       auto-optimise-store = true;
       substituters = ["https://niri.cachix.org" "https://watersucks.cachix.org" "https://noctalia.cachix.org"];
       trusted-public-keys = [
@@ -160,8 +160,6 @@
     kdeconnect.enable = true;
     dconf.enable = true;
   };
-  # use ca-derivations for manpages to speedup build time
-  documentation.man.man-db.package = pkgs.man-db.overrideAttrs (_final: _prev: {__contentAddressed = true;});
 
   security.sudo.wheelNeedsPassword = true;
 
