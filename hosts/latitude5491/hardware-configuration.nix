@@ -25,13 +25,13 @@
       options = ["subvol=@"];
     };
 
-    fileSystems."/boot" = {
+    "/boot" = {
       device = "/dev/disk/by-uuid/4689-EFE9";
       fsType = "vfat";
       options = ["fmask=0077" "dmask=0077"];
     };
 
-    fileSystems."/home" = {
+    "/home" = {
       device = "/dev/disk/by-uuid/3a4b33e2-e37d-4ba8-a7cc-b175bdaaa289";
       fsType = "btrfs";
       options = ["subvol=@home" "defaults"];
