@@ -20,6 +20,13 @@
   nixpkgs = {
     overlays = [
       outputs.overlays.stable-packages
+      (final: prev: {
+        inherit (prev.lixPackageSets.stable)
+        nixpkgs-review
+        nix-eval-jobs
+        nix-fast-build
+        colmena;
+      })
     ];
 
     config = {
@@ -29,6 +36,7 @@
 
   nix = {
     registry = lib.mapAttrs (_: flake: {inherit flake;}) (lib.filterAttrs (_: lib.isType "flake") inputs);
+    package = pkgs.lixPackageSets.latest.lix;
     nixPath = ["/etc/nix/path"];
     settings = {
       experimental-features = "nix-command flakes ca-derivations";
