@@ -322,11 +322,11 @@ in {
       };
       "XF86AudioMicMute" = {
         allow-when-locked = true;
-        action.spawn = ["toggle-mute"];
+        action.spawn = noctalia_cmd ["volume" "muteInput"];
       };
       "Shift+XF86AudioMute" = {
         allow-when-locked = true;
-        action.spawn = ["sh" "-c" "echo ''> /var/run/mute-led-fixd.pipe"];
+        action.spawn = noctalia_cmd ["volume" "muteInput"];
       };
       "Shift+XF86AudioRaiseVolume" = {
         allow-when-locked = true;
