@@ -25,6 +25,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    noctalia = {
+      url = "github:noctalia-dev/noctalia-shell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nixos-cli = {
       url = "github:nix-community/nixos-cli";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -33,19 +38,6 @@
     nvim = {
       url = "github:TotalyEnglizLitrate/nvim-nixcats";
       inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    elephant = {
-      url = "github:abenz1267/elephant";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    walker = {
-      url = "github:abenz1267/walker";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        elephant.follows = "elephant";
-      };
     };
 
     hardware.url = "github:nixos/nixos-hardware";
@@ -97,7 +89,6 @@
               users.${username} = import ./home/${username}/${hostname}.nix;
               sharedModules = [
                 inputs.stylix.homeModules.stylix
-                inputs.walker.homeManagerModules.default
               ];
             };
           }

@@ -22,7 +22,6 @@
   };
   security = {
     polkit.enable = true;
-    pam.services.hyprlock = {};
   };
 
   environment.systemPackages = [pkgs.polkit_gnome];

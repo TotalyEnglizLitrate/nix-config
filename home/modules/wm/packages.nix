@@ -24,9 +24,7 @@
     qpwgraph
     remmina
     seahorse
-    awww
     syncplay
-    tesseract
     vlc
     wl-clipboard
     wlr-randr

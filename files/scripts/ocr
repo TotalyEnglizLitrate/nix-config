@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-
-niri msg action screenshot --path /dev/null && wl-paste | tesseract stdin stdout -l "eng"

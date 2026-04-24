@@ -31,5 +31,5 @@
 
   programs.btop.enable = true;
 
-  home.file."Pictures/wallpapers/default.png".source = ../../files/wallpapers/nix-logo.png;
+  home.file."Pictures/Wallpapers/default.png".source = ../../files/wallpapers/nix-logo.png;
 }

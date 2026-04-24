@@ -9,17 +9,16 @@
     latitude5491 = 0.7;
     omnibook = 1;
   };
+
+  noctalia_cmd = (args: ["noctalia-shell" "ipc" "call"] ++ args);
 in {
   imports = [
     ./foot.nix
     ./gtk.nix
-    ./idle.nix
     ./kanshi.nix
     ./packages.nix
     ./spotify.nix
-    ./swaync.nix
-    ./walker.nix
-    ./waybar.nix
+    ./desktop-shell.nix
   ];
 
   programs.obs-studio = {
@@ -123,24 +122,24 @@ in {
     };
 
     spawn-at-startup = [
-      {command = ["wallpaper" "--init"];}
-      {command = ["systemctl" "--user" "restart" "elephant.service"];} # dk why but this thing needs to be done everytime; figure out a cleaner way to do it
+      {command = ["sh" "-c" "QT_QPA_PLATFORMTHEME=gtk3 noctalia-shell"];}
       {command = ["toggle-mute" "--init"];}
-      {command = ["waybar-restart"];}
       {command = ["xwayland-satellite"];}
-      {command = ["swaync"];}
       {command = ["kdeconnect-indicator"];}
-      {command = ["hypridle"];}
       {command = ["arrpc"];}
       {command = ["${pkgs.kdePackages.kdeconnect-kde}/lib/kdeconnectd"];}
       {command = ["${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1"];}
-      {command = ["pkill" "nm-applet"];}
     ];
-
+    
+    hotkey-overlay = {
+      skip-at-startup = true;
+      hide-not-bound = true;
+    };
+    
     prefer-no-csd = true;
     screenshot-path = "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png";
 
-    switch-events.lid-close.action.spawn = ["hyprlock"];
+    switch-events.lid-close.action.spawn = noctalia_cmd ["lockScreen" "lock"];
 
     window-rules = [
       {open-maximized = true;}
@@ -154,12 +153,8 @@ in {
 
           {app-id = "org.gnome.Nautilus";}
           {app-id = "org.gnome.FileRoller";}
-          {app-id = "org.polkit-kde-authentication-agent-1";}
           {app-id = "org.pulseaudio.pavucontrol";}
           {app-id = "nm-connection-editor";}
-
-          {title = "clipboard";}
-          {title = "bluetuith";}
         ];
 
         open-floating = true;
@@ -168,19 +163,17 @@ in {
 
     binds = {
       "Mod+T".action.spawn = ["foot"];
-      "Mod+R".action.spawn = ["walker"];
       "Mod+W".action.spawn = ["zen-twilight"];
-      "Mod+B".action.spawn = ["walker" "-m" "bluetooth"];
       "Mod+E".action.spawn = ["nautilus"];
       "Mod+M".action.spawn = ["foot" "-T" "btop" "btop"];
-      "Mod+N".action.spawn = ["swaync-client" "-t"];
+      "Mod+N".action.spawn = noctalia_cmd ["notifications" "toggleHistory"];
       "Mod+S".action.spawn = ["spotify" "--enable-features=UseOzonePlatform" "--ozone-platform=wayland"];
-      "Mod+V".action.spawn = ["walker" "-m" "clipboard"];
       "Mod+P".action.spawn = ["niri" "msg" "action" "set-dynamic-cast-window"];
-      "Mod+A".action.spawn = ["sh" "-c" "pkill waybar || waybar"];
-      "Mod+Shift+V".action.spawn = ["walker" "-m" "wireplumber"];
-      "XF86Calculator".action.spawn = ["walker" "-m" "calc"];
-      "Mod+Shift+W".action.spawn = ["wallpaper"];
+      "Mod+R".action.spawn = noctalia_cmd ["launcher" "toggle"];
+      "Mod+V".action.spawn = noctalia_cmd ["launcher" "clipboard"];
+      "Mod+B".action.spawn = noctalia_cmd ["bluetooth" "togglePanel"];
+      "Mod+A".action.spawn = noctalia_cmd ["controlCenter" "toggle"];
+      "Mod+Shift+V".action.spawn = noctalia_cmd ["volume" "togglePanel"];
 
       "Mod+Tab" = {
         repeat = false;
@@ -264,8 +257,8 @@ in {
       "Mod+Ctrl+F".action.expand-column-to-available-width = {};
 
       "Mod+C".action.center-column = {};
-      "Mod+Shift+C".action.spawn = ["colorpicker"];
-      "Mod+Ctrl+T".action.spawn = ["ocr"];
+      "Mod+Shift+C".action.spawn = noctalia_cmd ["plugin:screen-toolkit" "colorPicker"];
+      "Mod+Ctrl+T".action.spawn = noctalia_cmd ["plugin:screen-toolkit" "ocr"];
       "Mod+Ctrl+C".action.center-visible-columns = {};
 
       "Mod+Minus".action.set-column-width = "-10%";
@@ -283,49 +276,49 @@ in {
       "Mod+Shift+Q".action.quit = {skip-confirmation = true;};
       "Ctrl+Alt+Delete".action.quit = {};
 
-      "Mod+L".action.spawn = ["hyprlock"];
+      "Mod+L".action.spawn = noctalia_cmd ["lockScreen" "lock"];
 
       "Mod+Shift+B" = {
         allow-when-locked = true;
-        action.spawn = ["playerctl-wrapper" "previous"];
+        action.spawn = noctalia_cmd ["media" "previous"];
       };
       "Mod+Shift+P" = {
         allow-when-locked = true;
-        action.spawn = ["playerctl-wrapper" "play-pause"];
+        action.spawn = noctalia_cmd ["media" "playPause"];
       };
       "Mod+Shift+N" = {
         allow-when-locked = true;
-        action.spawn = ["playerctl-wrapper" "next"];
+        action.spawn = noctalia_cmd ["media" "next"];
       };
 
       "XF86AudioPlay" = {
         allow-when-locked = true;
-        action.spawn = ["playerctl-wrapper" "play-pause"];
+        action.spawn = noctalia_cmd ["media" "playPause"];
       };
       "XF86AudioPause" = {
         allow-when-locked = true;
-        action.spawn = ["playerctl-wrapper" "play-pause"];
+        action.spawn = noctalia_cmd ["media" "playPause"];
       };
       "XF86AudioNext" = {
         allow-when-locked = true;
-        action.spawn = ["playerctl-wrapper" "next"];
+        action.spawn = noctalia_cmd ["media" "next"];
       };
       "XF86AudioPrev" = {
         allow-when-locked = true;
-        action.spawn = ["playerctl-wrapper" "previous"];
+        action.spawn = noctalia_cmd ["media" "previous"];
       };
 
       "XF86AudioRaiseVolume" = {
         allow-when-locked = true;
-        action.spawn = ["wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "5%+"];
+        action.spawn = noctalia_cmd ["volume" "increase"];
       };
       "XF86AudioLowerVolume" = {
         allow-when-locked = true;
-        action.spawn = ["wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "5%-"];
+        action.spawn = noctalia_cmd ["volume" "decrease"];
       };
       "XF86AudioMute" = {
         allow-when-locked = true;
-        action.spawn = ["wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"];
+        action.spawn = noctalia_cmd ["volume" "muteOutput"];
       };
       "XF86AudioMicMute" = {
         allow-when-locked = true;
@@ -337,20 +330,20 @@ in {
       };
       "Shift+XF86AudioRaiseVolume" = {
         allow-when-locked = true;
-        action.spawn = ["wpctl" "set-volume" "@DEFAULT_AUDIO_SOURCE@" "5%+"];
+        action.spawn = noctalia_cmd ["volume" "increaseInput"];
       };
       "Shift+XF86AudioLowerVolume" = {
         allow-when-locked = true;
-        action.spawn = ["wpctl" "set-volume" "@DEFAULT_AUDIO_SOURCE@" "5%-"];
+        action.spawn = noctalia_cmd ["volume" "decreaseInput"];
       };
 
       "XF86MonBrightnessUp" = {
         allow-when-locked = true;
-        action.spawn = ["brightnessctl" "--class=backlight" "set" "+5%"];
+        action.spawn = noctalia_cmd ["brightness" "increase"];
       };
       "XF86MonBrightnessDown" = {
         allow-when-locked = true;
-        action.spawn = ["brightnessctl" "--class=backlight" "set" "5%-"];
+        action.spawn = noctalia_cmd ["brightness" "decrease"];
       };
     };
   };

@@ -33,10 +33,11 @@
     settings = {
       experimental-features = "nix-command flakes ca-derivations";
       auto-optimise-store = true;
-      substituters = ["https://niri.cachix.org" "https://watersucks.cachix.org"];
+      substituters = ["https://niri.cachix.org" "https://watersucks.cachix.org" "https://noctalia.cachix.org"];
       trusted-public-keys = [
         "niri.cachix.org-1:Wv0OmO7PsuocRKzfDoJ3mulSl7Z6oezYhGhR+3W2964="
         "watersucks.cachix.org-1:6gadPC5R8iLWQ3EUtfu3GFrVY7X6I4Fwz/ihW25Jbv8="
+        "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4="
       ];
     };
   };
@@ -123,6 +124,7 @@
     seatd.enable = true;
     fwupd.enable = true;
     power-profiles-daemon.enable = true;
+    upower.enable = true;
     pulseaudio.enable = false;
     pipewire = {
       enable = true;
@@ -140,7 +142,7 @@
 
   users.users.${userConfig.name} = {
     description = userConfig.fullName;
-    extraGroups = ["networkmanager" "wheel"];
+    extraGroups = ["networkmanager" "wheel" "input"];
     isNormalUser = true;
     shell = pkgs.fish;
   };
