@@ -28,19 +28,19 @@ in {
 
   xdg.mimeApps.defaultApplications = lib.mkMerge [
     {
-      "application/x-extension-htm" = "zen.desktop";
-      "application/x-extension-html" = "zen.desktop";
-      "application/x-extension-shtml" = "zen.desktop";
-      "application/x-extension-xht" = "zen.desktop";
-      "application/x-extension-xhtml" = "zen.desktop";
-      "application/xhtml+xml" = "zen.desktop";
-      "text/html" = "zen.desktop";
-      "x-scheme-handler/about" = "zen.desktop";
-      "x-scheme-handler/ftp" = "zen.desktop";
-      "x-scheme-handler/http" = "zen.desktop";
-      "x-scheme-handler/https" = "zen.desktop";
-      "x-scheme-handler/unknown" = "zen.desktop";
-      "application/pdf" = "zen.desktop";
+      "application/x-extension-htm" = "helium.desktop";
+      "application/x-extension-html" = "helium.desktop";
+      "application/x-extension-shtml" = "helium.desktop";
+      "application/x-extension-xht" = "helium.desktop";
+      "application/x-extension-xhtml" = "helium.desktop";
+      "application/xhtml+xml" = "helium.desktop";
+      "text/html" = "helium.desktop";
+      "x-scheme-handler/about" = "helium.desktop";
+      "x-scheme-handler/ftp" = "helium.desktop";
+      "x-scheme-handler/http" = "helium.desktop";
+      "x-scheme-handler/https" = "helium.desktop";
+      "x-scheme-handler/unknown" = "helium.desktop";
+      "application/pdf" = "helium.desktop";
     }
   ];
 
@@ -151,6 +151,7 @@ in {
             title = "^(Picture-in-Picture|Library|Extension.*)$";
           }
 
+          {title = "Bitwarden";}
           {app-id = "org.gnome.Nautilus";}
           {app-id = "org.gnome.FileRoller";}
           {app-id = "org.pulseaudio.pavucontrol";}
@@ -163,7 +164,7 @@ in {
 
     binds = {
       "Mod+T".action.spawn = ["foot"];
-      "Mod+W".action.spawn = ["zen-twilight"];
+      "Mod+W".action.spawn = ["helium"];
       "Mod+E".action.spawn = ["nautilus"];
       "Mod+M".action.spawn = ["foot" "-T" "btop" "btop"];
       "Mod+N".action.spawn = noctalia_cmd ["notifications" "toggleHistory"];

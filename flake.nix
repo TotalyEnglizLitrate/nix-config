@@ -20,6 +20,11 @@
       inputs.home-manager.follows = "home-manager";
     };
 
+    helium-browser = {
+      url = "github:schembriaiden/helium-browser-nix-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     niri = {
       url = "github:sodiboo/niri-flake";
       inputs.nixpkgs.follows = "nixpkgs";
