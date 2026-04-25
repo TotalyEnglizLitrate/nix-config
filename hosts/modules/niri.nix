@@ -30,7 +30,10 @@ in {
 
   services = {
     gvfs.enable = true;
-    gnome.gnome-keyring.enable = true;
+    gnome = {
+      evolution-data-server.enable = true;
+      gnome-keyring.enable = true;
+    };
     xserver.updateDbusEnvironment = true;
   };
   security = {
