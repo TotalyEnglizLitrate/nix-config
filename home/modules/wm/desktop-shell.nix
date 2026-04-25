@@ -3,7 +3,7 @@ let
   has_fprint = hostname == "omnibook";
   enablePlugins = names: src: lib.genAttrs names (_: { enabled = true; sourceUrl = src;});
   plugins_src = "https://github.com/noctalia-dev/noctalia-plugins";
-in {
+ in {
   imports = [
     inputs.noctalia.homeModules.default
   ];
@@ -19,6 +19,15 @@ in {
       brightness.enforceMinimum = false;
       idle.enabled = true;
       systemMonitor.externalMonitor = "foot -e btop";
+
+      hooks = {
+        enabled = true;
+        startup = pkgs.writeScript "lock-on-launch" ''
+        #!/usr/bin/env bash
+
+        noctalia-shell ipc call lockScreen lock
+        '';
+      };
 
       bar = {
         barType = "simple";
