@@ -59,6 +59,12 @@
     localBinInPath = true;
   };
 
+
+
+  system.activationScripts.kexec = ''
+    ln -sf ${pkgs.kexec-tools}/bin/kexec /usr/bin/kexec
+  '';
+
   boot = {
     kernelPackages = pkgs.linuxKernel.packages.linux_6_19;
     kernelParams = ["quiet" "splash"];
