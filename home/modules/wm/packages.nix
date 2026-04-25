@@ -31,7 +31,6 @@
     xournalpp
     xwayland-satellite-unstable
 
-    inputs.zen-browser.packages."${pkgs.stdenv.hostPlatform.system}".twilight
     inputs.helium-browser.packages."${pkgs.stdenv.hostPlatform.system}".default
   ];
 }

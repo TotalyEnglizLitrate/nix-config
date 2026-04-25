@@ -146,11 +146,6 @@ in {
 
       {
         matches = [
-          {
-            app-id = "zen-browser$";
-            title = "^(Picture-in-Picture|Library|Extension.*)$";
-          }
-
           # Bitwarden
           {
             app-id = "chrome-nngceckbapebfimnlniiiahkandclblb.*";
