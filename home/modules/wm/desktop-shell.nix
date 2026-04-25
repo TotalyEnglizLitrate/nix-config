@@ -182,10 +182,12 @@ let
       wallpaper = {
         directory = "/home/${userConfig.name}/Pictures/Wallpapers/flat/";
         viewMode = "browse";
+        skipStartupTransition = true;
         transitionType = [
           "fade"
           "wipe"
           "stripes"
+          "honeycomb"
         ];
       };
     };
