@@ -123,6 +123,12 @@ in {
 
     spawn-at-startup = [
       {command = ["sh" "-c" "QT_QPA_PLATFORMTHEME=gtk3 noctalia-shell"];}
+      {
+        command = [ 
+          "watch" "--errexit" "-n0.5" 
+          (lib.join " "  (["!"] ++ (noctalia_cmd ["lockScreen" "lock"])))
+        ];
+      }
       {command = ["toggle-mute" "--init"];}
       {command = ["xwayland-satellite"];}
       {command = ["kdeconnect-indicator"];}

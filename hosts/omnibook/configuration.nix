@@ -37,7 +37,7 @@
 
   services.fprintd.enable = true;
   security.pam.services = {
-    login.fprintAuth = lib.mkForce true;
+    login.fprintAuth = true;
     sudo.fprintAuth = true;
     pkexec.fprintAuth = true;
   };

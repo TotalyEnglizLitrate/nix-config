@@ -9,7 +9,6 @@
   ...
 }: {
   imports = [
-    ./gdm.nix
     ./cloudflare-warp.nix
     ./niri.nix
     ./nixos-cli.nix
