@@ -4,17 +4,18 @@
   ...
 }: {
   imports = [
-    ../modules/shell.nix
-    ../modules/git.nix
-    ../modules/home.nix
-    ../modules/lazygit.nix
-    ../modules/nvim.nix
-    ../modules/packages.nix
-    ../modules/scripts.nix
-    ../modules/starship.nix
-    ../modules/zellij.nix
-    ../modules/stylix.nix
-    ../modules/kubectl.nix
+    ./shell.nix
+    ./git.nix
+    ./home.nix
+    ./lazygit.nix
+    ./nvim.nix
+    ./packages.nix
+    ./scripts.nix
+    ./starship.nix
+    ./fastfetch.nix
+    ./zellij.nix
+    ./stylix.nix
+    ./kubectl.nix
   ];
 
   nixpkgs = {
