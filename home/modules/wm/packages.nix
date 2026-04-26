@@ -32,5 +32,7 @@
     xwayland-satellite-unstable
 
     inputs.helium-browser.packages."${pkgs.stdenv.hostPlatform.system}".default
+    chromium
+    firefox-devedition
   ];
 }
