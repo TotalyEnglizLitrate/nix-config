@@ -36,6 +36,7 @@ in {
           #!/usr/bin/env bash
 
           noctalia-shell ipc call lockScreen lock
+          niri msg action toggle-keyboard-shortcuts-inhibit
         '';
       };
 
