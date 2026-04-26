@@ -19,15 +19,6 @@
   nixpkgs = {
     overlays = [
       outputs.overlays.stable-packages
-      (final: prev: {
-        inherit
-          (prev.lixPackageSets.stable)
-          nixpkgs-review
-          nix-eval-jobs
-          nix-fast-build
-          colmena
-          ;
-      })
     ];
 
     config = {
@@ -37,10 +28,9 @@
 
   nix = {
     registry = lib.mapAttrs (_: flake: {inherit flake;}) (lib.filterAttrs (_: lib.isType "flake") inputs);
-    package = pkgs.lixPackageSets.latest.lix;
     nixPath = ["/etc/nix/path"];
     settings = {
-      experimental-features = "nix-command flakes";
+      experimental-features = "nix-command flakes ca-derivations";
       auto-optimise-store = true;
       substituters = ["https://niri.cachix.org" "https://watersucks.cachix.org" "https://noctalia.cachix.org"];
       trusted-public-keys = [
@@ -171,6 +161,8 @@
     kdeconnect.enable = true;
     dconf.enable = true;
   };
+  # use ca-derivations for manpages to speedup build time
+  documentation.man.man-db.package = pkgs.man-db.overrideAttrs (_final: _prev: {__contentAddressed = true;});
 
   environment.systemPackages = with pkgs; [
     gcc
