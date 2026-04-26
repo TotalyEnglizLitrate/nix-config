@@ -10,7 +10,7 @@
     omnibook = 1;
   };
 
-  noctalia_cmd = (args: ["noctalia-shell" "ipc" "call"] ++ args);
+  noctalia_cmd = args: ["noctalia-shell" "ipc" "call"] ++ args;
 in {
   imports = [
     ./foot.nix
@@ -130,12 +130,12 @@ in {
       {command = ["${pkgs.kdePackages.kdeconnect-kde}/lib/kdeconnectd"];}
       {command = ["${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1"];}
     ];
-    
+
     hotkey-overlay = {
       skip-at-startup = true;
       hide-not-bound = true;
     };
-    
+
     prefer-no-csd = true;
     screenshot-path = "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png";
 

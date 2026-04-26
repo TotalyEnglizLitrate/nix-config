@@ -20,11 +20,13 @@
     overlays = [
       outputs.overlays.stable-packages
       (final: prev: {
-        inherit (prev.lixPackageSets.stable)
-        nixpkgs-review
-        nix-eval-jobs
-        nix-fast-build
-        colmena;
+        inherit
+          (prev.lixPackageSets.stable)
+          nixpkgs-review
+          nix-eval-jobs
+          nix-fast-build
+          colmena
+          ;
       })
     ];
 
@@ -50,16 +52,16 @@
   };
 
   environment = {
-    etc = lib.mapAttrs' (name: value: {
-      name = "nix/path/${name}";
-      value.source = value.flake;
-    }) config.nix.registry;
+    etc =
+      lib.mapAttrs' (name: value: {
+        name = "nix/path/${name}";
+        value.source = value.flake;
+      })
+      config.nix.registry;
 
     variables.LIBSEAT_BACKEND = "logind";
     localBinInPath = true;
   };
-
-
 
   system.activationScripts.kexec = ''
     ln -sf ${pkgs.kexec-tools}/bin/kexec /usr/bin/kexec
@@ -151,7 +153,11 @@
 
     dbus.packages = [pkgs.gcr];
   };
-  security.rtkit.enable = true;
+
+  security = {
+    rtkit.enable = true;
+    sudo.wheelNeedsPassword = true;
+  };
 
   users.users.${userConfig.name} = {
     description = userConfig.fullName;
@@ -165,8 +171,6 @@
     kdeconnect.enable = true;
     dconf.enable = true;
   };
-
-  security.sudo.wheelNeedsPassword = true;
 
   environment.systemPackages = with pkgs; [
     gcc

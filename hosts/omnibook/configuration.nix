@@ -1,4 +1,8 @@
-{lib, inputs, ...}: {
+{
+  lib,
+  inputs,
+  ...
+}: {
   imports = [
     inputs.hardware.nixosModules.common-pc-ssd
     ./hardware-configuration.nix

@@ -3,7 +3,7 @@
   userConfig,
   hostname,
   ...
-}: let 
+}: let
   nixos_config_dir = "/home/${userConfig.name}/Documents/repositories/nix-config";
 in {
   programs.nixos-cli = {

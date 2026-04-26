@@ -1,9 +1,19 @@
-{lib, pkgs, inputs, hostname, userConfig, ...}:
-let
+{
+  lib,
+  pkgs,
+  inputs,
+  hostname,
+  userConfig,
+  ...
+}: let
   has_fprint = hostname == "omnibook";
-  enablePlugins = names: src: lib.genAttrs names (_: { enabled = true; sourceUrl = src;});
+  enablePlugins = names: src:
+    lib.genAttrs names (_: {
+      enabled = true;
+      sourceUrl = src;
+    });
   plugins_src = "https://github.com/noctalia-dev/noctalia-plugins";
- in {
+in {
   imports = [
     inputs.noctalia.homeModules.default
   ];
@@ -11,7 +21,7 @@ let
   stylix.targets.noctalia-shell.enable = true;
 
   programs.noctalia-shell = {
-    package = pkgs.noctalia-shell.override { calendarSupport = true; };
+    package = pkgs.noctalia-shell.override {calendarSupport = true;};
     enable = true;
     settings = {
       dock.enabled = false;
@@ -23,9 +33,9 @@ let
       hooks = {
         enabled = true;
         startup = pkgs.writeScript "lock-on-launch" ''
-        #!/usr/bin/env bash
+          #!/usr/bin/env bash
 
-        noctalia-shell ipc call lockScreen lock
+          noctalia-shell ipc call lockScreen lock
         '';
       };
 
@@ -39,50 +49,49 @@ let
 
         widgets = {
           left = [
-            { id = "Workspace"; }
+            {id = "Workspace";}
             {
               id = "ActiveWindow";
               maxWidth = 300;
             }
-            { id = "plugin:screen-toolkit"; }
-            { id = "plugin:sticky-notes"; }
-            { id = "plugin:todo"; }
+            {id = "plugin:screen-toolkit";}
+            {id = "plugin:sticky-notes";}
+            {id = "plugin:todo";}
           ];
 
           center = [
-            { id = "NotificationHistory"; }
-            { id = "Clock"; }
-            { id = "plugin:timer"; }
-            { id = "plugin:catwalk"; }
+            {id = "NotificationHistory";}
+            {id = "Clock";}
+            {id = "plugin:timer";}
+            {id = "plugin:catwalk";}
           ];
 
           right = [
-            { 
+            {
               id = "SystemMonitor";
               compactMode = false;
               showNetworkStats = true;
             }
-            { id = "Tray"; }
-            { id = "plugin:kde-connect"; }
-            { id = "Network"; }
-            { id = "plugin:network-manager-vpn"; }
-            { id = "Bluetooth"; }
-            { id = "plugin:privacy-indicator"; }
-            { id = "Brightness"; }
+            {id = "Tray";}
+            {id = "plugin:kde-connect";}
+            {id = "Network";}
+            {id = "plugin:network-manager-vpn";}
+            {id = "Bluetooth";}
+            {id = "plugin:privacy-indicator";}
+            {id = "Brightness";}
             {
               id = "Battery";
               displayMode = "icon-always";
               showPowerProfiles = true;
               showNoctaliaPerformance = true;
             }
-            { 
+            {
               id = "ControlCenter";
               useDistroLogo = true;
             }
           ];
         };
       };
-
 
       notifications.sounds = {
         enabled = true;
@@ -133,18 +142,18 @@ let
       controlCenter = {
         shortcuts = {
           left = [
-            { id = "Network"; }
-            { id = "Bluetooth"; }
-            { id = "AirplaneMode"; }
-            { id = "KeepAwake"; }
-            { id = "NightLight"; }
+            {id = "Network";}
+            {id = "Bluetooth";}
+            {id = "AirplaneMode";}
+            {id = "KeepAwake";}
+            {id = "NightLight";}
           ];
 
           right = [];
         };
 
         cards = [
-          { 
+          {
             enabled = true;
             id = "profile-card";
           }
@@ -170,7 +179,6 @@ let
           }
         ];
       };
-
 
       appLauncher = {
         enableClipboardHistory = true;
@@ -202,27 +210,29 @@ let
         }
       ];
 
-      states = enablePlugins [
-        "catwalk"
-        "screen-toolkit"
-        "file-search"
-        "privacy-indicator"
-        "sticky-notes"
-        "web-search"
-        "todo"
-        "keybind-cheatsheet"
-        "network-manager-vpn"
-        "timer"
-        "kde-connect"
-        "nvim-session-provider"
-        "unicode-picker"
-        "kaomoji-provider"
-        "show-keys"
-        "wallcards"
-      ] plugins_src;
+      states =
+        enablePlugins [
+          "catwalk"
+          "screen-toolkit"
+          "file-search"
+          "privacy-indicator"
+          "sticky-notes"
+          "web-search"
+          "todo"
+          "keybind-cheatsheet"
+          "network-manager-vpn"
+          "timer"
+          "kde-connect"
+          "nvim-session-provider"
+          "unicode-picker"
+          "kaomoji-provider"
+          "show-keys"
+          "wallcards"
+        ]
+        plugins_src;
     };
   };
-  
+
   # plugin deps
   home.packages = with pkgs; [
     # screen-toolkit
@@ -235,7 +245,6 @@ let
 
     # kde-connect
     sshfs
-    sshfs-fuse
 
     # show-keys
     evtest
@@ -243,5 +252,4 @@ let
     #wallcards
     qt6Packages.qt5compat
   ];
-
 }

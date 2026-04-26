@@ -4,8 +4,7 @@
   pkgs,
   userConfig,
   ...
-}: 
-let
+}: let
   # autologin on tty2. Otherwise autologin and getty alternate in grabbing tty1 on nixos-rebuild switch
   autologin_on_2 = pkgs.autologin.overrideAttrs (_: {
     postPatch = ''
@@ -41,7 +40,7 @@ in {
     polkit.enable = true;
   };
 
-  environment.systemPackages = [ autologin_on_2 pkgs.polkit_gnome ];
+  environment.systemPackages = [autologin_on_2 pkgs.polkit_gnome];
 
   systemd.services.autologin = {
     enable = true;
@@ -64,8 +63,8 @@ in {
     };
     startLimitBurst = 5;
     startLimitIntervalSec = 30;
-    aliases = [ "display-manager.service" ];
-    wantedBy = [ "multi-user.target" ];
+    aliases = ["display-manager.service"];
+    wantedBy = ["multi-user.target"];
   };
 
   security.pam.services.autologin = {
