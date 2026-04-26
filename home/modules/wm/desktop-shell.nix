@@ -27,7 +27,6 @@ in {
       dock.enabled = false;
       audio.volumeOverdrive = true;
       brightness.enforceMinimum = false;
-      idle.enabled = true;
       systemMonitor.externalMonitor = "foot -e btop";
 
       hooks = {
@@ -38,6 +37,15 @@ in {
           noctalia-shell ipc call lockScreen lock
           niri msg action toggle-keyboard-shortcuts-inhibit
         '';
+      };
+
+
+      idle = {
+        enabled = true;
+        screenOffTimeout = 90;
+        lockTimeout = 300;
+        suspendTimeout = 600;
+        suspendCommand = "noctalia-shell ipc call lockScreen lock";
       };
 
       bar = {
