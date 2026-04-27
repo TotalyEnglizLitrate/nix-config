@@ -29,16 +29,6 @@ in {
       brightness.enforceMinimum = false;
       systemMonitor.externalMonitor = "foot -e btop";
 
-      hooks = {
-        enabled = true;
-        startup = pkgs.writeScript "lock-on-launch" ''
-          #!/usr/bin/env bash
-
-          noctalia-shell ipc call lockScreen lock
-          niri msg action toggle-keyboard-shortcuts-inhibit
-        '';
-      };
-
       idle = {
         enabled = true;
         screenOffTimeout = 90;
@@ -198,7 +188,6 @@ in {
       wallpaper = {
         directory = "/home/${userConfig.name}/Pictures/Wallpapers/flat/";
         viewMode = "browse";
-        skipStartupTransition = true;
         transitionType = [
           "fade"
           "wipe"

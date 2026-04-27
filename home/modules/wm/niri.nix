@@ -122,7 +122,6 @@ in {
     };
 
     spawn-at-startup = [
-      {command = ["niri" "msg" "action" "toggle-keyboard-shortcuts-inhibit"];}
       {command = ["sh" "-c" "QT_QPA_PLATFORMTHEME=gtk3 noctalia-shell -d"];}
       {command = ["toggle-mute" "--init"];}
       {command = ["xwayland-satellite"];}
