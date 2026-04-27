@@ -23,7 +23,7 @@
           "--info=inline"
           "--layout=reverse"
           "--multi"
-          "--preview 'test -f {} && bat --style=numbers,changes {} || test -d {} && eza --tree color always {} | less'"
+          "--preview 'test -f {} && bat --style=numbers,changes {} || test -d {} && eza --tree {} | less'"
           "--prompt='~ ' --pointer='▶' --marker='✓'"
         ];
       };
