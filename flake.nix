@@ -76,9 +76,10 @@
         };
         modules = [
           ./hosts/${hostname}/configuration.nix
-          inputs.niri.nixosModules.niri
           home-manager.nixosModules.home-manager
+          inputs.niri.nixosModules.niri
           inputs.nixos-cli.nixosModules.nixos-cli
+          inputs.stylix.nixosModules.stylix
           {
             home-manager = {
               extraSpecialArgs = {
@@ -86,9 +87,6 @@
                 userConfig = users.${username};
               };
               users.${username} = import ./home/${username}/${hostname}.nix;
-              sharedModules = [
-                inputs.stylix.homeModules.stylix
-              ];
             };
           }
         ];

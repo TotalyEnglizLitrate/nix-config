@@ -18,8 +18,6 @@ in {
     inputs.noctalia.homeModules.default
   ];
 
-  stylix.targets.noctalia-shell.enable = true;
-
   programs.noctalia-shell = {
     package = pkgs.noctalia-shell.override {calendarSupport = true;};
     enable = true;
@@ -42,6 +40,7 @@ in {
         density = "spacious";
         position = "top";
         enableExclusionZoneInset = false;
+        outerCorners = false;
         reverseScroll = true;
         rightClickAction = "none";
 

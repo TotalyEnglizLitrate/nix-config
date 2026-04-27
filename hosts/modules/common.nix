@@ -12,8 +12,9 @@
     ./cloudflare-warp.nix
     ./niri.nix
     ./nixos-cli.nix
-    ./wireshark.nix
+    ./stylix.nix
     ./tailscale.nix
+    ./wireshark.nix
   ];
 
   nixpkgs = {
@@ -59,8 +60,6 @@
 
   boot = {
     kernelPackages = pkgs.linuxKernel.packages.linux_7_0;
-    kernelParams = ["quiet" "splash"];
-    consoleLogLevel = 0;
     kernelModules = [
       "v4l2loopback"
       "uinput"
@@ -86,12 +85,6 @@
       timeout = lib.mkForce 1;
 
       efi.canTouchEfiVariables = true;
-    };
-
-    plymouth = {
-      enable = true;
-      theme = "deus_ex";
-      themePackages = with pkgs; [(adi1090x-plymouth-themes.override {selected_themes = ["deus_ex"];})];
     };
   };
 

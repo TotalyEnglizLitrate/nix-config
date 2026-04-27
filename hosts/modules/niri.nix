@@ -48,7 +48,6 @@ in {
     description = "Autologin";
     after = [
       "systemd-user-sessions.service"
-      "plymouth-quit-wait.service"
     ];
 
     serviceConfig = {

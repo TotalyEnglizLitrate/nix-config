@@ -57,5 +57,5 @@
         interactiveShellInit = ''set fish_greeting'';
       };
     }
-    // lib.genAttrs ["fd" "ripgrep" "jq" "yt-dlp"] (_: {enable = true;});
+    // lib.genAttrs ["fd" "ripgrep" "jq" "yt-dlp" "btop"] (_: {enable = true;});
 }
