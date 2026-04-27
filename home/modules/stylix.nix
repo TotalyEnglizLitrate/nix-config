@@ -5,7 +5,7 @@
 }: {
   stylix = {
     enable = true;
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-night-terminal-dark.yaml";
+    base16Scheme = ../../files/themes/tokyo-night-terminal-dark.yaml;
     polarity = "dark";
 
     targets.qt.enable = true;
