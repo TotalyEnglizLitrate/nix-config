@@ -54,10 +54,6 @@
     localBinInPath = true;
   };
 
-  system.activationScripts.kexec = ''
-    ln -sf ${pkgs.kexec-tools}/bin/kexec /usr/bin/kexec
-  '';
-
   boot = {
     kernelPackages = pkgs.linuxKernel.packages.linux_7_0;
     kernelModules = [
