@@ -10,7 +10,6 @@
     file-roller
     foliate
     fragments
-    kdePackages.kdeconnect-kde
     kdePackages.okular
     libreoffice-qt6-fresh
     lmstudio

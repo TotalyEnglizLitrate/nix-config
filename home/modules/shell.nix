@@ -1,46 +1,60 @@
-_: {
-  programs = {
-    bat.enable = true;
+{lib, ...}: {
+  programs =
+    {
+      bat = {
+        enable = true;
+        config.style = lib.join "," ["numbers" "changes" "header-filename"];
+      };
 
-    fzf = {
-      enable = true;
-      defaultCommand = "find .";
-      defaultOptions = [
-        "--bind '?:toggle-preview'"
-        "--bind 'ctrl-a:select-all'"
-        "--bind 'ctrl-e:execute(echo {+} | xargs -o nvim)'"
-        "--bind 'ctrl-y:execute-silent(echo {+} | wl-copy)'"
-        "--color='hl:148,hl+:154,pointer:032,marker:010,bg+:237,gutter:008'"
-        "--height=40%"
-        "--info=inline"
-        "--layout=reverse"
-        "--multi"
-        "--preview '([[ -f {}  ]] && (bat --color=always --style=numbers,changes {} || cat {})) || ([[ -d {}  ]] && (tree -C {} | less)) || echo {} 2> /dev/null | head -200'"
-        "--preview-window=:hidden"
-        "--prompt='~ ' --pointer='▶' --marker='✓'"
-      ];
-    };
+      fd.enable = true;
 
-    zoxide = {
-      enable = true;
-      enableFishIntegration = true;
-    };
-  };
+      fzf = {
+        enable = true;
+        enableFishIntegration = true;
+        defaultCommand = "fd .";
+        defaultOptions = [
+          "--bind '?:toggle-preview'"
+          "--bind 'ctrl-a:select-all'"
+          "--bind 'ctrl-e:execute(echo {+} | xargs -o nvim)'"
+          "--bind 'ctrl-y:execute-silent(echo {+} | wl-copy)'"
+          "--color='hl:148,hl+:154,pointer:032,marker:010,bg+:237,gutter:008'"
+          "--border=sharp"
+          "--height=40%"
+          "--info=inline"
+          "--layout=reverse"
+          "--multi"
+          "--preview 'test -f {} && bat --style=numbers,changes {} || test -d {} && eza --tree color always {} | less'"
+          "--prompt='~ ' --pointer='▶' --marker='✓'"
+        ];
+      };
 
-  programs.fish = {
-    enable = true;
-    shellAliases = {
-      ls = "eza --group-directories-first";
-      dir = "eza --group-directories-first";
-      ll = "eza -l --group-directories-first";
-      la = "eza -lA --group-directories-first";
-      tree = "eza --tree --group-directories-first";
-      cat = "bat";
-      grep = "ugrep";
-      "..." = "../../";
-    };
-    interactiveShellInit = ''
-      set fish_greeting
-    '';
-  };
+      zoxide = {
+        enable = true;
+        enableFishIntegration = true;
+      };
+
+      eza = {
+        enable = true;
+        colors = "always";
+        icons = "always";
+        enableFishIntegration = true;
+      };
+
+      fish = {
+        enable = true;
+        shellAliases = {
+          ls = "eza --group-directories-first";
+          dir = "eza --group-directories-first";
+          ll = "eza -l --group-directories-first";
+          la = "eza -lA --group-directories-first";
+          tree = "eza --tree --group-directories-first";
+          cat = "bat";
+          grep = "ugrep";
+          "..." = "../..";
+        };
+
+        interactiveShellInit = ''set fish_greeting'';
+      };
+    }
+    // lib.genAttrs ["fd" "ripgrep" "jq" "yt-dlp"] (_: {enable = true;});
 }

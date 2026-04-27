@@ -4,12 +4,9 @@
     brightnessctl
     claude-code
     claude-agent-acp
-    eza
-    fd
     ffmpeg
     gemini-cli
     openjdk21
-    jq
     libqalculate
     lm_sensors
     ncdu
@@ -20,15 +17,12 @@
     pipenv
     pulseaudio
     python3
-    ripgrep
-    ugrep
     unzip
     virtiofsd
     xxd
-    yt-dlp
-    zoxide
     inetutils
     typst
     typstyle
+    ugrep
   ];
 }

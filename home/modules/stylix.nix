@@ -5,17 +5,10 @@
 }: {
   stylix = {
     enable = true;
-    autoEnable = false;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-night-terminal-dark.yaml";
-    targets = {
-      bat.enable = true;
-      btop.enable = true;
-      lazygit.enable = true;
-      foot.enable = true;
-      starship.enable = true;
-      qt.enable = true;
-      zellij.enable = true;
-    };
+    polarity = "dark";
+
+    targets.qt.enable = true;
 
     fonts = {
       monospace = {

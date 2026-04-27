@@ -39,7 +39,6 @@ in {
         '';
       };
 
-
       idle = {
         enabled = true;
         screenOffTimeout = 90;

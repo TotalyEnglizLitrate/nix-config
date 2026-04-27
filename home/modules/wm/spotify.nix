@@ -9,8 +9,6 @@ in {
     inputs.spicetify-nix.homeManagerModules.default
   ];
 
-  stylix.targets.spicetify.enable = true;
-
   programs.spicetify = {
     enable = true;
     enabledExtensions = with spicePkgs.extensions; [
