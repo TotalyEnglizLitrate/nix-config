@@ -15,7 +15,8 @@
         defaultOptions = [
           "--bind '?:toggle-preview'"
           "--bind 'ctrl-a:select-all'"
-          "--bind 'ctrl-e:execute(echo {+} | xargs -o nvim)'"
+          "--bind 'ctrl-e:execute(echo {+} | xargs -o neovide 2&>/dev/null)'"
+          "--bind 'ctrl-o:execute(xdg-open {})'"
           "--bind 'ctrl-y:execute-silent(echo {+} | wl-copy)'"
           "--color='hl:148,hl+:154,pointer:032,marker:010,bg+:237,gutter:008'"
           "--border=sharp"
@@ -23,7 +24,7 @@
           "--info=inline"
           "--layout=reverse"
           "--multi"
-          "--preview 'test -f {} && bat --style=numbers,changes {} || test -d {} && eza --tree {} | less'"
+          "--preview 'test -f {} && bat --style numbers,changes --color always {} || test -d {} && eza --tree --color always --icons always {}'"
           "--prompt='~ ' --pointer='▶' --marker='✓'"
         ];
       };
