@@ -152,6 +152,7 @@ in {
             title = "_crx_nngceckbapebfimnlniiiahkandclblb";
           }
 
+          {app-id = "Spotify";}
           {app-id = "org.gnome.Nautilus";}
           {app-id = "org.gnome.FileRoller";}
           {app-id = "org.pulseaudio.pavucontrol";}

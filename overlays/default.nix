@@ -5,4 +5,6 @@
       config.allowUnfree = true;
     };
   };
+
+  spotify = final: _prev: { spotify = final.callPackage ../pkgs/spotify {}; };
 }

@@ -1,5 +1,6 @@
 {
   inputs,
+  outputs,
   pkgs,
   ...
 }: let
@@ -8,6 +9,9 @@ in {
   imports = [
     inputs.spicetify-nix.homeManagerModules.default
   ];
+  
+  nixpkgs.overlays = [outputs.overlays.spotify]
+  ;
 
   programs.spicetify = {
     enable = true;
@@ -17,7 +21,9 @@ in {
       adblock
       beautifulLyrics
     ];
-    spotifyPackage = pkgs.callPackage ../../../pkgs/spotify {};
+    spotifyPackage = pkgs.spotify;
+    wayland = true;
+    windowManagerPatch = true;
   };
 
   xdg = {
