@@ -17,6 +17,7 @@ in {
       adblock
       beautifulLyrics
     ];
+    spotifyPackage = pkgs.callPackage ../../../pkgs/spotify {};
   };
 
   xdg = {
