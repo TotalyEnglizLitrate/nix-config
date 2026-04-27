@@ -9,7 +9,10 @@
     latitude5491 = 0.7;
     omnibook = 1;
   };
-
+  bitwarden = {
+    app-id = "chrome-nngceckbapebfimnlniiiahkandclblb.*";
+    title = "_crx_nngceckbapebfimnlniiiahkandclblb";
+  };
   noctalia_cmd = args: ["noctalia-shell" "ipc" "call"] ++ args;
 in {
   imports = [
@@ -146,20 +149,23 @@ in {
 
       {
         matches = [
-          # Bitwarden
-          {
-            app-id = "chrome-nngceckbapebfimnlniiiahkandclblb.*";
-            title = "_crx_nngceckbapebfimnlniiiahkandclblb";
-          }
-
+          bitwarden
           {app-id = "Spotify";}
-          {app-id = "org.gnome.Nautilus";}
-          {app-id = "org.gnome.FileRoller";}
-          {app-id = "org.pulseaudio.pavucontrol";}
+          {app-id = "org\.gnome\.Nautilus";}
+          {app-id = "org\.gnome\.FileRoller";}
+          {app-id = "org\.pulseaudio\.pavucontrol";}
           {app-id = "nm-connection-editor";}
         ];
 
         open-floating = true;
+      }
+
+      {
+        matches = [
+          bitwarden
+          {app-id = "org\.gnome\.seahorse\.Application";}
+        ];
+        block-out-from = "screen-capture";
       }
     ];
 
