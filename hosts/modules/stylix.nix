@@ -12,6 +12,7 @@ in {
     enable = true;
     base16Scheme = ../../files/themes/tokyo-night-terminal-dark.yaml;
     polarity = "dark";
+    opacity.terminal = 0.9;
 
     targets.qt.enable = true;
 

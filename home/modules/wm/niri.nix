@@ -16,7 +16,7 @@
   noctalia_cmd = args: ["noctalia-shell" "ipc" "call"] ++ args;
 in {
   imports = [
-    ./foot.nix
+    ./terminal.nix
     ./gtk.nix
     ./kanshi.nix
     ./packages.nix
@@ -172,10 +172,10 @@ in {
     ];
 
     binds = {
-      "Mod+T".action.spawn = ["foot"];
+      "Mod+T".action.spawn = ["ghostty"];
       "Mod+W".action.spawn = ["helium"];
       "Mod+E".action.spawn = ["nautilus"];
-      "Mod+M".action.spawn = ["foot" "-T" "btop" "btop"];
+      "Mod+M".action.spawn = ["ghostty" "-e" "btop"];
       "Mod+N".action.spawn = noctalia_cmd ["notifications" "toggleHistory"];
       "Mod+S".action.spawn = ["spotify" "--enable-features=UseOzonePlatform" "--ozone-platform=wayland"];
       "Mod+P".action.spawn = ["niri" "msg" "action" "set-dynamic-cast-window"];

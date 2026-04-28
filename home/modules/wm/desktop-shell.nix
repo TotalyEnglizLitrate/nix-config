@@ -25,7 +25,7 @@ in {
       dock.enabled = false;
       audio.volumeOverdrive = true;
       brightness.enforceMinimum = false;
-      systemMonitor.externalMonitor = "foot -e btop";
+      systemMonitor.externalMonitor = "ghostty -e btop";
 
       idle = {
         enabled = true;
@@ -180,7 +180,7 @@ in {
       appLauncher = {
         enableClipboardHistory = true;
         autoPasteClipboard = true;
-        terminalCommand = "foot -e";
+        terminalCommand = "ghostty -e";
         showCategories = false;
       };
 
