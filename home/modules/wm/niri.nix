@@ -153,9 +153,11 @@ in {
           {app-id = "Spotify";}
           {app-id = "org\.gnome\.Nautilus";}
           {app-id = "org\.gnome\.FileRoller";}
+          {app-id = "org\.kde\.kdeconnect\..*";}
           {app-id = "org\.pulseaudio\.pavucontrol";}
           {app-id = "nm-connection-editor";}
         ];
+
 
         open-floating = true;
       }
