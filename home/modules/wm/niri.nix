@@ -153,6 +153,12 @@ in {
       }
 
       {
+        matches = [{app-id = "Spotify";}];
+        default-column-width.fixed = 892;
+        default-window-height.fixed = 622;
+      }
+
+      {
         matches = [
           bitwarden
           {app-id = "org\.gnome\.seahorse\.Application";}
