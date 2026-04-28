@@ -14,6 +14,18 @@ in {
     polarity = "dark";
     opacity.terminal = 0.9;
 
+    icons = {
+      enable = true;
+      dark = "Tela-circle-dark";
+      package = pkgs.tela-circle-icon-theme;
+    };
+
+    cursor = {
+      name = "Bibata-Modern-Classic";
+      package = pkgs.bibata-cursors;
+      size = 24;
+    };
+
     targets.qt.enable = true;
 
     fonts =

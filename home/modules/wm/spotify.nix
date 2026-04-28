@@ -9,9 +9,8 @@ in {
   imports = [
     inputs.spicetify-nix.homeManagerModules.default
   ];
-  
-  nixpkgs.overlays = [outputs.overlays.spotify]
-  ;
+
+  nixpkgs.overlays = [outputs.overlays.spotify];
 
   programs.spicetify = {
     enable = true;

@@ -58,14 +58,6 @@ in {
     ELECTRON_OZONE_PLATFORM_HINT = "wayland";
   };
 
-  home.pointerCursor = {
-    gtk.enable = true;
-    x11.enable = true;
-    package = pkgs.bibata-cursors;
-    name = "Bibata-Modern-Classic";
-    size = 24;
-  };
-
   dconf.settings = {
     "org/gnome/nautilus/preferences" = {
       "default-folder-viewer" = "grid-view";
@@ -114,7 +106,6 @@ in {
       gaps = 0;
       center-focused-column = "on-overflow";
       default-column-width.proportion = 0.5;
-      focus-ring.enable = false;
 
       struts = {
         left = 0;
@@ -157,7 +148,6 @@ in {
           {app-id = "org\.pulseaudio\.pavucontrol";}
           {app-id = "nm-connection-editor";}
         ];
-
 
         open-floating = true;
       }

@@ -1,19 +1,6 @@
-{
-  userConfig,
-  pkgs,
-  ...
-}: {
+{userConfig, ...}: {
   gtk = {
     enable = true;
-    iconTheme = {
-      name = "Tela-circle-dark";
-      package = pkgs.tela-circle-icon-theme;
-    };
-    cursorTheme = {
-      name = "Bibata-Modern-Classic";
-      package = pkgs.bibata-cursors;
-      size = 24;
-    };
     gtk3 = {
       extraConfig.gtk-application-prefer-dark-theme = true;
 
