@@ -3,7 +3,7 @@
   pkgs,
   inputs,
   hostname,
-  userConfig,
+  config,
   ...
 }: let
   has_fprint = hostname == "omnibook";
@@ -185,7 +185,7 @@ in {
       };
 
       wallpaper = {
-        directory = "/home/${userConfig.name}/Pictures/Wallpapers/flat/";
+        directory = "${config.home.homeDirectory}/Pictures/Wallpapers/flat/";
         viewMode = "browse";
         transitionType = [
           "fade"

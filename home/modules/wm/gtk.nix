@@ -1,15 +1,15 @@
-{userConfig, ...}: {
+{config, ...}: {
   gtk = {
     enable = true;
     gtk3 = {
       extraConfig.gtk-application-prefer-dark-theme = true;
 
       bookmarks = [
-        "file:///home/${userConfig.name}/Documents"
-        "file:///home/${userConfig.name}/Downloads"
-        "file:///home/${userConfig.name}/Pictures"
-        "file:///home/${userConfig.name}/Videos"
-        "file:///home/${userConfig.name}/Documents/repositories"
+        "file://${config.home.homeDirectory}/Documents"
+        "file://${config.home.homeDirectory}/Downloads"
+        "file://${config.home.homeDirectory}/Pictures"
+        "file://${config.home.homeDirectory}/Videos"
+        "file://${config.home.homeDirectory}/Documents/repositories"
       ];
     };
 

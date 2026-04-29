@@ -1,7 +1,7 @@
 {
   lib,
   pkgs,
-  userConfig,
+  config,
   ...
 }: let
   makeBindings = bindings: lib.mapAttrs' (bind: action: lib.nameValuePair "bind \"${bind}\"" action) bindings;
@@ -16,7 +16,7 @@ in {
       show_release_notes = false;
       ui.pane_frames.rounded_corners = false;
       theme = "default";
-      theme_dir = "/home/${userConfig.name}/.config/zellij/themes";
+      theme_dir = "${config.home.homeDirectory}/.config/zellij/themes";
       keybinds = {
         normal = makeBindings {
           "Ctrl Shift h" = {
