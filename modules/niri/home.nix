@@ -10,14 +10,10 @@
     latitude5491 = 0.7;
     omnibook = 1;
   };
-  bitwarden = {
-    app-id = "chrome-nngceckbapebfimnlniiiahkandclblb.*";
-    title = "_crx_nngceckbapebfimnlniiiahkandclblb";
-  };
-  noctalia_cmd = args: ["noctalia-shell" "ipc" "call"] ++ args;
 in {
   nixpkgs.overlays = [
     inputs.niri.overlays.niri
+    inputs.noctalia.overlays.default
     outputs.overlays.helium
   ];
   imports = [
@@ -67,7 +63,9 @@ in {
     };
   };
 
-  programs.niri.settings = {
+  programs.niri.settings = let
+    noctalia_cmd = args: ["${pkgs.noctalia-shell}/bin/noctalia-shell" "ipc" "call"] ++ args;
+  in {
     input = {
       touchpad = {
         tap = true;
@@ -104,7 +102,7 @@ in {
     };
 
     spawn-at-startup = [
-      {command = ["sh" "-c" "QT_QPA_PLATFORMTHEME=gtk3 noctalia-shell -d"];}
+      {command = ["sh" "-c" "QT_QPA_PLATFORMTHEME=gtk3 ${pkgs.noctalia-shell}/bin/noctalia-shell -d"];}
       {command = ["toggle-mute" "--init"];}
       {command = ["xwayland-satellite"];}
       {command = ["kdeconnect-indicator"];}
@@ -126,7 +124,12 @@ in {
       "lock"
     ];
 
-    window-rules = [
+    window-rules = let
+      bitwarden = {
+        app-id = "chrome-nngceckbapebfimnlniiiahkandclblb.*";
+        title = "_crx_nngceckbapebfimnlniiiahkandclblb";
+      };
+    in [
       {open-maximized = true;}
 
       {

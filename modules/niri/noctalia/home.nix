@@ -14,12 +14,12 @@
     });
   plugins_src = "https://github.com/noctalia-dev/noctalia-plugins";
 in {
-  imports = [
-    inputs.noctalia.homeModules.default
-  ];
+  imports = [inputs.noctalia.homeModules.default];
+
+  nixpkgs.overlays = [inputs.noctalia.overlays.default];
 
   programs.noctalia-shell = {
-    package = pkgs.noctalia-shell.override {calendarSupport = true;};
+    package = pkgs.noctalia-shell;
     enable = true;
     settings = {
       dock.enabled = false;
@@ -188,8 +188,6 @@ in {
         directory = "${config.home.homeDirectory}/Pictures/Wallpapers";
         viewMode = "browse";
         transitionType = [
-          "fade"
-          "wipe"
           "stripes"
           "honeycomb"
         ];
