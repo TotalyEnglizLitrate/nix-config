@@ -1,8 +1,4 @@
-{
-  inputs,
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   home.packages = with pkgs; [
     ani-cli
     arrpc
@@ -30,7 +26,7 @@
     xournalpp
     xwayland-satellite-unstable
 
-    inputs.helium-browser.packages."${pkgs.stdenv.hostPlatform.system}".default
+    helium
     chromium
     firefox-devedition
   ];

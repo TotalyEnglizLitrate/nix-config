@@ -1,4 +1,6 @@
 {
+  inputs,
+  outputs,
   hostname,
   lib,
   pkgs,
@@ -21,37 +23,24 @@
     ]
     ++ args;
 in {
+  nixpkgs.overlays = [
+    inputs.niri.overlays.niri
+    outputs.overlays.helium
+  ];
   imports = [
     ./terminal.nix
     ./gtk.nix
     ./kanshi.nix
     ./packages.nix
     ./spotify.nix
-    ./desktop-shell.nix
+    ./noctalia/home.nix
+    ./xdg.nix
   ];
 
   programs.obs-studio = {
     enable = true;
     plugins = [pkgs.obs-studio-plugins.wlrobs];
   };
-
-  xdg.mimeApps.defaultApplications = lib.mkMerge [
-    {
-      "application/x-extension-htm" = "helium.desktop";
-      "application/x-extension-html" = "helium.desktop";
-      "application/x-extension-shtml" = "helium.desktop";
-      "application/x-extension-xht" = "helium.desktop";
-      "application/x-extension-xhtml" = "helium.desktop";
-      "application/xhtml+xml" = "helium.desktop";
-      "text/html" = "helium.desktop";
-      "x-scheme-handler/about" = "helium.desktop";
-      "x-scheme-handler/ftp" = "helium.desktop";
-      "x-scheme-handler/http" = "helium.desktop";
-      "x-scheme-handler/https" = "helium.desktop";
-      "x-scheme-handler/unknown" = "helium.desktop";
-      "application/pdf" = "helium.desktop";
-    }
-  ];
 
   home.sessionVariables = {
     XDG_SESSION_DESKTOP = "niri";

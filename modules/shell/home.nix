@@ -1,4 +1,14 @@
 {lib, ...}: {
+  imports = [
+    ./fastfetch.nix
+    ./git
+    ./kubectl.nix
+    ./nvim.nix
+    ./scripts.nix
+    ./ssh.nix
+    ./starship.nix
+    ./zellij.nix
+  ];
   programs =
     {
       bat = {

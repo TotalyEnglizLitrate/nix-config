@@ -6,11 +6,11 @@
   imports = [
     inputs.hardware.nixosModules.common-pc-ssd
     ./hardware-configuration.nix
-    ../modules/common.nix
-    ../modules/mute-led-daemon.nix
-    ../modules/docker.nix
-    ../modules/qemu.nix
-    # ../modules/android-dev.nix
+    ../../modules/common/host.nix
+    ../../modules/mute-led-daemon/host.nix
+    ../../modules/docker/host.nix
+    ../../modules/qemu/host.nix
+    # ../../modules/android-dev/host.nix
   ];
 
   networking.firewall = {

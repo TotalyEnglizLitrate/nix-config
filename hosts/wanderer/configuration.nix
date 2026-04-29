@@ -2,8 +2,8 @@
   imports = [
     inputs.hardware.nixosModules.common-pc-ssd
     ./hardware-configuration.nix
-    ../modules/common.nix
-    ../modules/zram.nix
+    ../../modules/common/host.nix
+    ../../modules/zram/host.nix
   ];
 
   networking.firewall = {

@@ -14,16 +14,11 @@
     '';
   });
 in {
+  imports = [./noctalia/host.nix];
   nixpkgs.overlays = [inputs.niri.overlays.niri];
   nix.settings = {
-    extra-substituters = lib.mkAfter [
-      "https://niri.cachix.org"
-      "https://noctalia.cachix.org"
-    ];
-    trusted-public-keys = [
-      "niri.cachix.org-1:Wv0OmO7PsuocRKzfDoJ3mulSl7Z6oezYhGhR+3W2964="
-      "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4="
-    ];
+    extra-substituters = lib.mkAfter ["https://niri.cachix.org"];
+    trusted-public-keys = ["niri.cachix.org-1:Wv0OmO7PsuocRKzfDoJ3mulSl7Z6oezYhGhR+3W2964="];
   };
   niri-flake.cache.enable = false;
   systemd.user.services.niri-flake-polkit.enable = false;

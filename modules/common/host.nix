@@ -9,12 +9,12 @@
   ...
 }: {
   imports = [
-    ./cloudflare-warp.nix
-    ./niri.nix
-    ./nixos-cli.nix
-    ./stylix.nix
-    ./tailscale.nix
-    ./wireshark.nix
+    ../cloudflare-warp/host.nix
+    ../niri/host.nix
+    ../nixos-cli/host.nix
+    ../stylix/host.nix
+    ../tailscale/host.nix
+    ../wireshark/host.nix
   ];
 
   nixpkgs = {

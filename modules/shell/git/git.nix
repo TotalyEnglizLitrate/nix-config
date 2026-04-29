@@ -11,7 +11,10 @@
   key = builtins.elemAt keys 0;
   signersFile = ".config/git/allowed_signers";
 in {
-  imports = [./ssh.nix ./gpg.nix];
+  imports = [
+    ../ssh.nix
+    ./gpg.nix
+  ];
   home.file.${signersFile}.text = "${userConfig.email} ${key}";
 
   programs = {
@@ -32,7 +35,9 @@ in {
         push.followTags = true;
         gpg.format = "ssh";
         gpg.ssh.allowedSignersFile = config.home.file.${signersFile}.target;
-        credential.helper = "${pkgs.git.override {withLibsecret = true;}}/libexec/git-core/git-credential-libsecret";
+        credential.helper = "${
+          pkgs.git.override {withLibsecret = true;}
+        }/libexec/git-core/git-credential-libsecret";
       };
     };
 
@@ -46,6 +51,17 @@ in {
         width = 280;
       };
     };
-  };
 
+    lazygit = {
+      enable = true;
+
+      settings = {
+        git = {
+          pagers = [
+            {pager = "delta --color-only --dark --paging=never";}
+          ];
+        };
+      };
+    };
+  };
 }
