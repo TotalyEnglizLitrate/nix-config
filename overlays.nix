@@ -6,5 +6,5 @@
     };
   };
 
-  spotify = final: _prev: {spotify = final.callPackage ../pkgs/spotify {};};
+  spotify = final: _prev: {spotify = final.callPackage ./pkgs/spotify {};};
 }

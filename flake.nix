@@ -98,6 +98,6 @@
       wanderer = mkNixosConfiguration "wanderer" "engliz";
     };
 
-    overlays = import ./overlays {inherit inputs;};
+    overlays = import ./overlays.nix {inherit inputs;};
   };
 }
