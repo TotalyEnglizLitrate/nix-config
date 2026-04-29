@@ -1,0 +1,21 @@
+#!/usr/bin/env python
+
+from json import loads
+from pathlib import Path
+from random import randrange
+from shlex import split
+from subprocess import run
+
+wallpaper_dir = Path.home() / "Pictures/Wallpapers"
+wallpapers = list(wallpaper_dir.rglob("*.jpg")) + list(wallpaper_dir.rglob("*.png"))
+
+
+def random_wallpaper():
+    wallpaper = wallpapers[randrange(len(wallpapers))]
+    outputs: dict[str, str] = loads(run(split("niri msg --json outputs"), capture_output=True, check=True).stdout)  # pyright: ignore[reportAny]
+    for output in outputs:
+        _ = run(split(f"noctalia-shell ipc call wallpaper set '{wallpaper}' '{output}''"), check=True)
+
+
+if __name__ == "__main__":
+    random_wallpaper()

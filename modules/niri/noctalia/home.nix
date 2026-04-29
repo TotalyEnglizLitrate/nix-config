@@ -185,7 +185,7 @@ in {
       };
 
       wallpaper = {
-        directory = "${config.home.homeDirectory}/Pictures/Wallpapers/flat/";
+        directory = "${config.home.homeDirectory}/Pictures/Wallpapers";
         viewMode = "browse";
         transitionType = [
           "fade"
@@ -223,7 +223,6 @@ in {
           "unicode-picker"
           "kaomoji-provider"
           "show-keys"
-          "wallcards"
         ]
         plugins_src;
     };
@@ -244,8 +243,5 @@ in {
 
     # show-keys
     evtest
-
-    #wallcards
-    qt6Packages.qt5compat
   ];
 }

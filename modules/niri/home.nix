@@ -2,7 +2,6 @@
   inputs,
   outputs,
   hostname,
-  lib,
   pkgs,
   ...
 }: let
@@ -15,13 +14,7 @@
     app-id = "chrome-nngceckbapebfimnlniiiahkandclblb.*";
     title = "_crx_nngceckbapebfimnlniiiahkandclblb";
   };
-  noctalia_cmd = args:
-    [
-      "noctalia-shell"
-      "ipc"
-      "call"
-    ]
-    ++ args;
+  noctalia_cmd = args: ["noctalia-shell" "ipc" "call"] ++ args;
 in {
   nixpkgs.overlays = [
     inputs.niri.overlays.niri
@@ -111,19 +104,8 @@ in {
     };
 
     spawn-at-startup = [
-      {
-        command = [
-          "sh"
-          "-c"
-          "QT_QPA_PLATFORMTHEME=gtk3 noctalia-shell -d"
-        ];
-      }
-      {
-        command = [
-          "toggle-mute"
-          "--init"
-        ];
-      }
+      {command = ["sh" "-c" "QT_QPA_PLATFORMTHEME=gtk3 noctalia-shell -d"];}
+      {command = ["toggle-mute" "--init"];}
       {command = ["xwayland-satellite"];}
       {command = ["kdeconnect-indicator"];}
       {command = ["arrpc"];}
@@ -180,52 +162,23 @@ in {
       "Mod+T".action.spawn = ["ghostty"];
       "Mod+W".action.spawn = ["helium"];
       "Mod+E".action.spawn = ["nautilus"];
-      "Mod+M".action.spawn = [
-        "ghostty"
-        "-e"
-        "btop"
-      ];
-      "Mod+N".action.spawn = noctalia_cmd [
-        "notifications"
-        "toggleHistory"
-      ];
-      "Mod+S".action.spawn = [
-        "spotify"
-        "--enable-features=UseOzonePlatform"
-        "--ozone-platform=wayland"
-      ];
-      "Mod+P".action.spawn = [
-        "niri"
-        "msg"
-        "action"
-        "set-dynamic-cast-window"
-      ];
-      "Mod+R".action.spawn = noctalia_cmd [
-        "launcher"
-        "toggle"
-      ];
-      "Mod+V".action.spawn = noctalia_cmd [
-        "launcher"
-        "clipboard"
-      ];
-      "Mod+B".action.spawn = noctalia_cmd [
-        "bluetooth"
-        "togglePanel"
-      ];
-      "Mod+A".action.spawn = noctalia_cmd [
-        "controlCenter"
-        "toggle"
-      ];
-      "Mod+Shift+V".action.spawn = noctalia_cmd [
-        "volume"
-        "togglePanel"
-      ];
+      "Mod+M".action.spawn = ["ghostty" "-e" "btop"];
+      "Mod+N".action.spawn = noctalia_cmd ["notifications" "toggleHistory"];
+      "Mod+S".action.spawn = ["spotify"];
+      "Mod+R".action.spawn = noctalia_cmd ["launcher" "toggle"];
+      "Mod+V".action.spawn = noctalia_cmd ["launcher" "clipboard"];
+      "Mod+B".action.spawn = noctalia_cmd ["bluetooth" "togglePanel"];
+      "Mod+A".action.spawn = noctalia_cmd ["controlCenter" "toggle"];
+      "Mod+Shift+V".action.spawn = noctalia_cmd ["volume" "togglePanel"];
+      "Mod+Shift+W".action.spawn = ["wallpaper"];
 
       "Mod+Tab" = {
         repeat = false;
         action.toggle-overview = {};
       };
+
       "Mod+Q".action.close-window = {};
+      "Mod+P".action.set-dynamic-cast-window = {};
 
       "Mod+left".action.focus-column-or-monitor-left = {};
       "Mod+down".action.focus-window-or-workspace-down = {};
@@ -300,17 +253,9 @@ in {
 
       "Mod+D".action.maximize-column = {};
       "Mod+F".action.fullscreen-window = {};
-      "Mod+Ctrl+F".action.expand-column-to-available-width = {};
 
+      "Mod+Ctrl+F".action.expand-column-to-available-width = {};
       "Mod+C".action.center-column = {};
-      "Mod+Shift+C".action.spawn = noctalia_cmd [
-        "plugin:screen-toolkit"
-        "colorPicker"
-      ];
-      "Mod+Ctrl+T".action.spawn = noctalia_cmd [
-        "plugin:screen-toolkit"
-        "ocr"
-      ];
       "Mod+Ctrl+C".action.center-visible-columns = {};
 
       "Mod+Minus".action.set-column-width = "-10%";
@@ -321,13 +266,20 @@ in {
 
       "Mod+Shift+F".action.toggle-window-floating = {};
 
+      "Mod+Shift+C".action.spawn = noctalia_cmd [
+        "plugin:screen-toolkit"
+        "colorPicker"
+      ];
+      "Mod+Ctrl+T".action.spawn = noctalia_cmd [
+        "plugin:screen-toolkit"
+        "ocr"
+      ];
+
       "Mod+Print".action.screenshot = {};
       "Print".action.screenshot-screen = {};
       "Alt+Print".action.screenshot-window = {};
 
-      "Mod+Shift+Q".action.quit = {
-        skip-confirmation = true;
-      };
+      "Mod+Shift+Q".action.spawn = noctalia_cmd ["sessionMenu" "toggle"];
       "Ctrl+Alt+Delete".action.quit = {};
 
       "Mod+L".action.spawn = noctalia_cmd [
@@ -356,7 +308,6 @@ in {
           "next"
         ];
       };
-
       "XF86AudioPlay" = {
         allow-when-locked = true;
         action.spawn = noctalia_cmd [
