@@ -2,7 +2,7 @@
   lib,
   inputs,
   pkgs,
-  userConfig,
+  config,
   ...
 }: let
   # autologin on tty2. Otherwise autologin and getty alternate in grabbing tty1 on nixos-rebuild switch
@@ -13,6 +13,7 @@
         --replace-fail "XDG_VTNR=1" "XDG_VTNR=2"
     '';
   });
+  inherit (config.cfg.host) bluetooth;
 in {
   imports = [./noctalia/host.nix];
   nixpkgs.overlays = [inputs.niri.overlays.niri];
@@ -24,7 +25,7 @@ in {
   systemd.user.services.niri-flake-polkit.enable = false;
 
   hardware.bluetooth = {
-    enable = true;
+    enable = bluetooth;
     powerOnBoot = true;
   };
 
@@ -59,7 +60,7 @@ in {
     ];
 
     serviceConfig = {
-      ExecStart = "${autologin_on_2}/bin/autologin ${userConfig.name} ${pkgs.niri-unstable}/bin/niri-session";
+      ExecStart = "${autologin_on_2}/bin/autologin ${config.cfg.user.name} ${pkgs.niri-unstable}/bin/niri-session";
       Type = "simple";
       IgnoreSIGPIPE = "no";
       SendSIGHUP = "yes";

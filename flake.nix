@@ -63,28 +63,29 @@
     };
 
     mkNixosConfiguration = hostname: username:
-     inputs.nixpkgs.lib.nixosSystem {
-        specialArgs = {
-          inherit inputs outputs hostname;
-          userConfig = users.${username};
-        };
+      inputs.nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs outputs;};
         modules = [
           ./hosts/${hostname}/configuration.nix
+          ./modules/cfg
           inputs.home-manager.nixosModules.home-manager
           inputs.niri.nixosModules.niri
           inputs.nixos-cli.nixosModules.nixos-cli
           inputs.stylix.nixosModules.stylix
           {
+            cfg = {
+              user = users.${username};
+              host = {inherit hostname;};
+            };
+
             home-manager = {
-              extraSpecialArgs = {
-                inherit inputs outputs hostname;
-                userConfig = users.${username};
-              };
+              sharedModules = [./modules/cfg ./modules/cfg/commands.nix];
+              extraSpecialArgs = {inherit inputs outputs;};
               users.${username} = import ./home/${username}/${hostname}.nix;
             };
           }
         ];
-    } ;
+      };
   in {
     nixosConfigurations = {
       latitude5491 = mkNixosConfiguration "latitude5491" "engliz";

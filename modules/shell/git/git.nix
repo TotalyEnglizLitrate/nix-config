@@ -1,7 +1,6 @@
 {
   config,
   pkgs,
-  userConfig,
   ...
 }: let
   keys = [
@@ -15,21 +14,21 @@ in {
     ../ssh.nix
     ./gpg.nix
   ];
-  home.file.${signersFile}.text = "${userConfig.email} ${key}";
+  home.file.${signersFile}.text = "${config.cfg.user.email} ${key}";
 
   programs = {
     git = {
       enable = true;
       lfs.enable = true;
       signing = {
-        key = "${key} ${userConfig.email}";
+        key = "${key} ${config.cfg.user.email}";
         signByDefault = true;
         format = null;
       };
       settings = {
         user = {
-          name = userConfig.fullName;
-          inherit (userConfig) email;
+          name = config.cfg.user.fullName;
+          inherit (config.cfg.user) email;
         };
         pull.rebase = true;
         push.followTags = true;

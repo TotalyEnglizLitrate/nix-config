@@ -1,8 +1,4 @@
-{
-  lib,
-  inputs,
-  ...
-}: {
+{inputs, ...}: {
   imports = [
     inputs.hardware.nixosModules.common-pc-ssd
     ./hardware-configuration.nix
@@ -39,12 +35,22 @@
     };
   };
 
-  services.fprintd.enable = true;
-  security.pam.services = {
-    login.fprintAuth = true;
-    sudo.fprintAuth = true;
-    pkexec.fprintAuth = true;
+  cfg.host = {
+    displays = {
+      eDP-1 = {
+        resolution = {
+          width = 2240;
+          height = 1400;
+        };
+        scale = 1.0;
+      };
+      DP-1 = {}; # thunderbolt
+      DP-2 = {}; # thunderbolt
+      DP-3 = {}; #thunderbolt -> dock
+    };
+    webcam = true;
+    laptop = true;
+    fprint = true;
+    gpu.amd = true;
   };
-
-  nixpkgs.config.rocmSupport = true;
 }

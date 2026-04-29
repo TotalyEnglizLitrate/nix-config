@@ -1,6 +1,7 @@
 {
   outputs,
-  userConfig,
+  osConfig,
+  cfg,
   ...
 }: {
   imports = [
@@ -18,10 +19,14 @@
       allowUnfree = true;
     };
   };
-  home = {
-    username = "${userConfig.name}";
-    homeDirectory = "/home/${userConfig.name}";
-  };
 
-  home.file."Pictures/Wallpapers/default.png".source = ../../files/images/default-wallpaper.png;
+  inherit (osConfig) cfg;
+
+  home = let
+    username = cfg.user.name;
+  in {
+    inherit username;
+    homeDirectory = "/home/${username}";
+    file."Pictures/Wallpapers/default.png".source = ../../files/images/default-wallpaper.png;
+  };
 }

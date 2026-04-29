@@ -1,6 +1,6 @@
 {
   pkgs,
-  userConfig,
+  config,
   ...
 }: {
   environment.systemPackages = with pkgs; [
@@ -11,5 +11,5 @@
     enable = true;
     usbmon.enable = true;
   };
-  users.users.${userConfig.name}.extraGroups = ["wireshark"];
+  users.users.${config.cfg.user.name}.extraGroups = ["wireshark"];
 }

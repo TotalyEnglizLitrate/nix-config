@@ -1,11 +1,10 @@
 {
   lib,
   pkgs,
-  userConfig,
-  hostname,
+  cfg,
   ...
 }: let
-  nixos_config_dir = "/home/${userConfig.name}/Documents/repositories/nix-config";
+  nixos_config_dir = "/home/${cfg.user.name}/Documents/repositories/nix-config";
 in {
   nix.settings = {
     extra-substituters = lib.mkAfter ["https://watersucks.cachix.org"]; # optnix tui cache
@@ -32,6 +31,6 @@ in {
 
   environment.variables = {
     NIXOS_CONFIG_DIR = nixos_config_dir;
-    NIXOS_CONFIG = "${nixos_config_dir}#${hostname}";
+    NIXOS_CONFIG = "${nixos_config_dir}#${cfg.host.hostname}";
   };
 }

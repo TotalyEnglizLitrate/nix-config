@@ -2,11 +2,11 @@
   lib,
   pkgs,
   inputs,
-  hostname,
   config,
+  cfg,
+  cmdsList,
   ...
 }: let
-  has_fprint = hostname == "omnibook";
   enablePlugins = names: src:
     lib.genAttrs names (_: {
       enabled = true;
@@ -17,6 +17,10 @@ in {
   imports = [inputs.noctalia.homeModules.default];
 
   nixpkgs.overlays = [inputs.noctalia.overlays.default];
+  cfg.commands.noctalia = {
+    package = pkgs.noctalia-shell;
+    args = ["-d"];
+  };
 
   programs.noctalia-shell = {
     package = pkgs.noctalia-shell;
@@ -25,14 +29,14 @@ in {
       dock.enabled = false;
       audio.volumeOverdrive = true;
       brightness.enforceMinimum = false;
-      systemMonitor.externalMonitor = "ghostty -e btop";
+      systemMonitor.externalMonitor = lib.join " " cmdsList.sysmon;
 
       idle = {
         enabled = true;
         screenOffTimeout = 90;
         lockTimeout = 300;
         suspendTimeout = 600;
-        suspendCommand = "noctalia-shell ipc call lockScreen lock";
+        suspendCommand = lib.join " " (cmdsList.noctaliaIPC ++ ["lockScreen" "lock"]);
       };
 
       bar = {
@@ -63,30 +67,33 @@ in {
             {id = "plugin:catwalk";}
           ];
 
-          right = [
-            {
-              id = "SystemMonitor";
-              compactMode = false;
-              showNetworkStats = true;
-            }
-            {id = "Tray";}
-            {id = "plugin:kde-connect";}
-            {id = "Network";}
-            {id = "plugin:network-manager-vpn";}
-            {id = "Bluetooth";}
-            {id = "plugin:privacy-indicator";}
-            {id = "Brightness";}
-            {
-              id = "Battery";
-              displayMode = "icon-always";
-              showPowerProfiles = true;
-              showNoctaliaPerformance = true;
-            }
-            {
-              id = "ControlCenter";
-              useDistroLogo = true;
-            }
-          ];
+          right =
+            [
+              {
+                id = "SystemMonitor";
+                compactMode = false;
+                showNetworkStats = true;
+              }
+              {id = "Tray";}
+              {id = "plugin:kde-connect";}
+              {id = "Network";}
+              {id = "plugin:network-manager-vpn";}
+            ]
+            ++ lib.optional cfg.host.bluetooth {id = "Bluetooth";}
+            ++ [
+              {id = "plugin:privacy-indicator";}
+              {id = "Brightness";}
+              {
+                id = "Battery";
+                displayMode = "icon-always";
+                showPowerProfiles = true;
+                showNoctaliaPerformance = true;
+              }
+              {
+                id = "ControlCenter";
+                useDistroLogo = true;
+              }
+            ];
         };
       };
 
@@ -95,13 +102,15 @@ in {
         excludedApps = "";
       };
 
-      general = {
+      general = let
+        inherit (cfg.host) fprint;
+      in {
         enableShadows = false;
         reverseScroll = true;
         lockScreenAnimation = true;
         enableLockScreenMediaControls = true;
-        autoStartAuth = has_fprint;
-        allowPasswordWithFprintd = has_fprint;
+        autoStartAuth = fprint;
+        allowPasswordWithFprintd = fprint;
         clockFormat = "hh:mm:ss";
       };
 
@@ -138,13 +147,14 @@ in {
 
       controlCenter = {
         shortcuts = {
-          left = [
-            {id = "Network";}
-            {id = "Bluetooth";}
-            {id = "AirplaneMode";}
-            {id = "KeepAwake";}
-            {id = "NightLight";}
-          ];
+          left =
+            [{id = "Network";}]
+            ++ lib.optional cfg.host.bluetooth {id = "Bluetooth";}
+            ++ [
+              {id = "AirplaneMode";}
+              {id = "KeepAwake";}
+              {id = "NightLight";}
+            ];
 
           right = [];
         };
@@ -180,7 +190,7 @@ in {
       appLauncher = {
         enableClipboardHistory = true;
         autoPasteClipboard = true;
-        terminalCommand = "ghostty -e";
+        terminalCommand = lib.join " " (cmdsList.terminal ++ ["-e"]);
         showCategories = false;
       };
 

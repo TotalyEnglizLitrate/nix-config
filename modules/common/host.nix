@@ -1,10 +1,9 @@
 {
-  hostname,
   inputs,
   outputs,
   lib,
   config,
-  userConfig,
+  cfg,
   pkgs,
   ...
 }: {
@@ -24,6 +23,7 @@
 
     config = {
       allowUnfree = true;
+      rocmSupport = cfg.host.gpu.amd;
     };
   };
 
@@ -78,6 +78,8 @@
 
       efi.canTouchEfiVariables = true;
     };
+
+    tmp.cleanOnBoot = true;
   };
 
   networking = {
@@ -86,7 +88,7 @@
       plugins = with pkgs; [networkmanager-openvpn];
       wifi.macAddress = "stable-ssid";
     };
-    hostName = hostname;
+    hostName = cfg.host.hostname;
   };
 
   systemd.network.wait-online.enable = false;
@@ -114,6 +116,7 @@
     devmon.enable = true;
     seatd.enable = true;
     fwupd.enable = true;
+    fprintd.enable = cfg.host.fprint;
     power-profiles-daemon.enable = true;
     upower.enable = true;
     pulseaudio.enable = false;
@@ -133,21 +136,22 @@
   security = {
     rtkit.enable = true;
     sudo.wheelNeedsPassword = true;
+    pam.services = lib.genAttrs ["sudo" "login" "pkexec"] (_name: {fprintAuth = cfg.host.fprint;});
   };
 
-  users.users.${userConfig.name} = {
-    description = userConfig.fullName;
+  users.users.${cfg.user.name} = {
+    description = cfg.user.fullName;
     extraGroups = [
       "networkmanager"
       "wheel"
       "input"
     ];
     isNormalUser = true;
-    shell = pkgs.fish;
+    shell = pkgs.${cfg.user.shell};
   };
 
   programs = {
-    fish.enable = true;
+    ${cfg.user.shell}.enable = true;
     kdeconnect.enable = true;
     dconf.enable = true;
   };

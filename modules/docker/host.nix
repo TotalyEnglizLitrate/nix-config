@@ -1,6 +1,6 @@
 {
   pkgs,
-  userConfig,
+  cfg,
   ...
 }: {
   virtualisation = {
@@ -24,7 +24,7 @@
     };
   };
 
-  users.users.${userConfig.name}.extraGroups = [
+  users.users.${cfg.user.name}.extraGroups = [
     "podman"
     "docker"
     "video"

@@ -30,4 +30,10 @@
     chromium
     firefox-devedition
   ];
+
+  cfg.commands = {
+    browser.package = pkgs.helium;
+
+    fileManager.package = pkgs.nautilus;
+  };
 }
