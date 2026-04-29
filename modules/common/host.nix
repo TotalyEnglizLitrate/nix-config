@@ -84,6 +84,7 @@
     networkmanager = {
       enable = lib.mkForce true;
       plugins = with pkgs; [networkmanager-openvpn];
+      wifi.macAddress = "stable-ssid";
     };
     hostName = hostname;
   };
