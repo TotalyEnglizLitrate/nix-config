@@ -1,4 +1,5 @@
 {
+  lib,
   pkgs,
   userConfig,
   hostname,
@@ -6,6 +7,10 @@
 }: let
   nixos_config_dir = "/home/${userConfig.name}/Documents/repositories/nix-config";
 in {
+  nix.settings = {
+    extra-substituters = lib.mkAfter ["https://watersucks.cachix.org"]; # optnix tui cache
+    trusted-public-keys = ["watersucks.cachix.org-1:6gadPC5R8iLWQ3EUtfu3GFrVY7X6I4Fwz/ihW25Jbv8="];
+  };
   programs.nixos-cli = {
     enable = true;
     option-cache.enable = true;
@@ -17,7 +22,10 @@ in {
       };
       differ = {
         tool = "command";
-        command = ["${pkgs.nvd}/bin/nvd" "diff"];
+        command = [
+          "${pkgs.nvd}/bin/nvd"
+          "diff"
+        ];
       };
     };
   };

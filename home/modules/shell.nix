@@ -3,7 +3,11 @@
     {
       bat = {
         enable = true;
-        config.style = lib.join "," ["numbers" "changes" "header-filename"];
+        config.style = lib.join "," [
+          "numbers"
+          "changes"
+          "header-filename"
+        ];
       };
 
       fd.enable = true;
@@ -55,8 +59,10 @@
           "..." = "../..";
         };
 
-        interactiveShellInit = ''set fish_greeting'';
+        interactiveShellInit = "set fish_greeting";
       };
     }
-    // lib.genAttrs ["fd" "ripgrep" "jq" "yt-dlp" "btop"] (_: {enable = true;});
+    // lib.genAttrs ["fd" "ripgrep" "jq" "yt-dlp" "btop"] (_: {
+      enable = true;
+    });
 }

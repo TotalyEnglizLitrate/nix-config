@@ -57,7 +57,7 @@ _: {
         $cmd_duration $character
       '';
 
-      right_format = ''$git_branch$git_status'';
+      right_format = "$git_branch$git_status";
     };
   };
 }

@@ -12,7 +12,14 @@
   ];
 
   boot = {
-    initrd.availableKernelModules = ["xhci_pci" "ahci" "usb_storage" "usbhid" "sd_mod" "rtsx_pci_sdmmc"];
+    initrd.availableKernelModules = [
+      "xhci_pci"
+      "ahci"
+      "usb_storage"
+      "usbhid"
+      "sd_mod"
+      "rtsx_pci_sdmmc"
+    ];
     initrd.kernelModules = [];
     kernelModules = ["kvm-intel"];
     extraModulePackages = [];

@@ -12,7 +12,13 @@
   ];
 
   boot = {
-    initrd.availableKernelModules = ["xhci_pci" "ahci" "usb_storage" "sd_mod" "rtsx_pci_sdmmc"];
+    initrd.availableKernelModules = [
+      "xhci_pci"
+      "ahci"
+      "usb_storage"
+      "sd_mod"
+      "rtsx_pci_sdmmc"
+    ];
     initrd.kernelModules = [];
     kernelModules = ["kvm-intel"];
     extraModulePackages = [];
@@ -28,13 +34,19 @@
     "/boot" = {
       device = "/dev/disk/by-uuid/4689-EFE9";
       fsType = "vfat";
-      options = ["fmask=0077" "dmask=0077"];
+      options = [
+        "fmask=0077"
+        "dmask=0077"
+      ];
     };
 
     "/home" = {
       device = "/dev/disk/by-uuid/3a4b33e2-e37d-4ba8-a7cc-b175bdaaa289";
       fsType = "btrfs";
-      options = ["subvol=@home" "defaults"];
+      options = [
+        "subvol=@home"
+        "defaults"
+      ];
     };
   };
 

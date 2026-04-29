@@ -12,7 +12,11 @@
   ];
 
   boot = {
-    initrd.availableKernelModules = ["nvme" "xhci_pci" "thunderbolt"];
+    initrd.availableKernelModules = [
+      "nvme"
+      "xhci_pci"
+      "thunderbolt"
+    ];
     initrd.kernelModules = [];
     kernelModules = ["kvm-amd"];
     extraModulePackages = [];
@@ -34,7 +38,10 @@
     "/boot" = {
       device = "/dev/disk/by-uuid/636D-1062";
       fsType = "vfat";
-      options = ["fmask=0077" "dmask=0077"];
+      options = [
+        "fmask=0077"
+        "dmask=0077"
+      ];
     };
   };
 

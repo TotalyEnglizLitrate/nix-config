@@ -28,17 +28,13 @@
   };
 
   nix = {
-    registry = lib.mapAttrs (_: flake: {inherit flake;}) (lib.filterAttrs (_: lib.isType "flake") inputs);
+    registry = lib.mapAttrs (_: flake: {inherit flake;}) (
+      lib.filterAttrs (_: lib.isType "flake") inputs
+    );
     nixPath = ["/etc/nix/path"];
     settings = {
       experimental-features = "nix-command flakes ca-derivations";
       auto-optimise-store = true;
-      substituters = ["https://niri.cachix.org" "https://watersucks.cachix.org" "https://noctalia.cachix.org"];
-      trusted-public-keys = [
-        "niri.cachix.org-1:Wv0OmO7PsuocRKzfDoJ3mulSl7Z6oezYhGhR+3W2964="
-        "watersucks.cachix.org-1:6gadPC5R8iLWQ3EUtfu3GFrVY7X6I4Fwz/ihW25Jbv8="
-        "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4="
-      ];
     };
   };
 
@@ -140,7 +136,11 @@
 
   users.users.${userConfig.name} = {
     description = userConfig.fullName;
-    extraGroups = ["networkmanager" "wheel" "input"];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "input"
+    ];
     isNormalUser = true;
     shell = pkgs.fish;
   };
@@ -151,7 +151,9 @@
     dconf.enable = true;
   };
   # use ca-derivations for manpages to speedup build time
-  documentation.man.man-db.package = pkgs.man-db.overrideAttrs (_final: _prev: {__contentAddressed = true;});
+  documentation.man.man-db.package = pkgs.man-db.overrideAttrs (
+    _final: _prev: {__contentAddressed = true;}
+  );
 
   environment.systemPackages = with pkgs; [
     gcc
@@ -176,9 +178,23 @@
     fontconfig = {
       enable = true;
       defaultFonts = {
-        monospace = ["0xProto Nerd Font" "0xProto" "DejaVu Sans" "Liberation"];
-        sansSerif = ["0xProto Nerd Font" "Noto Sans" "DejaVu Sans" "Liberation Sans"];
-        serif = ["Noto Serif" "DejaVu Serif" "Liberation Serif"];
+        monospace = [
+          "0xProto Nerd Font"
+          "0xProto"
+          "DejaVu Sans"
+          "Liberation"
+        ];
+        sansSerif = [
+          "0xProto Nerd Font"
+          "Noto Sans"
+          "DejaVu Sans"
+          "Liberation Sans"
+        ];
+        serif = [
+          "Noto Serif"
+          "DejaVu Serif"
+          "Liberation Serif"
+        ];
       };
     };
     fontDir.enable = true;
@@ -186,8 +202,8 @@
 
   programs.nix-ld.enable = true;
   systemd.tmpfiles.rules = [
-    ''L+ /lib64/libstdc++.so.6 - - - - ${pkgs.stdenv.cc.cc.lib}/lib64/libstdc++.so.6''
-    ''L+ /lib64/libz.so.1 - - - - ${pkgs.zlib}/lib/libz.so.1''
+    "L+ /lib64/libstdc++.so.6 - - - - ${pkgs.stdenv.cc.cc.lib}/lib64/libstdc++.so.6"
+    "L+ /lib64/libz.so.1 - - - - ${pkgs.zlib}/lib/libz.so.1"
   ];
   environment.variables = {
     NIX_LD_LIBRARY_PATH = lib.mkForce "/lib64";

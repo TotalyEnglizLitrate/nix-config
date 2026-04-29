@@ -9,9 +9,9 @@
   schemePath = config.stylix.base16Scheme;
   schemeFileName = lib.removeSuffix ".yaml" (baseNameOf schemePath);
   toPascalCase = str:
-    lib.concatMapStrings
-    (word: lib.toUpper (lib.substring 0 1 word) + lib.substring 1 (-1) word)
-    (lib.splitString "-" str);
+    lib.concatMapStrings (word: lib.toUpper (lib.substring 0 1 word) + lib.substring 1 (-1) word) (
+      lib.splitString "-" str
+    );
   colorFileName = "${toPascalCase schemeFileName}.colors";
 in {
   imports = [

@@ -24,7 +24,11 @@
     };
   };
 
-  users.users.${userConfig.name}.extraGroups = ["podman" "docker" "video"];
+  users.users.${userConfig.name}.extraGroups = [
+    "podman"
+    "docker"
+    "video"
+  ];
 
   environment.systemPackages = [pkgs.distrobox];
 }
