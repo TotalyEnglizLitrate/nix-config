@@ -71,7 +71,7 @@ in {
       TimeoutStopSec = "30s";
       KeyringMode = "shared";
       Restart = "always";
-      RestartSec = "10";
+      RestartSec = "2";
     };
     startLimitBurst = 5;
     startLimitIntervalSec = 30;
