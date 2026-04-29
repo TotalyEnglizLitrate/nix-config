@@ -186,6 +186,7 @@ in {
 
       wallpaper = {
         directory = "${config.home.homeDirectory}/Pictures/Wallpapers";
+        useOriginalImages = true;
         viewMode = "browse";
         transitionType = [
           "stripes"
