@@ -243,5 +243,8 @@ in {
 
     # show-keys
     evtest
+
+    # is already a dep of noctalia upstream; just needed to run cliphist wipe when necessary
+    cliphist
   ];
 }
