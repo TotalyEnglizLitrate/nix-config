@@ -52,14 +52,8 @@
     };
   };
 
-  outputs = {
-    self,
-    home-manager,
-    nixpkgs,
-    ...
-  } @ inputs: let
+  outputs = {self, ...} @ inputs: let
     inherit (self) outputs;
-
     users = {
       engliz = {
         email = "narendra.s1232@gmail.com";
@@ -68,31 +62,9 @@
       };
     };
 
-    mkNixosConfiguration = hostname: username:
-      nixpkgs.lib.nixosSystem {
-        specialArgs = {
-          inherit inputs outputs hostname;
-          userConfig = users.${username};
-        };
-        modules = [
-          ./hosts/${hostname}/configuration.nix
-          home-manager.nixosModules.home-manager
-          inputs.niri.nixosModules.niri
-          inputs.nixos-cli.nixosModules.nixos-cli
-          inputs.stylix.nixosModules.stylix
-          {
-            home-manager = {
-              extraSpecialArgs = {
-                inherit inputs outputs hostname;
-                userConfig = users.${username};
-              };
-              users.${username} = import ./home/${username}/${hostname}.nix;
-            };
-          }
-        ];
-      };
+    functions = import ./functions.nix {inherit inputs outputs users;};
   in {
-    nixosConfigurations = {
+    nixosConfigurations = with functions; {
       latitude5491 = mkNixosConfiguration "latitude5491" "engliz";
       omnibook = mkNixosConfiguration "omnibook" "engliz";
       wanderer = mkNixosConfiguration "wanderer" "engliz";
