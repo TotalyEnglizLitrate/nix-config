@@ -14,7 +14,7 @@ def random_wallpaper():
     wallpaper = wallpapers[randrange(len(wallpapers))]
     outputs: dict[str, str] = loads(run(split("niri msg --json outputs"), capture_output=True, check=True).stdout)  # pyright: ignore[reportAny]
     for output in outputs:
-        _ = run(split(f"noctalia-shell ipc call wallpaper set '{wallpaper}' '{output}''"), check=True)
+        _ = run(split(f"noctalia-shell ipc call wallpaper set '{wallpaper}' '{output}'"), check=True)
 
 
 if __name__ == "__main__":
