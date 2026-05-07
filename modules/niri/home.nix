@@ -178,7 +178,7 @@ in {
           then {open-maximized = true;}
           else {
             default-column-width.proportion = 0.5;
-            default-column-height.proportion = 1;
+            default-window-height.proportion = 1.0;
           }
         )
       ];
