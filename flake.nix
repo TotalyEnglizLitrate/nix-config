@@ -91,6 +91,7 @@
       latitude5491 = mkNixosConfiguration "latitude5491" "engliz";
       omnibook = mkNixosConfiguration "omnibook" "engliz";
       wanderer = mkNixosConfiguration "wanderer" "engliz";
+      vm = mkNixosConfiguration "vm" "engliz";
     };
 
     overlays = import ./overlays.nix {inherit inputs;};

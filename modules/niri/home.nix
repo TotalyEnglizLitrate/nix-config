@@ -113,11 +113,11 @@ in {
       };
     };
 
-    spawn-at-startup = [
+    spawn-at-startup = with pkgs; [
       {command = [noctalia "-d"];}
       {command = ["toggle-mute" "--init"];}
-      {command = [(lib.getExe pkgs.xwayland-satellite-unstable)];}
-      {command = [(lib.getExe pkgs.arrpc)];}
+      {command = [(lib.getExe xwayland-satellite-unstable)];}
+      {command = [(lib.getExe arrpc)];}
       {command = ["${pkgs.kdePackages.kdeconnect-kde}/lib/kdeconnectd"];}
       {command = ["${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1"];}
     ];
