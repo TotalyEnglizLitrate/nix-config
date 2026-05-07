@@ -67,7 +67,7 @@
         specialArgs = {inherit inputs outputs;};
         modules = [
           ./hosts/${hostname}/configuration.nix
-          ./modules/cfg
+          ./hosts/common.nix
           inputs.home-manager.nixosModules.home-manager
           inputs.niri.nixosModules.niri
           inputs.nixos-cli.nixosModules.nixos-cli
@@ -79,7 +79,7 @@
             };
 
             home-manager = {
-              sharedModules = [./modules/cfg ./modules/cfg/commands.nix];
+              sharedModules = [./hosts/common.nix ./modules/niri/commands.nix];
               extraSpecialArgs = {inherit inputs outputs;};
               users.${username} = import ./home/${username}/${hostname}.nix;
             };

@@ -1,9 +1,9 @@
 {
   pkgs,
-  cfg,
+  config,
   ...
 }: {
-  users.users.${cfg.user.name}.extraGroups = [
+  users.users.${config.cfg.user.name}.extraGroups = [
     "kvm"
     "adbusers"
   ];

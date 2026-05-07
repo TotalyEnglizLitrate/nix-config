@@ -1,7 +1,6 @@
 {
   outputs,
   osConfig,
-  cfg,
   ...
 }: {
   imports = [
@@ -20,10 +19,8 @@
     };
   };
 
-  inherit (osConfig) cfg;
-
   home = let
-    username = cfg.user.name;
+    username = osConfig.cfg.user.name;
   in {
     inherit username;
     homeDirectory = "/home/${username}";

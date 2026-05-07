@@ -3,7 +3,6 @@
   outputs,
   lib,
   config,
-  cfg,
   pkgs,
   ...
 }: {
@@ -23,7 +22,7 @@
 
     config = {
       allowUnfree = true;
-      rocmSupport = cfg.host.gpu.amd;
+      rocmSupport = config.cfg.host.gpu.amd;
     };
   };
 
@@ -88,7 +87,7 @@
       plugins = with pkgs; [networkmanager-openvpn];
       wifi.macAddress = "stable-ssid";
     };
-    hostName = cfg.host.hostname;
+    hostName = config.cfg.host.hostname;
   };
 
   systemd.network.wait-online.enable = false;
@@ -116,7 +115,7 @@
     devmon.enable = true;
     seatd.enable = true;
     fwupd.enable = true;
-    fprintd.enable = cfg.host.fprint;
+    fprintd.enable = config.cfg.host.fprint;
     power-profiles-daemon.enable = true;
     upower.enable = true;
     pulseaudio.enable = false;
@@ -136,22 +135,22 @@
   security = {
     rtkit.enable = true;
     sudo.wheelNeedsPassword = true;
-    pam.services = lib.genAttrs ["sudo" "login" "pkexec"] (_name: {fprintAuth = cfg.host.fprint;});
+    pam.services = lib.genAttrs ["sudo" "login" "pkexec"] (_name: {fprintAuth = config.cfg.host.fprint;});
   };
 
-  users.users.${cfg.user.name} = {
-    description = cfg.user.fullName;
+  users.users.${config.cfg.user.name} = {
+    description = config.cfg.user.fullName;
     extraGroups = [
       "networkmanager"
       "wheel"
       "input"
     ];
     isNormalUser = true;
-    shell = pkgs.${cfg.user.shell};
+    shell = pkgs.${config.cfg.user.shell};
   };
 
   programs = {
-    ${cfg.user.shell}.enable = true;
+    ${config.cfg.user.shell}.enable = true;
     kdeconnect.enable = true;
     dconf.enable = true;
   };

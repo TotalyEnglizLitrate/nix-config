@@ -1,5 +1,6 @@
 {
   config,
+  osConfig,
   pkgs,
   ...
 }: let
@@ -14,7 +15,7 @@ in {
     ../ssh.nix
     ./gpg.nix
   ];
-  home.file.${signersFile}.text = "${config.cfg.user.email} ${key}";
+  home.file.${signersFile}.text = "${osConfig.cfg.user.email} ${key}";
 
   programs = {
     git = {
@@ -26,9 +27,9 @@ in {
         format = null;
       };
       settings = {
-        user = {
-          name = config.cfg.user.fullName;
-          inherit (config.cfg.user) email;
+        user = with osConfig.cfg.user; {
+          name = fullName;
+          inherit email;
         };
         pull.rebase = true;
         push.followTags = true;

@@ -2,9 +2,8 @@
   lib,
   inputs,
   outputs,
-  cfg,
-  cmds,
-  cmdsList,
+  config,
+  osConfig,
   pkgs,
   ...
 }: {
@@ -29,7 +28,7 @@
   };
 
   home.sessionVariables = {
-    EDITOR = cmds.editor.binary;
+    EDITOR = config.commands.editor.binary;
     XDG_SESSION_DESKTOP = "niri";
     XDG_CURRENT_DESKTOP = "niri";
     XDG_SESSION_TYPE = "wayland";
@@ -62,7 +61,7 @@
   };
 
   programs.niri.settings = let
-    shell = args: cmdsList.noctaliaIPC ++ args;
+    shell = args: config.commandsList.noctaliaIPC ++ args;
   in {
     input =
       {
@@ -73,7 +72,7 @@
 
         focus-follows-mouse.max-scroll-amount = "0%";
       }
-      // lib.optionalAttrs cfg.host.laptop {
+      // lib.optionalAttrs osConfig.cfg.host.laptop {
         touchpad = {
           tap = true;
           natural-scroll = true;
@@ -96,7 +95,7 @@
           then {inherit (position) x y;}
           else null;
       })
-    cfg.host.displays;
+    osConfig.cfg.host.displays;
 
     layout = {
       gaps = 0;
@@ -116,7 +115,7 @@
         command = [
           "sh"
           "-c"
-          (lib.join " " (["QT_QPA_PLATFORMTHEME=gtk3"] ++ cfg.commandsList.noctalia))
+          (lib.join " " (["QT_QPA_PLATFORMTHEME=gtk3"] ++ config.commandsList.noctalia))
         ];
       }
       {command = ["toggle-mute" "--init"];}
@@ -134,7 +133,7 @@
     prefer-no-csd = true;
     screenshot-path = "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png";
 
-    switch-events = lib.optionalAttrs cfg.host.laptop {
+    switch-events = lib.optionalAttrs osConfig.cfg.host.laptop {
       lid-close.action.spawn = shell [
         "lockScreen"
         "lock"
@@ -178,7 +177,7 @@
       ]
       ++ [
         (
-          if cfg.host.laptop
+          if osConfig.cfg.host.laptop
           then {open-maximized = true;}
           else {
             default-column-width.proportion = 0.5;
@@ -187,8 +186,9 @@
         )
       ];
 
-    binds = with cmdsList;
-      lib.optionalAttrs cfg.host.bluetooth {
+    binds = with osConfig.cfg;
+      with config.commandsList;
+      lib.optionalAttrs host.bluetooth {
         "Mod+B".action.spawn = shell ["bluetooth" "togglePanel"];
       }
       // {

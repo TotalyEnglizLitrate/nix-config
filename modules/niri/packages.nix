@@ -31,7 +31,7 @@
     firefox-devedition
   ];
 
-  cfg.commands = {
+  commands = {
     browser.package = pkgs.helium;
 
     fileManager.package = pkgs.nautilus;

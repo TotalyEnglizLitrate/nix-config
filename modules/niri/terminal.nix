@@ -3,7 +3,7 @@
   lib,
   ...
 }: {
-  cfg.commands = {
+  commands = {
     terminal.package = pkgs.ghostty;
     sysmon = {
       package = pkgs.ghostty;

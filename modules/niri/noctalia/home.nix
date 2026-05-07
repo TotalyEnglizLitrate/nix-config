@@ -3,8 +3,7 @@
   pkgs,
   inputs,
   config,
-  cfg,
-  cmdsList,
+  osConfig,
   ...
 }: let
   enablePlugins = names: src:
@@ -17,26 +16,26 @@ in {
   imports = [inputs.noctalia.homeModules.default];
 
   nixpkgs.overlays = [inputs.noctalia.overlays.default];
-  cfg.commands.noctalia = {
+  commands.noctalia = {
     package = pkgs.noctalia-shell;
     args = ["-d"];
   };
 
-  programs.noctalia-shell = {
+  programs.noctalia-shell = with config.commandsList; {
     package = pkgs.noctalia-shell;
     enable = true;
     settings = {
       dock.enabled = false;
       audio.volumeOverdrive = true;
       brightness.enforceMinimum = false;
-      systemMonitor.externalMonitor = lib.join " " cmdsList.sysmon;
+      systemMonitor.externalMonitor = lib.join " " sysmon;
 
       idle = {
         enabled = true;
         screenOffTimeout = 90;
         lockTimeout = 300;
         suspendTimeout = 600;
-        suspendCommand = lib.join " " (cmdsList.noctaliaIPC ++ ["lockScreen" "lock"]);
+        suspendCommand = lib.join " " (noctaliaIPC ++ ["lockScreen" "lock"]);
       };
 
       bar = {
@@ -79,7 +78,7 @@ in {
               {id = "Network";}
               {id = "plugin:network-manager-vpn";}
             ]
-            ++ lib.optional cfg.host.bluetooth {id = "Bluetooth";}
+            ++ lib.optional osConfig.cfg.host.bluetooth {id = "Bluetooth";}
             ++ [
               {id = "plugin:privacy-indicator";}
               {id = "Brightness";}
@@ -103,7 +102,7 @@ in {
       };
 
       general = let
-        inherit (cfg.host) fprint;
+        inherit (osConfig.cfg.host) fprint;
       in {
         enableShadows = false;
         reverseScroll = true;
@@ -149,7 +148,7 @@ in {
         shortcuts = {
           left =
             [{id = "Network";}]
-            ++ lib.optional cfg.host.bluetooth {id = "Bluetooth";}
+            ++ lib.optional osConfig.cfg.host.bluetooth {id = "Bluetooth";}
             ++ [
               {id = "AirplaneMode";}
               {id = "KeepAwake";}
@@ -190,7 +189,7 @@ in {
       appLauncher = {
         enableClipboardHistory = true;
         autoPasteClipboard = true;
-        terminalCommand = lib.join " " (cmdsList.terminal ++ ["-e"]);
+        terminalCommand = lib.join " " (terminal ++ ["-e"]);
         showCategories = false;
       };
 
