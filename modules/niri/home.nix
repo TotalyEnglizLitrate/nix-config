@@ -6,7 +6,10 @@
   osConfig,
   pkgs,
   ...
-}: {
+}: let
+  noctalia = lib.getExe pkgs.noctalia-shell;
+  noctaliaIPC = [noctalia "ipc" "call"];
+in {
   nixpkgs.overlays = [
     inputs.niri.overlays.niri
     inputs.noctalia.overlays.default
@@ -61,7 +64,7 @@
   };
 
   programs.niri.settings = let
-    shell = args: config.commandsList.noctaliaIPC ++ args;
+    shell = args: noctaliaIPC ++ args;
   in {
     input =
       {
@@ -111,16 +114,10 @@
     };
 
     spawn-at-startup = [
-      {
-        command = [
-          "sh"
-          "-c"
-          (lib.join " " (["QT_QPA_PLATFORMTHEME=gtk3"] ++ config.commandsList.noctalia))
-        ];
-      }
+      {command = [noctalia "-d"];}
       {command = ["toggle-mute" "--init"];}
-      {command = ["${pkgs.xwayland-satellite-unstable}/bin/xwayland-satellite"];}
-      {command = ["${pkgs.arrpc}/bin/arrpc"];}
+      {command = [(lib.getExe pkgs.xwayland-satellite-unstable)];}
+      {command = [(lib.getExe pkgs.arrpc)];}
       {command = ["${pkgs.kdePackages.kdeconnect-kde}/lib/kdeconnectd"];}
       {command = ["${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1"];}
     ];
@@ -187,7 +184,7 @@
       ];
 
     binds = with osConfig.cfg;
-      with config.commandsList;
+    with config.commandsList;
       lib.optionalAttrs host.bluetooth {
         "Mod+B".action.spawn = shell ["bluetooth" "togglePanel"];
       }

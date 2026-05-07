@@ -45,23 +45,15 @@ in {
         type = commandType;
         description = "System monitor (e.g. btop)";
       };
-      noctalia = lib.mkOption {
-        type = commandType;
-        description = "Noctalia shell";
-      };
     };
     commandsList = lib.mkOption {
       type = lib.types.attrsOf (lib.types.listOf lib.types.str);
-      default = let
-        inherit (config.commands) noctalia;
-        noctaliaCommand = ["${noctalia.package}/bin/${noctalia.binary}"];
-      in
-        (lib.mapAttrs (
-            _: cmd:
-              ["${cmd.package}/bin/${cmd.binary}"] ++ cmd.args
-          )
-          config.commands)
-        // {noctaliaIPC = noctaliaCommand ++ ["ipc" "call"];};
+      default =
+        lib.mapAttrs (
+          _: cmd:
+            ["${cmd.package}/bin/${cmd.binary}"] ++ cmd.args
+        )
+        config.commands;
       readOnly = true;
       description = "Derived: each command as a ready-to-use argv list including args";
     };

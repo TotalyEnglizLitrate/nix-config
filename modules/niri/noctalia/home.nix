@@ -12,14 +12,12 @@
       sourceUrl = src;
     });
   plugins_src = "https://github.com/noctalia-dev/noctalia-plugins";
+  noctalia = lib.getExe pkgs.noctalia-shell;
+  noctaliaIPC = [noctalia "ipc" "call"];
 in {
   imports = [inputs.noctalia.homeModules.default];
 
   nixpkgs.overlays = [inputs.noctalia.overlays.default];
-  commands.noctalia = {
-    package = pkgs.noctalia-shell;
-    args = ["-d"];
-  };
 
   programs.noctalia-shell = with config.commandsList; {
     package = pkgs.noctalia-shell;
