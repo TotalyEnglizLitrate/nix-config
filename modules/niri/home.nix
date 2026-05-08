@@ -114,7 +114,7 @@ in {
     };
 
     spawn-at-startup = with pkgs; [
-      {command = [noctalia "-d"];}
+      {sh = "QT_QPA_PLATFORM_THEME=qt6ct ${noctalia} -d";}
       {command = ["toggle-mute" "--init"];}
       {command = [(lib.getExe xwayland-satellite-unstable)];}
       {command = [(lib.getExe arrpc)];}
