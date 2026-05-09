@@ -19,7 +19,7 @@ in {
         fi
       else
         WALLPAPER_DIR="$HOME/Pictures/Wallpapers"
-        WALLPAPER=$(${pkgs.findutils}/bin/find "$WALLPAPER_DIR" -type f \( -name "*.jpg" -o -name "*.png" \) | ${pkgs.coreutils}/bin/shuf -n 1)
+        WALLPAPER=$(${pkgs.findutils}/bin/find "$WALLPAPER_DIR" -type f -o -type l \( -name "*.jpg" -o -name "*.png" \) | ${pkgs.coreutils}/bin/shuf -n 1)
       fi
 
       if [ -z "$WALLPAPER" ] || [ ! -f "$WALLPAPER" ]; then
