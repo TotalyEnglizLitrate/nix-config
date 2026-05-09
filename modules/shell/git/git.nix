@@ -1,30 +1,35 @@
 {
   config,
   osConfig,
+  lib,
   pkgs,
   ...
 }: let
-  keys = [
-    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKtlDkVL/0TH2zsD+nSawpwChiXH9QYkDXXxtaNtji5g"
-    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFRbsrBxvy3bBKMzRZkYvbSld4PHlr6tDzipcy0On6XX" # secondary key made ad-hoc; keeping it around
-  ];
-  key = builtins.elemAt keys 0;
+  signingKeys = osConfig.cfg.user.signingKeys;
+  hasSigningKeys = signingKeys != [];
+  key =
+    if hasSigningKeys
+    then builtins.elemAt signingKeys 0
+    else null;
   signersFile = ".config/git/allowed_signers";
 in {
   imports = [
     ../ssh.nix
     ./gpg.nix
   ];
-  home.file.${signersFile}.text = "${osConfig.cfg.user.email} ${key}";
+
+  home.file.${signersFile} = lib.mkIf hasSigningKeys {
+    text = "${osConfig.cfg.user.email} ${key}";
+  };
 
   programs = {
     git = {
       enable = true;
       lfs.enable = true;
-      signing = {
-        key = "${key} ${config.cfg.user.email}";
+      signing = lib.mkIf hasSigningKeys {
+        key = "${key} ${osConfig.cfg.user.email}";
         signByDefault = true;
-        format = null;
+        format = "ssh";
       };
       settings = {
         user = with osConfig.cfg.user; {
@@ -33,8 +38,10 @@ in {
         };
         pull.rebase = true;
         push.followTags = true;
-        gpg.format = "ssh";
-        gpg.ssh.allowedSignersFile = config.home.file.${signersFile}.target;
+        gpg = lib.mkIf hasSigningKeys {
+          format = "ssh";
+          ssh.allowedSignersFile = config.home.file.${signersFile}.target;
+        };
         credential.helper = "${
           pkgs.git.override {withLibsecret = true;}
         }/libexec/git-core/git-credential-libsecret";

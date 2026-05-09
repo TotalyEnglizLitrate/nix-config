@@ -8,7 +8,6 @@
 }: {
   imports = [
     ../cloudflare-warp/host.nix
-    ../niri/host.nix
     ../nixos-cli/host.nix
     ../stylix/host.nix
     ../tailscale/host.nix
@@ -138,7 +137,9 @@
     pam.services = lib.genAttrs ["sudo" "login" "pkexec"] (_name: {fprintAuth = config.cfg.host.fprint;});
   };
 
-  users.users.${config.cfg.user.name} = {
+  users.users.${config.cfg.user.name} = let
+    inherit (config.cfg.user) password shell;
+  in {
     description = config.cfg.user.fullName;
     extraGroups = [
       "networkmanager"
@@ -146,7 +147,8 @@
       "input"
     ];
     isNormalUser = true;
-    shell = pkgs.${config.cfg.user.shell};
+    shell = pkgs.${shell};
+    initialPassword = lib.mkIf (password != null) password;
   };
 
   programs = {

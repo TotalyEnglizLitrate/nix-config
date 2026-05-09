@@ -3,6 +3,7 @@
     inputs.hardware.nixosModules.common-pc-ssd
     ./hardware-configuration.nix
     ../../modules/common/host.nix
+    ../../modules/niri/host.nix
     ../../modules/dual-function-keys/host.nix
     ../../modules/zram/host.nix
   ];

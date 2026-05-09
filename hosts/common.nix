@@ -13,9 +13,17 @@
         type = lib.types.str;
         default = "";
       };
+      password = lib.mkOption {
+        type = lib.types.nullOr lib.types.str;
+        default = null;
+      };
       email = lib.mkOption {
         type = lib.types.str;
         default = "";
+      };
+      signingKeys = lib.mkOption {
+        type = lib.types.listOf lib.types.str;
+        default = [];
       };
       shell = lib.mkOption {
         type = lib.types.str;

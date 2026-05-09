@@ -8,6 +8,7 @@
   imports = [
     "${lib.toString modulesPath}/profiles/qemu-guest.nix"
     ../../modules/common/host.nix
+    ../../modules/niri/host.nix
   ];
 
   fileSystems."/" = {
@@ -56,8 +57,6 @@
 
     displays = {};
   };
-
-  users.users.${config.cfg.user.name}.initialPassword = "changeme";
 
   system.stateVersion = "24.11";
 }

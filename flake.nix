@@ -59,6 +59,17 @@
         email = "narendra.s1232@gmail.com";
         fullName = "Narendra S";
         name = "engliz";
+        signingKeys = [
+          "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKtlDkVL/0TH2zsD+nSawpwChiXH9QYkDXXxtaNtji5g"
+          "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFRbsrBxvy3bBKMzRZkYvbSld4PHlr6tDzipcy0On6XX"
+        ];
+      };
+
+      user = {
+        email = "123@abc.def";
+        fullName = "User";
+        name = "user";
+        password = "changeme";
       };
     };
 
@@ -91,7 +102,7 @@
       latitude5491 = mkNixosConfiguration "latitude5491" "engliz";
       omnibook = mkNixosConfiguration "omnibook" "engliz";
       wanderer = mkNixosConfiguration "wanderer" "engliz";
-      vm = mkNixosConfiguration "vm" "engliz";
+      vm = mkNixosConfiguration "vm" "user";
     };
 
     overlays = import ./overlays.nix {inherit inputs;};

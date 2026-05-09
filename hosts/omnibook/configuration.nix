@@ -3,6 +3,7 @@
     inputs.hardware.nixosModules.common-pc-ssd
     ./hardware-configuration.nix
     ../../modules/common/host.nix
+    ../../modules/niri/host.nix
     ../../modules/mute-led-daemon/host.nix
     ../../modules/docker/host.nix
     ../../modules/qemu/host.nix
