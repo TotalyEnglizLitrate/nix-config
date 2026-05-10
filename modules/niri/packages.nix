@@ -24,7 +24,6 @@
     wl-clipboard
     wlr-randr
     xournalpp
-    xwayland-satellite-unstable
 
     helium
     chromium
@@ -33,7 +32,6 @@
 
   commands = {
     browser.package = pkgs.helium;
-
     fileManager.package = pkgs.nautilus;
   };
 }

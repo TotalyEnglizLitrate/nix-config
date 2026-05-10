@@ -49,6 +49,7 @@ in {
   environment.systemPackages = [
     autologin_on_2
     pkgs.polkit_gnome
+    pkgs.xwayland-satellite-unstable
   ];
 
   systemd.services.autologin = {

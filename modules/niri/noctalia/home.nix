@@ -189,6 +189,7 @@ in {
         autoPasteClipboard = true;
         terminalCommand = lib.join " " (terminal ++ ["-e"]);
         showCategories = false;
+        overviewLayer = true;
       };
 
       wallpaper = {
