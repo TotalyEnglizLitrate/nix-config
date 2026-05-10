@@ -1,12 +1,13 @@
 {
   pkgs,
   lib,
+  config,
   ...
 }: {
   commands = {
-    terminal.package = pkgs.ghostty;
+    terminal = {inherit (config.programs.ghostty) package;};
     sysmon = {
-      package = pkgs.ghostty;
+      inherit (config.commands.terminal) package;
       args = ["-e" "${pkgs.btop}/bin/btop"];
     };
   };
