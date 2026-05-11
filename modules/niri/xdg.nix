@@ -1,18 +1,18 @@
-_: {
+{lib, ...}: {
   imports = [./browser.nix];
   xdg = {
     enable = true;
     mimeApps = {
       enable = true;
       associations.added = {
-        "audio/mpeg" = ["vlc.desktop"];
         "video/*" = ["vlc.desktop"];
         "audio/*" = ["vlc.desktop"];
       };
       defaultApplications = {
         "application/x-gnome-saved-search" = ["org.gnome.Nautilus.desktop"];
+        "application/pdf" = lib.mkBefore ["okularApplication_pdf.desktop"];
+        "image/*" = lib.mkBefore ["org.gnome.Loupe.desktop"];
         "audio/*" = ["vlc.desktop"];
-        "image/*" = ["org.gnome.loupe.desktop"];
         "video/*" = ["vlc.desktop"];
       };
     };
