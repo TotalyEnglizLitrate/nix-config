@@ -147,7 +147,7 @@ in {
         {
           matches = [
             bitwarden
-            {app-id = "Spotify";}
+            {app-id = "[S|s]potify";}
             {app-id = "org\.gnome\.Nautilus";}
             {app-id = "org\.gnome\.FileRoller";}
             {app-id = "org\.kde\.kdeconnect\..*";}
@@ -156,10 +156,7 @@ in {
           ];
 
           open-floating = true;
-        }
 
-        {
-          matches = [{app-id = "Spotify";}];
           default-column-width.proportion = 0.4;
           default-window-height.proportion = 0.45;
         }
