@@ -1,4 +1,4 @@
-{config, ...}: {
+{config, lib, ...}: {
   gtk = {
     enable = true;
     gtk3 = {
@@ -13,7 +13,7 @@
       ];
     };
 
-    gtk4.theme = null;
+    gtk4.theme = lib.mkForce null;
   };
 
   dconf.settings."org/gnome/desktop/interface" = {
