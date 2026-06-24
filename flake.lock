@@ -626,15 +626,15 @@
     "pyproject-build-systems": {
       "inputs": {
         "nixpkgs": [
-          "toad-flake",
+          "toad",
           "nixpkgs"
         ],
         "pyproject-nix": [
-          "toad-flake",
+          "toad",
           "pyproject-nix"
         ],
         "uv2nix": [
-          "toad-flake",
+          "toad",
           "uv2nix"
         ]
       },
@@ -655,7 +655,7 @@
     "pyproject-nix": {
       "inputs": {
         "nixpkgs": [
-          "toad-flake",
+          "toad",
           "nixpkgs"
         ]
       },
@@ -687,7 +687,7 @@
         "nvim": "nvim",
         "spicetify-nix": "spicetify-nix",
         "stylix": "stylix",
-        "toad-flake": "toad-flake",
+        "toad": "toad",
         "zen-browser": "zen-browser"
       }
     },
@@ -885,6 +885,26 @@
       }
     },
     "toad": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "pyproject-build-systems": "pyproject-build-systems",
+        "pyproject-nix": "pyproject-nix",
+        "toad": "toad_2",
+        "uv2nix": "uv2nix"
+      },
+      "locked": {
+        "path": "./pkgs/toad",
+        "type": "path"
+      },
+      "original": {
+        "path": "./pkgs/toad",
+        "type": "path"
+      },
+      "parent": []
+    },
+    "toad_2": {
       "flake": false,
       "locked": {
         "lastModified": 1779785022,
@@ -899,26 +919,6 @@
         "repo": "toad",
         "type": "github"
       }
-    },
-    "toad-flake": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ],
-        "pyproject-build-systems": "pyproject-build-systems",
-        "pyproject-nix": "pyproject-nix",
-        "toad": "toad",
-        "uv2nix": "uv2nix"
-      },
-      "locked": {
-        "path": "./pkgs/toad",
-        "type": "path"
-      },
-      "original": {
-        "path": "./pkgs/toad",
-        "type": "path"
-      },
-      "parent": []
     },
     "treefmt-nix": {
       "inputs": {
@@ -980,11 +980,11 @@
     "uv2nix": {
       "inputs": {
         "nixpkgs": [
-          "toad-flake",
+          "toad",
           "nixpkgs"
         ],
         "pyproject-nix": [
-          "toad-flake",
+          "toad",
           "pyproject-nix"
         ]
       },

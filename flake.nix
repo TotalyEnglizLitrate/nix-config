@@ -54,7 +54,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    toad-flake = {
+    toad = {
       url = "path:./pkgs/toad";
       inputs.nixpkgs.follows = "nixpkgs";
     };

@@ -5,5 +5,5 @@
     package = pkgs.ollama-rocm;
   };
 
-  environment.systemPackages = [ pkgs.python3.withPackages (p: [p.toad]) ];
+  environment.systemPackages = [ pkgs.toad ];
 }
