@@ -8,7 +8,6 @@
     fragments
     kdePackages.okular
     libreoffice-qt6-fresh
-    lmstudio
     localsend
     loupe
     nautilus
