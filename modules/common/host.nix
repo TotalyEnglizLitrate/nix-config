@@ -12,6 +12,7 @@
     ../stylix/host.nix
     ../tailscale/host.nix
     ../wireshark/host.nix
+    ../ollama/host.nix
   ];
 
   nixpkgs = {
