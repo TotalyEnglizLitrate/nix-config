@@ -8,7 +8,7 @@
       })
       associations
     ));
-    
+
     defaults = [
       "application/x-extension-shtml"
       "application/x-extension-xhtml"

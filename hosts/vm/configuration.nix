@@ -21,13 +21,15 @@
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
 
-  boot.kernelParams = ["random.trust_cpu=on"];
-  boot.kernelModules = ["virtio_console"];
-  boot.loader.grub.enable = true;
-  boot.loader.grub.device = "/dev/vda";
-  boot.loader.grub.efiSupport = false;
+  boot = {
+    kernelParams = ["random.trust_cpu=on"];
+    kernelModules = ["virtio_console"];
+    loader.grub.enable = true;
+    loader.grub.device = "/dev/vda";
+    loader.grub.efiSupport = false;
+    loader.systemd-boot.enable = lib.mkForce false;
+  };
 
-  boot.loader.systemd-boot.enable = lib.mkForce false;
 
   system.build.qcow2 = import "${modulesPath}/../lib/make-disk-image.nix" {
     inherit lib config pkgs;

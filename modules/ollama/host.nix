@@ -1,4 +1,8 @@
-{pkgs, outputs, ...} : {
+{
+  pkgs,
+  outputs,
+  ...
+}: {
   services.ollama = {
     enable = true;
     rocmOverrideGfx = "11.5.1";
@@ -6,5 +10,5 @@
   };
 
   nixpkgs.overlays = [outputs.overlays.toad];
-  environment.systemPackages = with pkgs; [ goose-cli toad ];
+  environment.systemPackages = with pkgs; [goose-cli toad];
 }
