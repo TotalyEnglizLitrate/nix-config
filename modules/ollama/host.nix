@@ -6,5 +6,5 @@
   };
 
   nixpkgs.overlays = [outputs.overlays.toad];
-  environment.systemPackages = [ pkgs.toad ];
+  environment.systemPackages = with pkgs; [ goose-cli toad ];
 }
