@@ -30,7 +30,6 @@
     loader.systemd-boot.enable = lib.mkForce false;
   };
 
-
   system.build.qcow2 = import "${modulesPath}/../lib/make-disk-image.nix" {
     inherit lib config pkgs;
 

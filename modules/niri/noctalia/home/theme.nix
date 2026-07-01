@@ -1,4 +1,8 @@
-{lib, osConfig, ...}: {
+{
+  lib,
+  osConfig,
+  ...
+}: {
   stylix.targets.noctalia-shell.enable = false;
 
   home.file.".config/noctalia/palettes/stylix.json".text = lib.toJSON (with osConfig.lib.stylix.colors.withHashtag; {
@@ -26,7 +30,7 @@
           green = base0B;
           yellow = base0A;
           blue = base0D;
-         magenta = base0E;
+          magenta = base0E;
           cyan = base0C;
           white = base05;
         };

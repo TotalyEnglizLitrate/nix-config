@@ -22,6 +22,6 @@
       llama-cpp-rocm
     ];
 
-    variables.HSA_OVERRIDE_GFX_VERSION="'11.5.0'";
+    variables.HSA_OVERRIDE_GFX_VERSION = "'11.5.0'";
   };
 }

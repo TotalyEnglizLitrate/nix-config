@@ -1,7 +1,4 @@
-{
-  lib,
-  ...
-}: let
+{lib, ...}: let
   userType = lib.types.submodule {
     options = {
       name = lib.mkOption {
