@@ -35,6 +35,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    noctalia-greetd = {
+      url = "github:noctalia-dev/noctalia-greeter";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nixos-cli = {
       url = "github:nix-community/nixos-cli";
       inputs.nixpkgs.follows = "nixpkgs";

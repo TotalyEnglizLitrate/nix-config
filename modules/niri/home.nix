@@ -7,8 +7,8 @@
   pkgs,
   ...
 }: let
-  noctalia = lib.getExe pkgs.noctalia-shell;
-  noctaliaIPC = [noctalia "ipc" "call"];
+  noctalia = lib.getExe pkgs.noctalia;
+  noctaliaIPC = [noctalia "msg"];
 in {
   nixpkgs.overlays = [
     inputs.niri.overlays.niri
@@ -21,7 +21,7 @@ in {
     ./kanshi.nix
     ./packages.nix
     ./spotify.nix
-    ./noctalia/home.nix
+    ./noctalia/home
     ./xdg.nix
   ];
 
@@ -132,10 +132,12 @@ in {
 
     switch-events = lib.optionalAttrs osConfig.cfg.host.laptop {
       lid-close.action.spawn = shell [
-        "lockScreen"
+        "session"
         "lock"
       ];
     };
+
+    debug.honor-xdg-activation-with-invalid-serial = {};
 
     window-rules = let
       bitwarden = {
@@ -146,11 +148,9 @@ in {
       [
         {
           matches = [
-            bitwarden
             {app-id = "[S|s]potify";}
             {app-id = "org\.gnome\.Nautilus";}
             {app-id = "org\.gnome\.FileRoller";}
-            {app-id = "org\.kde\.kdeconnect\..*";}
             {app-id = "org\.pulseaudio\.pavucontrol";}
             {app-id = "nm-connection-editor";}
           ];
@@ -159,6 +159,28 @@ in {
 
           default-column-width.proportion = 0.4;
           default-window-height.proportion = 0.45;
+        }
+
+        {
+          matches = [
+            {app-id = "dev\.noctalia\.Noctalia\.Settings";}
+          ];
+
+          open-floating = true;
+
+          default-column-width.proportion = 0.56;
+          default-window-height.proportion = 0.85;
+        }
+
+        {
+          matches = [
+            bitwarden
+            {app-id = "org\.kde\.kdeconnect\..*";}
+          ];
+
+          open-floating = true;
+          default-column-width.proportion = 0.3;
+          default-window-height.proportion = 0.5;
         }
 
         {
@@ -183,20 +205,20 @@ in {
     binds = with osConfig.cfg;
     with config.commandsList;
       lib.optionalAttrs host.bluetooth {
-        "Mod+B".action.spawn = shell ["bluetooth" "togglePanel"];
+        "Mod+B".action.spawn = shell ["panel-toggle" "control-center" "bluetooth"];
       }
       // {
         "Mod+T".action.spawn = terminal;
         "Mod+W".action.spawn = browser;
         "Mod+E".action.spawn = fileManager;
         "Mod+M".action.spawn = sysmon;
-        "Mod+N".action.spawn = shell ["notifications" "toggleHistory"];
+        "Mod+N".action.spawn = shell ["panel-toggle" "control-center" "notifications"];
         "Mod+S".action.spawn = ["spotify"];
-        "Mod+R".action.spawn = shell ["launcher" "toggle"];
-        "Mod+V".action.spawn = shell ["launcher" "clipboard"];
-        "Mod+A".action.spawn = shell ["controlCenter" "toggle"];
-        "Mod+Shift+V".action.spawn = shell ["volume" "togglePanel"];
-        "Mod+Shift+W".action.spawn = ["wallpaper"];
+        "Mod+R".action.spawn = shell ["panel-toggle" "launcher"];
+        "Mod+V".action.spawn = shell ["panel-toggle" "clipboard"];
+        "Mod+A".action.spawn = shell ["panel-toggle" "control-center"];
+        "Mod+Shift+V".action.spawn = shell ["panel-toggle" "control-center" "audio"];
+        "Mod+Shift+W".action.spawn = shell ["wallpaper-random"];
 
         "Mod+Tab" = {
           repeat = false;
@@ -292,24 +314,15 @@ in {
 
         "Mod+Shift+F".action.toggle-window-floating = {};
 
-        "Mod+Shift+C".action.spawn = shell [
-          "plugin:screen-toolkit"
-          "colorPicker"
-        ];
-        "Mod+Ctrl+T".action.spawn = shell [
-          "plugin:screen-toolkit"
-          "ocr"
-        ];
-
         "Mod+Print".action.screenshot = {};
         "Print".action.screenshot-screen = {};
         "Alt+Print".action.screenshot-window = {};
 
-        "Mod+Shift+Q".action.spawn = shell ["sessionMenu" "toggle"];
+        "Mod+Shift+Q".action.spawn = shell ["panel-toggle" "session"];
         "Ctrl+Alt+Delete".action.quit = {};
 
         "Mod+L".action.spawn = shell [
-          "lockScreen"
+          "session"
           "lock"
         ];
 
@@ -338,14 +351,14 @@ in {
           allow-when-locked = true;
           action.spawn = shell [
             "media"
-            "playPause"
+            "toggle"
           ];
         };
         "XF86AudioPause" = {
           allow-when-locked = true;
           action.spawn = shell [
             "media"
-            "playPause"
+            "toggle"
           ];
         };
         "XF86AudioNext" = {
@@ -365,67 +378,40 @@ in {
 
         "XF86AudioRaiseVolume" = {
           allow-when-locked = true;
-          action.spawn = shell [
-            "volume"
-            "increase"
-          ];
+          action.spawn = shell ["volume-up"];
         };
         "XF86AudioLowerVolume" = {
           allow-when-locked = true;
-          action.spawn = shell [
-            "volume"
-            "decrease"
-          ];
+          action.spawn = shell ["volume-down"];
         };
         "XF86AudioMute" = {
           allow-when-locked = true;
-          action.spawn = shell [
-            "volume"
-            "muteOutput"
-          ];
+          action.spawn = shell ["volume-mute"];
         };
         "XF86AudioMicMute" = {
           allow-when-locked = true;
-          action.spawn = shell [
-            "volume"
-            "muteInput"
-          ];
+          action.spawn = shell ["mic-mute"];
         };
         "Shift+XF86AudioMute" = {
           allow-when-locked = true;
-          action.spawn = shell [
-            "volume"
-            "muteInput"
-          ];
+          action.spawn = shell ["mic-mute"];
         };
         "Shift+XF86AudioRaiseVolume" = {
           allow-when-locked = true;
-          action.spawn = shell [
-            "volume"
-            "increaseInput"
-          ];
+          action.spawn = shell ["mic-volume-up"];
         };
         "Shift+XF86AudioLowerVolume" = {
           allow-when-locked = true;
-          action.spawn = shell [
-            "volume"
-            "decreaseInput"
-          ];
+          action.spawn = shell ["mic-volume-down"];
         };
 
         "XF86MonBrightnessUp" = {
           allow-when-locked = true;
-          action.spawn = shell [
-            "brightness"
-            "increase"
-          ];
+          action.spawn = shell ["brightness-up"];
         };
         "XF86MonBrightnessDown" = {
           allow-when-locked = true;
-          action.spawn = shell [
-            "brightness"
-            "decrease"
-          ];
+          action.spawn = shell ["brightness-down"];
         };
       };
   };
