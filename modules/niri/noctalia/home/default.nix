@@ -21,6 +21,10 @@
         mode = "dark";
         source = "custom";
         custom_palette = "stylix";
+        templates = {
+          enable_builtin_templates = false;
+          enable_community_templates = false;
+        };
       };
 
       shell = {
@@ -29,6 +33,7 @@
         show_location = false;
         screen_time_enabled = true;
         animation.speed = 2.0;
+        font_family = "0xProtoNerdFontPropo";
         panel = {
           transparency_mode = "soft";
           session_placement = "centered";
@@ -55,48 +60,151 @@
           end =
             ["sysmon" "tray" "network"]
             ++ lib.optional osConfig.cfg.host.bluetooth "bluetooth"
-            ++ ["volume" "brightness" "privacy" "battery" "control-center"];
+            ++ ["volume" "brightness" "privacy" "battery"];
+          thickness = 40;
+          scale = 1.3;
+          radius = 0;
         };
       };
 
-      widget.clock.format = "{:%a, %d %b} {:%H:%M}";
+      widget = {
+        clock.format = "{:%a, %d %b} {:%H:%M}";
+        battery.capsule = true;
+        brightness.capsule = true;
+        volume.capsule = true;
+        privacy = {
+          capsule = true;
+          capsule_fill = "primary";
+        };
+
+        tray.drawer = true;
+        network.show_label = false;
+      };
 
       lockscreen_widgets = {
         enabled = true;
+        schema_version = 2;
+        widget_order = [
+          "lockscreen-widget-media_player"
+          "lockscreen-widget-visualizer"
+          "lockscreen-login-box"
+          "lockscreen-widget-clock"
+          "lockscreen-widget-cpu_usage"
+          "lockscreen-widget-cpu_temp"
+          "lockscreen-widget-ram_usage"
+        ];
+
+        grid = {
+          cell_size = 16;
+          major_interval = 4;
+          visible = true;
+        };
+
         widget = {
-          clock = {
-            type = "clock";
-            output = "eDP-1";
-            cx = 960.0;
-            cy = 540.0;
-            box_width = 0.0;
-            box_height = 0.0;
+          "lockscreen-login-box" = {
+            box_height = 64.0;
+            box_width = 384.0;
+            cx = 1128.0;
+            cy = 1298.0;
             rotation = 0.0;
+            type = "login_box";
+
             settings = {
-              clock_style = "digital";
-              format = "{:%a, %d %b}\n{:%H:%M}";
+              background_color = "surface_variant";
+              background_opacity = 0.88;
+              background_radius = 12.0;
+              input_opacity = 1.0;
+              input_radius = 6.0;
+              show_login_button = true;
             };
           };
 
-          media = {
-            type = "media_player";
-            output = "eDP-1";
-            cx = 500.0;
-            cy = 700.0;
-            box_width  = 0.0;
-            box_height = 0.0;
+          "lockscreen-widget-clock" = {
+            box_height = 160.0;
+            box_width = 432.0;
+            cx = 1120.0;
+            cy = 252.0;
             rotation = 0.0;
+            type = "clock";
+
+            settings = {
+              center_text = true;
+              format = "{:%a, %d %b}\\n{:%H:%M:%S}";
+            };
+          };
+
+          "lockscreen-widget-media_player" = {
+            box_height = 192.0;
+            box_width = 736.0;
+            cx = 1088.0;
+            cy = 1060.0;
+            rotation = -0.0;
+            type = "media_player";
 
             settings = {
               layout = "horizontal";
-              color  = "on_surface";
-              shadow = true;
-              hide_when_no_media = true;
+            };
+          };
+
+          "lockscreen-widget-cpu_usage" = {
+            box_height = 48.0;
+            box_width = 96.0;
+            cx = 1392.0;
+            cy = 1004.0;
+            rotation = 0.0;
+            type = "sysmon";
+
+            settings = {
+              display = "gauge";
+              stat = "cpu_usage";
+              stat2 = "cpu_temp";
+            };
+          };
+
+          "lockscreen-widget-cpu_temp" = {
+            box_height = 48.0;
+            box_width = 96.0;
+            cx = 1392.0;
+            cy = 1060.0;
+            rotation = 0.0;
+            type = "sysmon";
+
+            settings = {
+              display = "gauge";
+              stat = "cpu_temp";
+              stat2 = "cpu_temp";
+            };
+          };
+
+          "lockscreen-widget-ram_usage" = {
+            box_height = 48.0;
+            box_width = 96.0;
+            cx = 1392.0;
+            cy = 1116.0;
+            rotation = 0.0;
+            type = "sysmon";
+
+            settings = {
+              display = "gauge";
+              stat = "ram_pct";
+              stat2 = "cpu_temp";
+            };
+          };
+
+          "lockscreen-widget-visualizer" = {
+            box_height = 160.0;
+            box_width = 128.0;
+            cx = 800.0;
+            cy = 1060.0;
+            rotation = 0.0;
+            type = "fancy_audio_visualizer";
+
+            settings = {
+              background = false;
             };
           };
         };
       };
-
       dock.enabled = false;
       audio = {
         enable_overdrive = true;
@@ -105,9 +213,20 @@
       brightness.minimum_brightness = 0.0;
 
       idle.behavior = {
-        screen-off.timeout = 90;
-        lock.timeout = 300;
-        suspend.timeout = 900;
+        screen-off = {
+          timeout = 90;
+          action = "screen_off";
+        };
+
+        lock = {
+          timeout = 300;
+          action = "lock";
+        };
+
+        suspend = {
+          timeout = 900;
+          action = "lock_and_suspend";
+        };
       };
 
       wallpaper = let
