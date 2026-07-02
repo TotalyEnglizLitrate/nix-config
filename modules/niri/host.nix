@@ -35,7 +35,10 @@ in {
     xserver.updateDbusEnvironment = true;
   };
   security = {
-    polkit.enable = true;
+    polkit = {
+      enable = true;
+      enablePkexecWrapper = true;
+    };
   };
 
   environment.systemPackages = [
