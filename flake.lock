@@ -289,11 +289,11 @@
     "juno": {
       "flake": false,
       "locked": {
-        "lastModified": 1782997271,
-        "narHash": "sha256-A5K8r+/+qYtpBTplB9GuziFJrFLXe3Pk6iFZLXss8vk=",
+        "lastModified": 1783090656,
+        "narHash": "sha256-4n6M3nj/2rKkDpAti4dabRxc7CIg7iQ7HkIoZ+UdxsE=",
         "owner": "TotalyEnglizLitrate",
         "repo": "juno.nvim",
-        "rev": "334f90ad751d449d681ee83771d026afa2224033",
+        "rev": "15ae902d7e5c19a90a0c83518be2d6a4163489cc",
         "type": "github"
       },
       "original": {
