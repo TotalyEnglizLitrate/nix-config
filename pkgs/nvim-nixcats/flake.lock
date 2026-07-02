@@ -79,22 +79,6 @@
         "type": "github"
       }
     },
-    "otter-nvim": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1779969588,
-        "narHash": "sha256-F2cRmG5J+9q/yhRVgA7mZjbAgpscqh+z7ST1Uy2OV38=",
-        "owner": "jmbuhr",
-        "repo": "otter.nvim",
-        "rev": "d781eda3bc18dbc8677f9a24abdc705fb74e4428",
-        "type": "github"
-      },
-      "original": {
-        "owner": "jmbuhr",
-        "repo": "otter.nvim",
-        "type": "github"
-      }
-    },
     "root": {
       "inputs": {
         "copilot-chat": "copilot-chat",
@@ -102,7 +86,6 @@
         "nixCats": "nixCats",
         "nixpkgs": "nixpkgs",
         "org-bullets": "org-bullets",
-        "otter-nvim": "otter-nvim",
         "treesitter-textobjects": "treesitter-textobjects"
       }
     },

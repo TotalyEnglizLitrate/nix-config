@@ -21,10 +21,6 @@
       url = "github:TotalyEnglizLitrate/juno.nvim";
       flake = false;
     };
-    otter-nvim = {
-      url = "github:jmbuhr/otter.nvim";
-      flake = false;
-    };
   };
 
   outputs = {
