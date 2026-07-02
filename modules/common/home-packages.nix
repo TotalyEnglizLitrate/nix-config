@@ -14,7 +14,6 @@
     claude-code
     claude-agent-acp
     ffmpeg
-    gemini-cli
     openjdk21
     libqalculate
     lm_sensors
