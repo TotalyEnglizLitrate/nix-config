@@ -19,11 +19,11 @@
     "juno": {
       "flake": false,
       "locked": {
-        "lastModified": 1769175791,
-        "narHash": "sha256-OF5CWwVYicyngnhmjGClecp7Co9qoqsT2JyW+BnhX2s=",
+        "lastModified": 1782997271,
+        "narHash": "sha256-A5K8r+/+qYtpBTplB9GuziFJrFLXe3Pk6iFZLXss8vk=",
         "owner": "TotalyEnglizLitrate",
         "repo": "juno.nvim",
-        "rev": "63c48f5f0f914e9af9d5de044f731709180c1e18",
+        "rev": "334f90ad751d449d681ee83771d026afa2224033",
         "type": "github"
       },
       "original": {
@@ -79,6 +79,22 @@
         "type": "github"
       }
     },
+    "otter-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1779969588,
+        "narHash": "sha256-F2cRmG5J+9q/yhRVgA7mZjbAgpscqh+z7ST1Uy2OV38=",
+        "owner": "jmbuhr",
+        "repo": "otter.nvim",
+        "rev": "d781eda3bc18dbc8677f9a24abdc705fb74e4428",
+        "type": "github"
+      },
+      "original": {
+        "owner": "jmbuhr",
+        "repo": "otter.nvim",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "copilot-chat": "copilot-chat",
@@ -86,6 +102,7 @@
         "nixCats": "nixCats",
         "nixpkgs": "nixpkgs",
         "org-bullets": "org-bullets",
+        "otter-nvim": "otter-nvim",
         "treesitter-textobjects": "treesitter-textobjects"
       }
     },

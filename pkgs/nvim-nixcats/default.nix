@@ -5,6 +5,7 @@
   org-bullets ? throw "org-bullets input is required",
   copilot-chat ? throw "copilot-chat input is required",
   juno ? throw "juno input is required",
+  otter-nvim ? throw "otter-nvim input is required",
   ...
 }: let
   # get the nixCats library with the builder function (and everything else) in it
@@ -57,6 +58,7 @@
         orgmode
         (mkPlugin "org-bullets" org-bullets)
         (mkPlugin "juno" juno)
+        (mkPlugin "otter-nvim" otter-nvim)
         comment-nvim
         vim-sleuth
         mini-ai
