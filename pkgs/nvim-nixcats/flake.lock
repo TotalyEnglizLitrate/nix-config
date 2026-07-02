@@ -1,0 +1,112 @@
+{
+  "nodes": {
+    "copilot-chat": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1776367852,
+        "narHash": "sha256-dNDBRf/zZ7r4mNVNwST9PCm4QR9AQA/PPIbTXFT+C4k=",
+        "owner": "CopilotC-Nvim",
+        "repo": "CopilotChat.nvim",
+        "rev": "5378035c2eb4089de245473dec1768e0986543bd",
+        "type": "github"
+      },
+      "original": {
+        "owner": "CopilotC-Nvim",
+        "repo": "CopilotChat.nvim",
+        "type": "github"
+      }
+    },
+    "juno": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1769175791,
+        "narHash": "sha256-OF5CWwVYicyngnhmjGClecp7Co9qoqsT2JyW+BnhX2s=",
+        "owner": "TotalyEnglizLitrate",
+        "repo": "juno.nvim",
+        "rev": "63c48f5f0f914e9af9d5de044f731709180c1e18",
+        "type": "github"
+      },
+      "original": {
+        "owner": "TotalyEnglizLitrate",
+        "repo": "juno.nvim",
+        "type": "github"
+      }
+    },
+    "nixCats": {
+      "locked": {
+        "lastModified": 1776724015,
+        "narHash": "sha256-kFpzUivYI8F75cZcggmjKM8HEEJPajKNLweYsTYdM7Q=",
+        "owner": "BirdeeHub",
+        "repo": "nixCats-nvim",
+        "rev": "da76c45b33d589836946bb566bd91df4cd3cfb09",
+        "type": "github"
+      },
+      "original": {
+        "owner": "BirdeeHub",
+        "repo": "nixCats-nvim",
+        "type": "github"
+      }
+    },
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1776877367,
+        "narHash": "sha256-EHq1/OX139R1RvBzOJ0aMRT3xnWyqtHBRUBuO1gFzjI=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "0726a0ecb6d4e08f6adced58726b95db924cef57",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "org-bullets": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1774343634,
+        "narHash": "sha256-Tgeqr/Zd1hJXXaln4XWGS5aZqypnpfNxgO/+pQVk7jg=",
+        "owner": "nvim-orgmode",
+        "repo": "org-bullets.nvim",
+        "rev": "503fe053550879cc202086a40454e46a87c41ddb",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nvim-orgmode",
+        "repo": "org-bullets.nvim",
+        "type": "github"
+      }
+    },
+    "root": {
+      "inputs": {
+        "copilot-chat": "copilot-chat",
+        "juno": "juno",
+        "nixCats": "nixCats",
+        "nixpkgs": "nixpkgs",
+        "org-bullets": "org-bullets",
+        "treesitter-textobjects": "treesitter-textobjects"
+      }
+    },
+    "treesitter-textobjects": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1775552773,
+        "narHash": "sha256-fOpRElIwvsFWm4AwETx7fpC3RtdH2BpCfX4YHVitqw0=",
+        "owner": "nvim-treesitter",
+        "repo": "nvim-treesitter-textobjects",
+        "rev": "851e865342e5a4cb1ae23d31caf6e991e1c99f1e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nvim-treesitter",
+        "ref": "main",
+        "repo": "nvim-treesitter-textobjects",
+        "type": "github"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}

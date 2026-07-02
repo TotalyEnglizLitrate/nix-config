@@ -45,7 +45,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nvim.url = "github:TotalyEnglizLitrate/nvim-nixcats";
+    nvim = {
+      url = "path:./pkgs/nvim-nixcats";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     hardware.url = "github:nixos/nixos-hardware";
 
