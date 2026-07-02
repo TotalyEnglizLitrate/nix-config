@@ -1,6 +1,5 @@
 {
   inputs,
-  outputs,
   lib,
   config,
   pkgs,
@@ -16,10 +15,6 @@
   ];
 
   nixpkgs = {
-    overlays = [
-      outputs.overlays.stable-packages
-    ];
-
     config = {
       allowUnfree = true;
       rocmSupport = config.cfg.host.gpu.amd;

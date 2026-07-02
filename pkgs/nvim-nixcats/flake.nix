@@ -29,7 +29,7 @@
     nixCats,
     ...
   } @ inputs: let
-    utils = nixCats.utils;
+    inherit (nixCats) utils;
     luaPath = ./.;
     forEachSystem = nixpkgs.lib.genAttrs nixpkgs.lib.platforms.all;
   in {

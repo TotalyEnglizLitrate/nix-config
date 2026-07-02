@@ -1,5 +1,4 @@
 {
-  outputs,
   osConfig,
   ...
 }: {
@@ -9,14 +8,8 @@
     ../stylix/home.nix
   ];
 
-  nixpkgs = {
-    overlays = [
-      outputs.overlays.stable-packages
-    ];
-
-    config = {
-      allowUnfree = true;
-    };
+  nixpkgs.config = {
+    allowUnfree = true;
   };
 
   home = let
