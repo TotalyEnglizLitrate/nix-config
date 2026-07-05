@@ -1,7 +1,4 @@
-{
-  osConfig,
-  ...
-}: {
+{osConfig, ...}: {
   imports = [
     ./home-packages.nix
     ../shell/home.nix

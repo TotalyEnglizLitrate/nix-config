@@ -5,7 +5,9 @@
   config,
   osConfig,
   ...
-}: {
+}: let
+  sysmon = ["cpu" "temp" "ram" "network_rx" "network_tx"];
+in {
   imports = [
     inputs.noctalia.homeModules.default
     ./theme.nix
@@ -58,7 +60,8 @@
           start = ["workspaces" "active_window"];
           center = ["notifications" "clock"];
           end =
-            ["sysmon" "tray" "network"]
+            sysmon
+            ++ ["tray" "network"]
             ++ lib.optional osConfig.cfg.host.bluetooth "bluetooth"
             ++ ["volume" "brightness" "privacy" "battery"];
           thickness = 40;
@@ -67,22 +70,31 @@
         };
       };
 
-      widget = {
-        clock.format = "{:%a, %d %b} {:%H:%M}";
-        battery.capsule = true;
-        brightness.capsule = true;
-        volume.capsule = true;
-        privacy = {
-          capsule = true;
-          capsule_fill = "primary";
+      widget =
+        {
+          clock.format = "{:%a, %d %b} {:%H:%M}";
+          battery.capsule = true;
+          brightness.capsule = true;
+          volume.capsule = true;
+          privacy = {
+            capsule = true;
+            capsule_fill = "primary";
 
-          active_color = "outline";
-          hide_inactive = true;
-        };
+            active_color = "outline";
+            hide_inactive = true;
+          };
 
-        tray.drawer = true;
-        network.show_label = false;
-      };
+          tray.drawer = true;
+          network.show_label = false;
+        }
+        // builtins.listToAttrs (map (name: {
+            inherit name;
+            value = {
+              display = "text";
+              scale = 0.85;
+            };
+          })
+          sysmon);
 
       lockscreen_widgets = {
         enabled = true;
