@@ -75,6 +75,9 @@
         privacy = {
           capsule = true;
           capsule_fill = "primary";
+
+          active_color = "outline";
+          hide_inactive = true;
         };
 
         tray.drawer = true;
