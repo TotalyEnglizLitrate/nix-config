@@ -289,11 +289,11 @@
     "juno": {
       "flake": false,
       "locked": {
-        "lastModified": 1783090656,
-        "narHash": "sha256-4n6M3nj/2rKkDpAti4dabRxc7CIg7iQ7HkIoZ+UdxsE=",
+        "lastModified": 1783226274,
+        "narHash": "sha256-9cVd+hu/uaKAOAq8I5eTk7C4wq4qnGeipATrDWCoIQQ=",
         "owner": "TotalyEnglizLitrate",
         "repo": "juno.nvim",
-        "rev": "15ae902d7e5c19a90a0c83518be2d6a4163489cc",
+        "rev": "6ebb16852b4bdaa7adf695038749055a66c862ea",
         "type": "github"
       },
       "original": {
@@ -465,11 +465,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1782953157,
-        "narHash": "sha256-mp92xRkWul0PEkPt1v/eJOBcuzG/ohQavn6vO+djEtc=",
+        "lastModified": 1783220299,
+        "narHash": "sha256-FEDG2Yhn3weSdf2Vc0Mi6WvH1DVeg5LmXEAyGObXyvU=",
         "owner": "noctalia-dev",
         "repo": "noctalia-shell",
-        "rev": "8d2c6881d3e1e7f1e894fc2e811c36fe9ffa6989",
+        "rev": "10b2007088ba2e1b94e96b01aec4631bc6266d1a",
         "type": "github"
       },
       "original": {
