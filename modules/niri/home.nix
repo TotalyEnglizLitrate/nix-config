@@ -163,7 +163,7 @@ in {
 
         {
           matches = [
-            {app-id = "dev\.noctalia\.Noctalia\.Settings";}
+            {app-id = "dev\.noctalia\.Noctalia";}
           ];
 
           open-floating = true;
