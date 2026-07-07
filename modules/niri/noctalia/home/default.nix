@@ -38,7 +38,6 @@ in {
         font_family = "0xProtoNerdFontPropo";
         panel = {
           transparency_mode = "soft";
-          session_placement = "centered";
           open_near_click_control_center = true;
           open_near_click_wallpaper = true;
         };
