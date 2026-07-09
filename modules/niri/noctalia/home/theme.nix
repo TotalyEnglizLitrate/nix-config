@@ -4,6 +4,7 @@
   ...
 }: {
   stylix.targets.noctalia-shell.enable = false;
+  stylix.targets.noctalia.enable = false;
 
   home.file.".config/noctalia/palettes/stylix.json".text = lib.toJSON (with osConfig.lib.stylix.colors.withHashtag; {
     dark = {
