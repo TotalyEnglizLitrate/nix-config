@@ -45,7 +45,7 @@
   };
 
   boot = {
-    kernelPackages = pkgs.linuxKernel.packages.linux_7_0;
+    kernelPackages = pkgs.linuxKernel.packages.linux_7_1;
     kernelModules = [
       "v4l2loopback"
       "uinput"
