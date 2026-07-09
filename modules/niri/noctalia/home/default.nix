@@ -2,6 +2,7 @@
   lib,
   pkgs,
   inputs,
+  outputs,
   config,
   osConfig,
   ...
@@ -13,7 +14,7 @@ in {
     ./theme.nix
   ];
 
-  nixpkgs.overlays = [inputs.noctalia.overlays.default];
+  nixpkgs.overlays = [outputs.overlays.noctalia];
 
   programs.noctalia = {
     package = pkgs.noctalia;

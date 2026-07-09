@@ -1,9 +1,9 @@
-{inputs, ...}: let
+{outputs, ...}: let
   scripts = ./../../files/scripts;
 in {
   nixpkgs.overlays = [
-    inputs.niri.overlays.niri
-    inputs.noctalia.overlays.default
+    outputs.overlays.niri
+    outputs.overlays.noctalia
   ];
 
   home.file = {

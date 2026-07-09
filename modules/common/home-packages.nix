@@ -1,12 +1,11 @@
 {
-  inputs,
   outputs,
   pkgs,
   ...
 }: {
   nixpkgs.overlays = [
     outputs.overlays.nvim
-    inputs.claude-code.overlays.default
+    outputs.overlays.claude-code
   ];
   home.packages = with pkgs; [
     batmon

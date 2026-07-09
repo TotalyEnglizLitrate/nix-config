@@ -1,6 +1,5 @@
 {
   lib,
-  inputs,
   outputs,
   config,
   osConfig,
@@ -11,8 +10,8 @@
   noctaliaIPC = [noctalia "msg"];
 in {
   nixpkgs.overlays = [
-    inputs.niri.overlays.niri
-    inputs.noctalia.overlays.default
+    outputs.overlays.niri
+    outputs.overlays.noctalia
     outputs.overlays.helium
   ];
   imports = [
