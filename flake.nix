@@ -121,5 +121,7 @@
     };
 
     overlays = import ./overlays.nix {inherit inputs;};
+
+    inherit inputs;
   };
 }
