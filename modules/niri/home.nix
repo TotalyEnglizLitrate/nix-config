@@ -78,6 +78,7 @@ in {
         touchpad = {
           tap = true;
           natural-scroll = true;
+          accel-speed = 0.4;
         };
       };
 
