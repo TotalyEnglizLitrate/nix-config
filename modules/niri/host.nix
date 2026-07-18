@@ -21,6 +21,11 @@ in {
     powerOnBoot = true;
   };
 
+  users.users.${config.cfg.user.name}.extraGroups = [
+    "input"
+    "video"
+  ];
+
   programs.niri = {
     enable = true;
     package = pkgs.niri-unstable;

@@ -27,7 +27,6 @@
   users.users.${config.cfg.user.name}.extraGroups = [
     "podman"
     "docker"
-    "video"
   ];
 
   environment.systemPackages = [pkgs.distrobox];

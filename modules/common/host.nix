@@ -140,7 +140,6 @@
     extraGroups = [
       "networkmanager"
       "wheel"
-      "input"
     ];
     isNormalUser = true;
     shell = pkgs.${shell};
