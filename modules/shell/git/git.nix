@@ -12,22 +12,24 @@
     then builtins.elemAt signingKeys 0
     else null;
   signersFile = ".config/git/allowed_signers";
+  pubKeyFile = ".ssh/git.pub";
 in {
   imports = [
     ../ssh.nix
     ./gpg.nix
   ];
 
-  home.file.${signersFile} = lib.mkIf hasSigningKeys {
-    text = "${osConfig.cfg.user.email} ${key}";
-  };
+  home.file = lib.mkIf hasSigningKeys (
+    lib.genAttrs [signersFile pubKeyFile]
+    (_: {text = "${key} ${osConfig.cfg.user.email}";})
+  );
 
   programs = {
     git = {
       enable = true;
       lfs.enable = true;
       signing = lib.mkIf hasSigningKeys {
-        key = "${key} ${osConfig.cfg.user.email}";
+        key = "~/${config.home.file.${pubKeyFile}.target}";
         signByDefault = true;
         format = "ssh";
       };
@@ -40,7 +42,7 @@ in {
         push.followTags = true;
         gpg = lib.mkIf hasSigningKeys {
           format = "ssh";
-          ssh.allowedSignersFile = config.home.file.${signersFile}.target;
+          ssh.allowedSignersFile = "~/${config.home.file.${signersFile}.target}";
         };
         credential.helper = "${
           pkgs.git.override {withLibsecret = true;}
