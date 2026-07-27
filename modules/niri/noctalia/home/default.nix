@@ -42,7 +42,10 @@ in {
           open_near_click_control_center = true;
           open_near_click_wallpaper = true;
         };
-        launcher.categories = false;
+        launcher = {
+          categories = false;
+          providers.session.global = true;
+        };
         greeter_sync = {
           auto_sync = true;
           privilege_command = "pkexec";
