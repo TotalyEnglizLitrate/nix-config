@@ -22,7 +22,6 @@ in {
     ];
     spotifyPackage = pkgs.spotify;
     wayland = true;
-    windowManagerPatch = true;
   };
 
   xdg = {
