@@ -27,6 +27,7 @@
     helium
     chromium
     firefox-devedition
+    signal-desktop
   ];
 
   commands = {
