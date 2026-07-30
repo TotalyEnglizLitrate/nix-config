@@ -47,6 +47,7 @@ in {
         credential.helper = "${
           pkgs.git.override {withLibsecret = true;}
         }/libexec/git-core/git-credential-libsecret";
+        advice.defaultBranchName = false;
       };
     };
 
