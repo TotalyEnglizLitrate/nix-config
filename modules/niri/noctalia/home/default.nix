@@ -103,13 +103,8 @@ in {
         enabled = true;
         schema_version = 2;
         widget_order = [
-          "lockscreen-widget-media_player"
-          "lockscreen-widget-visualizer"
           "lockscreen-login-box"
           "lockscreen-widget-clock"
-          "lockscreen-widget-cpu_usage"
-          "lockscreen-widget-cpu_temp"
-          "lockscreen-widget-ram_usage"
         ];
 
         grid = {
@@ -148,77 +143,6 @@ in {
             settings = {
               center_text = true;
               format = "{:%a, %d %b}\\n{:%H:%M:%S}";
-            };
-          };
-
-          "lockscreen-widget-media_player" = {
-            box_height = 192.0;
-            box_width = 736.0;
-            cx = 1088.0;
-            cy = 1060.0;
-            rotation = -0.0;
-            type = "media_player";
-
-            settings = {
-              layout = "horizontal";
-            };
-          };
-
-          "lockscreen-widget-cpu_usage" = {
-            box_height = 48.0;
-            box_width = 96.0;
-            cx = 1392.0;
-            cy = 1004.0;
-            rotation = 0.0;
-            type = "sysmon";
-
-            settings = {
-              display = "gauge";
-              stat = "cpu_usage";
-              stat2 = "cpu_temp";
-            };
-          };
-
-          "lockscreen-widget-cpu_temp" = {
-            box_height = 48.0;
-            box_width = 96.0;
-            cx = 1392.0;
-            cy = 1060.0;
-            rotation = 0.0;
-            type = "sysmon";
-
-            settings = {
-              display = "gauge";
-              stat = "cpu_temp";
-              stat2 = "cpu_temp";
-            };
-          };
-
-          "lockscreen-widget-ram_usage" = {
-            box_height = 48.0;
-            box_width = 96.0;
-            cx = 1392.0;
-            cy = 1116.0;
-            rotation = 0.0;
-            type = "sysmon";
-
-            settings = {
-              display = "gauge";
-              stat = "ram_pct";
-              stat2 = "cpu_temp";
-            };
-          };
-
-          "lockscreen-widget-visualizer" = {
-            box_height = 160.0;
-            box_width = 128.0;
-            cx = 800.0;
-            cy = 1060.0;
-            rotation = 0.0;
-            type = "fancy_audio_visualizer";
-
-            settings = {
-              background = false;
             };
           };
         };
