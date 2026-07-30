@@ -101,6 +101,17 @@
         description = "Whether the machine has a fingerprint reader";
       };
 
+      IRCam.enable = lib.mkOption {
+        type = lib.types.bool;
+        default = false;
+        description = "Whether the machine has an IR camera that can be used for facial recognition";
+      };
+      IRCam.path = lib.mkOption {
+        type = lib.types.nullOr (lib.types.str);
+        default = null;
+        description = "`/dev/video*` path denoting IRCam path";
+      };
+
       webcam = lib.mkOption {
         type = lib.types.bool;
         default = false;

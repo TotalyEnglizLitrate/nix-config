@@ -51,6 +51,7 @@
     };
     webcam = true;
     laptop = true;
+    IRFaceRecognition = true;
     fprint = true;
     gpu.amd = true;
   };
