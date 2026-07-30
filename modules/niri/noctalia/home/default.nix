@@ -175,7 +175,7 @@ in {
         wallpaperDir = "${config.home.homeDirectory}/Pictures/Wallpapers";
       in {
         directory = wallpaperDir;
-        default = "${wallpaperDir}/default.png";
+        default.path = "${wallpaperDir}/default.png";
       };
     };
   };
