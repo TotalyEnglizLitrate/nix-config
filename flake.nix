@@ -9,7 +9,8 @@
     };
 
     stylix = {
-      url = "github:danth/stylix";
+      # url = "github:danth/stylix";
+      url = "github:TotalyEnglizLitrate/stylix/fish-transparency-zellij";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
