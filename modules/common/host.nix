@@ -12,6 +12,7 @@
     ../tailscale/host.nix
     ../wireshark/host.nix
     ../ollama/host.nix
+    inputs.gaze.nixosModules.default
   ];
 
   nixpkgs = {
@@ -111,6 +112,18 @@
     seatd.enable = true;
     fwupd.enable = true;
     fprintd.enable = config.cfg.host.fprint;
+    gaze = with config.cfg.host.IRCam;
+      {
+        inherit enable;
+        mutableConfig = false;
+      }
+      // lib.optionalAttrs (path != null) {
+        settings.cameras = {
+          ir = path;
+          emitter_enabled = true;
+        };
+      };
+    linux-enable-ir-emitter = {inherit (config.cfg.host.IRCam) enable;};
     power-profiles-daemon.enable = true;
     upower.enable = true;
     pulseaudio.enable = false;
@@ -130,7 +143,16 @@
   security = {
     rtkit.enable = true;
     sudo.wheelNeedsPassword = true;
-    pam.services = lib.genAttrs ["sudo" "login" "pkexec"] (_name: {fprintAuth = config.cfg.host.fprint;});
+    pam.services =
+      lib.genAttrs
+      ["sudo" "login" "pkexec"]
+      (_name: {
+        fprintAuth = config.cfg.host.fprint;
+        gaze = {
+          inherit (config.cfg.host.IRCam) enable;
+          simultaneous = true;
+        };
+      });
   };
 
   users.users.${config.cfg.user.name} = let

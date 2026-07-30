@@ -66,6 +66,11 @@
       url = "path:./pkgs/toad";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    gaze = {
+      url = "github:GunduLabs/gaze";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {self, ...} @ inputs: let

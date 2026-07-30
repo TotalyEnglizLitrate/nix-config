@@ -51,7 +51,10 @@
     };
     webcam = true;
     laptop = true;
-    IRFaceRecognition = true;
+    IRCam = {
+      enable = true;
+      path = "usb:04f2:b80d";
+    };
     fprint = true;
     gpu.amd = true;
   };

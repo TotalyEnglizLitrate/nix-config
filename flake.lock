@@ -210,6 +210,26 @@
         "type": "github"
       }
     },
+    "gaze": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1785430652,
+        "narHash": "sha256-684eNe5Zxda4i7fOptqRWsJaqAmpxnpJZaz6rEj0wtc=",
+        "owner": "GunduLabs",
+        "repo": "gaze",
+        "rev": "34f94829afdd0048e3edbb67b893df3eca14edd2",
+        "type": "github"
+      },
+      "original": {
+        "owner": "GunduLabs",
+        "repo": "gaze",
+        "type": "github"
+      }
+    },
     "gnome-shell": {
       "flake": false,
       "locked": {
@@ -657,6 +677,7 @@
     "root": {
       "inputs": {
         "claude-code": "claude-code",
+        "gaze": "gaze",
         "hardware": "hardware",
         "helium-browser": "helium-browser",
         "home-manager": "home-manager",
