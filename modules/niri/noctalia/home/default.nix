@@ -7,7 +7,7 @@
   osConfig,
   ...
 }: let
-  sysmon = ["cpu" "temp" "ram" "network_rx" "network_tx"];
+  sysmon = ["cpu_usage" "cpu_temp" "ram_used" "net_rx" "net_tx"];
 in {
   imports = [
     inputs.noctalia.homeModules.default
@@ -90,10 +90,13 @@ in {
           tray.drawer = true;
           network.show_label = false;
         }
-        // builtins.listToAttrs (map (name: {
-            inherit name;
+        // builtins.listToAttrs (map (stat: {
+            name = stat;
             value = {
-              display = "text";
+              type = "sysmon";
+              inherit stat;
+              visualization = "none";
+              network_speed_compact = true;
               scale = 0.85;
             };
           })
