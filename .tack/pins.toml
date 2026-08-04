@@ -90,12 +90,6 @@ url = "github:sadjow/claude-code-nix"
 [inputs.claude-code.follows]
 nixpkgs = "nixpkgs"
 
-[inputs.toad]
-url = "path:./pkgs/toad"
-
-[inputs.toad.follows]
-nixpkgs = "nixpkgs"
-
 [inputs.gaze]
 url = "github:GunduLabs/gaze"
 
