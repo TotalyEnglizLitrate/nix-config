@@ -102,11 +102,5 @@ url = "github:GunduLabs/gaze"
 [inputs.gaze.follows]
 nixpkgs = "nixpkgs"
 
-[inputs.tack]
-url = "github:manic-systems/tack"
-
-[inputs.tack.follow]
-nixpkgs = "nixpkgs"
-
 [tack]
 recomposable = true

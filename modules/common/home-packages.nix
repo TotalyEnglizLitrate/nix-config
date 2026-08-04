@@ -31,5 +31,6 @@
     typst
     typstyle
     ugrep
+    tack
   ];
 }
