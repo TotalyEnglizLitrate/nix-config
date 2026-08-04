@@ -88,6 +88,7 @@ in {
         gaps = 0;
         center-focused-column = "on-overflow";
         default-column-width.proportion = 0.5;
+        focus-ring.width = 1;
         struts = {
           left = 0;
           right = 0;
