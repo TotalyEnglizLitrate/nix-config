@@ -11,7 +11,7 @@
     ../stylix/host.nix
     ../tailscale/host.nix
     ../wireshark/host.nix
-    ../ollama/host.nix
+    ../llama/host.nix
     inputs.gaze.nixosModules.default
   ];
 
