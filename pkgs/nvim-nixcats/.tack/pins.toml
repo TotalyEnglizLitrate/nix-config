@@ -1,0 +1,51 @@
+# tack pins
+# edit by hand or with tack add / rm / alias
+# nix reads pins.lock.json
+# this file drives tack update
+
+# shorturl schemes
+# scheme rest expands rest into {path}
+[shorturls]
+# gh = "github:{path}"
+
+# all_follow maps input names to the top-level pin they follow
+# opt out per-input with exclude_follow
+[all_follow]
+# nixpkgs = "nixpkgs"
+# nixpkgs = ["nixpkgs-stable", "nixpkgs-unstable"]
+
+# inputs.<name> fields
+#   url             required, shorturl ok, ?rev=<sha> pins an exact commit
+#   type            flake (default), fetch, or fixed
+#   flake           legacy false means type = "fetch"
+#   follows         { child = "pin" } override map
+#   exclude_follow  all_follow names to skip
+#   dir             subdir holding flake.nix
+#   submodules      fetch git submodules
+#   unpack          fixed-only tarball or file
+[inputs]
+
+[inputs.nixpkgs]
+url = "github:nixos/nixpkgs/nixos-unstable"
+
+[inputs.nixCats]
+url = "github:BirdeeHub/nixCats-nvim"
+
+[inputs.treesitter-textobjects]
+url = "github:nvim-treesitter/nvim-treesitter-textobjects/main"
+type = "fetch"
+
+[inputs.org-bullets]
+url = "github:nvim-orgmode/org-bullets.nvim"
+type = "fetch"
+
+[inputs.copilot-chat]
+url = "github:CopilotC-Nvim/CopilotChat.nvim"
+type = "fetch"
+
+[inputs.juno]
+url = "github:TotalyEnglizLitrate/juno.nvim"
+type = "fetch"
+
+[tack]
+recomposable = true

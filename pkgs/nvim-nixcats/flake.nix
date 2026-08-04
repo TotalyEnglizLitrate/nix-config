@@ -1,35 +1,11 @@
 {
   description = "A Lua-natic's neovim flake, with extra cats! nixCats!";
 
-  inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixCats.url = "github:BirdeeHub/nixCats-nvim";
-
-    treesitter-textobjects = {
-      url = "github:nvim-treesitter/nvim-treesitter-textobjects/main";
-      flake = false;
-    };
-    org-bullets = {
-      url = "github:nvim-orgmode/org-bullets.nvim";
-      flake = false;
-    };
-    copilot-chat = {
-      url = "github:CopilotC-Nvim/CopilotChat.nvim";
-      flake = false;
-    };
-    juno = {
-      url = "github:TotalyEnglizLitrate/juno.nvim";
-      flake = false;
-    };
-  };
-
-  outputs = {
-    self,
-    nixpkgs,
-    nixCats,
-    ...
-  } @ inputs: let
-    inherit (nixCats) utils;
+  # `tack init` populates ./.tack with your pins
+  outputs = {self, ...} @ args: let
+    inputs = (import ./.tack) {overrides = args.tackOverrides or {};};
+    inherit (inputs.nixCats) utils;
+    inherit (inputs) nixpkgs;
     luaPath = ./.;
     forEachSystem = nixpkgs.lib.genAttrs nixpkgs.lib.platforms.all;
   in {

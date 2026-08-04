@@ -1,0 +1,50 @@
+{
+  "copilot-chat": {
+    "type": "github",
+    "owner": "CopilotC-Nvim",
+    "repo": "CopilotChat.nvim",
+    "rev": "f5171b9575279995205fde6a6c06c2632bb0b9d9",
+    "narHash": "sha256-e5ln2rf9N923kpX3V5o+Yrwa4yRqODLm3NNe4eLO1Z8=",
+    "lastModified": 1785766840
+  },
+  "juno": {
+    "type": "github",
+    "owner": "TotalyEnglizLitrate",
+    "repo": "juno.nvim",
+    "rev": "7048fa113bc99b14525a2a88bd28a396a0ab449e",
+    "narHash": "sha256-ftRrKRFE+WPyoGodNCbKB70xnrJpzrgzQIudoKSChvU=",
+    "lastModified": 1783226989
+  },
+  "nixCats": {
+    "type": "github",
+    "owner": "BirdeeHub",
+    "repo": "nixCats-nvim",
+    "rev": "f69ea013e328841a7def7037ed59788a76be8816",
+    "narHash": "sha256-xBUa8Tl9V7IXI+VmLEuDc81La/EhoSn1C3EVSnJ3cfU=",
+    "lastModified": 1777273601
+  },
+  "nixpkgs": {
+    "type": "github",
+    "owner": "nixos",
+    "repo": "nixpkgs",
+    "rev": "643809054d65fdd466a63e3155b8c498cb483c04",
+    "narHash": "sha256-vUfIeBEfpbAfZ5zjgIkYk7eHBeVfCYVjLbWnMkseYnk=",
+    "lastModified": 1785692966
+  },
+  "org-bullets": {
+    "type": "github",
+    "owner": "nvim-orgmode",
+    "repo": "org-bullets.nvim",
+    "rev": "503fe053550879cc202086a40454e46a87c41ddb",
+    "narHash": "sha256-Tgeqr/Zd1hJXXaln4XWGS5aZqypnpfNxgO/+pQVk7jg=",
+    "lastModified": 1774343634
+  },
+  "treesitter-textobjects": {
+    "type": "github",
+    "owner": "nvim-treesitter",
+    "repo": "nvim-treesitter-textobjects",
+    "rev": "898ee307df58f854d11cd7edd06472574d48014e",
+    "narHash": "sha256-naZ+p5RrC+uUyFRaksmozDfNgJRifff+9TDWx79DCPk=",
+    "lastModified": 1784459145
+  }
+}
