@@ -10,11 +10,9 @@ in {
   imports = [./noctalia/host.nix];
   nixpkgs.overlays = [outputs.overlays.niri];
   nix.settings = {
-    substituters = lib.mkAfter ["https://niri.cachix.org"];
-    trusted-public-keys = ["niri.cachix.org-1:Wv0OmO7PsuocRKzfDoJ3mulSl7Z6oezYhGhR+3W2964="];
+    substituters = lib.mkAfter ["https://niri-nix.cachix.org"];
+    trusted-public-keys = ["niri-nix.cachix.org-1:SvFtqpDcf7Sm1SMJdby1/+Y+6f3Yt3/3PMcSTKPJNJ0="];
   };
-  niri-flake.cache.enable = false;
-  systemd.user.services.niri-flake-polkit.enable = false;
 
   hardware.bluetooth = {
     enable = bluetooth;

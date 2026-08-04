@@ -39,13 +39,13 @@
     "narHash": "sha256-vkMnV0JIyw+g/NmcfoajlGaAO+9a0ezia+FZohQJrik=",
     "lastModified": 1785531816
   },
-  "niri": {
-    "type": "github",
-    "owner": "sodiboo",
-    "repo": "niri-flake",
-    "rev": "3c93dc3656160f3aedb21d3acf82b5dfe868a539",
-    "narHash": "sha256-Lyy16y+SnRqM+vwODCWYYwwvYkKMPPpc1p6l4wevR0M=",
-    "lastModified": 1785753837
+  "niri-nix": {
+    "type": "git",
+    "url": "https://codeberg.org/BANanaD3V/niri-nix",
+    "ref": "HEAD",
+    "rev": "9c8d5d6606801f6a2d3e408bc5bbbebb15cc8622",
+    "narHash": "sha256-W0g4JbM5jkE2H/roxwt2FSFp+4evBmCkrchU3nqM8Og=",
+    "lastModified": 1785801691
   },
   "nixos-cli": {
     "type": "github",

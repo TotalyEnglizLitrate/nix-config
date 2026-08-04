@@ -54,8 +54,8 @@ url = "github:schembriaiden/helium-browser-nix-flake"
 nixpkgs = "nixpkgs"
 home-manager = "home-manager"
 
-[inputs.niri]
-url = "github:sodiboo/niri-flake"
+[inputs.niri-nix]
+url = "git+https://codeberg.org/BANanaD3V/niri-nix"
 
 [inputs.noctalia]
 url = "github:noctalia-dev/noctalia/cachix"

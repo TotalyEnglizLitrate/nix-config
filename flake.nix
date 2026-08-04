@@ -30,7 +30,7 @@
           ./hosts/${hostname}/configuration.nix
           ./hosts/common.nix
           inputs.home-manager.nixosModules.home-manager
-          inputs.niri.nixosModules.niri
+          inputs.niri-nix.nixosModules.default
           inputs.nixos-cli.nixosModules.nixos-cli
           inputs.stylix.nixosModules.stylix
           {
@@ -40,7 +40,12 @@
             };
 
             home-manager = {
-              sharedModules = [./hosts/common.nix ./modules/niri/commands.nix];
+              sharedModules = [
+                ./hosts/common.nix
+                ./modules/niri/commands.nix
+                inputs.niri-nix.homeModules.default
+                inputs.niri-nix.homeModules.stylix
+              ];
               extraSpecialArgs = {inherit inputs outputs;};
               users.${username} = import ./home/${username}/${hostname}.nix;
             };
