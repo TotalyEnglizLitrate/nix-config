@@ -7,7 +7,7 @@
   nixos_config_dir = "/home/${config.cfg.user.name}/Documents/repositories/nix-config";
 in {
   nix.settings = {
-    extra-substituters = lib.mkAfter ["https://watersucks.cachix.org"]; # optnix tui cache
+    substituters = lib.mkAfter ["https://watersucks.cachix.org"]; # optnix tui cache
     trusted-public-keys = ["watersucks.cachix.org-1:6gadPC5R8iLWQ3EUtfu3GFrVY7X6I4Fwz/ihW25Jbv8="];
   };
   programs.nixos-cli = {

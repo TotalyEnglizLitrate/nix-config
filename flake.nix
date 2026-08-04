@@ -1,79 +1,8 @@
 {
   description = "NixOS configs for my machines";
-  inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    home-manager = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    stylix = {
-      # url = "github:danth/stylix";
-      url = "github:TotalyEnglizLitrate/stylix/fish-transparency-zellij";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    zen-browser = {
-      url = "github:0xc000022070/zen-browser-flake";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.home-manager.follows = "home-manager";
-    };
-
-    helium-browser = {
-      url = "github:schembriaiden/helium-browser-nix-flake";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    niri = {
-      url = "github:sodiboo/niri-flake";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    noctalia = {
-      url = "github:noctalia-dev/noctalia";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    noctalia-greetd = {
-      url = "github:noctalia-dev/noctalia-greeter";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    nixos-cli = {
-      url = "github:nix-community/nixos-cli";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    nvim = {
-      url = "path:./pkgs/nvim-nixcats";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    hardware.url = "github:nixos/nixos-hardware";
-
-    spicetify-nix = {
-      url = "github:Gerg-L/spicetify-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    claude-code = {
-      url = "github:sadjow/claude-code-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    toad = {
-      url = "path:./pkgs/toad";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    gaze = {
-      url = "github:GunduLabs/gaze";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-  };
-
-  outputs = {self, ...} @ inputs: let
+  outputs = {self, ...} @ args: let
+    inputs = (import ./.tack) {overrides = args.tackOverrides or {};};
     inherit (self) outputs;
     users = {
       engliz = {

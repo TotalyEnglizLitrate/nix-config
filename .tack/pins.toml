@@ -1,0 +1,112 @@
+# tack pins
+# edit by hand or with tack add / rm / alias
+# nix reads pins.lock.json
+# this file drives tack update
+
+# shorturl schemes
+# scheme rest expands rest into {path}
+[shorturls]
+# gh = "github:{path}"
+
+# all_follow maps input names to the top-level pin they follow
+# opt out per-input with exclude_follow
+[all_follow]
+# nixpkgs = "nixpkgs"
+# nixpkgs = ["nixpkgs-stable", "nixpkgs-unstable"]
+
+# inputs.<name> fields
+#   url             required, shorturl ok, ?rev=<sha> pins an exact commit
+#   type            flake (default), fetch, or fixed
+#   flake           legacy false means type = "fetch"
+#   follows         { child = "pin" } override map
+#   exclude_follow  all_follow names to skip
+#   dir             subdir holding flake.nix
+#   submodules      fetch git submodules
+#   unpack          fixed-only tarball or file
+[inputs]
+
+[inputs.nixpkgs]
+url = "github:nixos/nixpkgs/nixos-unstable"
+
+[inputs.home-manager]
+url = "github:nix-community/home-manager"
+
+[inputs.home-manager.follows]
+nixpkgs = "nixpkgs"
+
+[inputs.stylix]
+url = "github:nix-community/stylix"
+
+[inputs.stylix.follows]
+nixpkgs = "nixpkgs"
+
+[inputs.zen-browser]
+url = "github:0xc000022070/zen-browser-flake"
+
+[inputs.zen-browser.follows]
+nixpkgs = "nixpkgs"
+home-manager = "home-manager"
+
+[inputs.helium-browser]
+url = "github:schembriaiden/helium-browser-nix-flake"
+
+[inputs.helium-browser.follows]
+nixpkgs = "nixpkgs"
+home-manager = "home-manager"
+
+[inputs.niri]
+url = "github:sodiboo/niri-flake"
+
+[inputs.noctalia]
+url = "github:noctalia-dev/noctalia/cachix"
+
+[inputs.noctalia-greetd]
+url = "github:noctalia-dev/noctalia-greeter"
+
+[inputs.noctalia-greetd.follows]
+nixpkgs = "nixpkgs"
+
+[inputs.nixos-cli]
+url = "github:nix-community/nixos-cli"
+
+[inputs.nixos-cli.follows]
+nixpkgs = "nixpkgs"
+
+[inputs.nvim]
+url = "path:./pkgs/nvim-nixcats"
+
+[inputs.nvim.follows]
+nixpkgs = "nixpkgs"
+
+[inputs.hardware]
+url = "github:nixos/nixos-hardware"
+
+[inputs.spicetify-nix]
+url = "github:Gerg-L/spicetify-nix"
+
+[inputs.claude-code]
+url = "github:sadjow/claude-code-nix"
+
+[inputs.claude-code.follows]
+nixpkgs = "nixpkgs"
+
+[inputs.toad]
+url = "path:./pkgs/toad"
+
+[inputs.toad.follows]
+nixpkgs = "nixpkgs"
+
+[inputs.gaze]
+url = "github:GunduLabs/gaze"
+
+[inputs.gaze.follows]
+nixpkgs = "nixpkgs"
+
+[inputs.tack]
+url = "github:manic-systems/tack"
+
+[inputs.tack.follow]
+nixpkgs = "nixpkgs"
+
+[tack]
+recomposable = true
