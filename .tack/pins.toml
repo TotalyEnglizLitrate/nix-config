@@ -40,13 +40,6 @@ url = "github:nix-community/stylix"
 [inputs.stylix.follows]
 nixpkgs = "nixpkgs"
 
-[inputs.zen-browser]
-url = "github:0xc000022070/zen-browser-flake"
-
-[inputs.zen-browser.follows]
-nixpkgs = "nixpkgs"
-home-manager = "home-manager"
-
 [inputs.helium-browser]
 url = "github:schembriaiden/helium-browser-nix-flake"
 
