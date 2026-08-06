@@ -28,6 +28,9 @@ home-manager = "home-manager"
 [inputs.nixpkgs]
 url = "gh:nixos/nixpkgs/nixos-unstable"
 
+[inputs.nixpkgs-kernel]
+url = "gh:nixos/nixpkgs?rev=e2587caef70cea85dd97d7daab492899902dbf5d"
+
 [inputs.home-manager]
 url = "gh:nix-community/home-manager"
 

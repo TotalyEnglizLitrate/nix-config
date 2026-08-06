@@ -63,6 +63,14 @@
     "narHash": "sha256-8fsyqeO+mJqvIzeO4xIpgJe/f7MTbbVTEC6RT6WSXNs=",
     "lastModified": 1785828668
   },
+  "nixpkgs-kernel": {
+    "type": "github",
+    "owner": "nixos",
+    "repo": "nixpkgs",
+    "rev": "e2587caef70cea85dd97d7daab492899902dbf5d",
+    "narHash": "sha256-wWFrV5/Qbm+lyt5x20E/bSbfJiGKMo4RCxZV8cl/WZI=",
+    "lastModified": 1784796856
+  },
   "noctalia": {
     "type": "github",
     "owner": "noctalia-dev",

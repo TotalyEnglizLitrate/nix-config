@@ -1,5 +1,6 @@
 {
   inputs,
+  outputs,
   lib,
   config,
   pkgs,
@@ -20,6 +21,7 @@
       allowUnfree = true;
       rocmSupport = config.cfg.host.gpu.amd;
     };
+    overlays = [outputs.overlays.kernelOverlay];
   };
 
   nix = {
@@ -46,7 +48,7 @@
   };
 
   boot = {
-    kernelPackages = pkgs.linuxKernel.packages.linux_7_1;
+    kernelPackages = pkgs.kernelOverlay.linuxKernel.packages.linux_7_1;
     kernelModules = [
       "v4l2loopback"
       "uinput"
