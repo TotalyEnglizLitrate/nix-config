@@ -19,10 +19,14 @@ in {
     ./gpg.nix
   ];
 
-  home.file = lib.mkIf hasSigningKeys (
-    lib.genAttrs [signersFile pubKeyFile]
-    (_: {text = "${key} ${osConfig.cfg.user.email}";})
-  );
+  home.file = lib.mkIf hasSigningKeys {
+    "${signersFile}" = {
+      text = "${osConfig.cfg.user.email} ${key}";
+    };
+    "${pubKeyFile}" = {
+      text = "${key} ${osConfig.cfg.user.email}";
+    };
+  };
 
   programs = {
     git = {
