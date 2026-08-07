@@ -67,5 +67,8 @@ url = "gh:sadjow/claude-code-nix"
 [inputs.gaze]
 url = "gh:GunduLabs/gaze"
 
+[inputs.nixcu]
+url = "github:TotalyEnglizLitrate/nixcu"
+
 [tack]
 recomposable = true

@@ -47,6 +47,14 @@
     "narHash": "sha256-W0g4JbM5jkE2H/roxwt2FSFp+4evBmCkrchU3nqM8Og=",
     "lastModified": 1785801691
   },
+  "nixcu": {
+    "type": "github",
+    "owner": "TotalyEnglizLitrate",
+    "repo": "nixcu",
+    "rev": "508659fab26459551c4768d466fe51020b84e850",
+    "narHash": "sha256-8K3Wb3JVynkK1UizpU8Bc+Y0NHi0mvIplAjvBi9ECZE=",
+    "lastModified": 1786140955
+  },
   "nixos-cli": {
     "type": "github",
     "owner": "nix-community",

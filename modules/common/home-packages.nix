@@ -6,6 +6,7 @@
   nixpkgs.overlays = [
     outputs.overlays.nvim
     outputs.overlays.claude-code
+    outputs.overlays.nixcu
   ];
   home.packages = with pkgs; [
     batmon
@@ -18,6 +19,7 @@
     lm_sensors
     ncdu
     nix-output-monitor
+    nixcu
     whisper-cpp-vulkan
     pandoc
     (texliveFull.withPackages (ps: with ps; [fontawesome6]))
