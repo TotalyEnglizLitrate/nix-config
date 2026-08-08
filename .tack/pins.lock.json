@@ -51,9 +51,9 @@
     "type": "github",
     "owner": "TotalyEnglizLitrate",
     "repo": "nixcu",
-    "rev": "508659fab26459551c4768d466fe51020b84e850",
-    "narHash": "sha256-8K3Wb3JVynkK1UizpU8Bc+Y0NHi0mvIplAjvBi9ECZE=",
-    "lastModified": 1786140955
+    "rev": "625d3b75d740d8dd1646c3ee1737d9e15248a087",
+    "narHash": "sha256-/9YkRPBAfhZJuU6EeMYhijqvSGx9zYJ8S+xtHYW8kBQ=",
+    "lastModified": 1786158797
   },
   "nixos-cli": {
     "type": "github",
