@@ -7,7 +7,7 @@
 }: let
   inherit (config.cfg.host) bluetooth;
 in {
-  imports = [./noctalia/host.nix];
+  imports = [../noctalia/host.nix];
   nixpkgs.overlays = [outputs.overlays.niri];
   nix.settings = {
     substituters = lib.mkAfter ["https://niri-nix.cachix.org"];

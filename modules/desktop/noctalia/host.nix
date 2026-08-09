@@ -1,4 +1,8 @@
-{inputs, config, ...}: {
+{
+  inputs,
+  config,
+  ...
+}: {
   imports = [inputs.noctalia-greetd.nixosModules.default];
   programs.noctalia-greeter = {
     enable = true;

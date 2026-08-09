@@ -42,7 +42,7 @@
             home-manager = {
               sharedModules = [
                 ./hosts/common.nix
-                ./modules/niri/commands.nix
+                ./modules/desktop/common/commands.nix
                 inputs.niri-nix.homeModules.default
                 inputs.niri-nix.homeModules.stylix
               ];

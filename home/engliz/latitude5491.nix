@@ -1,7 +1,7 @@
 {...}: {
   imports = [
     ../../modules/common/home.nix
-    ../../modules/niri/home.nix
+    ../../modules/desktop/niri/home.nix
   ];
 
   systemd.user.startServices = "sd-switch";

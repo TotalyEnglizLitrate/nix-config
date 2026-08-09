@@ -8,7 +8,7 @@
   imports = [
     "${lib.toString modulesPath}/profiles/qemu-guest.nix"
     ../../modules/common/host.nix
-    ../../modules/niri/host.nix
+    ../../modules/desktop/niri/host.nix
   ];
 
   fileSystems."/" = {

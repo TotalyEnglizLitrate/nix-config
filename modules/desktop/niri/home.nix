@@ -14,20 +14,7 @@ in {
     outputs.overlays.noctalia
     outputs.overlays.helium
   ];
-  imports = [
-    ./terminal.nix
-    ./gtk.nix
-    ./kanshi.nix
-    ./packages.nix
-    ./spotify.nix
-    ./noctalia/home
-    ./xdg.nix
-  ];
-
-  programs.obs-studio = {
-    enable = true;
-    plugins = [pkgs.obs-studio-plugins.wlrobs];
-  };
+  imports = [../common];
 
   home.sessionVariables = {
     EDITOR = config.commands.editor.binary;
