@@ -1,6 +1,5 @@
 {pkgs, ...}: {
   imports = [
-    ./browser.nix
     ./commands.nix
     ./gtk.nix
     ./kanshi.nix
