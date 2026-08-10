@@ -1,6 +1,7 @@
 {
   lib,
   outputs,
+  inputs,
   config,
   osConfig,
   pkgs,
@@ -14,7 +15,11 @@ in {
     outputs.overlays.noctalia
     outputs.overlays.helium
   ];
-  imports = [../common];
+  imports = [
+    ../common
+    inputs.niri-nix.homeModules.default
+    inputs.niri-nix.homeModules.stylix
+  ];
 
   wayland.windowManager.niri.enable = true;
   wayland.windowManager.niri.package = pkgs.niri-unstable;

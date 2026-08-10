@@ -1,10 +1,14 @@
 {
   outputs,
+  inputs,
   pkgs,
   lib,
   ...
 }: {
-  imports = [../common/host.nix];
+  imports = [
+    ../common/host.nix
+    inputs.mangowc.nixosModules.mango
+  ];
   nixpkgs.overlays = with outputs.overlays; [mango noctalia];
 
   xdg.portal.config.mango = lib.mkForce {

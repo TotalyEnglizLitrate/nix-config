@@ -1,10 +1,11 @@
 {
   lib,
   outputs,
+  inputs,
   pkgs,
   ...
 }: {
-  imports = [../common/host.nix];
+  imports = [../common/host.nix inputs.niri-nix.nixosModules.default];
   nixpkgs.overlays = [outputs.overlays.niri];
 
   # niri ships this as niri-portals.conf, but only under the package's share dir,

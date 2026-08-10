@@ -2,6 +2,7 @@
   lib,
   pkgs,
   config,
+  inputs,
   ...
 }: let
   nixos_config_dir = "/home/${config.cfg.user.name}/Documents/repositories/nix-config";
@@ -10,6 +11,8 @@ in {
     substituters = lib.mkAfter ["https://watersucks.cachix.org"]; # optnix tui cache
     trusted-public-keys = ["watersucks.cachix.org-1:6gadPC5R8iLWQ3EUtfu3GFrVY7X6I4Fwz/ihW25Jbv8="];
   };
+
+  imports = [inputs.nixos-cli.nixosModules.nixos-cli];
   programs.nixos-cli = {
     enable = true;
     option-cache.enable = true;
