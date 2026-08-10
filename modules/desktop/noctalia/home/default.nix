@@ -51,6 +51,9 @@ in {
           auto_sync = true;
           privilege_command = "pkexec";
         };
+        screenshot = {
+          directory = "~/Pictures/Screenshots/";
+        };
       };
 
       osd.position = "top_right";
@@ -58,17 +61,40 @@ in {
       bar = {
         order = ["main"];
         main = {
-          background_opacity = 0.6;
+          background_opacity = 0.5;
           margin_ends = 0;
           margin_edge = 0;
 
           start = ["workspaces" "active_window"];
-          center = ["notifications" "clock"];
+          center = ["group:center"];
           end =
-            sysmon
-            ++ ["tray" "network"]
-            ++ lib.optional osConfig.cfg.host.bluetooth "bluetooth"
+            ["group:sysmon"]
+            ++ ["group:tray"]
             ++ ["volume" "brightness" "privacy" "battery"];
+
+          capsule_group = map (x:
+            x
+            // {
+              opacity = 1.0;
+              padding = 6.0;
+              fill = "surface_variant";
+              enabled = true;
+            }) [
+            {
+              id = "sysmon";
+              members = sysmon;
+              accordion = true;
+              accordion_direction = "center";
+            }
+            {
+              id = "tray";
+              members = ["tray" "network"] ++ lib.optional osConfig.cfg.host.bluetooth "bluetooth";
+            }
+            {
+              id = "center";
+              members = ["notifications" "clock"];
+            }
+          ];
           thickness = 40;
           scale = 1.3;
           radius = 0;
@@ -81,6 +107,7 @@ in {
           battery.capsule = true;
           brightness.capsule = true;
           volume.capsule = true;
+          active_window.capsule = true;
           privacy = {
             capsule = true;
             capsule_fill = "primary";
