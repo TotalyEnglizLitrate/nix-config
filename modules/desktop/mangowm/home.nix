@@ -263,6 +263,7 @@ in {
         "SUPER+SHIFT,w,spawn,${ipc ["wallpaper-random"]}"
         "SUPER+SHIFT,q,spawn,${ipc ["panel-toggle" "session"]}"
         "SUPER,l,spawn,${ipc ["session" "lock"]}"
+        "SUPER,f1,spawn,${ipc ["panel-toggle" "kenn/keybind-cheatsheet:cheatsheet"]}"
 
         "SUPER,Tab,togglejump"
         "Alt,Tab,spawn,${ipc ["window-switcher"]}"

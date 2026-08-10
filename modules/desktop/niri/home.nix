@@ -160,6 +160,7 @@ in {
           "Mod+A".spawn = shell ["panel-toggle" "control-center"];
           "Mod+Shift+V".spawn = shell ["panel-toggle" "control-center" "audio"];
           "Mod+Shift+W".spawn = shell ["wallpaper-random"];
+          "Mod+F1".spawn = shell ["panel-toggle" "kenn/keybind-cheatsheet:cheatsheet"];
 
           "Mod+Tab" = {
             _props.repeat = false;

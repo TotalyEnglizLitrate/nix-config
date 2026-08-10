@@ -56,6 +56,14 @@ in {
         };
       };
 
+      plugins.enabled = [
+        "nightwatch75/file-search"
+        "kenn/keybind-cheatsheet"
+        "noctalia/kaomoji"
+        "icefish/phone-connect"
+        "cleboost/hotspot"
+      ];
+
       osd.position = "top_right";
 
       bar = {
@@ -89,7 +97,14 @@ in {
             }
             {
               id = "tray";
-              members = ["tray" "network"] ++ lib.optional osConfig.cfg.host.bluetooth "bluetooth";
+              members =
+                [
+                  "tray"
+                  "icefish/phone-connect:bar"
+                  "cleboost/hotspot:toggle"
+                  "network"
+                ]
+                ++ lib.optional osConfig.cfg.host.bluetooth "bluetooth";
             }
             {
               id = "center";
