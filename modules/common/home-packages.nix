@@ -22,7 +22,6 @@
     nixcu
     whisper-cpp-vulkan
     pandoc
-    (texliveFull.withPackages (ps: with ps; [fontawesome6]))
     pipenv
     pulseaudio
     python3
