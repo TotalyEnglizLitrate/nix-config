@@ -60,8 +60,8 @@ in {
 
     border_radius = 6;
     no_radius_when_single = 0;
-    focused_opacity = 1.0;
-    unfocused_opacity = 0.85;
+    focused_opacity = 0.8;
+    unfocused_opacity = 0.6;
 
     animations = 1;
     layer_animations = 1;
@@ -204,13 +204,30 @@ in {
       ++ map (floatRule "width:0.56,height:0.85") [
         "^dev\.noctalia\.Noctalia$"
       ]
-      ++ map (floatRule "width:0.3,height:0.5") [
+      ++ map (floatRule "width:0.15,height:0.5") [
         bitwarden
         "^org\.kde\.kdeconnect\..*$"
       ]
       ++ map (appid: "shield_when_capture:1,appid:${appid}") [
         bitwarden
         "^org\.gnome\.seahorse\.Application$"
+      ]
+      ++ map (appid: "focused_opacity:1,unfocused_opacity:1,appid:${appid}") [
+        "helium"
+        "com\.obsproject\.Studio"
+        "org\.remmina\.Remmina"
+        "firefox-devedition"
+        "signal"
+        "chromium-browser"
+        "libreoffice-.*"
+        "org\.kde\.okular"
+        "org\.gnome\.Loupe"
+        "org\.wireshark\.Wireshark"
+        "com\.github\.johnfactotum\.Foliate"
+        "Tor Browser"
+        "org\.gnome\.Boxes"
+        "vlc"
+        "com\.github\.xournalpp\.xournalpp"
       ];
 
     layerrule =
@@ -220,7 +237,8 @@ in {
         "noctalia-bar-.*"
         "noctalia-osd"
         "noctalia-notification"
-      ] ++ [
+      ]
+      ++ [
         "noblur:1,layer_name:^noctalia-bar-.*$"
       ];
 
