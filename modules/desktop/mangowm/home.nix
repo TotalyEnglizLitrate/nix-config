@@ -42,8 +42,8 @@ in {
     blur = 1;
     blur_layer = 1;
     blur_optimized = 0;
-    blur_params_num_passes = 1;
-    blur_params_radius = 2;
+    blur_params_num_passes = 3;
+    blur_params_radius = 1;
     blur_params_noise = 0.02;
     blur_params_brightness = 0.9;
     blur_params_contrast = 0.9;
@@ -237,18 +237,14 @@ in {
         "com\.github\.xournalpp\.xournalpp"
       ];
 
-    layerrule =
-      map (name: "noanim:1,noshadow:1,layer_name:^${name}$") [
-        "noctalia-attached-panel"
-        "noctalia-screenshot-region"
-        "noctalia-window-switcher"
-        "noctalia-bar-.*"
-        "noctalia-osd"
-        "noctalia-notification"
-      ]
-      ++ [
-        "noblur:1,layer_name:^noctalia-bar-.*$"
-      ];
+    layerrule = map (name: "noanim:1,noshadow:1,layer_name:^${name}$") [
+      "noctalia-attached-panel"
+      "noctalia-screenshot-region"
+      "noctalia-window-switcher"
+      "noctalia-bar-.*"
+      "noctalia-osd"
+      "noctalia-notification"
+    ];
 
     bind = with config.commandsList;
       lib.optional osConfig.cfg.host.bluetooth

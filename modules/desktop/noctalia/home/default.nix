@@ -61,7 +61,8 @@ in {
       bar = {
         order = ["main"];
         main = {
-          background_opacity = 0.5;
+          background_opacity = 0.8;
+          shadow = false;
           margin_ends = 0;
           margin_edge = 0;
 
