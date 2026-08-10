@@ -204,7 +204,7 @@ in {
       ++ map (floatRule "width:0.56,height:0.85") [
         "^dev\.noctalia\.Noctalia$"
       ]
-      ++ map (floatRule "width:0.15,height:0.5") [
+      ++ map (floatRule "width:0.2,height:0.5") [
         bitwarden
         "^org\.kde\.kdeconnect\..*$"
       ]
