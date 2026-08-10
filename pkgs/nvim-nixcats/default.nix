@@ -29,11 +29,9 @@
         stylua
         tree-sitter
         nixd
-        alejandra
         rust-analyzer
         basedpyright
         clang-tools
-        dart
         gopls
         go
         nodejs
@@ -43,9 +41,7 @@
         typst
         tinymist
         typos-lsp
-        black
         markdown-oxide
-        (texliveFull.withPackages (ps: with ps; [fontawesome6]))
       ];
     };
 
