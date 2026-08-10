@@ -234,6 +234,7 @@ in {
       map (name: "noanim:1,noshadow:1,layer_name:^${name}$") [
         "noctalia-attached-panel"
         "noctalia-screenshot-region"
+        "noctalia-window-switcher"
         "noctalia-bar-.*"
         "noctalia-osd"
         "noctalia-notification"
