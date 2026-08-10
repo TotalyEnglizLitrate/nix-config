@@ -200,7 +200,14 @@ in {
         "^org\.gnome\.FileRoller$"
         "^org\.pulseaudio\.pavucontrol$"
         "^nm-connection-editor$"
+        "localsend_app"
+        "de.haeckerfelix.Fragments"
+        "org.gnome.seahorse.Application"
+        "org.rncbc.qpwgraph"
+        "qt5ct"
+        "qt6ct"
       ]
+      ++ ["isfloating:1,width:0.4,height:0.45,title:Kvantum Manager"]
       ++ map (floatRule "width:0.56,height:0.85") [
         "^dev\.noctalia\.Noctalia$"
       ]
