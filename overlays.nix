@@ -12,6 +12,7 @@ in {
   helium = final: _prev: {helium = inputs.helium-browser.packages.${getSystem final}.default;};
   nixcu = final: _prev: {nixcu = inputs.nixcu.packages.${getSystem final}.default;};
   niri = inputs.niri-nix.overlays.niri-nix;
+  mango = inputs.mangowc.overlays.default;
   noctalia = inputs.noctalia.overlays.default;
   claude-code = inputs.claude-code.overlays.default;
 }

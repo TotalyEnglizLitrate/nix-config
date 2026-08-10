@@ -33,12 +33,13 @@ in {
       shell = {
         setup_wizard_enabled = false;
         settings_show_advanced = true;
+        settings_window_translucent = true;
         show_location = false;
         screen_time_enabled = true;
         animation.speed = 2.0;
         font_family = "0xProtoNerdFontPropo";
         panel = {
-          transparency_mode = "soft";
+          transparency_mode = "glass";
           open_near_click_control_center = true;
           open_near_click_wallpaper = true;
         };
@@ -57,6 +58,7 @@ in {
       bar = {
         order = ["main"];
         main = {
+          background_opacity = 0.6;
           margin_ends = 0;
           margin_edge = 0;
 

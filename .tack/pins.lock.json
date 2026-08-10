@@ -39,6 +39,14 @@
     "narHash": "sha256-vkMnV0JIyw+g/NmcfoajlGaAO+9a0ezia+FZohQJrik=",
     "lastModified": 1785531816
   },
+  "mangowc": {
+    "type": "github",
+    "owner": "mangowm",
+    "repo": "mango",
+    "rev": "05ba34632f3f37beac4e8b6626f7ee960a8944ba",
+    "narHash": "sha256-3apqztEwguHpR4yk4Z7x6sIIiovMJPlCrMbR58uyxZA=",
+    "lastModified": 1786292919
+  },
   "niri-nix": {
     "type": "git",
     "url": "https://codeberg.org/BANanaD3V/niri-nix",

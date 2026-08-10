@@ -31,6 +31,7 @@
           ./hosts/common.nix
           inputs.home-manager.nixosModules.home-manager
           inputs.niri-nix.nixosModules.default
+          inputs.mangowc.nixosModules.mango
           inputs.nixos-cli.nixosModules.nixos-cli
           inputs.stylix.nixosModules.stylix
           {
@@ -45,6 +46,7 @@
                 ./modules/desktop/common/commands.nix
                 inputs.niri-nix.homeModules.default
                 inputs.niri-nix.homeModules.stylix
+                inputs.mangowc.hmModules.mango
               ];
               extraSpecialArgs = {inherit inputs outputs;};
               users.${username} = import ./home/${username}/${hostname}.nix;

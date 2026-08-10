@@ -70,5 +70,8 @@ url = "gh:GunduLabs/gaze"
 [inputs.nixcu]
 url = "github:TotalyEnglizLitrate/nixcu"
 
+[inputs.mangowc]
+url = "gh:mangowm/mango"
+
 [tack]
 recomposable = true

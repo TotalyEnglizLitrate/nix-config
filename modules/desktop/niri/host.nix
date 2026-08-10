@@ -2,50 +2,28 @@
   lib,
   outputs,
   pkgs,
-  config,
   ...
-}: let
-  inherit (config.cfg.host) bluetooth;
-in {
-  imports = [../noctalia/host.nix];
+}: {
+  imports = [../common/host.nix];
   nixpkgs.overlays = [outputs.overlays.niri];
+
+  # niri ships this as niri-portals.conf, but only under the package's share dir,
+  # which loses to /etc/xdg. Declare it so screencast lands on gnome instead of
+  # falling back to wlr, which mango's module pulls in system-wide.
+  xdg.portal.config.niri = {
+    default = ["gnome" "gtk"];
+    "org.freedesktop.impl.portal.Access" = ["gtk"];
+    "org.freedesktop.impl.portal.Notification" = ["gtk"];
+    "org.freedesktop.impl.portal.Secret" = ["gnome-keyring"];
+  };
   nix.settings = {
     substituters = lib.mkAfter ["https://niri-nix.cachix.org"];
     trusted-public-keys = ["niri-nix.cachix.org-1:SvFtqpDcf7Sm1SMJdby1/+Y+6f3Yt3/3PMcSTKPJNJ0="];
   };
 
-  hardware.bluetooth = {
-    enable = bluetooth;
-    powerOnBoot = true;
-  };
-
-  users.users.${config.cfg.user.name}.extraGroups = [
-    "input"
-    "video"
-  ];
-
   programs.niri = {
     enable = true;
     package = pkgs.niri-unstable;
   };
-
-  services = {
-    gvfs.enable = true;
-    gnome = {
-      evolution-data-server.enable = true;
-      gnome-keyring.enable = true;
-    };
-    xserver.updateDbusEnvironment = true;
-  };
-  security = {
-    polkit = {
-      enable = true;
-      enablePkexecWrapper = true;
-    };
-  };
-
-  environment.systemPackages = [
-    pkgs.polkit_gnome
-    pkgs.xwayland-satellite-unstable
-  ];
+  environment.systemPackages = [pkgs.xwayland-satellite-unstable];
 }
