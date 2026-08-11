@@ -52,6 +52,15 @@ in {
           pkgs.git.override {withLibsecret = true;}
         }/libexec/git-core/git-credential-libsecret";
         advice.defaultBranchName = false;
+
+        url = {
+          "git@codeberg.org:" = {
+            insteadOf = "https://codeberg.org/";
+          };
+          "git@github.com:" = {
+            insteadOf = "https://github.com";
+          };
+        };
       };
     };
 
