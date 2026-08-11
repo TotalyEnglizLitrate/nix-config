@@ -59,9 +59,9 @@
     "type": "github",
     "owner": "TotalyEnglizLitrate",
     "repo": "nixcu",
-    "rev": "625d3b75d740d8dd1646c3ee1737d9e15248a087",
-    "narHash": "sha256-/9YkRPBAfhZJuU6EeMYhijqvSGx9zYJ8S+xtHYW8kBQ=",
-    "lastModified": 1786158797
+    "rev": "5e355b1da7d247b7aab47dcfc74d5751c401e38b",
+    "narHash": "sha256-E8BtNuS9ye5GBJo+TXhdNjk9x7ZeemxFDnIKcW7+kWU=",
+    "lastModified": 1786177159
   },
   "nixos-cli": {
     "type": "github",
@@ -91,9 +91,9 @@
     "type": "github",
     "owner": "noctalia-dev",
     "repo": "noctalia",
-    "rev": "4f459ffc7a8c8616ff90f7351968f6f4eaf9a379",
-    "narHash": "sha256-9sgDjFDDB99krxblKz49lYO/B/03uFDOFF88Pbx7wz4=",
-    "lastModified": 1785984928
+    "rev": "2c0bb1d341193845576da39057c49d2a507afc41",
+    "narHash": "sha256-DGJqGezkI3gxxHvK7Nns8juWgv1o4POW+3kRR8utWzg=",
+    "lastModified": 1786429008
   },
   "noctalia-greetd": {
     "type": "github",
