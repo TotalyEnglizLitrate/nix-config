@@ -1,11 +1,10 @@
 {
   config,
-  osConfig,
   lib,
   pkgs,
   ...
 }: let
-  signingKeys = osConfig.cfg.user.signingKeys;
+  signingKeys = config.cfg.user.signingKeys;
   hasSigningKeys = signingKeys != [];
   key =
     if hasSigningKeys
@@ -21,10 +20,10 @@ in {
 
   home.file = lib.mkIf hasSigningKeys {
     "${signersFile}" = {
-      text = "${osConfig.cfg.user.email} ${key}";
+      text = "${config.cfg.user.email} ${key}";
     };
     "${pubKeyFile}" = {
-      text = "${key} ${osConfig.cfg.user.email}";
+      text = "${key} ${config.cfg.user.email}";
     };
   };
 
@@ -38,7 +37,7 @@ in {
         format = "ssh";
       };
       settings = {
-        user = with osConfig.cfg.user; {
+        user = with config.cfg.user; {
           name = fullName;
           inherit email;
         };

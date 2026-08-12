@@ -4,7 +4,6 @@
   inputs,
   outputs,
   config,
-  osConfig,
   ...
 }: let
   sysmon = ["cpu_usage" "cpu_temp" "ram_used" "net_rx" "net_tx"];
@@ -104,7 +103,7 @@ in {
                   "cleboost/hotspot:toggle"
                   "network"
                 ]
-                ++ lib.optional osConfig.cfg.host.bluetooth "bluetooth";
+                ++ lib.optional config.cfg.host.bluetooth "bluetooth";
             }
             {
               id = "center";

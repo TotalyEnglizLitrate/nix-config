@@ -1,4 +1,4 @@
-{osConfig, ...}: {
+{config, ...}: {
   imports = [
     ./home-packages.nix
     ../shell/home.nix
@@ -10,7 +10,7 @@
   };
 
   home = let
-    username = osConfig.cfg.user.name;
+    username = config.cfg.user.name;
   in {
     inherit username;
     homeDirectory = "/home/${username}";

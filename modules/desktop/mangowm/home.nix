@@ -2,7 +2,6 @@
   lib,
   outputs,
   config,
-  osConfig,
   pkgs,
   ...
 }: let
@@ -29,13 +28,13 @@ in {
   '';
 
   wayland.windowManager.mango.settings = let
-    displays = osConfig.cfg.host.displays;
+    displays = config.cfg.host.displays;
 
     floatRule = geometry: appid: "isfloating:1,${geometry},appid:${appid}";
 
     bitwarden = "^chrome-nngceckbapebfimnlniiiahkandclblb.*$";
 
-    inherit (osConfig.lib.stylix) colors;
+    inherit (config.lib.stylix) colors;
     mkColor = alpha: base: "0x${colors.${base}}${alpha}";
     color = mkColor "ff";
   in {
@@ -128,8 +127,8 @@ in {
     circle_layout = "scroller,dwindle";
     enable_floating_snap = 1;
     snap_distance = 50;
-    cursor_size = osConfig.stylix.cursor.size;
-    cursor_theme = osConfig.stylix.cursor.name;
+    cursor_size = config.stylix.cursor.size;
+    cursor_theme = config.stylix.cursor.name;
     cursor_hide_timeout = 0;
     drag_tile_to_tile = 1;
     single_scratchpad = 1;
@@ -247,7 +246,7 @@ in {
     ];
 
     bind = with config.commandsList;
-      lib.optional osConfig.cfg.host.bluetooth
+      lib.optional config.cfg.host.bluetooth
       "SUPER,b,spawn,${ipc ["panel-toggle" "control-center" "bluetooth"]}"
       ++ [
         "SUPER,t,spawn,${cmd terminal}"

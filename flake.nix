@@ -23,7 +23,9 @@
       };
     };
 
-    mkNixosConfiguration = hostname: username:
+    mkNixosConfiguration = hostname: username: let
+      hostProfile = ./hosts/${hostname}/profile.nix;
+    in
       inputs.nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
         modules = [
@@ -42,11 +44,45 @@
                 ./hosts/common.nix
                 ./modules/desktop/common/commands.nix
                 inputs.mangowc.hmModules.mango
+                hostProfile
+                {
+                  cfg = {
+                    user = users.${username};
+                    host = {inherit hostname;};
+                  };
+                }
               ];
               extraSpecialArgs = {inherit inputs outputs;};
               users.${username} = import ./home/${username}/${hostname}.nix;
             };
           }
+        ];
+      };
+
+    mkHomeConfiguration = hostname: username: system: let
+      pkgs = import inputs.nixpkgs {
+        inherit system;
+        config.allowUnfree = true;
+      };
+      hostProfile = ./hosts/${hostname}/profile.nix;
+    in
+      inputs.home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+        extraSpecialArgs = {inherit inputs outputs;};
+        modules = [
+          ./hosts/common.nix
+          inputs.stylix.homeModules.stylix
+          ./modules/stylix/host.nix
+          ./modules/desktop/common/commands.nix
+          inputs.mangowc.hmModules.mango
+          hostProfile
+          {
+            cfg = {
+              user = users.${username};
+              host = {inherit hostname;};
+            };
+          }
+          ./home/${username}/${hostname}.nix
         ];
       };
   in {

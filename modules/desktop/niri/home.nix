@@ -3,7 +3,6 @@
   outputs,
   inputs,
   config,
-  osConfig,
   pkgs,
   ...
 }: let
@@ -26,7 +25,7 @@ in {
   wayland.windowManager.niri.settings = let
     shell = args: noctaliaIPC ++ args;
 
-    displays = osConfig.cfg.host.displays;
+    displays = config.cfg.host.displays;
   in
     {
       input =
@@ -35,7 +34,7 @@ in {
 
           focus-follows-mouse._props.max-scroll-amount = "0%";
         }
-        // lib.optionalAttrs osConfig.cfg.host.laptop {
+        // lib.optionalAttrs config.cfg.host.laptop {
           touchpad = {
             tap = [];
             natural-scroll = [];
@@ -134,7 +133,7 @@ in {
         ]
         ++ [
           (
-            if osConfig.cfg.host.laptop
+            if config.cfg.host.laptop
             then {open-maximized = true;}
             else {
               default-column-width.proportion = 0.5;
@@ -143,7 +142,7 @@ in {
           )
         ];
 
-      binds = with osConfig.cfg;
+      binds = with config.cfg;
       with config.commandsList;
         lib.optionalAttrs host.bluetooth {
           "Mod+B".spawn = shell ["panel-toggle" "control-center" "bluetooth"];
@@ -379,7 +378,7 @@ in {
         )
         displays;
     }
-    // lib.optionalAttrs osConfig.cfg.host.laptop {
+    // lib.optionalAttrs config.cfg.host.laptop {
       switch-events.lid-close.spawn = shell [
         "session"
         "lock"
