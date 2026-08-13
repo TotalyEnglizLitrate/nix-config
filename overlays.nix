@@ -11,6 +11,7 @@ in {
   nvim = final: _prev: {inherit (inputs.nvim.packages.${getSystem final}) nvim;};
   helium = final: _prev: {helium = inputs.helium-browser.packages.${getSystem final}.default;};
   nixcu = final: _prev: {nixcu = inputs.nixcu.packages.${getSystem final}.default;};
+  ncr = final: _prev: {ncr = inputs.ncr.packages.${getSystem final}.default;};
   niri = inputs.niri-nix.overlays.niri-nix;
   mango = inputs.mangowc.overlays.default;
   noctalia = inputs.noctalia.overlays.default;

@@ -7,6 +7,7 @@
     outputs.overlays.nvim
     outputs.overlays.claude-code
     outputs.overlays.nixcu
+    outputs.overlays.ncr
   ];
   home.packages = with pkgs; [
     batmon
@@ -20,6 +21,8 @@
     ncdu
     nix-output-monitor
     nixcu
+    duf
+    ncr
     whisper-cpp-vulkan
     pandoc
     pipenv
