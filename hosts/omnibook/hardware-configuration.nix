@@ -26,13 +26,13 @@
     "/" = {
       device = "/dev/disk/by-uuid/d25a935f-39c2-4c70-a4d6-9a04f4fabc9e";
       fsType = "btrfs";
-      options = ["subvol=@"];
+      options = ["compress=zstd" "noatime" "subvol=@"];
     };
 
     "/home" = {
       device = "/dev/disk/by-uuid/d25a935f-39c2-4c70-a4d6-9a04f4fabc9e";
       fsType = "btrfs";
-      options = ["subvol=@home"];
+      options = ["compress=zstd" "noatime" "subvol=@home"];
     };
 
     "/boot" = {

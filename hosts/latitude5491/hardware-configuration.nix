@@ -28,7 +28,7 @@
     "/" = {
       device = "/dev/disk/by-uuid/3a4b33e2-e37d-4ba8-a7cc-b175bdaaa289";
       fsType = "btrfs";
-      options = ["subvol=@"];
+      options = ["compress=zstd" "noatime" "subvol=@"];
     };
 
     "/boot" = {
@@ -44,7 +44,7 @@
       device = "/dev/disk/by-uuid/3a4b33e2-e37d-4ba8-a7cc-b175bdaaa289";
       fsType = "btrfs";
       options = [
-        "subvol=@home"
+        "compress=zstd" "noatime" "subvol=@home"
         "defaults"
       ];
     };
