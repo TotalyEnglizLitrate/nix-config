@@ -79,8 +79,8 @@ in {
 
       settings = {
         git = {
-          pagers = [
-            {pager = "delta --color-only --dark --paging=never";}
+          diffRenderers = [
+            {command = "delta --color-only --dark --paging=never";}
           ];
         };
       };
