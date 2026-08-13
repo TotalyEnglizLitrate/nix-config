@@ -9,6 +9,8 @@
     allowUnfree = true;
   };
 
+  systemd.user.startServices = "sd-switch";
+
   home = let
     username = config.cfg.user.name;
   in {

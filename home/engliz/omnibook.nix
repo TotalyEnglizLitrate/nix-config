@@ -5,7 +5,6 @@
     ../../modules/desktop/mangowm/home.nix
   ];
 
-  systemd.user.startServices = "sd-switch";
 
   home.stateVersion = "24.11";
 }
