@@ -143,9 +143,9 @@ in {
     drag_lock = 1;
     mouse_natural_scrolling = 0;
     trackpad_natural_scrolling = 1;
-    disable_while_typing = 1;
-    left_handed = 0;
-    middle_button_emulation = 0;
+    trackpad_disable_while_typing = 1;
+    trackpad_left_handed = 0;
+    trackpad_middle_button_emulation = 0;
     swipe_min_threshold = 1;
     mouse_accel_profile = 2;
     mouse_accel_speed = 0.4;
