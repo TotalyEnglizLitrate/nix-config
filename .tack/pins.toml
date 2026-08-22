@@ -76,5 +76,8 @@ url = "gh:mangowm/mango"
 [inputs.ncr]
 url = "gh:greyxp1/ncr"
 
+[inputs.umbriel]
+url = "gh:noctalia-dev/umbriel"
+
 [tack]
 recomposable = true
