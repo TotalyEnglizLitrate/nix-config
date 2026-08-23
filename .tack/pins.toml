@@ -68,7 +68,7 @@ url = "gh:sadjow/claude-code-nix"
 url = "gh:GunduLabs/gaze"
 
 [inputs.nixcu]
-url = "github:TotalyEnglizLitrate/nixcu"
+url = "gh:TotalyEnglizLitrate/nixcu"
 
 [inputs.mangowc]
 url = "gh:mangowm/mango"
