@@ -130,12 +130,13 @@
     "lastModified": 1787175104
   },
   "umbriel": {
-    "type": "github",
-    "owner": "noctalia-dev",
-    "repo": "umbriel",
-    "rev": "5a0e55c608c1487edbf3efd1d5ece83771b2d0b4",
-    "narHash": "sha256-aLetdQ7acbebtOdSitmBnh9IU3oPDDm8MCYtTnj2nm4=",
-    "lastModified": 1787452876
+    "type": "git",
+    "url": "https://github.com/noctalia-dev/umbriel.git",
+    "ref": "HEAD",
+    "rev": "7b7f61236b09bd4f5f19d3e72a1dc103ccd327f0",
+    "narHash": "sha256-clBszk+5oT5gTJH1WBPBtwT3KSW09aH97xmr4RK2YJ4=",
+    "lastModified": 1787490415,
+    "submodules": true
   },
   "umbriel-desktop-portal": {
     "type": "github",
