@@ -6,6 +6,7 @@
     ../../modules/common/host.nix
     ../../modules/desktop/niri/host.nix
     ../../modules/desktop/mangowm/host.nix
+    ../../modules/desktop/umbriel/host.nix
     ../../modules/mute-led-daemon/host.nix
     ../../modules/docker/host.nix
     ../../modules/qemu/host.nix

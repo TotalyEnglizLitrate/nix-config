@@ -79,5 +79,8 @@ url = "gh:greyxp1/ncr"
 [inputs.umbriel]
 url = "gh:noctalia-dev/umbriel"
 
+[inputs.umbriel-desktop-portal]
+url = "gh:noctalia-dev/xdg-desktop-portal-umbriel"
+
 [tack]
 recomposable = true

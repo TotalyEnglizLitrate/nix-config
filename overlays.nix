@@ -15,5 +15,11 @@ in {
   niri = inputs.niri-nix.overlays.niri-nix;
   mango = inputs.mangowc.overlays.default;
   noctalia = inputs.noctalia.overlays.default;
+  umbriel = final: _prev: let
+    system = getSystem final;
+  in {
+    umbriel = inputs.umbriel.packages.${system}.default;
+    umbriel-desktop-portal = inputs.umbriel-desktop-portal.packages.${system}.default;
+  };
   claude-code = inputs.claude-code.overlays.default;
 }
