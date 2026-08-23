@@ -58,7 +58,7 @@ in {
           enabled = true;
           optimized = false;
           passes = 3;
-          radius = 2;
+          radius = 3;
           noise = 0.05;
           brightness = 0.9;
           contrast = 0.9;
@@ -278,15 +278,15 @@ in {
           }
           {
             match.is_focused = true;
-            opacity = 0.9;
-          }
-          {
-            match.is_focused = false;
             opacity = 0.8;
           }
           {
+            match.is_focused = false;
+            opacity = 0.7;
+          }
+          {
             blur = true;
-            blur_ignore_alpha = 0.5;
+            blur_ignore_alpha = 0.1;
             blur_optimized = false;
           }
         ]
@@ -315,7 +315,7 @@ in {
         {
           match = {namespace = "^noctalia-(bar-[^\"]+|notification|dock|panel|attached-panel|osd)$";};
           blur = true;
-          blur_ignore_alpha = 0.5;
+          blur_ignore_alpha = 0.1;
           blur_optimized = false;
         }
       ];
