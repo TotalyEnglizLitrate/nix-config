@@ -20,7 +20,6 @@
   programs.umbriel = {
     enable = true;
     package = pkgs.umbriel;
+    portalPackage = pkgs.umbriel-desktop-portal;
   };
-
-  environment.systemPackages = [pkgs.umbriel-desktop-portal];
 }
