@@ -47,9 +47,6 @@ in {
           format = "ssh";
           ssh.allowedSignersFile = "~/${config.home.file.${signersFile}.target}";
         };
-        credential.helper = "${
-          pkgs.git.override {withLibsecret = true;}
-        }/libexec/git-core/git-credential-libsecret";
         advice.defaultBranchName = false;
 
         url = {
