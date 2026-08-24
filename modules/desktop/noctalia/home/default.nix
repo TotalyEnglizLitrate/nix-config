@@ -8,6 +8,8 @@
 }: let
   sysmon = ["cpu_usage" "cpu_temp" "ram_used" "net_rx" "net_tx"];
 in {
+  disabledModules = [ "programs/noctalia.nix" ];
+
   imports = [
     inputs.noctalia.homeModules.default
     ./theme.nix

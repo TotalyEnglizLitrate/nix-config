@@ -3,9 +3,9 @@
     "type": "github",
     "owner": "sadjow",
     "repo": "claude-code-nix",
-    "rev": "7bcfdf12020b049dd8fa0fcaf069ef2c531de405",
-    "narHash": "sha256-/eBYWSQ077ris4qTPBPMPr1ySDQc61+oXPU6s7fB9Ts=",
-    "lastModified": 1787342590
+    "rev": "a652fdf13cf7ac39be23fafbca3e1d6290eff001",
+    "narHash": "sha256-XL0bbQUXgB5TXKWUBzAVxbNwsoII/XQmuHpwqaRI6OQ=",
+    "lastModified": 1787448531
   },
   "gaze": {
     "type": "github",
@@ -35,17 +35,17 @@
     "type": "github",
     "owner": "nix-community",
     "repo": "home-manager",
-    "rev": "c53d643b3737e2fcd04e6cb3b3580ef50b2087a0",
-    "narHash": "sha256-djoRr6jBpe35q/0JwAvXpFXg1Ktf+X54NU2RLR7wnHw=",
-    "lastModified": 1787176219
+    "rev": "03f4cd46bc1dd4f3a96da778d2ce9f7ce39dd450",
+    "narHash": "sha256-MHwk52ty3NsLhq9a1IbIfBJZlCUJIdiUYFo52JLK9hY=",
+    "lastModified": 1787540599
   },
   "mangowc": {
     "type": "github",
     "owner": "mangowm",
     "repo": "mango",
-    "rev": "32e86972016bcab37f4c37aa9daf43df0ae6f5cc",
-    "narHash": "sha256-dedoeVIcfuKm7Rv2nrHrpslftUFGOavfyewk3a3E+Pw=",
-    "lastModified": 1787361270
+    "rev": "ab3102f6428ac723ddc54ba311563e5a7d33629b",
+    "narHash": "sha256-kLF2PMUS6XnUZm/Fv39l5pNG+cwmiV4ET9mLlnqDDEY=",
+    "lastModified": 1787475228
   },
   "ncr": {
     "type": "github",
@@ -59,9 +59,9 @@
     "type": "git",
     "url": "https://codeberg.org/BANanaD3V/niri-nix",
     "ref": "HEAD",
-    "rev": "59dc01c8c5f43f7ad4e1225fd58953221d0b7780",
-    "narHash": "sha256-4DE1SAxtJSiTNnt+o8bTOC4koT/itZlDX8zaKbXvIbU=",
-    "lastModified": 1786924931
+    "rev": "ca504406e24da7fc2e2d1140d5b619d45a57b718",
+    "narHash": "sha256-KzTiQ4vCnBEGK/Z+M8GgygRchah+PvmOfcQNNrBXfik=",
+    "lastModified": 1787425425
   },
   "nixcu": {
     "type": "github",
@@ -81,9 +81,9 @@
   },
   "nixpkgs": {
     "type": "tarball",
-    "url": "https://releases.nixos.org/nixos/unstable/nixos-26.11pre1058091.ffb3c9b700e7/nixexprs.tar.xz",
-    "rev": "ffb3c9b700e759be2ef13237c9d8f953b32a1e46",
-    "narHash": "sha256-M5/r2v++FjVhdsxXYMb4BDJ5YLAdCWFt3aZotcshocA="
+    "url": "https://releases.nixos.org/nixos/unstable/nixos-26.11pre1059570.2c423e03bbaf/nixexprs.tar.xz",
+    "rev": "2c423e03bbafcff28bfadc6781a4a8257f205cb5",
+    "narHash": "sha256-95aJfHyQTLWslCXFVNB0odgmVkpdmDezQwTg9mhqV1E="
   },
   "nixpkgs-kernel": {
     "type": "github",
@@ -97,17 +97,17 @@
     "type": "github",
     "owner": "noctalia-dev",
     "repo": "noctalia",
-    "rev": "d75f811a088438f9e8922f09cc7b7252d5c6f656",
-    "narHash": "sha256-Y3TeQgLSh/va4HgbI3VM+jFipjUfieNiTC9b6hm05I8=",
-    "lastModified": 1787489881
+    "rev": "a9cd1c86bdd6a231fc2b07c3b7a2505175a864d3",
+    "narHash": "sha256-Iys/51B9mcbrFjy9KwgdKOCeKF4ryJLh+UJYb3Eapl8=",
+    "lastModified": 1787490503
   },
   "noctalia-greetd": {
     "type": "github",
     "owner": "noctalia-dev",
     "repo": "noctalia-greeter",
-    "rev": "10d2c9074d3a9219e03b55b2c97f1cc743447af5",
-    "narHash": "sha256-NfnY22tYDrXfIuyexYyqB+jkO6IK23AqmhcNixkU7pw=",
-    "lastModified": 1786882377
+    "rev": "5956c6f40249b2837bb260d25ea3953a2631fbdc",
+    "narHash": "sha256-R32LF+S4NnmJwSnzt5xKjb15RjYemb/ZZRnDnP5lxfs=",
+    "lastModified": 1787482410
   },
   "nvim": {
     "type": "path",
@@ -117,9 +117,9 @@
     "type": "github",
     "owner": "Gerg-L",
     "repo": "spicetify-nix",
-    "rev": "0f478ff79b82abb785160cd4531293f61d21be86",
-    "narHash": "sha256-yeKMWFCPeoIKmPBLLvP1/15ulOJO8i9ZIlSSXGuW6aw=",
-    "lastModified": 1786855359
+    "rev": "a8adfd6f9f341dd586d5c06dda3bbfa21c6014e7",
+    "narHash": "sha256-r2FJY01jRVhrZIKPdhQ3QFYsAz3wjilWTMSSH7VMOeo=",
+    "lastModified": 1787460061
   },
   "stylix": {
     "type": "github",
@@ -142,8 +142,8 @@
     "type": "github",
     "owner": "noctalia-dev",
     "repo": "xdg-desktop-portal-umbriel",
-    "rev": "3b871140d4e5fd3e53c0fe3673e0f50f65cda2d8",
-    "narHash": "sha256-CtDGvNz1cnRVsHrukO+nV09g0QPRiGsj9NbB1DELo6M=",
-    "lastModified": 1787381926
+    "rev": "d2502e6c4a5b7bc38d3c7f0f18ced51332030134",
+    "narHash": "sha256-un3JaRvEiRduFjmSZ5dOqG6rGedldVU3bR2fUtGzPO4=",
+    "lastModified": 1787559158
   }
 }
