@@ -43,6 +43,20 @@
         "dmask=0077"
       ];
     };
+    "/mnt/Windows" = {
+      device = "/dev/disk/by-uuid/A6F2A715F2A6E92F";
+      fsType = "ntfs3";
+      options = [
+        "rw"
+        "nosuid"
+        "nodev"
+        "relatime"
+        "acl"
+        "iocharset=utf8"
+        "prealloc"
+        "uhelper=udisks2"
+      ];
+    };
   };
 
   swapDevices = [];
