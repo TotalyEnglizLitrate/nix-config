@@ -14,6 +14,9 @@
   programs.ghostty = {
     enable = true;
     enableFishIntegration = true;
-    settings.font-size = lib.mkForce 16;
+    settings = {
+      font-size = lib.mkForce 16;
+      adjust-cell-height = "-15%";
+    };
   };
 }
