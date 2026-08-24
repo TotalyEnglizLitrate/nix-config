@@ -85,5 +85,12 @@ in {
         };
       };
     };
+
+    gh = {
+      enable = true;
+      settings.git_protocol = "ssh";
+    };
   };
+
+  home.packages = [pkgs.tea];
 }
