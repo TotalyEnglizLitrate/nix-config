@@ -43,7 +43,7 @@ in {
 
       appearance = {
         border_width = 2;
-        corner_radius = 6;
+        corner_radius = 0;
         animation_ms = 100;
 
         shadow = {
