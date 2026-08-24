@@ -5,7 +5,7 @@
   inputs,
   ...
 }: let
-  nixos_config_dir = "/home/${config.cfg.user.name}/Documents/repositories/nix-config";
+  nixos_config_dir = "/home/${config.cfg.user.name}/Documents/repos/nix-config";
 in {
   nix.settings = {
     substituters = lib.mkAfter ["https://watersucks.cachix.org"]; # optnix tui cache

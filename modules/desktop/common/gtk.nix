@@ -1,20 +1,26 @@
 {
   config,
+  osConfig ? null,
   lib,
   ...
-}: {
+}: let
+  isStandalone = osConfig == null;
+in {
   gtk = {
     enable = true;
     gtk3 = {
       extraConfig.gtk-application-prefer-dark-theme = true;
 
-      bookmarks = [
-        "file://${config.home.homeDirectory}/Documents"
-        "file://${config.home.homeDirectory}/Downloads"
-        "file://${config.home.homeDirectory}/Pictures"
-        "file://${config.home.homeDirectory}/Videos"
-        "file://${config.home.homeDirectory}/Documents/repositories"
-      ];
+      bookmarks =
+        map (p: "file://${p}") (
+          map (p: "${config.home.homeDirectory}/${p}") [
+            "Documents"
+            "Downloads"
+            "Pictures"
+            "Videos"
+            "Documents/repos"
+          ]
+        ++ lib.optionals (!isStandalone) (builtins.attrNames osConfig.fileSystems));
     };
 
     gtk4.theme = lib.mkForce null;

@@ -42,7 +42,7 @@ _: {
         truncation_symbol = ".../";
         substitutions = {
           "nix-config" = "  ";
-          "repositories" = "  ";
+          "repos" = "  ";
           "Documents" = " 󰈙 ";
           "Downloads" = "  ";
           "~" = " ";
