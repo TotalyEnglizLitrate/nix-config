@@ -47,6 +47,4 @@ in {
     enable = true;
     enablePkexecWrapper = true;
   };
-
-  environment.systemPackages = [pkgs.polkit_gnome];
 }

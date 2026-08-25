@@ -33,7 +33,6 @@ in {
           "toggle-mute --init"
           "${pkgs.arrpc}/bin/arrpc"
           "${pkgs.kdePackages.kdeconnect-kde}/lib/kdeconnectd"
-          "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1"
           "QT_QPA_PLATFORM_THEME=qt6ct ${lib.getExe pkgs.noctalia} -d"
         ];
         xwayland = true;

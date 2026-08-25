@@ -41,12 +41,14 @@ in {
         font_family = "0xProtoNerdFontPropo";
         panel = {
           transparency_mode = "glass";
+          shadow = false;
           open_near_click_control_center = true;
           open_near_click_wallpaper = true;
         };
         launcher = {
           categories = false;
           providers.session.global = true;
+          show_app_actions = true;
         };
         greeter_sync = {
           auto_sync = true;
@@ -55,6 +57,10 @@ in {
         screenshot = {
           directory = "~/Pictures/Screenshots/";
         };
+
+        password_style = "random";
+        polkit_agent = true;
+        popup_shadows = false;
       };
 
       plugins.enabled = [

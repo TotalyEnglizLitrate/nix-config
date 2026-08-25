@@ -24,7 +24,6 @@ in {
     toggle-mute --init &
     ${lib.getExe pkgs.arrpc} &
     ${pkgs.kdePackages.kdeconnect-kde}/lib/kdeconnectd &
-    ${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1 &
   '';
 
   wayland.windowManager.mango.settings = let
