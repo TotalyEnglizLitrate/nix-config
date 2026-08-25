@@ -7,7 +7,7 @@
     foliate
     fragments
     kdePackages.okular
-    libreoffice-qt6-fresh
+    libreoffice-qt-stable
     localsend
     loupe
     nautilus
