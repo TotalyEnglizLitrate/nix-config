@@ -11,9 +11,9 @@
     "type": "github",
     "owner": "GunduLabs",
     "repo": "gaze",
-    "rev": "27faac91da46890530ca84da332348956b9b2e3a",
-    "narHash": "sha256-yFZmeZVHQg3QOgyLc5eSjgu4rveav7RRlo58FmbVLIA=",
-    "lastModified": 1787235578
+    "rev": "bbfaeae1525669371a64adedf2cf8b3e16f1035a",
+    "narHash": "sha256-zzWVCRggork7Rvf1SmeWNRRG71iz7MeKmb9qAXcJufw=",
+    "lastModified": 1787430221
   },
   "hardware": {
     "type": "github",
