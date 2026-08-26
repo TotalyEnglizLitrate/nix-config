@@ -63,7 +63,7 @@ in {
 
       plugins.enabled = [
         "nightwatch75/file-search"
-        "kenn/keybind-cheatsheet"
+        "blackbartblues/keymap"
         "noctalia/kaomoji"
         "icefish/phone-connect"
         "cleboost/hotspot"
