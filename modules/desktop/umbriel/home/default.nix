@@ -40,10 +40,10 @@ in {
         focus_on_activate = true;
       };
 
+      animation.duration_ms = 100;
       appearance = {
         border_width = 2;
         corner_radius = 0;
-        animation_ms = 100;
 
         shadow = {
           enabled = true;
@@ -150,7 +150,7 @@ in {
           "Mod+M" = spawn sysmon;
           "Mod+S" = spawn ["spotify"];
           "Mod+N" = shell ["panel-toggle" "control-center" "notifications"];
-          "Mod+R" = shell ["panel-toggle" "launcher"];
+          "Mod" = shell ["panel-toggle" "launcher"];
           "Mod+V" = shell ["panel-toggle" "clipboard"];
           "Mod+A" = shell ["panel-toggle" "control-center"];
           "Mod+Shift+V" = shell ["panel-toggle" "control-center" "audio"];
