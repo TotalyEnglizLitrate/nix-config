@@ -80,5 +80,8 @@ submodules = true
 [inputs.umbriel-desktop-portal]
 url = "gh:noctalia-dev/xdg-desktop-portal-umbriel"
 
+[inputs.anywayd]
+url = "gh:TotalyEnglizLitrate/anywayd"
+
 [tack]
 recomposable = true

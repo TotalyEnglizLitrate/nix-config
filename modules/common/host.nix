@@ -1,5 +1,6 @@
 {
   inputs,
+  outputs,
   lib,
   config,
   pkgs,
@@ -13,6 +14,7 @@
     ../wireshark/host.nix
     ../llama/host.nix
     inputs.gaze.nixosModules.default
+    inputs.anywayd.nixosModules.default
   ];
 
   nixpkgs = {
@@ -20,6 +22,7 @@
       allowUnfree = true;
       rocmSupport = config.cfg.host.gpu.amd;
     };
+    overlays = [outputs.overlays.anywayd];
   };
 
   nix = {
@@ -171,6 +174,10 @@
   programs = {
     ${config.cfg.user.shell}.enable = true;
     kdeconnect.enable = true;
+    anywayd = {
+      enable = true;
+      package = pkgs.anywayd;
+    };
     dconf.enable = true;
   };
   # use ca-derivations for manpages to speedup build time

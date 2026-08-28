@@ -1,4 +1,12 @@
 {
+  "anywayd": {
+    "type": "github",
+    "owner": "TotalyEnglizLitrate",
+    "repo": "anywayd",
+    "rev": "08ef31733a81fe5bcd8c9448bc5ac0ccdfcd350b",
+    "narHash": "sha256-9ytK/CE75OffPsZJPYeXopS1LlO/zcZszB4YaKR/J7o=",
+    "lastModified": 1787985086
+  },
   "claude-code": {
     "type": "github",
     "owner": "sadjow",
