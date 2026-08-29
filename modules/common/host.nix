@@ -13,6 +13,7 @@
     ../tailscale/host.nix
     ../wireshark/host.nix
     ../llama/host.nix
+    ../urx/host.nix
     inputs.gaze.nixosModules.default
     inputs.anywayd.nixosModules.default
   ];
