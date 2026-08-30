@@ -17,5 +17,5 @@ in {
     umbriel-desktop-portal = inputs.umbriel-desktop-portal.packages.${system}.default;
   };
   claude-code = inputs.claude-code.overlays.default;
-  pam-fprint-grosshack = final: prev: {pam-fprint-grosshack = final.callPackage ./pkgs/pam_fprint_grosshack/package.nix {}; };
+  pam-fprint-grosshack = final: prev: {pam-fprint-grosshack = final.callPackage ./pkgs/pam_fprint_grosshack/package.nix {};};
 }

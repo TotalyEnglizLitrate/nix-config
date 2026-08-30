@@ -13,9 +13,7 @@
   libpam-wrapper,
   dbus,
 }:
-
 stdenv.mkDerivation (finalAttrs: {
-
   pname = "pam_fprint_grosshack";
   version = "0.3.0";
 
@@ -59,6 +57,6 @@ stdenv.mkDerivation (finalAttrs: {
     homepage = "https://gitlab.com/mishakmak/pam-fprint-grosshack";
     license = lib.licenses.gpl2Plus;
     platforms = lib.platforms.linux;
-    maintainers = with lib.maintainers; [ agvantibo ];
+    maintainers = with lib.maintainers; [agvantibo];
   };
 })
