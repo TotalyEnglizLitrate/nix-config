@@ -186,8 +186,8 @@ in {
           "Mod+Shift+K" = "window-move-up";
           "Mod+Shift+J" = "window-move-down";
 
-          "Mod+BracketLeft" = "window-consume-left";
-          "Mod+BracketRight" = "window-expel-right";
+          "Mod+BracketLeft" = "window-consume-or-expel-left";
+          "Mod+BracketRight" = "window-consume-or-expel-right";
 
           "Mod+Page_Up" = "workspace-previous";
           "Mod+Page_Down" = "workspace-next";
