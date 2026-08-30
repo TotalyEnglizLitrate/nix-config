@@ -23,7 +23,7 @@
       allowUnfree = true;
       rocmSupport = config.cfg.host.gpu.amd;
     };
-    overlays = [outputs.overlays.anywayd];
+    overlays = [outputs.overlays.anywayd] ++ lib.optional (config.cfg.host.fprint) outputs.overlays.pam-fprint-grosshack;
   };
 
   nix = {
@@ -150,11 +150,14 @@
     pam.services =
       lib.genAttrs
       ["sudo" "login" "pkexec"]
-      (_name: {
-        fprintAuth = config.cfg.host.fprint;
+      (name: {
+        fprintAuth = false;
+        rules.auth.fprintd_grosshack = lib.mkIf config.cfg.host.fprint {
+          inherit (config.security.pam.services.${name}.rules.auth.fprintd) order control;
+          modulePath = "${pkgs.pam-fprint-grosshack}/lib/security/pam_fprintd_grosshack.so";
+        };
         gaze = {
           inherit (config.cfg.host.IRCam) enable;
-          simultaneous = true;
         };
       });
   };
