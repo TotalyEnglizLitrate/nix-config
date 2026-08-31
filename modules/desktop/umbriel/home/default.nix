@@ -78,10 +78,10 @@ in {
       layout = {
         mode = "scrolling";
         gap = 0;
-        width_presets = [0.333 0.5 0.667];
+        width_presets = [0.333 0.5 0.667 1.0];
 
         scrolling = {
-          default_width_fraction = 1.0;
+          default_width_fraction = 0.5;
           center_underfull_strip = true;
         };
       };
@@ -243,8 +243,25 @@ in {
         }
       );
 
+      # NOTE: rules are layered and not first match, last applicable rule takes precedence
       window_rule =
         [
+          {
+            match.is_focused = true;
+            opacity = 0.8;
+          }
+          {
+            match.is_focused = false;
+            opacity = 0.7;
+          }
+          {
+            blur = true;
+            blur_ignore_alpha = 0.1;
+            blur_optimized = false;
+            default_maximize = true;
+          }
+
+        ] ++ map (rule: rule // {default_maximize = false;}) [
           {
             match = {app_id = "^dev.noctalia.Noctalia$";};
             default_floating = true;
@@ -274,19 +291,6 @@ in {
           {
             match = {app_id = "^nm-connection-editor$";};
             default_floating = true;
-          }
-          {
-            match.is_focused = true;
-            opacity = 0.8;
-          }
-          {
-            match.is_focused = false;
-            opacity = 0.7;
-          }
-          {
-            blur = true;
-            blur_ignore_alpha = 0.1;
-            blur_optimized = false;
           }
         ]
         ++ map (appid: {
