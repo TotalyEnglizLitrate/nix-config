@@ -177,7 +177,9 @@ in {
           "Mod+Ctrl+Space" = "window-restore-from-scratchpad";
 
           "Mod+Left" = "window-focus-left";
+          "Mod+WheelUp" = "window-focus-left";
           "Mod+Right" = "window-focus-right";
+          "Mod+WheelDown" = "window-focus-right";
           "Mod+Up" = "window-focus-up";
           "Mod+Down" = "window-focus-down";
 
