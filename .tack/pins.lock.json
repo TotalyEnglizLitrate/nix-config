@@ -3,9 +3,9 @@
     "type": "github",
     "owner": "TotalyEnglizLitrate",
     "repo": "anywayd",
-    "rev": "08ef31733a81fe5bcd8c9448bc5ac0ccdfcd350b",
-    "narHash": "sha256-9ytK/CE75OffPsZJPYeXopS1LlO/zcZszB4YaKR/J7o=",
-    "lastModified": 1787985086
+    "rev": "1575cba3d84f4b936d6854f7f9b0055f53de0355",
+    "narHash": "sha256-8FhIbZnWCak45k4rM6Evd8C+wGhcQdafdotdyDAzV1A=",
+    "lastModified": 1788241211
   },
   "claude-code": {
     "type": "github",
