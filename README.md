@@ -1,14 +1,8 @@
 # NixOS configurations
+*Forked from [Alexander Nabokikh's config](https://github.com/AlexNabokikh/nix-config); diverged significantly since.*
 
-## This is a fork
-
-This repository is a fork of [Alexander Nabokikh's nix config](https://github.com/AlexNabokikh/nix-config)
-
-I've forked this repository and made a configuration that I'm quite happy with, however I would not suggest that you build your configuration on top of mine, please visit the original which has a detailed and intuitive (might I add amazing) explanation on how to modify it to fit your needs.
-
-- Note: I have removed this repository from the fork network as they have diverged significantly.
-
-That said, if you're here anyway, this doc covers how the repo is actually laid out and how to plug in a new machine or user without having to reverse-engineer my machinations. P.S. if you need multiple users, you probably shouldn't use this.
+## Overview
+Personal NixOS + Home Manager configuration spanning 4 machines, The core design is a typed `cfg` option namespace (`hosts/common.nix`) that lets ~20 feature modules read host capabilities (GPU, laptop, fingerprint reader, displays) instead of hardcoding per-machine values, adding a new host is writing one profile.nix file, not touching the modules themselves.
 
 ## Layout
 
