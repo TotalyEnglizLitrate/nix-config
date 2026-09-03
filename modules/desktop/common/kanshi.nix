@@ -55,6 +55,18 @@ _: {
           }
         ];
       }
+
+      {
+        profile.name = "portrait";
+        profile.outputs = [
+          {
+            criteria = "eDP-1";
+            status = "enable";
+            transform = "90";
+          }
+        ];
+      }
+
     ];
   };
 }
