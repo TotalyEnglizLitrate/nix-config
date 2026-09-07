@@ -140,6 +140,7 @@
     };
     locate.enable = true;
     openssh.enable = true;
+    ratbagd.enable = true;
 
     dbus.packages = [pkgs.gcr];
   };

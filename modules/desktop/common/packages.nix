@@ -14,6 +14,7 @@
     obsidian
     pamixer
     pavucontrol
+    piper
     playerctl
     qpwgraph
     remmina
