@@ -32,7 +32,7 @@
     );
     nixPath = ["/etc/nix/path"];
     settings = {
-      experimental-features = "nix-command flakes ca-derivations";
+      experimental-features = ["nix-command" "flakes" "ca-derivations"];
       auto-optimise-store = true;
     };
   };
@@ -141,8 +141,6 @@
     locate.enable = true;
     openssh.enable = true;
     ratbagd.enable = true;
-
-    dbus.packages = [pkgs.gcr];
   };
 
   security = {
