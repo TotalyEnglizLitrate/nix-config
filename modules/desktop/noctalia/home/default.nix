@@ -6,7 +6,29 @@
   config,
   ...
 }: let
-  sysmon = ["cpu_usage" "cpu_temp" "ram_used" "net_rx" "net_tx"];
+  sysmon = ["cpu_temp" "cpu_usage" "ram_used"];
+  network = ["net_rx" "net_tx"];
+  mkSysMonWidget = statList:
+    builtins.listToAttrs (map (stat: {
+        name = stat;
+        value = {
+          type = "sysmon";
+          inherit stat;
+          visualization = "none";
+          scale = 0.85;
+        };
+      })
+      statList);
+  mkNetworkWidget = statList:
+    builtins.listToAttrs (map (stat: {
+        name = stat;
+        value =
+          (mkSysMonWidget [stat]).${stat}
+          // {
+            network_speed_compact = true;
+          };
+      })
+      statList);
 in {
   imports = [
     inputs.noctalia.homeModules.default
@@ -83,6 +105,7 @@ in {
           center = ["group:center"];
           end =
             ["group:sysmon"]
+            ++ ["group:network"]
             ++ ["group:tray"]
             ++ ["volume" "brightness" "privacy" "battery"];
 
@@ -98,7 +121,11 @@ in {
               id = "sysmon";
               members = sysmon;
               accordion = true;
-              accordion_direction = "center";
+            }
+            {
+              id = "network";
+              members = network;
+              accordion = true;
             }
             {
               id = "tray";
@@ -140,17 +167,7 @@ in {
           tray.drawer = true;
           network.show_label = false;
         }
-        // builtins.listToAttrs (map (stat: {
-            name = stat;
-            value = {
-              type = "sysmon";
-              inherit stat;
-              visualization = "none";
-              network_speed_compact = true;
-              scale = 0.85;
-            };
-          })
-          sysmon);
+        // (mkSysMonWidget sysmon) // (mkNetworkWidget network);
 
       lockscreen_widgets = {
         enabled = true;
