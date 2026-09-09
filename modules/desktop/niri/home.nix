@@ -83,63 +83,119 @@ in {
           app-id = "chrome-nngceckbapebfimnlniiiahkandclblb.*";
           title = "_crx_nngceckbapebfimnlniiiahkandclblb";
         };
-      in
-        [
-          {
-            match = [
-              (match {app-id = "[S|s]potify";})
-              (match {app-id = "org\.gnome\.Nautilus";})
-              (match {app-id = "org\.gnome\.FileRoller";})
-              (match {app-id = "org\.pulseaudio\.pavucontrol";})
-              (match {app-id = "nm-connection-editor";})
-            ];
+      in [
+        {
+          match = [
+            (match {app-id = "[S|s]potify";})
+            (match {app-id = "org\.gnome\.Nautilus";})
+            (match {app-id = "org\.gnome\.FileRoller";})
+            (match {app-id = "org\.pulseaudio\.pavucontrol";})
+            (match {app-id = "nm-connection-editor";})
+          ];
 
-            open-floating = true;
+          open-floating = true;
 
-            default-column-width.proportion = 0.4;
-            default-window-height.proportion = 0.45;
+          default-column-width.proportion = 0.4;
+          default-window-height.proportion = 0.45;
+        }
+
+        {
+          match = [
+            (match {app-id = "dev\.noctalia\.Noctalia";})
+          ];
+
+          open-floating = true;
+
+          default-column-width.proportion = 0.56;
+          default-window-height.proportion = 0.85;
+        }
+
+        {
+          match = [
+            bitwarden
+            (match {app-id = "org\.kde\.kdeconnect\..*";})
+          ];
+
+          open-floating = true;
+          default-column-width.proportion = 0.3;
+          default-window-height.proportion = 0.5;
+        }
+
+        {
+          match = [
+            bitwarden
+            (match {app-id = "org\.gnome\.seahorse\.Application";})
+          ];
+          block-out-from = "screen-capture";
+        }
+
+        {
+          match = [(match {is-active = true;})];
+          opacity = 0.8;
+        }
+
+        {
+          match = [(match {is-active = false;})];
+          opacity = 0.7;
+        }
+
+        {
+          draw-border-with-background = false;
+          background-effect = {
+            blur = true;
+            xray = true;
+          };
+        }
+
+        {
+          match = [(match {is-floating = true;})];
+          background-effect.xray = false;
+        }
+
+        {
+          match = map (appid: (match {app-id = "^${appid}$";})) [
+            "helium"
+            "com\.obsproject\.Studio"
+            "org\.remmina\.Remmina"
+            "firefox-devedition"
+            "signal"
+            "chromium-browser"
+            "libreoffice-.*"
+            "org\.kde\.okular"
+            "org\.gnome\.Loupe"
+            "org\.wireshark\.Wireshark"
+            "com\.github\.johnfactotum\.Foliate"
+            "Tor Browser"
+            "org\.gnome\.Boxes"
+            "vlc"
+            "com\.github\.xournalpp\.xournalpp"
+          ];
+          opacity = 1.0;
+          background-effect.blur = false;
+        }
+
+        (
+          if config.cfg.host.laptop
+          then {open-maximized = true;}
+          else {
+            default-column-width.proportion = 0.5;
+            default-window-height.proportion = 1.0;
           }
+        )
+      ];
 
-          {
-            match = [
-              (match {app-id = "dev\.noctalia\.Noctalia";})
-            ];
-
-            open-floating = true;
-
-            default-column-width.proportion = 0.56;
-            default-window-height.proportion = 0.85;
-          }
-
-          {
-            match = [
-              bitwarden
-              (match {app-id = "org\.kde\.kdeconnect\..*";})
-            ];
-
-            open-floating = true;
-            default-column-width.proportion = 0.3;
-            default-window-height.proportion = 0.5;
-          }
-
-          {
-            match = [
-              bitwarden
-              (match {app-id = "org\.gnome\.seahorse\.Application";})
-            ];
-            block-out-from = "screen-capture";
-          }
-        ]
-        ++ [
-          (
-            if config.cfg.host.laptop
-            then {open-maximized = true;}
-            else {
-              default-column-width.proportion = 0.5;
-              default-window-height.proportion = 1.0;
-            }
-          )
-        ];
+      layer-rule = let
+        match = props: {_props = props;};
+      in [
+        {
+          match = [(match {namespace = "^noctalia-(bar-[^\"]+|notification|dock|panel|attached-panel|osd)$";})];
+          background-effect = {
+            blur = true;
+            xray = false;
+          };
+          opacity = 0.9;
+        }
+      ];
 
       binds = with config.cfg;
       with config.commandsList;
