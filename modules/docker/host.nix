@@ -24,10 +24,7 @@
     };
   };
 
-  users.users.${config.cfg.user.name}.extraGroups = [
-    "podman"
-    "docker"
-  ];
+  users.users.${config.cfg.user.name}.extraGroups = ["podman"];
 
   environment.systemPackages = [pkgs.distrobox];
 }
