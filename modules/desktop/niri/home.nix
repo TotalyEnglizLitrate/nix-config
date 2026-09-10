@@ -85,12 +85,17 @@ in {
         };
       in [
         {
-          match = [
-            (match {app-id = "[S|s]potify";})
-            (match {app-id = "org\.gnome\.Nautilus";})
-            (match {app-id = "org\.gnome\.FileRoller";})
-            (match {app-id = "org\.pulseaudio\.pavucontrol";})
-            (match {app-id = "nm-connection-editor";})
+          match = map (app-id: (match {inherit app-id;})) [
+            "[S|s]potify"
+            "org\.localsend\.localsend_app"
+            "org\.gnome\.seahorse\.Application"
+            "org\.gnome\.Nautilus"
+            "org\.gnome\.FileRoller"
+            "org\.pulseaudio\.pavucontrol"
+            "org\.rncbc\.qpwgraph"
+            "de\.haeckerfelix\.Fragments"
+            "org\.kde\.kdeconnect\.app"
+            "nm-connection-editor"
           ];
 
           open-floating = true;
