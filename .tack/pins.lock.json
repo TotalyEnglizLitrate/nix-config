@@ -93,6 +93,12 @@
     "rev": "dc5d91f840324650bac8c379428c7037a416959a",
     "narHash": "sha256-jaBxqP3GfXq5Ilyfz5wulKO7xyBUmToFxqTU+caFyus="
   },
+  "nixpkgs-stable": {
+    "type": "tarball",
+    "url": "https://releases.nixos.org/nixos/26.05/nixos-26.05.9440.6aefcda9401b/nixexprs.tar.xz",
+    "rev": "6aefcda9401be8acc2b74244fb3b37520ea1f0a8",
+    "narHash": "sha256-JLopN/XSodSsJIZ7v7tEjpPZ+QXc883s3HoUIxHD8Io="
+  },
   "noctalia": {
     "type": "github",
     "owner": "noctalia-dev",

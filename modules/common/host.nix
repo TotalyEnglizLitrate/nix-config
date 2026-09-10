@@ -7,7 +7,6 @@
   ...
 }: {
   imports = [
-    ../cloudflare-warp/host.nix
     ../nixos-cli/host.nix
     ../stylix/host.nix
     ../tailscale/host.nix
@@ -23,7 +22,7 @@
       allowUnfree = true;
       rocmSupport = config.cfg.host.gpu.amd;
     };
-    overlays = [outputs.overlays.anywayd] ++ lib.optional (config.cfg.host.fprint) outputs.overlays.pam-fprint-grosshack;
+    overlays = [outputs.overlays.anywayd outputs.overlays.stableOverlay] ++ lib.optional (config.cfg.host.fprint) outputs.overlays.pam-fprint-grosshack;
   };
 
   nix = {
@@ -141,6 +140,10 @@
     locate.enable = true;
     openssh.enable = true;
     ratbagd.enable = true;
+    cloudflare-warp = {
+      enable = true;
+      package = pkgs.stable.cloudflare-warp;
+    };
   };
 
   security = {
