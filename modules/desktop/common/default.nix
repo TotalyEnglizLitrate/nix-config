@@ -5,6 +5,7 @@
 }: {
   imports = [
     ./commands.nix
+    ./easyeffects.nix
     ./gtk.nix
     ./kanshi.nix
     ./packages.nix
