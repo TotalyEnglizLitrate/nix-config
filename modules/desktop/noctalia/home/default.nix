@@ -70,6 +70,22 @@ in {
           providers.session.global = true;
           show_app_actions = true;
         };
+
+        session.actions = [
+          { action = "lock"; shortcut = "1"; }
+          { action = "logout"; shortcut = "2"; }
+          { action = "lock_and_suspend"; shortcut = "3"; }
+          { action = "reboot"; shortcut = "4"; }
+          { action = "shutdown"; shortcut = "5"; variant = "destructive"; }
+          {
+            action = "command";
+            shortcut = "6";
+            command = "systemctl reboot --boot-loader-entry windows_Spyware.conf";
+            glyph = "brand-windows";
+            label = "Reboot to Windows";
+          }
+        ];
+
         greeter_sync = {
           auto_sync = true;
           privilege_command = "pkexec";
