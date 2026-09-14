@@ -262,8 +262,8 @@ in {
             blur_optimized = false;
             default_maximize = true;
           }
-
-        ] ++ map (rule: rule // {default_maximize = false;}) [
+        ]
+        ++ map (rule: rule // {default_maximize = false;}) [
           {
             match = {app_id = "^dev.noctalia.Noctalia$";};
             default_floating = true;
