@@ -4,7 +4,7 @@
   ...
 }: {
   imports = [inputs.noctalia-greetd.nixosModules.default];
-  programs.noctalia-greeter = {
+  services.displayManager.noctalia-greeter = {
     enable = true;
     settings = {
       appearance.scheme = "Synced";
