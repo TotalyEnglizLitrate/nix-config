@@ -53,6 +53,7 @@ in {
           top = 0;
           bottom = 0;
         };
+        background-color = "transparent";
       };
 
       spawn-sh-at-startup = [
@@ -206,6 +207,10 @@ in {
             xray = false;
           };
           opacity = 0.9;
+        }
+        {
+          match = [(match {namespace = "^noctalia-wallpaper";})];
+          place-within-backdrop = true;
         }
       ];
 
