@@ -11,7 +11,6 @@
 in {
   nixpkgs.overlays = [
     outputs.overlays.niri
-    outputs.overlays.noctalia
     outputs.overlays.helium
   ];
   imports = [

@@ -9,7 +9,7 @@
     ../common/host.nix
     inputs.mangowc.nixosModules.mango
   ];
-  nixpkgs.overlays = with outputs.overlays; [mango noctalia];
+  nixpkgs.overlays = [outputs.overlays.mango];
 
   xdg.portal.config.mango = lib.mkForce {
     default = ["gtk" "wlr"];

@@ -14,7 +14,6 @@
 in {
   nixpkgs.overlays = [
     outputs.overlays.umbriel
-    outputs.overlays.noctalia
     outputs.overlays.helium
   ];
 

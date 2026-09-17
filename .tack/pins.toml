@@ -43,9 +43,6 @@ url = "gh:schembriaiden/helium-browser-nix-flake"
 [inputs.niri-nix]
 url = "git+https://codeberg.org/BANanaD3V/niri-nix"
 
-[inputs.noctalia]
-url = "gh:noctalia-dev/noctalia/cachix"
-
 [inputs.noctalia-greetd]
 url = "gh:noctalia-dev/noctalia-greeter"
 

@@ -14,7 +14,6 @@ in {
   anywayd = final: _prev: {anywayd = inputs.anywayd.packages.${getSystem final}.default;};
   niri = inputs.niri-nix.overlays.niri-nix;
   mango = inputs.mangowc.overlays.default;
-  noctalia = inputs.noctalia.overlays.default;
   umbriel = final: _prev: let
     system = getSystem final;
   in {

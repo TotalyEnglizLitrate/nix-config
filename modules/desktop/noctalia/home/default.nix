@@ -30,12 +30,8 @@
       })
       statList);
 in {
-  imports = [
-    inputs.noctalia.homeModules.default
-    ./theme.nix
-  ];
+  imports = [./theme.nix];
 
-  nixpkgs.overlays = [outputs.overlays.noctalia];
 
   programs.noctalia = {
     package = pkgs.noctalia;

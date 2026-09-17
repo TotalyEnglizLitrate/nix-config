@@ -99,14 +99,6 @@
     "rev": "c3eea5b2156db11c7eeeada3dc737711255b253e",
     "narHash": "sha256-it+7kNGnOOHBCEnl4SfZ7QtfGziH3EryzHqwvJpjAfg="
   },
-  "noctalia": {
-    "type": "github",
-    "owner": "noctalia-dev",
-    "repo": "noctalia",
-    "rev": "e4eb0ff97743c1d07d0f5a0d5770b277b6485b03",
-    "narHash": "sha256-/Dy5P/7nCIss+uAhdF+8I59ww5WQUF4EBs1QJCB1aec=",
-    "lastModified": 1789436433
-  },
   "noctalia-greetd": {
     "type": "github",
     "owner": "noctalia-dev",
