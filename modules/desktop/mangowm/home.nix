@@ -9,10 +9,7 @@
   ipc = args: "${noctalia} msg ${lib.concatStringsSep " " args}";
   cmd = lib.concatStringsSep " ";
 in {
-  nixpkgs.overlays = [
-    outputs.overlays.mango
-    outputs.overlays.helium
-  ];
+  nixpkgs.overlays = [ outputs.overlays.mango ];
   imports = [../common];
 
   wayland.windowManager.mango.enable = true;

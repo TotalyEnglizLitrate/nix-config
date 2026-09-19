@@ -12,10 +12,7 @@
   spawn = cmd: "spawn:${lib.escapeShellArgs cmd}";
   shell = args: spawn (noctaliaIPC ++ args);
 in {
-  nixpkgs.overlays = [
-    outputs.overlays.umbriel
-    outputs.overlays.helium
-  ];
+  nixpkgs.overlays = [ outputs.overlays.umbriel ];
 
   imports = [
     ../../common

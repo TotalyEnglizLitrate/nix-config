@@ -22,4 +22,5 @@ in {
   };
   claude-code = inputs.claude-code.overlays.default;
   pam-fprint-grosshack = final: prev: {pam-fprint-grosshack = final.callPackage ./pkgs/pam_fprint_grosshack/package.nix {};};
+  seekey = final: prev: {seekey = final.callPackage ./pkgs/seekey/package.nix {};};
 }

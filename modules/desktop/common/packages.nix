@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{pkgs, outputs, ...}: {
+  nixpkgs.overlays = with outputs.overlays; [ helium seekey ];
   home.packages = with pkgs; [
     ani-cli
     arrpc
@@ -19,6 +20,7 @@
     qpwgraph
     remmina
     seahorse
+    seekey
     syncplay
     vlc
     wl-clipboard
