@@ -20,7 +20,8 @@
       dockerCompat = true;
       dockerSocket.enable = true;
       defaultNetwork.settings.dns_enabled = true;
-      extraPackages = [pkgs.podman-compose];
+      package = pkgs.stable.podman;
+      extraPackages = [pkgs.stable.podman-compose];
     };
   };
 
