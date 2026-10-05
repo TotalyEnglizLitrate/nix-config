@@ -1,7 +1,7 @@
 {outputs, ...}: let
   scripts = ./../../files/scripts;
 in {
-  nixpkgs.overlays = [ outputs.overlays.niri ];
+  nixpkgs.overlays = [outputs.overlays.niri];
 
   home.file = {
     ".local/bin" = {

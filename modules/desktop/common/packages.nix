@@ -1,5 +1,9 @@
-{pkgs, outputs, ...}: {
-  nixpkgs.overlays = with outputs.overlays; [ helium seekey ];
+{
+  pkgs,
+  outputs,
+  ...
+}: {
+  nixpkgs.overlays = with outputs.overlays; [helium seekey];
   home.packages = with pkgs; [
     ani-cli
     arrpc

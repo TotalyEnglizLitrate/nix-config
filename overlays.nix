@@ -1,7 +1,8 @@
 {inputs, ...}: let
   getSystem = final: final.stdenv.hostPlatform.system;
 in {
-  stableOverlay = final: _prev: {stable = import inputs.nixpkgs-stable {
+  stableOverlay = final: _prev: {
+    stable = import inputs.nixpkgs-stable {
       system = getSystem final;
       config.allowUnfree = true;
     };

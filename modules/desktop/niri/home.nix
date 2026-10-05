@@ -9,7 +9,7 @@
   noctalia = lib.getExe pkgs.noctalia;
   noctaliaIPC = [noctalia "msg"];
 in {
-  nixpkgs.overlays = [ outputs.overlays.niri ];
+  nixpkgs.overlays = [outputs.overlays.niri];
   imports = [
     ../common
     inputs.niri-nix.homeModules.default

@@ -32,7 +32,6 @@
 in {
   imports = [./theme.nix];
 
-
   programs.noctalia = {
     package = pkgs.noctalia;
     enable = true;
@@ -68,11 +67,27 @@ in {
         };
 
         session.actions = [
-          { action = "lock"; shortcut = "1"; }
-          { action = "logout"; shortcut = "2"; }
-          { action = "lock_and_suspend"; shortcut = "3"; }
-          { action = "reboot"; shortcut = "4"; }
-          { action = "shutdown"; shortcut = "5"; variant = "destructive"; }
+          {
+            action = "lock";
+            shortcut = "1";
+          }
+          {
+            action = "logout";
+            shortcut = "2";
+          }
+          {
+            action = "lock_and_suspend";
+            shortcut = "3";
+          }
+          {
+            action = "reboot";
+            shortcut = "4";
+          }
+          {
+            action = "shutdown";
+            shortcut = "5";
+            variant = "destructive";
+          }
           {
             action = "command";
             shortcut = "6";
