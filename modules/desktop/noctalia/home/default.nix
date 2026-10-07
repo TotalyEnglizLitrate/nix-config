@@ -196,6 +196,11 @@ in {
         }
         // (mkSysMonWidget sysmon) // (mkNetworkWidget network);
 
+      lockscreen = {
+        transition = ["disc" "zoom"];
+        transition_duration = 750;
+      };
+
       lockscreen_widgets = {
         enabled = true;
         schema_version = 2;
