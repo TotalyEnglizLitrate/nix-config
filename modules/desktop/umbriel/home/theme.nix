@@ -1,6 +1,5 @@
 {
   config,
-  lib,
   ...
 }: {
   programs.umbriel.settings = let
