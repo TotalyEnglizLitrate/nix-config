@@ -274,6 +274,7 @@ in {
       wallpaper = let
         wallpaperDir = "${config.home.homeDirectory}/Pictures/Wallpapers";
       in {
+        automation.recursive = true;
         directory = wallpaperDir;
         default.path = "${wallpaperDir}/default.png";
       };
