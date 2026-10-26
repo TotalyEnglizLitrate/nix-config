@@ -67,18 +67,8 @@ url = "gh:GunduLabs/gaze"
 [inputs.nixcu]
 url = "gh:TotalyEnglizLitrate/nixcu"
 
-[inputs.mangowc]
-url = "gh:mangowm/mango"
-
 [inputs.ncr]
 url = "gh:greyxp1/ncr"
-
-[inputs.umbriel]
-url = "gh:noctalia-dev/umbriel"
-submodules = true
-
-[inputs.umbriel-desktop-portal]
-url = "gh:noctalia-dev/xdg-desktop-portal-umbriel"
 
 [inputs.anywayd]
 url = "gh:TotalyEnglizLitrate/anywayd"

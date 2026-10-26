@@ -43,7 +43,6 @@
               sharedModules = [
                 ./hosts/common.nix
                 ./modules/desktop/common/commands.nix
-                inputs.mangowc.hmModules.mango
                 hostProfile
                 {
                   cfg = {
@@ -74,7 +73,6 @@
           inputs.stylix.homeModules.stylix
           ./modules/stylix/host.nix
           ./modules/desktop/common/commands.nix
-          inputs.mangowc.hmModules.mango
           hostProfile
           {
             cfg = {

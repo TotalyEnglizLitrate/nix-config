@@ -14,13 +14,6 @@ in {
   ncr = final: _prev: {ncr = inputs.ncr.packages.${getSystem final}.default;};
   anywayd = final: _prev: {anywayd = inputs.anywayd.packages.${getSystem final}.default;};
   niri = inputs.niri-nix.overlays.niri-nix;
-  mango = inputs.mangowc.overlays.default;
-  umbriel = final: _prev: let
-    system = getSystem final;
-  in {
-    umbriel = inputs.umbriel.packages.${system}.default;
-    umbriel-desktop-portal = inputs.umbriel-desktop-portal.packages.${system}.default;
-  };
   claude-code = inputs.claude-code.overlays.default;
   pam-fprint-grosshack = final: prev: {pam-fprint-grosshack = final.callPackage ./pkgs/pam_fprint_grosshack/package.nix {};};
   seekey = final: prev: {seekey = final.callPackage ./pkgs/seekey/package.nix {};};

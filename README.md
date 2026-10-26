@@ -179,7 +179,7 @@ This is the preferred pattern over `lib.mkIf` scattered through `hosts/<hostname
 
 ## Overlays
 
-`overlays.nix` returns an attrset of overlay functions (kernel pin, `spotify`, `nvim`, `helium`, `nixcu`, and passthroughs for `niri`, `mango`, `noctalia`, `claude-code` from their respective flake inputs), exposed as `outputs.overlays.<name>`. 
+`overlays.nix` returns an attrset of overlay functions (kernel pin, `spotify`, `nvim`, `helium`, `nixcu`, and passthroughs for `niri`, `noctalia`, `claude-code` from their respective flake inputs), exposed as `outputs.overlays.<name>`. 
 
 Reference them from a NixOS module with `nixpkgs.overlays = [ outputs.overlays.kernelOverlay ];`. For the NixOS-integrated HM case, HM inherits the system `pkgs` automatically. For standalone `mkHomeConfiguration` builds, apply the same `config.allowUnfree`/overlay list to the `pkgs` it constructs if a home profile needs a package from one of these overlays.
 
