@@ -11,7 +11,6 @@
     ../stylix/host.nix
     ../tailscale/host.nix
     ../wireshark/host.nix
-    ../llama/host.nix
     ../urx/host.nix
     inputs.gaze.nixosModules.default
     inputs.anywayd.nixosModules.default
@@ -58,11 +57,6 @@
     extraModprobeConfig = ''
       options v4l2loopback exclusive_caps=1 card_label="Virtual Camera"
     '';
-
-    initrd = {
-      systemd.network.wait-online.enable = false;
-      verbose = false;
-    };
 
     loader = {
       systemd-boot = {
