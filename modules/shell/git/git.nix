@@ -76,6 +76,7 @@ in {
 
       settings = {
         git = {
+          overrideGpg = true;
           diffRenderers = [
             {command = "delta --color-only --dark --paging=never";}
           ];
