@@ -12,6 +12,7 @@
     ./spotify.nix
     ./terminal.nix
     ./xdg.nix
+    ./zed.nix
     ../noctalia/home
   ];
 
