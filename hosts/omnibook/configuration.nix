@@ -5,6 +5,7 @@
     ./profile.nix
     ../../modules/common/host.nix
     ../../modules/desktop/niri/host.nix
+    ../../modules/llama/host.nix
     ../../modules/mute-led-daemon/host.nix
     ../../modules/docker/host.nix
     ../../modules/qemu/host.nix
