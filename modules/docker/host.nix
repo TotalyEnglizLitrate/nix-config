@@ -24,7 +24,7 @@
       extraPackages = [pkgs.stable.podman-compose];
     };
 
-    containers.registries.settings.registries.search = {registries = ["docker.io"];};
+    containers.registries.settings.unqualified-search-registries = ["docker.io"];
   };
 
   users.users.${config.cfg.user.name}.extraGroups = ["podman"];
