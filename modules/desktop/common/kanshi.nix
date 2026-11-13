@@ -17,6 +17,23 @@ _: {
           }
         ];
       }
+
+      {
+        profile.name = "extend-dp1-right";
+        profile.outputs = [
+          {
+            criteria = "DP-1";
+            status = "enable";
+            position = "2240,0";
+          }
+          {
+            criteria = "eDP-1";
+            status = "enable";
+            position = "0,0";
+          }
+        ];
+      }
+
       {
         profile.name = "docked-dp2";
         profile.outputs = [
@@ -31,6 +48,23 @@ _: {
           }
         ];
       }
+
+      {
+        profile.name = "extend-dp2-right";
+        profile.outputs = [
+          {
+            criteria = "DP-2";
+            status = "enable";
+            position = "2240,0";
+          }
+          {
+            criteria = "eDP-1";
+            status = "enable";
+            position = "0,0";
+          }
+        ];
+      }
+
       {
         profile.name = "docked-dp3";
         profile.outputs = [
@@ -47,11 +81,28 @@ _: {
       }
 
       {
+        profile.name = "extend-dp3-right";
+        profile.outputs = [
+          {
+            criteria = "DP-2";
+            status = "enable";
+            position = "2240,0";
+          }
+          {
+            criteria = "eDP-1";
+            status = "enable";
+            position = "0,0";
+          }
+        ];
+      }
+
+      {
         profile.name = "undocked";
         profile.outputs = [
           {
             criteria = "eDP-1";
             status = "enable";
+            transform = "normal";
           }
         ];
       }
@@ -66,6 +117,7 @@ _: {
           }
         ];
       }
+
     ];
   };
 }
