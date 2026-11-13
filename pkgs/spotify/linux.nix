@@ -121,7 +121,7 @@ in
     # If an update breaks things, one of those might have valuable info:
     # https://aur.archlinux.org/packages/spotify/
     # https://community.spotify.com/t5/Desktop-Linux
-    version = "1.2.96.518.g366879e1";
+    version = "1.3.8.620.g39b276d5d7ac";
 
     # To get the latest stable revision:
     # curl -H 'X-Ubuntu-Series: 16' 'https://api.snapcraft.io/api/v1/snaps/details/spotify?channel=stable' | jq '.download_url,.version,.last_updated'
@@ -129,7 +129,7 @@ in
     # curl -H 'Snap-Device-Series: 16' 'https://api.snapcraft.io/v2/snaps/info/spotify' | jq '.'
     # More examples of api usage:
     # https://github.com/canonical-websites/snapcraft.io/blob/master/webapp/publisher/snaps/views.py
-    rev = "101";
+    rev = "103";
 
     # fetch from snapcraft instead of the debian repository most repos fetch from.
     # That is a bit more cumbersome. But the debian repository only keeps the last
@@ -142,7 +142,7 @@ in
     src = fetchurl {
       name = "spotify-${finalAttrs.version}-${finalAttrs.rev}.snap";
       url = "https://api.snapcraft.io/api/v1/snaps/download/pOBIoZ2LrCB3rDohMxoYGnbN14EHOgD7_${finalAttrs.rev}.snap";
-      hash = "sha512-Ew95vetXqhP8s4wIaoiTc/EI8vN/xrILRXTbKMA0UY04Ehh6CZYwxzw+qYS/iY3+IKGeSusrOJ6eLv2a1DK4qw==";
+      hash = "sha512-fRP0BDzHkW3Zc1D+MIMP8AnHjy2rAeI1rSpObWyv3mOFlg3vyjNFFVJSOXxn/MVvg5OOgZYUrCttbRR5zTXJkA==";
     };
 
     nativeBuildInputs = [
