@@ -7,6 +7,14 @@
     "narHash": "sha256-5SbhfOkNMQHD4qz3g6KRWbcMGC39OaGcWlIWWTnZN8A=",
     "lastModified": 1793681577
   },
+  "bootvine": {
+    "type": "git",
+    "url": "https://codeberg.org/wvhulle/bootvine",
+    "ref": "HEAD",
+    "rev": "b13a132a95c8792756d64853c490787f0ae08d5f",
+    "narHash": "sha256-maMtdOgjIRWUpsNEPvmhmR0iHPAGy45IMUjBKImYZFU=",
+    "lastModified": 1794668284
+  },
   "claude-code": {
     "type": "github",
     "owner": "sadjow",

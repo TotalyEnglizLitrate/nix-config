@@ -14,6 +14,7 @@
     ../urx/host.nix
     inputs.gaze.nixosModules.default
     inputs.anywayd.nixosModules.default
+    inputs.bootvine.nixosModules.default
   ];
 
   nixpkgs = {
@@ -135,6 +136,7 @@
       enable = true;
       package = pkgs.stable.cloudflare-warp;
     };
+    bootvine.enable = true;
   };
 
   security = {
