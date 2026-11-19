@@ -81,7 +81,10 @@
     hostName = config.cfg.host.hostname;
   };
 
-  systemd.network.wait-online.enable = false;
+  systemd = {
+    network.wait-online.enable = false;
+    services.NetworkManager-wait-online.enable = false;
+  };
 
   time.timeZone = "Asia/Kolkata";
 
