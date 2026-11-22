@@ -9,6 +9,7 @@
   imports = [
     ../nixos-cli/host.nix
     ../stylix/host.nix
+    ../agenix/host.nix
     ../tailscale/host.nix
     ../wireshark/host.nix
     ../urx/host.nix
@@ -159,6 +160,9 @@
         };
       });
   };
+
+  # passwords come from the config (agenix), not imperative `passwd`
+  users.mutableUsers = false;
 
   users.users.${config.cfg.user.name} = let
     inherit (config.cfg.user) password shell;
