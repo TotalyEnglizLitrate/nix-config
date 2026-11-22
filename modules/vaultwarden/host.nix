@@ -55,6 +55,9 @@ in {
     # a cert for this one hostname only, so the key here can't impersonate
     # the other subdomains deployed elsewhere
     certs.${vaultHost} = {
+      # check challenge propagation via a public resolver; Oracle's VCN resolver
+      # caches the NXDOMAIN from before the TXT record exists
+      dnsResolver = "1.1.1.1:53";
       dnsProvider = "cloudflare";
       credentialFiles = lib.optionalAttrs (has "cloudflare-dns-token") {
         CLOUDFLARE_DNS_API_TOKEN_FILE = config.age.secrets.cloudflare-dns-token.path;
