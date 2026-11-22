@@ -61,6 +61,11 @@
     allowedTCPPorts = [22];
   };
 
+  # terminfo for whatever terminal you ssh in from (xterm-ghostty, kitty, ...)
+  environment.enableAllTerminfo = true;
+  # nixos-cli is set to use nom for builds
+  environment.systemPackages = [pkgs.nix-output-monitor];
+
   # keep the closure small
   documentation.enable = false;
   environment.defaultPackages = [];

@@ -15,8 +15,6 @@ in {
       show_startup_tips = false;
       show_release_notes = false;
       ui.pane_frames.rounded_corners = false;
-      theme = "default";
-      theme_dir = "${config.home.homeDirectory}/.config/zellij/themes";
       keybinds = {
         normal = makeBindings {
           "Ctrl Shift h" = {
@@ -44,6 +42,11 @@ in {
           };
         };
       };
+    }
+    # the themes dir only exists where stylix generates it (not on the server)
+    // lib.optionalAttrs (config.stylix.enable or false) {
+      theme = "default";
+      theme_dir = "${config.home.homeDirectory}/.config/zellij/themes";
     };
   };
 }
