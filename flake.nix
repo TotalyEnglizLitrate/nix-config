@@ -31,6 +31,7 @@
         modules = [
           ./hosts/${hostname}/configuration.nix
           ./hosts/common.nix
+          ./modules/nixos-cli/host.nix
           inputs.home-manager.nixosModules.home-manager
           inputs.stylix.nixosModules.stylix
           {

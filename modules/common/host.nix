@@ -7,7 +7,6 @@
   ...
 }: {
   imports = [
-    ../nixos-cli/host.nix
     ../stylix/host.nix
     ../agenix/host.nix
     ../tailscale/host.nix
