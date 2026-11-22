@@ -128,6 +128,12 @@
         default = false;
         description = "Enables laptop-specific config (lid events, touchpad, backlight etc.)";
       };
+
+      userSshKeys = lib.mkOption {
+        type = lib.types.listOf lib.types.str;
+        default = ["ssh-git" "ssh-oracle"];
+        description = "Which agenix ssh private keys (secrets/<user>-<name>.age) to install into ~/.ssh on this host";
+      };
     };
   };
 in {

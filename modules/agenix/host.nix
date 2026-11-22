@@ -26,7 +26,7 @@ in {
     })
     # secret name suffix -> file name under ~/.ssh
     (lib.mkMerge (lib.mapAttrsToList (suffix: file:
-      lib.mkIf (has "${user}-${suffix}") {
+      lib.mkIf (has "${user}-${suffix}" && builtins.elem suffix config.cfg.host.userSshKeys) {
         "${user}-${suffix}" = {
           file = secretsDir + "/${user}-${suffix}.age";
           path = "/home/${user}/.ssh/${file}";

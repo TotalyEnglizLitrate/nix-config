@@ -87,6 +87,7 @@
     nixosConfigurations = {
       omnibook = mkNixosConfiguration "omnibook" "engliz";
       wanderer = mkNixosConfiguration "wanderer" "engliz";
+      oracle = mkNixosConfiguration "oracle" "engliz";
       vm = mkNixosConfiguration "vm" "user";
     };
 
