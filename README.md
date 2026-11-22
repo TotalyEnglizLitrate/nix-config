@@ -45,7 +45,7 @@ same `hosts/`, `modules/`, and `home/` trees:
 
 ## Adding a new host with HM as a NixOS module
 
-This is what `latitude5491`, `omnibook`, `wanderer` all do.
+This is what `omnibook`, `wanderer` all do.
 
 1. **Generate hardware config.**
    ```bash
@@ -85,7 +85,7 @@ This is what `latitude5491`, `omnibook`, `wanderer` all do.
      system.stateVersion = "24.11";
    }
    ```
-   Only import the *feature* `host.nix` modules this machine actually wants (desktop environment, dual-function-keys, docker, zram etc., see `modules/` for the full list). `modules/common/host.nix` is the one baseline every host imports.
+   Only import the *feature* `host.nix` modules this machine actually wants (desktop environment, docker, zram etc., see `modules/` for the full list). `modules/common/host.nix` is the one baseline every host imports.
 
 4. **Write `home/<username>/myhost.nix`**: the HM entrypoint for this (user, host) pair:
    ```nix
