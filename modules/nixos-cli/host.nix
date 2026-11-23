@@ -25,12 +25,15 @@ in {
       differ = {
         tool = "command";
         command = [
-          "${pkgs.nvd}/bin/nvd"
+          "nvd"
           "diff"
         ];
       };
     };
   };
+
+  # the differ looks nvd up on PATH, so it also resolves on remote hosts
+  environment.systemPackages = [pkgs.nvd];
 
   environment.variables = {
     NIXOS_CONFIG_DIR = nixos_config_dir;
