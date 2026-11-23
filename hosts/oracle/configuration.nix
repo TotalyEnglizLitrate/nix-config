@@ -3,6 +3,7 @@
     ./hardware-configuration.nix
     ./profile.nix
     ../../modules/server/host.nix
+    ../../modules/stylix/server.nix
     ../../modules/vaultwarden/host.nix
   ];
 
