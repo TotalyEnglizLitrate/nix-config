@@ -1,4 +1,5 @@
-# Used only by the `agenix` CLI (not imported by the flake).
+# Recipient rules, used only by the `agenix` CLI (not imported by the flake).
+# Named agenix-rules.nix: the old secrets.nix name is deprecated.
 # Create/edit a secret from this directory:  agenix -e engliz-password.age
 # Re-key after changing recipients:          agenix -r
 let

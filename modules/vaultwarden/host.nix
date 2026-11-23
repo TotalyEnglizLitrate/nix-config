@@ -1,7 +1,7 @@
 # vaultwarden behind nginx, TLS from a Cloudflare DNS-01 cert.
 # Cloudflare records are orange-cloud (proxied); set SSL/TLS mode to "Full (strict)".
 #
-# Needs two agenix secrets (see secrets/secrets.nix):
+# Needs two agenix secrets (see secrets/agenix-rules.nix):
 #   cloudflare-dns-token.age   just the bare API token (Zone:DNS:Edit on the zone)
 #   vaultwarden-env.age        (optional) ADMIN_TOKEN='<argon2 hash from `vaultwarden hash`>'
 {

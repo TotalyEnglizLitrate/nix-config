@@ -19,7 +19,7 @@ in {
   age.identityPaths = ["/var/lib/agenix/key"];
 
   # secrets are only declared once the encrypted file exists, so this
-  # module is inert until you run `agenix -e` (see secrets/secrets.nix)
+  # module is inert until you run `agenix -e` (see secrets/agenix-rules.nix)
   age.secrets = lib.mkMerge [
     (lib.mkIf (has "${user}-password") {
       "${user}-password".file = secretsDir + "/${user}-password.age";
