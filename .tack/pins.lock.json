@@ -89,11 +89,11 @@
   },
   "nixos-cli": {
     "type": "github",
-    "owner": "nix-community",
+    "owner": "TotalyEnglizLitrate",
     "repo": "nixos-cli",
-    "rev": "b17047e43eb19a76e2ea5a2f09d558d3b4b3c816",
-    "narHash": "sha256-4T5rGN79nrfOoDG6r4k3jEFmVy2PT1M30sEW+Oc7TU0=",
-    "lastModified": 1785660397
+    "rev": "c62ab9b18ea8f2972236b0cb40f6355c58380248",
+    "narHash": "sha256-cNnkPgSNTGBwlVhlF0KOpXYVecPmujsdTy8OIzOIf/M=",
+    "lastModified": 1795421209
   },
   "nixpkgs": {
     "type": "tarball",

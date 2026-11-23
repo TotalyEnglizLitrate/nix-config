@@ -47,7 +47,7 @@ url = "git+https://codeberg.org/BANanaD3V/niri-nix"
 url = "gh:noctalia-dev/noctalia-greeter"
 
 [inputs.nixos-cli]
-url = "gh:nix-community/nixos-cli"
+url = "gh:TotalyEnglizLitrate/nixos-cli/skip-unsupported-known-hosts"
 
 [inputs.nvim]
 url = "path:./pkgs/nvim-nixcats"
