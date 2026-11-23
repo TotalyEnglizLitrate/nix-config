@@ -24,6 +24,7 @@ modules/
   <feature>/
     host.nix                 - NixOS side of a feature (e.g. modules/desktop/niri/host.nix)
     home.nix                 - HM side of the same feature
+secrets/                     - age-encrypted secrets (*.age) and the agenix recipient rules (see Secrets)
 overlays.nix                 - nixpkgs overlays, exposed as outputs.overlays.*
 .tack/                       - input pinning (see .tack/pins.toml), produces `inputs`
 ```
@@ -182,6 +183,58 @@ This is the preferred pattern over `lib.mkIf` scattered through `hosts/<hostname
 `overlays.nix` returns an attrset of overlay functions (kernel pin, `spotify`, `nvim`, `helium`, `nixcu`, and passthroughs for `niri`, `noctalia`, `claude-code` from their respective flake inputs), exposed as `outputs.overlays.<name>`. 
 
 Reference them from a NixOS module with `nixpkgs.overlays = [ outputs.overlays.kernelOverlay ];`. For the NixOS-integrated HM case, HM inherits the system `pkgs` automatically. For standalone `mkHomeConfiguration` builds, apply the same `config.allowUnfree`/overlay list to the `pkgs` it constructs if a home profile needs a package from one of these overlays.
+
+## Secrets
+
+Secrets are encrypted with [agenix](https://github.com/ryantm/agenix) and live in `secrets/` as `*.age` files, committed to the repo. `modules/agenix/host.nix` (pulled in by `modules/common/host.nix` and `modules/server/host.nix`) decrypts them at activation time.
+
+| Secret | Used for |
+|---|---|
+| `engliz-password.age` | hashed login password (`hashedPasswordFile`) |
+| `engliz-ssh-git.age` | private key installed at `~/.ssh/git` |
+| `engliz-ssh-oracle.age` | private key installed at `~/.ssh/ssh-key-oracle` |
+| `cloudflare-dns-token.age` | bare Cloudflare API token (Zone:DNS:Edit) for ACME DNS-01 |
+| `vaultwarden-env.age` | `ADMIN_TOKEN='<argon2 hash>'`, optional |
+
+### Keys
+
+Each file is encrypted to two recipients, listed in `secrets/agenix-rules.nix`:
+
+- **your personal ssh key**: what you use to edit and rekey secrets.
+- **a shared machine key**: one passphrase-less key, whose private half is copied to `/var/lib/agenix/key` on every host (`age.identityPaths`). Hosts decrypt with this, not their host keys.
+
+Install the machine key on a new host before its first switch, otherwise activation can't decrypt anything:
+
+```bash
+sudo install -d -m 700 /var/lib/agenix
+sudo install -m 600 <private key> /var/lib/agenix/key
+```
+
+### Creating and editing
+
+Run the `agenix` CLI from `secrets/` (it's on every host's `PATH`). It reads the recipients from `agenix-rules.nix` in the current directory; the older `secrets.nix` name is deprecated.
+
+```bash
+cd secrets
+agenix -e engliz-password.age   # create or edit, opens $EDITOR
+agenix -r                       # re-encrypt everything after changing recipients
+agenix -c                       # check files are encrypted to the current recipients
+```
+
+To add a secret:
+
+1. Add `"<name>.age".publicKeys = recipients;` to `secrets/agenix-rules.nix`.
+2. `agenix -e <name>.age`, then `git add` it. Flakes only see tracked files.
+3. Declare it in the module that uses it. See `modules/vaultwarden/host.nix` for the pattern: `age.secrets.<name>.file = ../../secrets/<name>.age;` and point the service at `config.age.secrets.<name>.path`.
+
+Generate the password hash with `mkpasswd -m yescrypt`.
+
+### How hosts use them
+
+- A secret is only declared if its `.age` file exists (`has` in `modules/agenix/host.nix`). A fresh clone without the secrets still evaluates; the modules just stay inert.
+- Which ssh private keys get installed is per host, via `cfg.host.userSshKeys` in `hosts/<host>/profile.nix`. It defaults to both keys; `oracle` sets it to `[]` so the public server never holds a private key.
+- `modules/vaultwarden/host.nix` asserts that `cloudflare-dns-token.age` exists, since the TLS cert can't be issued without it.
+- Changing recipients means `agenix -r` and committing the re-encrypted files.
 
 ## Inputs
 
