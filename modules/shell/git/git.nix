@@ -49,12 +49,13 @@ in {
         };
         advice.defaultBranchName = false;
 
-        url = {
+        # only rewrite to ssh where a key exists to use it (not on the server)
+        url = lib.mkIf (config.cfg.host.userSshKeys != []) {
           "git@codeberg.org:" = {
             insteadOf = "https://codeberg.org/";
           };
           "git@github.com:" = {
-            insteadOf = "https://github.com";
+            insteadOf = "https://github.com/";
           };
         };
       };
