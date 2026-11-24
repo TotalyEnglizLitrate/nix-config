@@ -37,6 +37,16 @@ in {
       ssh-git = "git";
       ssh-oracle = "ssh-key-oracle";
     }))
+    # ssh config snippets (host aliases with the real IP kept out of the repo)
+    (lib.mkMerge (map (name:
+      lib.mkIf (has name) {
+        ${name} = {
+          file = secretsDir + "/${name}.age";
+          owner = user;
+          mode = "0400";
+        };
+      })
+    config.cfg.host.sshConfigSecrets))
   ];
 
   # generate the hash with: mkpasswd -m yescrypt

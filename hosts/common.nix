@@ -129,6 +129,12 @@
         description = "Enables laptop-specific config (lid events, touchpad, backlight etc.)";
       };
 
+      sshConfigSecrets = lib.mkOption {
+        type = lib.types.listOf lib.types.str;
+        default = ["oracle-ssh"];
+        description = "agenix secrets (secrets/<name>.age) holding ssh config snippets, decrypted to /run/agenix/<name> and included by ~/.ssh/config";
+      };
+
       userSshKeys = lib.mkOption {
         type = lib.types.listOf lib.types.str;
         default = ["ssh-git" "ssh-oracle"];

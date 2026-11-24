@@ -57,6 +57,8 @@
     laptop = false;
 
     displays = {};
+
+    sshConfigSecrets = [];
   };
 
   system.stateVersion = "24.11";
