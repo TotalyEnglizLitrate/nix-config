@@ -35,12 +35,27 @@
   };
   programs.${config.cfg.user.shell}.enable = true;
 
+  # passwordless sudo only while ssh'd in with an agent forwarded (`ssh -A`/ForwardAgent):
+  # pam_ssh_agent_auth checks the forwarded agent for a key listed in loginKeys.
+  # With no agent it falls through to the normal password prompt.
+  security = {
+    sudo.wheelNeedsPassword = true;
+    pam = {
+      sshAgentAuth = {
+        enable = true;
+        authorizedKeysFiles = ["/etc/ssh/authorized_keys.d/%u"];
+      };
+      services.sudo.sshAgentAuth = true;
+    };
+  };
+
   services.openssh = {
     enable = true;
     settings = {
       PasswordAuthentication = false;
       KbdInteractiveAuthentication = false;
       PermitRootLogin = "no";
+      AllowAgentForwarding = true;
     };
   };
 
