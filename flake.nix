@@ -13,6 +13,10 @@
           "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKtlDkVL/0TH2zsD+nSawpwChiXH9QYkDXXxtaNtji5g"
           "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFRbsrBxvy3bBKMzRZkYvbSld4PHlr6tDzipcy0On6XX"
         ];
+        # ssh login keys on servers; deliberately separate from the git signing keys
+        loginKeys = [
+          "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAd6T2l8xz5D6zSajoGPrtg8PzU4hq/1y4Vw4UVThRIY"
+        ];
       };
 
       user = {

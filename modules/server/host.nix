@@ -31,8 +31,7 @@
     isNormalUser = true;
     extraGroups = ["wheel"];
     shell = pkgs.${config.cfg.user.shell};
-    # the same keys that sign git commits are the ssh login keys
-    openssh.authorizedKeys.keys = config.cfg.user.signingKeys;
+    openssh.authorizedKeys.keys = config.cfg.user.loginKeys;
   };
   programs.${config.cfg.user.shell}.enable = true;
 

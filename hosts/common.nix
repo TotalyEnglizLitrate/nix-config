@@ -21,6 +21,11 @@
         type = lib.types.listOf lib.types.str;
         default = [];
       };
+      loginKeys = lib.mkOption {
+        type = lib.types.listOf lib.types.str;
+        default = [];
+        description = "public keys allowed to ssh into servers as this user (not the git signing keys)";
+      };
       shell = lib.mkOption {
         type = lib.types.str;
         default = "fish";
