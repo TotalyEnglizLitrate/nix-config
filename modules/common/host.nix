@@ -145,7 +145,7 @@
   # host key of the oracle server, keyed by alias (HostKeyAlias in the oracle-ssh secret)
   programs.ssh.knownHosts.oracle = {
     hostNames = ["oracle"];
-    publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGJizg1Xb5ibo78KAtGjw0NmDiM4PyMa8Npzk/Py7BO2";
+    publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJ+Ilse5NoNnwzgs8zGHpvH20j+doKH71qORBVmSeibv";
   };
 
   security = {
