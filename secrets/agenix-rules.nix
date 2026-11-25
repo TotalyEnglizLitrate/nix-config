@@ -21,6 +21,8 @@ in {
   "engliz-ssh-oracle.age".publicKeys = recipients;
   # bare Cloudflare API token (Zone:DNS:Edit, scoped to the zone)
   "cloudflare-dns-token.age".publicKeys = recipients;
+  # ssh config snippet included by ~/.ssh/config (Host oracle: HostName, User, IdentityFile, HostKeyAlias oracle)
+  "oracle-ssh.age".publicKeys = recipients;
   # ADMIN_TOKEN='<argon2 hash>'  (optional, enables the vaultwarden admin page)
   "vaultwarden-env.age".publicKeys = recipients;
 }
