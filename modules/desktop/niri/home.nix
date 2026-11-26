@@ -223,6 +223,7 @@ in {
           "Mod+N".spawn = shell ["panel-toggle" "control-center" "notifications"];
           "Mod+S".spawn = ["spotify"];
           "Mod+R".spawn = shell ["panel-toggle" "launcher"];
+          "Mod".release.spawn = shell ["panel-toggle" "launcher"];
           "Mod+V".spawn = shell ["panel-toggle" "clipboard"];
           "Mod+A".spawn = shell ["panel-toggle" "control-center"];
           "Mod+Shift+V".spawn = shell ["panel-toggle" "control-center" "audio"];
