@@ -20,7 +20,7 @@
 
   # temporary public sign-up page at https://jellyfin.engliz.dev/signup.
   # flip to true and push to open it, back to false once everyone has joined
-  custom.jellyfin.signup.enable = false;
+  custom.jellyfin.signup.enable = true;
 
   # Oracle Ampere A1 (4 OCPU / 24 GB)
   nixpkgs.hostPlatform = lib.mkDefault "aarch64-linux";
