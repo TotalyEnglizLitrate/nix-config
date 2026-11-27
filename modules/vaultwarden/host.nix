@@ -16,6 +16,7 @@
   secretsDir = ../../secrets;
   has = name: builtins.pathExists (secretsDir + "/${name}.age");
 in {
+  imports = [../nginx/host.nix];
   assertions = [
     {
       assertion = has "cloudflare-dns-token";
@@ -66,31 +67,12 @@ in {
     };
   };
 
-  services.nginx = {
-    enable = true;
-    recommendedProxySettings = true;
-    recommendedTlsSettings = true;
-    recommendedGzipSettings = true;
-    recommendedOptimisation = true;
-
-    virtualHosts = {
-      ${vaultHost} = {
-        useACMEHost = vaultHost;
-        forceSSL = true;
-        locations."/" = {
-          proxyPass = "http://127.0.0.1:${toString port}";
-          proxyWebsockets = true;
-        };
-      };
-
-      # anything that isn't a known hostname is dropped
-      "_" = {
-        default = true;
-        rejectSSL = true;
-        locations."/".return = "444";
-      };
+  services.nginx.virtualHosts.${vaultHost} = {
+    useACMEHost = vaultHost;
+    forceSSL = true;
+    locations."/" = {
+      proxyPass = "http://127.0.0.1:${toString port}";
+      proxyWebsockets = true;
     };
   };
-
-  networking.firewall.allowedTCPPorts = [80 443];
 }

@@ -25,4 +25,9 @@ in {
   "oracle-ssh.age".publicKeys = recipients;
   # ADMIN_TOKEN='<argon2 hash>'  (optional, enables the vaultwarden admin page)
   "vaultwarden-env.age".publicKeys = recipients;
+  # JELLYFIN_API_KEY=<admin API key> and INVITE_CODE=<shared passphrase>; only read while
+  # custom.jellyfin.signup.enable is true
+  "jellyfin-signup-env.age".publicKeys = recipients;
+  # rclone `[r2]` config section (S3 keys + endpoint) for the jellyfin bucket
+  "r2-jellyfin-rclone.age".publicKeys = recipients;
 }

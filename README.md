@@ -195,6 +195,9 @@ Secrets are encrypted with [agenix](https://github.com/ryantm/agenix) and live i
 | `engliz-ssh-oracle.age` | private key installed at `~/.ssh/ssh-key-oracle` |
 | `cloudflare-dns-token.age` | bare Cloudflare API token (Zone:DNS:Edit) for ACME DNS-01 |
 | `vaultwarden-env.age` | `ADMIN_TOKEN='<argon2 hash>'`, optional |
+| `r2-media-rclone.age` | rclone `[r2]` section (R2 keys + endpoint) for the media bucket |
+| `jellyfin-signup-env.age` | `JELLYFIN_API_KEY=...` and `INVITE_CODE=...`; only read while `custom.jellyfin.signup.enable = true` |
+| `jellyfin-signup-env.age` | `JELLYFIN_API_KEY=...` and `INVITE_CODE=...`, only read while `custom.jellyfin.signup.enable = true` |
 
 ### Keys
 

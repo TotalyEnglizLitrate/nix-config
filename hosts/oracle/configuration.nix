@@ -6,7 +6,21 @@
     ../../modules/server/auto-upgrade.nix
     ../../modules/stylix/server.nix
     ../../modules/vaultwarden/host.nix
+    ../../modules/jellyfin/host.nix
+    ../../modules/jellyfin/r2.nix
   ];
+
+  # media lives in R2 (read-only) with a local cache and a local layer for subtitles;
+  # see modules/jellyfin/r2.nix. shrink the cache if the boot volume is large
+  custom.jellyfin.r2 = {
+    enable = true;
+    bucket = "media";
+    cacheMaxSize = "100G";
+  };
+
+  # temporary public sign-up page at https://jellyfin.engliz.dev/signup.
+  # flip to true and push to open it, back to false once everyone has joined
+  custom.jellyfin.signup.enable = false;
 
   # Oracle Ampere A1 (4 OCPU / 24 GB)
   nixpkgs.hostPlatform = lib.mkDefault "aarch64-linux";
