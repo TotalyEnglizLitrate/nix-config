@@ -14,7 +14,7 @@
   # see modules/jellyfin/r2.nix. shrink the cache if the boot volume is large
   custom.jellyfin.r2 = {
     enable = true;
-    bucket = "media";
+    bucket = "jellyfin";
     cacheMaxSize = "100G";
   };
 
